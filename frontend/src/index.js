@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import store from './store';
 import Home from './pages/Home';
+import Profile from "./pages/Profile";
 
 
 ReactDOM.render(
@@ -15,6 +16,7 @@ ReactDOM.render(
       <Router>
         <Switch>
           <Route exact={ true } path="/" component={ Home } />
+            <Route exact path="/profile" component={Profile} />
       </Switch> 
     </Router>
     </ThemeProvider>
