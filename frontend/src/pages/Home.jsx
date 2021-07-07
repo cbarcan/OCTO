@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const Main = styled.div`
     width: 2000px;
@@ -48,7 +49,7 @@ const Home = () => {
                 <button>press me</button>
             </ButtonContainer>
             <ButtonContainer>
-                <button>press me</button>
+            <Link to='/Login' >Sing UP</Link>
             </ButtonContainer>
 
         </MiddleContainer>
