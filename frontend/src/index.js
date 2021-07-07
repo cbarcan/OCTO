@@ -7,16 +7,23 @@ import { ThemeProvider } from 'styled-components';
 import store from './store';
 import Home from './pages/Home';
 import Tournament from './pages/Tournament';
+import { PageContainer, PageContent } from './styles/page-layout';
+
 
 ReactDOM.render(
   <Provider store={ store }>
     <ThemeProvider theme={defaultTheme}>
       <GlobalStyle />
       <Router>
-        <Switch>
-          <Route exact={ true } path="/" component={ Home } />
-          <Route exact path="/tournament/:id" component={Tournament} />
-      </Switch> 
+      <PageContainer>
+            <PageContent>
+            <Switch>
+              <Route exact={ true } path="/" component={ Home } />
+              <Route exact path="/tournament/:id" component={Tournament} />
+            </Switch> 
+            </PageContent>
+        </PageContainer>
+
     </Router>
     </ThemeProvider>
   </Provider>,
