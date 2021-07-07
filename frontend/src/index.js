@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import store from './store';
 import Home from './pages/Home';
-
+import Tournament from './pages/Tournament';
 
 ReactDOM.render(
   <Provider store={ store }>
@@ -15,6 +15,7 @@ ReactDOM.render(
       <Router>
         <Switch>
           <Route exact={ true } path="/" component={ Home } />
+          <Route exact path="/tournament/:id" component={Tournament} />
       </Switch> 
     </Router>
     </ThemeProvider>
