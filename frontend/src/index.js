@@ -6,35 +6,28 @@ import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import store from './store';
 import Home from './pages/Home';
-<<<<<<< HEAD
 import Login from './pages/Login/index.jsx';
-=======
+import UserForm from './pages/Login/SingUp/index.js'
 import Tournament from './pages/Tournament';
 import { PageContainer, PageContent } from './styles/page-layout';
 
->>>>>>> c6b2515edcf4568bfef053fe584ad680fc003e61
 
 ReactDOM.render(
   <Provider store={ store }>
     <ThemeProvider theme={defaultTheme}>
       <GlobalStyle />
       <Router>
-<<<<<<< HEAD
-        <Switch>
-          <Route exact={ true } path="/" component={ Home } />
-          <Route exact={ true } path="/Login" component={ Login } />
-      </Switch> 
-=======
       <PageContainer>
             <PageContent>
             <Switch>
               <Route exact={ true } path="/" component={ Home } />
               <Route exact path="/tournament/:id" component={Tournament} />
+              <Route exact={ true } path="/Login" component={ Login } />
+              <Route exact={ true } path="/form" component={ UserForm } />
             </Switch> 
             </PageContent>
         </PageContainer>
 
->>>>>>> c6b2515edcf4568bfef053fe584ad680fc003e61
     </Router>
     </ThemeProvider>
   </Provider>,
