@@ -6,6 +6,8 @@ import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import store from './store';
 import Home from './pages/Home';
+import Tournament from './pages/Tournament';
+import { PageContainer, PageContent } from './styles/page-layout';
 import Profile from "./pages/Profile";
 
 
@@ -14,10 +16,15 @@ ReactDOM.render(
     <ThemeProvider theme={defaultTheme}>
       <GlobalStyle />
       <Router>
-        <Switch>
-          <Route exact={ true } path="/" component={ Home } />
-            <Route exact path="/profile" component={Profile} />
-      </Switch> 
+      <PageContainer>
+            <PageContent>
+            <Switch>
+              <Route exact={ true } path="/" component={ Home } />
+              <Route exact path="/tournament/:id" component={Tournament} />
+                <Route exact path="/profile" component={Profile} />
+            </Switch>
+            </PageContent>
+        </PageContainer>
     </Router>
     </ThemeProvider>
   </Provider>,
