@@ -27,7 +27,7 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - ./nginx/master.conf:/etc/nginx/conf.d/master.conf
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
       - static-files:/static-files
       - media-files:/media-files
       - /etc/letsencrypt:/etc/letsencrypt
