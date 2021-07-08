@@ -11,8 +11,8 @@ export const GlobalStyle = createGlobalStyle`
     }   
 
     html,
-    body,
-    #root {
+    body
+    {
         height: 100vh;
         width: 100%;
     }
@@ -21,6 +21,8 @@ export const GlobalStyle = createGlobalStyle`
         display: flex;
         background: #1A1C2C;
         color: white;
+        min-width: 100%;
+        width: fit-content;
     }
 
 `
@@ -49,7 +51,7 @@ export const defaultTheme = {
     // Box Shadows:
     boxShadowDark: `-5px 6px 15px 1px rgba(0,0,0,0.50)`,
     boxShadowLight: `-5px 6px 15px 1px rgba(0,0,0,0.25)`,
-    boxShadowLighter: `-5px 6px 15px 1px rgba(0,0,0,0.15)`,
+    boxShadowLighter: `5px 6px 10px 1px rgba(255,255,255,0.15)`,
     boxShadowNav: `2px 0 24px 0 rgba(0,0,0,0.04)`,
     boxShadowTiles: `0 2px 24px 0 rgba(0,0,0,0.04)`,
     boxShadowInTiles: `0 1px 3px 0 rgba(0,0,0,0.2)`,

@@ -6,7 +6,6 @@ import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import store from './store';
 import Home from './pages/Home';
-import BracketPage from "./pages/BracketPage";
 import Tournament from './pages/Tournament';
 import { PageContainer, PageContent } from './styles/page-layout';
 
@@ -18,10 +17,10 @@ ReactDOM.render(
       <Router>
       <PageContainer>
             <PageContent>
-            <Switch>
-              <Route path="/" component={ Home } exact/>
-              <Route path="/tournament/:id" component={ Tournament } />
-            </Switch>
+                <Switch>
+                  <Route path="/" component={ Home } exact/>
+                  <Route path="/tournament/:id" component={ Tournament } />
+                </Switch>
             </PageContent>
         </PageContainer>
 

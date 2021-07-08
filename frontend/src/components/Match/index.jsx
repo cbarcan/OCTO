@@ -2,11 +2,20 @@ import styled from "styled-components";
 import avatar from "../../assets/svgs/avatar.svg"
 
 const Wrapper = styled.div`
-  height: 100px;
+  height: 70px;
   width: 200px;
   display: flex;
   flex-direction: column;
-
+  margin: 20px 0;
+  box-shadow: ${props => props.theme.boxShadowLighter};
+  transform: perspective(100px) translateZ(0px);
+  transition: transform 100ms linear;
+  
+  :hover {
+    cursor: pointer;
+    transform: perspective(100px) translateZ(10px);
+  }
+  
   .name {    
     height: 100%;
     width: 80%;
@@ -88,13 +97,13 @@ const Player2 = styled.div`
   }
 `
 
-const Bracket = () => {
+const Match = (props) => {
     return (
         <Wrapper>
             <Player1>
                 <div className={"name"}>
                     <img src={avatar} alt={"user"}/>
-                    <p>Gian</p>
+                    <p>{props.match.players[0].first_name} {props.match.players[0].last_name}</p>
                 </div>
                 <div className={"points loser"}>
                     <p>2</p>
@@ -103,7 +112,7 @@ const Bracket = () => {
             <Player2>
                 <div className={"name"}>
                     <img src={avatar} alt={"user"}/>
-                    <p>Jon</p>
+                    <p>{props.match.players[1].first_name} {props.match.players[1].last_name}</p>
                 </div>
                 <div className={"points winner"}>
                     <p>3</p>
@@ -113,4 +122,4 @@ const Bracket = () => {
     )
 }
 
-export default Bracket
+export default Match
