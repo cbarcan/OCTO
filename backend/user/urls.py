@@ -10,5 +10,5 @@ urlpatterns = [
     path('me/', RetrieveUpdateDestroyMyUserView.as_view()),
 
     # any user
-    path('<int:pk>', RetrieveUserView.as_view()),
+    path('<int:pk>/', RetrieveUserView.as_view()),
 ]
