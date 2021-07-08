@@ -238,8 +238,6 @@ const BracketGeneratorSE = () => {
         }
 
 
-    console.log(bracket.rounds.length)
-
     return (
         <Wrapper rounds={bracket.rounds.length}>
             {bracket.rounds.map((item, index) => <Round key={`${item}-${index}`} matches={item.matches}/>)}
