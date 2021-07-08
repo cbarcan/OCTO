@@ -2,11 +2,11 @@ version: '3'
 
 services:
   backend:
-    image: registry.gitlab.propulsion-home.ch/full-stack/batch-16-may-2021/final-projects/octo:latest
+    image: octo_dev
     ports:
       - 8000:8000
     env_file:
-      - .env/dev.env
+      - env/dev.env
     volumes:
       - ./backend:/backend
     command: "sh /scripts/dev.sh"
@@ -19,7 +19,7 @@ services:
     ports:
       - 5432:5432
     env_file:
-      - .env/dev.env
+      - env/dev.env
     volumes:
     - postgres_volume:/var/lib/postgresql/data
 

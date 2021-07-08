@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'flake8',
     'corsheaders',
     # my apps
-
+    'user',
+    'registration',
 ]
 
 
