@@ -1,40 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import octo from "../../../assets/images/octopus_poly.png";
-import { PageContentPicture, LeftContainer, RightTopBar, LinkAn, RightMiddleBar, TitleStyled, StyledForm, InputWrapper, LoginInput, RightBottomBar, BaseButton, RigthContainer} from '../index';
+import { LeftContainer, LeftTopBar, LinkAn, LefttMiddleBar, TitleStyled, StyledForm, InputWrapper, LoginInput, LeftBottomBar, BaseButton} from '../LeftContainer';
 
-export const Input2 = styled.input`
-    width: 300px;
-    height: 20px;
-    font-size: ${props => props.theme.textSizeS}; ;
-    border: none;
-    outline: none;
-    border-bottom: 1.5px rgba(212, 208, 208, 0.619) solid;
-    margin-bottom: 20px;
-    border-radius: 6px;
-    color: white;
 
-    :hover {
-        outline: none;
-        cursor: text;
-    }
-`
+
 
 export const OvalContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 8%;
+    padding-top: 4%;
+    
 `
 
-export const OvalBlack = styled.div`
-    background: white;
+export const OvalBlue = styled.div`
+    background: #19c5db;
     height: 10px;
     width: 10px;
     border-radius: 30px;
-    margin-right: 7px;
-    margin-left: 7px;
+    margin-right: 1%;
+    margin-left: 1.5%;
 `
 
 export const OvalWhite= styled.div`
@@ -42,27 +28,31 @@ export const OvalWhite= styled.div`
     height: 6px;
     width: 6px;
     border-radius: 30px;
-    margin-right: 7px;
-    margin-left: 7px;
+    margin-right: 1%;
+    margin-left: 1.5%;
 `
 const Form2 = styled.form`
-    height: 55%;
+    height: 47.4%;
+    
 `
-const RightTopBar2 = styled(RightTopBar)`
+ const LeftTopBar2 = styled(LeftTopBar)`
     margin-bottom: 15%;
 `
 
-const RightMiddleBar2 = styled(RightMiddleBar)`
-    margin-bottom: 26%;
-`
+const LeftBottomBar2 = styled(LeftBottomBar)`
+    margin-top: 23.5%;
+    padding: 0;
+
+` 
+
+
 
 class EmailSignUp extends React.Component {
 
 
     Continuing = (e) => {
         e.preventDefault();
-        this.handleSubmit(e)
-           
+        this.props.Continue();
     } 
 
 
@@ -93,7 +83,6 @@ class EmailSignUp extends React.Component {
         }
         
 
-
     }
 
 
@@ -102,41 +91,35 @@ class EmailSignUp extends React.Component {
         const { values, handleChange } = this.props;
         return (
 
-            <PageContentPicture>
-                <LeftContainer>
+            <LeftContainer>
                 {console.log(values)}
-                <RightTopBar2>
+                <LeftTopBar2>
                     <LinkAn> <Link to='/Login' >Already have an account?</Link></LinkAn>
-                </RightTopBar2>
+                </LeftTopBar2>
                 
                 <Form2 onSubmit={this.handleSubmit}> 
-                    <RightMiddleBar2>
+                    <LefttMiddleBar>
                         <TitleStyled>Sign Up</TitleStyled>
                     <StyledForm>
                         <InputWrapper>
                             
-                            Heeeeey
+                            <LoginInput onChange={handleChange('email')} defaultValue={values.email} type='email' placeholder='Email'/>
                         </InputWrapper>  
                     </StyledForm>
             
-                    </RightMiddleBar2>
-                    <RightBottomBar>
-                        heeeeeeey2
-                    </RightBottomBar>
+                    </LefttMiddleBar>
+                    <LeftBottomBar2>
+                        <BaseButton  onClick={this.Continuing} type='submit'>CONTINUE</BaseButton>
+                    </LeftBottomBar2>
                 </Form2>
 
                 <OvalContainer>
-                    <OvalBlack />
+                    <OvalBlue />
                     <OvalWhite />
                     <OvalWhite />
                 </OvalContainer>
-                </LeftContainer>
-                <RigthContainer>
-                    <img src={octo} alt='logo'/>
-                </RigthContainer>
 
-            </PageContentPicture>
-
+            </LeftContainer>
 
         )
     }

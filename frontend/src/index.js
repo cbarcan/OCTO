@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import store from './store';
 import Home from './pages/Home';
-import Login from './pages/Login/index.jsx';
+import Login from './pages/Login/LeftContainer';
 import UserForm from './pages/Login/SingUp/index.js'
 import Tournament from './pages/Tournament';
 import { PageContainer, PageContent } from './styles/page-layout';

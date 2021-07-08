@@ -1,11 +1,10 @@
 import React from 'react';
-
-//import { LoginContainer } from '../index.jsx';
 import EmailSignUp  from './EmailForm';
 import VerificationForm  from './Verification';
 import CongratsMessage  from './CongratsDiv';
-import { PageContentPicture} from '../index.jsx';
-import Login from '../index.jsx'
+import { PageContentPicture} from '../LeftContainer';
+import Login from '../LeftContainer';
+import OctoWall from '../RigthContainer';
 
 
 
@@ -18,8 +17,6 @@ class UserFormContainer extends React.Component  {
         code: '',
         email: '',
         username: '',
-        firstName: '',
-        lastName: '',
         password: '',
         passwordRepeat: ''
     }
@@ -39,8 +36,8 @@ class UserFormContainer extends React.Component  {
 
     render() {
         const { step } = this.state;
-        const { code, email, username, firstName, lastName, password, passwordRepeat} = this.state;
-        const values = { code, email, username, firstName, lastName, password, passwordRepeat};
+        const { code, email, username, password, passwordRepeat} = this.state;
+        const values = { code, email, username, password, passwordRepeat};
 
         switch(step) {
             
@@ -52,7 +49,7 @@ class UserFormContainer extends React.Component  {
                     handleChange={ this.handleChange }
                     values={ values }
                     />
-                    
+                    <OctoWall/>
                     </PageContentPicture>
                 )
             case 2:
@@ -63,7 +60,7 @@ class UserFormContainer extends React.Component  {
                     handleChange={ this.handleChange }
                     values={ values }
                     />
-                    
+                    <OctoWall/>
                     </PageContentPicture>
                 )
             case 3:
@@ -74,7 +71,7 @@ class UserFormContainer extends React.Component  {
                     handleChange={ this.handleChange }
                     values={ values }
                     />
-                    
+                    <OctoWall/>
                     </PageContentPicture>
                 )
             case 4:
