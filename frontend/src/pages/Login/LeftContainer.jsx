@@ -1,10 +1,13 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 // import octo from "../../assets/images/octopus_poly.png";
 // import BackgroundImg from '../../assets/images/background8.jpg';
 // import BackgroundImg2 from '../../assets/images/background6.jpg';
 import OctoWall from './RigthContainer';
+// import octoLogo from "../../assets/svgs/octo-text-outline_2p.svg";
+import { apiUserLogin } from '../../store/user';
 
 
 export const PageContentPicture = styled.div`
@@ -65,17 +68,22 @@ export const LeftTopBar = styled.div `
     display: flex;
     padding-left: 5%;
     align-items: right;
+
 `
 
 export const LinkAn = styled.p`
-    display: flex;
+    padding-top: 5%;
+    text-align: center;
     margin: 20px;
+    text-decoration: none;
+    color: white;
+    font-size: 11px;
 
     a {
+        padding-left: 5%;
         text-decoration: none;
-        color: white;
-        font-size: 13px;
-
+        color: #35dbf1;
+        font-size: 11px;
 
     }
     
@@ -185,10 +193,60 @@ export const BaseButton = styled.button `
     
 `
 
+export const FormContainer = styled.form`
+    height: 100%;
+    
+`
 
 
 
 export const Login = () => {
+    
+    const { push } = useHistory();
+    const dispatch = useDispatch();
+    const { token } = useSelector((state) => state.user);
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    /* const next = props.location.search.substr(
+        props.location.search.indexOf('=') + 1
+    );
+    console.log('next', next); */
+
+    const onSubmitForm = (e) => {
+        e.preventDefault();
+        e.target.reset();
+        dispatch(apiUserLogin(email, password));
+    };
+
+    const onEmailChange = (e) => {
+        setEmail(e.target.value);
+    };
+
+    const onPwdChange = (e) => {
+        console.log(e)
+        setPassword(e.target.value);
+    };
+
+
+    /* useEffect(() => {
+        if (token) {
+          if (next) {
+            push(`/${next}`);
+          } else {
+            push('/profile');
+          }
+        }
+    }, [token, push, dispatch]); */
+    
+
+    useEffect(() => {
+        if (token) {
+            push('/');
+            
+        }
+    }, [token, push, dispatch]);
 
 
 
@@ -196,24 +254,27 @@ export const Login = () => {
         <PageContentPicture>
         <LeftContainer>
             <LeftTopBar>
-                <LinkAn><Link to='/form' > Don`t have an account?</Link></LinkAn>
             </LeftTopBar>
-            <LefttMiddleBar>
-                <TitleStyled>Sign In</TitleStyled>
-            <StyledForm>
-                <InputWrapper>
-                    
-                    <LoginInput type='email' placeholder='Email'/>
-                </InputWrapper>
-                <InputWrapper>
-                    
-                    <LoginInput type='password' placeholder='Password'/>
-                </InputWrapper>     
-            </StyledForm>
-            </LefttMiddleBar>
-            <LeftBottomBar>
-                <BaseButton  type='submit'>SIGN IN</BaseButton>
-            </LeftBottomBar>
+            <FormContainer onSubmit={onSubmitForm}>
+                <LefttMiddleBar>
+                    <TitleStyled>Sign In</TitleStyled>
+                    <StyledForm>
+                        <InputWrapper>
+                            <LoginInput type='email' name="email" placeholder='Email' onChange={onEmailChange}/>
+                        </InputWrapper>
+
+                        <InputWrapper>
+                            <LoginInput type='password' name="password" placeholder='Password' onChange={onPwdChange}/>
+                        </InputWrapper>
+
+                        <LinkAn>Don`t have an account? <Link to='/reg' >Sing Up</Link></LinkAn>    
+                    </StyledForm>
+                </LefttMiddleBar>
+            
+                <LeftBottomBar>
+                    <BaseButton  type='submit'>SIGN IN</BaseButton>
+                </LeftBottomBar>
+            </FormContainer>
         </LeftContainer>
         
         <OctoWall/>

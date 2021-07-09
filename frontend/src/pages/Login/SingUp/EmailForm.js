@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { LeftContainer, LeftTopBar, LinkAn, LefttMiddleBar, TitleStyled, StyledForm, InputWrapper, LoginInput, LeftBottomBar, BaseButton} from '../LeftContainer';
+import { Link, useHistory  } from 'react-router-dom';
+import { connect } from 'react-redux';
+import Axios from '../../../axios';
+import { decodeMessage } from '../../../lib/helpers';
+import { PageContentPicture} from '../LeftContainer';
+import OctoWall from '../RigthContainer';
+import { FormContainer, LeftContainer, LeftTopBar, LinkAn, LefttMiddleBar, TitleStyled, StyledForm, InputWrapper, LoginInput, LeftBottomBar, BaseButton} from '../LeftContainer';
 
 
 
@@ -31,7 +36,7 @@ export const OvalWhite= styled.div`
     margin-right: 1%;
     margin-left: 1.5%;
 `
-const Form2 = styled.form`
+const FormContainer2 = styled(FormContainer)`
     height: 47.4%;
     
 `
@@ -40,78 +45,71 @@ const Form2 = styled.form`
 `
 
 const LeftBottomBar2 = styled(LeftBottomBar)`
-    margin-top: 23.5%;
+    margin-top: 22.5%;
     padding: 0;
 
 ` 
 
 
+const EmailSignUp = (props) => {
 
-class EmailSignUp extends React.Component {
+    const [email, setEmail] = useState('');
+    const { push } = useHistory();
 
 
-    Continuing = (e) => {
+   /*  const Continuing = (event) => {
         e.preventDefault();
-        this.props.Continue();
-    } 
+        registerButtonHandler(event)
+    } */
 
 
-    handleSubmit = async (e) => {
-        e.preventDefault();
+    const registerButtonHandler = (event) => {
+        event.preventDefault();
+        registerUser({ email: email });
+    };
 
+    // register
+    const registerUser = (data) => {
+    const url = `reg/`;
 
-        const url = "";
-        const config = {
-            method: "POST",
-            headers: new Headers({
-            "Content-Type": "application/json"
-            }),
-            body: JSON.stringify({
-            email: this.props.values.email
-            })
-        }
-        
-        /* const resData = await res.json(); */
+    Axios.post(url, data)
+        .then((response) => {
+            console.log('User creation successful');
+            push('/regmessage');
+        })
+        .catch((error) => {
+            console.log('Creation error', error.response.data);
+            decodeMessage(error.response.data);
+        });
+    };
 
-        const res = await fetch(url, config);
-        if (res.status === 200) {
-            console.log(res.status)
-            this.props.Continue();
-        } else if (res.status === 400) {
-                alert("Error 400.\nMissing Email address or the Email is already taken.")
-        
-        }
-        
-
-    }
-
-
-
-    render() {
-        const { values, handleChange } = this.props;
-        return (
+    
+    return (
+        <PageContentPicture>
 
             <LeftContainer>
-                {console.log(values)}
+                
                 <LeftTopBar2>
-                    <LinkAn> <Link to='/Login' >Already have an account?</Link></LinkAn>
+                    
                 </LeftTopBar2>
                 
-                <Form2 onSubmit={this.handleSubmit}> 
+                <FormContainer2 onSubmit={registerButtonHandler}> 
                     <LefttMiddleBar>
                         <TitleStyled>Sign Up</TitleStyled>
                     <StyledForm>
                         <InputWrapper>
                             
-                            <LoginInput onChange={handleChange('email')} defaultValue={values.email} type='email' placeholder='Email'/>
-                        </InputWrapper>  
+                            <LoginInput onChange={(event) => setEmail(event.target.value)} type='email' placeholder='Email'/>
+                        </InputWrapper>
+                        <LinkAn>Already have an account? <Link to='/Login' >Sing In</Link></LinkAn>  
                     </StyledForm>
             
                     </LefttMiddleBar>
                     <LeftBottomBar2>
-                        <BaseButton  onClick={this.Continuing} type='submit'>CONTINUE</BaseButton>
+                        <BaseButton type='submit'>CONTINUE</BaseButton>
                     </LeftBottomBar2>
-                </Form2>
+                    
+                </FormContainer2>
 
                 <OvalContainer>
                     <OvalBlue />
@@ -121,8 +119,12 @@ class EmailSignUp extends React.Component {
 
             </LeftContainer>
 
-        )
-    }
+            <OctoWall/>
+
+        </PageContentPicture>
+
+    )
+    
 }
 
-export default EmailSignUp
+export default connect()(EmailSignUp)

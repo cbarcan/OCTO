@@ -1,7 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { OvalContainer, OvalBlue, OvalWhite  } from './EmailForm';
 import checkIcon from '../../../assets/svgs/checked.svg';
+import { PageContentPicture} from '../LeftContainer';
+import OctoWall from '../RigthContainer';
 import { LeftContainer, LeftTopBar, LefttMiddleBar, TitleStyled, StyledForm, InputWrapper, LeftBottomBar, BaseButton} from '../LeftContainer';
 
 
@@ -52,16 +55,11 @@ const ParagraphText = styled.p`
 `
 
 
-class CongratsMessage extends React.Component {
-
-    Continuing = (e) => {
-        e.preventDefault();
-        this.props.Continue();   
-    } 
+const CongratsMessage = () => {
     
-    render() { 
         
-        return ( 
+    return (
+        <PageContentPicture>
 
             <LeftContainer>
                 
@@ -82,7 +80,7 @@ class CongratsMessage extends React.Component {
                 </LefttMiddleBar>
 
                 <LeftBottomBar>
-                        <BaseButton  onClick={this.Continuing} type='submit'>CONTINUE</BaseButton>
+                    <Link to="/verification"><BaseButton>CONTINUE</BaseButton></Link>
                 </LeftBottomBar>
                 
 
@@ -94,10 +92,10 @@ class CongratsMessage extends React.Component {
 
             </LeftContainer>
 
-            
+            <OctoWall/>
+        </PageContentPicture>
 
-        )
-    }
+    )
 }
  
 export default CongratsMessage;

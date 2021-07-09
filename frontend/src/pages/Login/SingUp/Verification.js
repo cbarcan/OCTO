@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import {  OvalBlue, OvalWhite,  Input2 } from './EmailForm';
+import { connect } from 'react-redux';
+import {  OvalBlue, OvalWhite } from './EmailForm';
+import { useHistory } from 'react-router-dom';
+import Axios from '../../../axios';
+import { decodeMessage } from '../../../lib/helpers';
 //import emailIcon from '../../../assets/images/Shape.png';
+import { PageContentPicture} from '../LeftContainer';
+import OctoWall from '../RigthContainer';
 import { TitleStyled2, OvalContainer2 } from './CongratsDiv';
 import { LeftContainer, LeftTopBar, LefttMiddleBar, StyledForm, InputWrapper, LoginInput, LeftBottomBar, BaseButton} from '../LeftContainer';
 
@@ -53,91 +59,79 @@ export const LabelText = styled.label`
 
 
 
-class VerificationForm extends React.Component {
+const VerificationForm = () => {
 
-    Continuing = (e) => {
-        e.preventDefault();
-        this.props.Continue();   
-    } 
+    const [code, setValidationCode] = useState('');
+    const [email, setEmail] = useState('');
+    const [username, setUserName] = useState('');
+    const [password, setPassword] = useState('');
+    const [password_repeat, setPasswordRepeat] = useState('');
+    const { push } = useHistory();
 
+    const completeButtonHandler = (event) => {
+        event.preventDefault();
+        validateUser({
+            code: code,
+            email: email,
+            username: username,
+            password: password,
+            password_repeat: password_repeat,
+        });
+    };
 
-    handleSubmit = async (e) => {
-        e.preventDefault();
+    // verify
+    const validateUser = (data) => {
+        const url = `registration/validation/`;
 
-
-        const url = "";
-        const config = {
-            method: "PATCH",
-            headers: new Headers({
-            "Content-Type": "application/json"
-            }),
-            body: JSON.stringify({
-                code: this.props.values.code,
-                email: this.props.values.email,
-                username: this.props.values.username,
-                password: this.props.values.password,
-                password_repeat: this.props.values.passwordRepeat,
-
-            })
-        }
-        console.log(config)   
-        const res = await fetch(url, config);
-        console.log(res)
-        if (res.status === 200) {
-            console.log(res.status)
-            this.props.Continue();
-
-        } else if (res.status === 400) {
-            
-            const resData = await res.json();
-        
-            for (const [key, value] of Object.entries(resData)) {
-                alert(`Error 400.\n${key}: ${value}`)
-            }
-        
-        }
+        Axios.post(url, data)
+        .then((response) => {
+            console.log('User validation successful');
+            push('/login');
+        })
+        .catch((error) => {
+            console.log('Validation error', error.response.data);
+            decodeMessage(error.response.data);
+        });
+    };
 
 
-        }
-
-    render() {
-        const { values, handleChange } = this.props;
-        return (
     
+    return (
+
+        <PageContentPicture>
             <LeftContainer>
-                {console.log(values)}
                 <LeftTopBar3 />
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={completeButtonHandler}>
                     <LefttMiddleBar>
                         <TitleStyled2>Verification</TitleStyled2>
                     <StyledForm2>
                         <InputWrapper>
                             <LabelText> Validation code</LabelText>
-                            <LongInput  onChange={handleChange('code')} defaultValue={values.code} type="text" />
+                            <LongInput value={code} onChange={(event) => setValidationCode(event.target.value)} type="text" />
                         </InputWrapper>
                         <InputsDiv> 
                             <InputWrapper2>
                                 <LabelText> Email</LabelText>
-                                <ShortInput  onChange={handleChange('email')} defaultValue={values.email} type="text" />
+                                <ShortInput  value={email} onChange={(event) => setEmail(event.target.value)} type="email" />
                             </InputWrapper2>
                             <InputWrapper2>
                                 <LabelText> Username</LabelText>
-                                <ShortInput  onChange={handleChange('username')} defaultValue={values.username} type="text" />
+                                <ShortInput  value={username} onChange={(event) => setUserName(event.target.value)}type="text" />
                             </InputWrapper2>
                             <InputWrapper2>
                                 <LabelText> Password</LabelText>
-                                <ShortInput  onChange={handleChange('password')} defaultValue={values.password} type="password" />
+                                <ShortInput  value={password} onChange={(event) => setPassword(event.target.value)} type="password" />
                             </InputWrapper2>
                             <InputWrapper2>
                                 <LabelText> Password Confirmation</LabelText>
-                                <ShortInput  onChange={handleChange('passwordRepeat')} defaultValue={values.passwordRepeat} type="password" />
+                                <ShortInput  value={password_repeat || ''} onChange={(event) => setPasswordRepeat(event.target.value)} type="password" />
                             </InputWrapper2>
                         </InputsDiv>
                     </StyledForm2>
                     </LefttMiddleBar>
 
                     <LeftBottomBar>
-                        <BaseButton onClick={this.Continuing} type="submit">COMPLETE</BaseButton>
+                        <BaseButton type="submit">COMPLETE</BaseButton>
                     </LeftBottomBar>
                 </form>
 
@@ -148,10 +142,12 @@ class VerificationForm extends React.Component {
                 </OvalContainer2>
 
             </LeftContainer>
+            <OctoWall/>
+        </PageContentPicture>
 
 
-        )
-    }
+    )
+    
 }
 
-export default VerificationForm
+export default connect()(VerificationForm)

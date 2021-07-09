@@ -7,7 +7,9 @@ import { ThemeProvider } from 'styled-components';
 import store from './store';
 import Home from './pages/Home';
 import Login from './pages/Login/LeftContainer';
-import UserForm from './pages/Login/SingUp/index.js'
+import EmailSignUp from './pages/Login/SingUp/EmailForm';
+import CongratsMessage from './pages/Login/SingUp/CongratsDiv';
+import VerificationForm from './pages/Login/SingUp/Verification'
 import Tournament from './pages/Tournament';
 import { PageContainer, PageContent } from './styles/page-layout';
 
@@ -23,7 +25,9 @@ ReactDOM.render(
               <Route exact={ true } path="/" component={ Home } />
               <Route exact path="/tournament/:id" component={Tournament} />
               <Route exact={ true } path="/Login" component={ Login } />
-              <Route exact={ true } path="/form" component={ UserForm } />
+              <Route exact path="/reg" component={ EmailSignUp } />
+              <Route exact path="/regmessage" component={ CongratsMessage } />
+              <Route exact path="/verification" component={ VerificationForm} />
             </Switch> 
             </PageContent>
         </PageContainer>

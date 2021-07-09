@@ -2,8 +2,8 @@ import React from 'react';
 import EmailSignUp  from './EmailForm';
 import VerificationForm  from './Verification';
 import CongratsMessage  from './CongratsDiv';
-import { PageContentPicture} from '../LeftContainer';
 import Login from '../LeftContainer';
+import { PageContentPicture} from '../LeftContainer';
 import OctoWall from '../RigthContainer';
 
 
