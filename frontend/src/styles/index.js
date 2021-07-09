@@ -36,7 +36,8 @@ export const defaultTheme = {
     accentColorLight: '#F06173',
     octoGradientBlueColor: 'linear-gradient(90deg, rgba(0,142,210,1) 1%, rgba(33,246,255,0.9192051820728291) 100%);',
     octoGreen: '#12dea9',
-    octoGradientColor: 'linear-gradient(90deg, rgba(3,2,14,1) 1%, rgba(25,20,186,0.8239670868347339) 41%, rgba(18,222,169,1) 82%);',
+    octoLightBlue: '#14d1d1',
+    octoGradientColor: 'linear-gradient(90deg, rgba(0,142,210,1) 1%, rgba(33,246,255,0.9192051820728291) 100%);',
 
     // Background-colors:
     

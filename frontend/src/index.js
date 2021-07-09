@@ -12,6 +12,7 @@ import CongratsMessage from './pages/Login/SingUp/CongratsDiv';
 import VerificationForm from './pages/Login/SingUp/Verification'
 import Tournament from './pages/Tournament';
 import { PageContainer, PageContent } from './styles/page-layout';
+import Profile from "./pages/Profile/index";
 
 
 ReactDOM.render(
@@ -28,10 +29,10 @@ ReactDOM.render(
               <Route exact path="/reg" component={ EmailSignUp } />
               <Route exact path="/regmessage" component={ CongratsMessage } />
               <Route exact path="/verification" component={ VerificationForm} />
-            </Switch> 
+              <Route exact path="/profile" component={Profile} />
+            </Switch>
             </PageContent>
         </PageContainer>
-
     </Router>
     </ThemeProvider>
   </Provider>,
