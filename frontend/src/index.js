@@ -8,7 +8,7 @@ import store from './store';
 import Home from './pages/Home';
 import Tournament from './pages/Tournament';
 import { PageContainer, PageContent } from './styles/page-layout';
-import Profile from "./pages/Profile";
+import Profile from "./pages/Profile/index";
 
 
 ReactDOM.render(
