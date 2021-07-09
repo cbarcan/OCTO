@@ -50,6 +50,7 @@ export const defaultTheme = {
 
     // Box Shadows:
     boxShadowDark: `-5px 6px 15px 1px rgba(0,0,0,0.50)`,
+    boxShadowDarkRight: `5px 6px 10px 1px rgba(0,0,0,0.50)`,
     boxShadowLight: `-5px 6px 15px 1px rgba(0,0,0,0.25)`,
     boxShadowLighter: `5px 6px 10px 1px rgba(255,255,255,0.15)`,
     boxShadowNav: `2px 0 24px 0 rgba(0,0,0,0.04)`,

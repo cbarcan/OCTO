@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin: 20px 0;
-  box-shadow: ${props => props.theme.boxShadowLighter};
+  box-shadow: ${props => props.theme.boxShadowDarkRight};
   transform: perspective(100px) translateZ(0px);
   transition: transform 100ms linear;
 
