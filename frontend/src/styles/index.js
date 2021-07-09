@@ -30,6 +30,7 @@ export const defaultTheme = {
     accentColorDark: '#db374c',
     accentColorLight: '#F06173',
     octoGreen: '#12dea9',
+    octoBlue: '#00ECFF',
     octoGradientColor: 'linear-gradient(90deg, rgba(3,2,14,1) 1%, rgba(25,20,186,0.8239670868347339) 41%, rgba(18,222,169,1) 82%);',
 
     // Background-colors:
