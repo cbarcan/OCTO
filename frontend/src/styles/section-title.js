@@ -21,6 +21,8 @@ const SectionTitleContainer = styled.div`
 
 const SectionitleText = styled.h2`
     color: white;
+    font-size: 20px;
+
 `;
 
 //React component

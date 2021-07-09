@@ -20,6 +20,7 @@ const PageTitleContainer = styled.div`
 `;
 
 const PageTitleText = styled.h1`
+    font-size: 24px;
     color: white;
 `;
 

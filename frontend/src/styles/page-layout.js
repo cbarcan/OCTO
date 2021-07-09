@@ -15,5 +15,4 @@ export const PageContent = styled.div`
     align-items: center;
     background: ${props => props.theme.backgroundDarkNavy };
     box-shadow: ${props => props.theme.boxShadowDark};
-    border: solid red 2px;
 `;
