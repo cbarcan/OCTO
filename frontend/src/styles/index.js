@@ -33,12 +33,12 @@ export const defaultTheme = {
     accentColorDark: '#db374c',
     accentColorLight: '#F06173',
     octoGreen: '#12dea9',
-    octoGradientColor: 'linear-gradient(90deg, rgba(3,2,14,1) 1%, rgba(25,20,186,0.8239670868347339) 41%, rgba(18,222,169,1) 82%)',
-
     lightSilver: '#D8D8D8',
     grey: "#7E7E7E",
     mediumGrey: "#BBB7B7",
     mediumGrey60: 'rgb(145, 145, 145, 0.6)',
+    octoLightBlue: '#14d1d1',
+    octoGradientColor: 'linear-gradient(90deg, rgba(0,142,210,1) 1%, rgba(33,246,255,0.9192051820728291) 100%);',
 
     // Background-colors:
     
@@ -52,7 +52,7 @@ export const defaultTheme = {
     boxShadowDark: `-5px 6px 15px 1px rgba(0,0,0,0.50)`,
     boxShadowDarkRight: `5px 6px 10px 1px rgba(0,0,0,0.50)`,
     boxShadowLight: `-5px 6px 15px 1px rgba(0,0,0,0.25)`,
-    boxShadowLighter: `5px 6px 10px 1px rgba(255,255,255,0.15)`,
+    boxShadowLighter: `-5px 6px 15px 1px rgba(0,0,0,0.15)`,
     boxShadowNav: `2px 0 24px 0 rgba(0,0,0,0.04)`,
     boxShadowTiles: `0 2px 24px 0 rgba(0,0,0,0.04)`,
     boxShadowInTiles: `0 1px 3px 0 rgba(0,0,0,0.2)`,
@@ -73,6 +73,7 @@ export const defaultTheme = {
     // Text Size
     textSizeXXL: '32px',
     textSizeXL: '24px',
+    textSizeMotionTitle: '22px',
     textSizeL: '20px',
     textSizeM: '15px',
     textSizeDefault: "16px",

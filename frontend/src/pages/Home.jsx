@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Main = styled.div`
-    width: 2000px;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -8,7 +8,7 @@ export const PageContainer = styled.div`
     display: grid;
     grid-template-rows: 1fr auto;
     padding: 5vw;
-    background: ${props => props.theme.backgroundDarkNavy };
+  background: ${props => props.theme.backgroundDarkNavy };
 `;
 
 export const PageContent = styled.div`
