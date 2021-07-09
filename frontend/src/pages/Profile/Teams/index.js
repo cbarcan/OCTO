@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
 import TeamCard from "./TeamCard";
-//import PageTitle from "../../../styles/page-title";
 
 const TeamDiv = styled.div `
     height: 300px;
@@ -10,7 +9,7 @@ const TeamDiv = styled.div `
     flex-direction: column;
     justify-content: center;
     align-items: center; 
-    border: solid yellow;   
+    border: red solid;   
     }
 `
 
@@ -21,16 +20,33 @@ const Teams = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin: 2% 0;
-    border: solid red; 
+    box-shadow: 1px 1px 20px -5px #292d3dd3;
+    border: yellow solid; 
 `
 
+const TeamHeader = styled.div `
+    background-color: ${props => props.theme.backgroundLigthNavy }; 
+    display: flex;
+    height: 20%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap; 
+`
+
+const TeamHeaderName = styled.p`
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: white; 
+`;
 const TeamContainer = () => {
     return <>
          <TeamDiv>
             <Teams>
+                <TeamHeader>
+                    <TeamHeaderName>Teams</TeamHeaderName>
+                </TeamHeader>
                 <TeamCard>
-                    <h1>Here is the teams</h1>
+
                 </TeamCard>
             </Teams>
         </TeamDiv>

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import teamAvatar from "../../../../assets/images/teamAvatar.png";
 
 
+
 const Container = styled.div`
     height: 50%;
     width: 50%;
