@@ -8,6 +8,7 @@ import store from './store';
 import Home from './pages/Home';
 import Tournament from './pages/Tournament';
 import { PageContainer, PageContent } from './styles/page-layout';
+import Profile from "./pages/Profile/index";
 
 
 ReactDOM.render(
@@ -20,10 +21,10 @@ ReactDOM.render(
             <Switch>
               <Route exact={ true } path="/" component={ Home } />
               <Route exact path="/tournament/:id" component={Tournament} />
-            </Switch> 
+                <Route exact path="/profile" component={Profile} />
+            </Switch>
             </PageContent>
         </PageContainer>
-
     </Router>
     </ThemeProvider>
   </Provider>,
