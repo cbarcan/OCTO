@@ -19,7 +19,7 @@ const SectionTitleContainer = styled.div`
     margin-bottom: 40px;
 `;
 
-const SectionitleText = styled.h3`
+const SectionitleText = styled.h2`
     color: white;
 `;
 
