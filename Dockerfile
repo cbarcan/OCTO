@@ -23,7 +23,7 @@ COPY ./backend /backend
 
 # run conda to create the environment inside the image
 RUN /opt/conda/bin/conda env create -f /backend/requirements.yml
-ENV PATH /opt/conda/envs/motion/bin:$PATH
+ENV PATH /opt/conda/envs/octo/bin:$PATH
 RUN echo "source activate octo" >~/.bashrc
 
 # copy scripts to container and run them
