@@ -6,6 +6,10 @@ import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import store from './store';
 import Home from './pages/Home';
+import Login from './pages/Login/LeftContainer';
+import EmailSignUp from './pages/Login/SingUp/EmailForm';
+import CongratsMessage from './pages/Login/SingUp/CongratsDiv';
+import VerificationForm from './pages/Login/SingUp/Verification'
 import Tournament from './pages/Tournament';
 import { PageContainer, PageContent } from './styles/page-layout';
 import Profile from "./pages/Profile/index";
@@ -21,7 +25,11 @@ ReactDOM.render(
             <Switch>
               <Route exact={ true } path="/" component={ Home } />
               <Route exact path="/tournament/:id" component={Tournament} />
-                <Route exact path="/profile" component={Profile} />
+              <Route exact={ true } path="/Login" component={ Login } />
+              <Route exact path="/reg" component={ EmailSignUp } />
+              <Route exact path="/regmessage" component={ CongratsMessage } />
+              <Route exact path="/verification" component={ VerificationForm} />
+              <Route exact path="/profile" component={Profile} />
             </Switch>
             </PageContent>
         </PageContainer>
