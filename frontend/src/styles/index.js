@@ -43,6 +43,7 @@ export const defaultTheme = {
     mediumGrey60: 'rgb(145, 145, 145, 0.6)',
     octoLightBlue: '#14d1d1',
     octoGradientColor: 'linear-gradient(90deg, rgba(0,142,210,1) 1%, rgba(33,246,255,0.9192051820728291) 100%);',
+    octoBlue: '#00ECFF',
 
     // Background-colors:
     

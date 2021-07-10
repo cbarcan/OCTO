@@ -11,6 +11,7 @@ import EmailSignUp from './pages/Login/SingUp/EmailForm';
 import CongratsMessage from './pages/Login/SingUp/CongratsDiv';
 import VerificationForm from './pages/Login/SingUp/Verification'
 import Tournament from './pages/Tournament';
+import BracketPage from './pages/BracketPage';
 import {PageContainer, PageContent} from './styles/page-layout';
 import Profile from "./pages/Profile/index";
 
@@ -24,12 +25,13 @@ ReactDOM.render(
             <PageContent>
             <Switch>
               <Route exact path="/" component={ Home } />
-              <Route path="/tournament/:id" component={Tournament} />
+              <Route exact path="/tournament/:id" component={Tournament} />
+              <Route exact path="/tournament/:id/bracket" component={BracketPage} />
               <Route exact path="/login" component={ Login } />
               <Route exact path="/registration" component={ EmailSignUp } />
               <Route exact path="/confirmation" component={ CongratsMessage } />
               <Route exact path="/verification" component={ VerificationForm} />
-              <Route exact path="/profile" component={Profile} />
+              <Route exact path="/user/profile" component={Profile} />
             </Switch>
             </PageContent>
         </PageContainer>
