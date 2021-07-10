@@ -22,8 +22,6 @@ export const GlobalStyle = createGlobalStyle`
     #root {
         display: flex;
         color: white;
-        min-width: 100%;
-        width: fit-content;
         // background: #1A1C2C;
         background-image: url(${BackgroundImg});
         background-repeat: no-repeat;

@@ -67,7 +67,7 @@ export const LeftTopBar = styled.div `
     padding-right: 2%;
     display: flex;
     padding-left: 5%;
-    align-items: right;
+    align-items: flex-end;
 
 `
 
@@ -90,36 +90,9 @@ export const LinkAn = styled.p`
 
 `
 
-export const SignUpButton= styled.button `
-    margin: 10px;    
-    background: none;
-    border: 1.5px rgba(212, 208, 208, 0.619) solid;
-    width: 50%;
-    height: 20%;
-    border-radius: 25px;
-    color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 5px;
-    font-size: ${props => props.theme.textSizeS};
-    text-decoration: none;
-    
-    &:hover {
-        cursor: pointer;
-    }
 
-    &:active {
-        background-color: grey;
-        transform: translateY(4px);
-        text-decoration: none;
-    } 
-` 
-
-
-export const LefttMiddleBar = styled.div `
-    
-    height: 50%;
+export const LeftMiddleBar = styled.div `
+    height: 60%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -136,6 +109,7 @@ export const TitleStyled = styled.h1 `
 export const StyledForm = styled.div`
     display: flex;
     flex-direction: column;
+    width: 40%;
 
 `
 
@@ -161,10 +135,10 @@ export const LoginInput =styled.input`
 `
 
 export const LeftBottomBar = styled.div `
+    height: 40%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
     
 `
 
@@ -253,10 +227,8 @@ export const Login = () => {
     return (
         <PageContentPicture>
         <LeftContainer>
-            <LeftTopBar>
-            </LeftTopBar>
             <FormContainer onSubmit={onSubmitForm}>
-                <LefttMiddleBar>
+                <LeftMiddleBar>
                     <TitleStyled>Sign In</TitleStyled>
                     <StyledForm>
                         <InputWrapper>
@@ -267,9 +239,9 @@ export const Login = () => {
                             <LoginInput type='password' name="password" placeholder='Password' onChange={onPwdChange}/>
                         </InputWrapper>
 
-                        <LinkAn>Don`t have an account? <Link to='/reg' >Sing Up</Link></LinkAn>    
+                        <LinkAn>Don`t have an account? <Link to='/registration' >Sign Up</Link></LinkAn>
                     </StyledForm>
-                </LefttMiddleBar>
+                </LeftMiddleBar>
             
                 <LeftBottomBar>
                     <BaseButton  type='submit'>SIGN IN</BaseButton>

@@ -83,7 +83,7 @@ const Player2 = styled.div`
   align-items: center;
 
   .winner {
-    background: ${props => props.theme.octoGreen};
+    background: ${props => props.theme.octoLightBlue};
     border-radius: 0 0 5px 0;
   }
 
@@ -102,12 +102,12 @@ const Player2 = styled.div`
 
 const ScoreWrapper = styled.div`
   height: 70vh;
-  width: 50vw;  
+  width: 50vw;
   box-shadow: ${props => props.theme.boxShadowDark};
   background: ${props => props.theme.backgroundDarkNavy};
   display: flex;
   flex-direction: column;
-  
+
   //close button div
   .close {
     height: 10%;
@@ -116,7 +116,7 @@ const ScoreWrapper = styled.div`
     justify-content: flex-end;
     align-items: flex-start;
   }
-  
+
   //match content div
   .result {
     height: 90%;
@@ -143,7 +143,7 @@ const Button = styled.button`
     cursor: pointer;
     transform: perspective(100px) translateZ(20px);
   }
-  
+
   :active {
     transform: translateY(2px);
   }

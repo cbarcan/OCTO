@@ -5,7 +5,7 @@ import { OvalContainer, OvalBlue, OvalWhite  } from './EmailForm';
 import checkIcon from '../../../assets/svgs/checked.svg';
 import { PageContentPicture} from '../LeftContainer';
 import OctoWall from '../RigthContainer';
-import { LeftContainer, LeftTopBar, LefttMiddleBar, TitleStyled, StyledForm, InputWrapper, LeftBottomBar, BaseButton} from '../LeftContainer';
+import { LeftContainer, LeftTopBar, LeftMiddleBar, TitleStyled, StyledForm, InputWrapper, LeftBottomBar, BaseButton} from '../LeftContainer';
 
 
 
@@ -66,7 +66,7 @@ const CongratsMessage = () => {
                 <LeftTopBar2 />
                 
                 
-                <LefttMiddleBar>
+                <LeftMiddleBar>
                     <TitleStyled2>Congratulations!</TitleStyled2>
                     <StyledForm>
                         <InputWrapper2>
@@ -77,7 +77,7 @@ const CongratsMessage = () => {
                         <ParagraphText> {this.props.values.email}</ParagraphText>
 
                     </StyledForm>
-                </LefttMiddleBar>
+                </LeftMiddleBar>
 
                 <LeftBottomBar>
                     <Link to="/verification"><BaseButton>CONTINUE</BaseButton></Link>

@@ -25,6 +25,7 @@ const RoundWrapper = styled.div`
 `
 
 const MatchWrapper = styled.div`
+  min-height: 110px;
   height: 100%;
   width: 100%;
   display: flex;
@@ -75,11 +76,19 @@ const Round = (props) => {
                 props.matches.map((item, index) => {
                    return (
                        <MatchWrapper key={`${item}-${index}`}>
-                           <Match match={item}/>
-                           <Path className={"thing"}>
-                               <Left className={"left"} />
-                               <Right className={"right"} />
-                           </Path>
+                           {
+                               item
+                               ?
+                               <>
+                                   < Match match={item}/>
+                                   <Path className={"thing"}>
+                                       <Left className={"left"}/>
+                                       <Right className={"right"}/>
+                                   </Path>
+                               </>
+                               :
+                               <></>
+                           }
                        </MatchWrapper>
                    )
                 })
@@ -111,7 +120,28 @@ const BracketGeneratorSE = () => {
                                     last_name: "Name"
                                 }
                             ]
-                        }
+                        },
+                        undefined,
+                        undefined,
+                        undefined,
+                        undefined,
+                        undefined,
+                        {
+                            id: "6",
+                            players: [
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                },
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                }
+                            ]
+                        },
+                        undefined,
                     ]
                 },
                 {
@@ -183,7 +213,7 @@ const BracketGeneratorSE = () => {
                     id: "1",
                     matches: [
                         {
-                            id: "4",
+                            id: "0",
                             players: [
                                 {
                                     id: "234",
@@ -236,7 +266,6 @@ const BracketGeneratorSE = () => {
                 }
             ]
         }
-
 
     return (
         <Wrapper rounds={bracket.rounds.length}>

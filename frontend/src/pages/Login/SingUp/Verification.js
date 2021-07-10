@@ -9,7 +9,7 @@ import { decodeMessage } from '../../../lib/helpers';
 import { PageContentPicture} from '../LeftContainer';
 import OctoWall from '../RigthContainer';
 import { TitleStyled2, OvalContainer2 } from './CongratsDiv';
-import { LeftContainer, LeftTopBar, LefttMiddleBar, StyledForm, InputWrapper, LoginInput, LeftBottomBar, BaseButton} from '../LeftContainer';
+import { LeftContainer, LeftTopBar, LeftMiddleBar, StyledForm, InputWrapper, LoginInput, LeftBottomBar, BaseButton} from '../LeftContainer';
 
 
 const LeftTopBar3 = styled(LeftTopBar)` 
@@ -102,7 +102,7 @@ const VerificationForm = () => {
             <LeftContainer>
                 <LeftTopBar3 />
                 <form onSubmit={completeButtonHandler}>
-                    <LefttMiddleBar>
+                    <LeftMiddleBar>
                         <TitleStyled2>Verification</TitleStyled2>
                     <StyledForm2>
                         <InputWrapper>
@@ -128,7 +128,7 @@ const VerificationForm = () => {
                             </InputWrapper2>
                         </InputsDiv>
                     </StyledForm2>
-                    </LefttMiddleBar>
+                    </LeftMiddleBar>
 
                     <LeftBottomBar>
                         <BaseButton type="submit">COMPLETE</BaseButton>
