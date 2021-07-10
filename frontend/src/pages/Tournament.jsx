@@ -1,12 +1,12 @@
-import React from 'react';
-import PageTitle from '../styles/page-title';
-
-
+import {Route, Switch} from "react-router-dom";
+import BracketPage from "./BracketPage";
 
 
 const Home = () => {
     return (
-            <PageTitle pageTitle="Tournament Overview"></PageTitle>
+        <Switch>
+            <Route path={`/tournament/:id`} component={ BracketPage } />
+        </Switch>
     )
 }
 
