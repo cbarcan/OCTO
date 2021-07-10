@@ -74,7 +74,7 @@ const CongratsMessage = () => {
                         </InputWrapper2>
 
                         <ParagraphText>We've sent a confirmation code to your email. </ParagraphText>
-                        <ParagraphText> {this.props.values.email}</ParagraphText>
+                        <ParagraphText>tina@mail.com</ParagraphText>
 
                     </StyledForm>
                 </LeftMiddleBar>
