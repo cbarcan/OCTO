@@ -1,4 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
+import BackgroundImg from '../assets/images/background3.jpg'
+
 
 export const GlobalStyle = createGlobalStyle`
     * {
@@ -19,10 +21,13 @@ export const GlobalStyle = createGlobalStyle`
 
     #root {
         display: flex;
-        background: #1A1C2C;
         color: white;
         min-width: 100%;
         width: fit-content;
+        // background: #1A1C2C;
+        background-image: url(${BackgroundImg});
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 
 `
@@ -32,6 +37,7 @@ export const defaultTheme = {
     accentColor: '#ED4A5F',
     accentColorDark: '#db374c',
     accentColorLight: '#F06173',
+    octoGradientBlueColor: 'linear-gradient(90deg, rgba(0,142,210,1) 1%, rgba(33,246,255,0.9192051820728291) 100%);',
     octoGreen: '#12dea9',
     lightSilver: '#D8D8D8',
     grey: "#7E7E7E",
