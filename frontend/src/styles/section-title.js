@@ -3,14 +3,14 @@ import React from 'react';
 
 //Style component
 
-const PageTitleLine = styled.div`
+const SectionTitleLine = styled.div`
     width: 100px;
     height: 3px;
     background-color: #00ECFF;
     margin-top: 20px;
 `;
 
-const PageTitleContainer = styled.div`
+const SectionTitleContainer = styled.div`
     margin-top: 40px;
     display: flex;
     flex-direction: column;
@@ -19,19 +19,19 @@ const PageTitleContainer = styled.div`
     margin-bottom: 40px;
 `;
 
-const PageTitleText = styled.h1`
-    font-size: 24px;
+const SectionitleText = styled.h2`
     color: white;
+    font-size: 20px;
+
 `;
 
 //React component
 
-const PageTitle = (props) => {
+export const SectionTitle = (props) => {
     return (
-        <PageTitleContainer>
-            <PageTitleText>{props.pageTitle}</PageTitleText>
-            <PageTitleLine />
-        </PageTitleContainer>
+        <SectionTitleContainer>
+            <SectionitleText>{props.pageTitle}</SectionitleText>
+        </SectionTitleContainer>
     );
 };
-export default PageTitle;
+

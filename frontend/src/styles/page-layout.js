@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const PageContainer = styled.div`
-    width: 100vw;
+    width: 100%;
     min-height: 100vh;
     display: grid;
     grid-template-rows: 1fr auto;
@@ -12,6 +12,7 @@ export const PageContainer = styled.div`
 export const PageContent = styled.div`
 border: solid;
     min-height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;

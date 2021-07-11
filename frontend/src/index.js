@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {  BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { defaultTheme, GlobalStyle } from './styles';
-import { Provider } from 'react-redux';
-import { ThemeProvider } from 'styled-components';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {defaultTheme, GlobalStyle} from './styles';
+import {Provider} from 'react-redux';
+import {ThemeProvider} from 'styled-components';
 import store from './store';
 import Home from './pages/Home';
 import Login from './pages/Login/LeftContainer';
@@ -14,7 +14,8 @@ import Tournament from './pages/Tournament';
 import CreateTournament from './pages/CreateTournament';
 import Message from './pages/CreateTournament/message';
 import PrivateOrPublic from './pages/CreateTournament/PrivateOr';
-import { PageContainer, PageContent } from './styles/page-layout';
+import BracketPage from './pages/BracketPage';
+import {PageContainer, PageContent} from './styles/page-layout';
 import Profile from "./pages/Profile/index";
 
 
@@ -26,16 +27,17 @@ ReactDOM.render(
       <PageContainer>
             <PageContent>
             <Switch>
-              <Route exact={ true } path="/" component={ Home } />
+              <Route exact path="/" component={ Home } />
               <Route exact path="/tournament/:id" component={Tournament} />
-              <Route exact={ true } path="/Login" component={ Login } />
-              <Route exact path="/reg" component={ EmailSignUp } />
-              <Route exact path="/regmessage" component={ CongratsMessage } />
+              <Route exact path="/tournament/:id/bracket" component={BracketPage} />
+              <Route exact path="/login" component={ Login } />
+              <Route exact path="/registration" component={ EmailSignUp } />
+              <Route exact path="/confirmation" component={ CongratsMessage } />
               <Route exact path="/verification" component={ VerificationForm} />
-              <Route exact path="/profile" component={Profile} />
               <Route exact path="/create" component={ CreateTournament } />
               <Route exact path="/message" component={ Message } />
               <Route exact path="/privacy" component={ PrivateOrPublic } />
+              <Route exact path="/user/profile" component={Profile} />
             </Switch>
             </PageContent>
         </PageContainer>
@@ -43,7 +45,7 @@ ReactDOM.render(
     </ThemeProvider>
   </Provider>,
 
-  document.getElementById('root')
+    document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

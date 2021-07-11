@@ -6,7 +6,7 @@ import Axios from '../../../axios';
 import { decodeMessage } from '../../../lib/helpers';
 import { PageContentPicture} from '../LeftContainer';
 import OctoWall from '../RigthContainer';
-import { FormContainer, LeftContainer, LeftTopBar, LinkAn, LefttMiddleBar, TitleStyled, StyledForm, InputWrapper, LoginInput, LeftBottomBar, BaseButton} from '../LeftContainer';
+import { FormContainer, LeftContainer, LeftTopBar, LinkAn, LeftMiddleBar, TitleStyled, StyledForm, InputWrapper, LoginInput, LeftBottomBar, BaseButton} from '../LeftContainer';
 
 
 
@@ -15,7 +15,7 @@ export const OvalContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 4%;
+    margin-top: 4%;
     
 `
 
@@ -45,8 +45,8 @@ const FormContainer2 = styled(FormContainer)`
 `
 
 const LeftBottomBar2 = styled(LeftBottomBar)`
-    margin-top: 22.5%;
     padding: 0;
+    justify-content: center;
 
 ` 
 
@@ -75,7 +75,7 @@ const EmailSignUp = (props) => {
     Axios.post(url, data)
         .then((response) => {
             console.log('User creation successful');
-            push('/regmessage');
+            push('/confirmation');
         })
         .catch((error) => {
             console.log('Creation error', error.response.data);
@@ -94,17 +94,17 @@ const EmailSignUp = (props) => {
                 </LeftTopBar2>
                 
                 <FormContainer2 onSubmit={registerButtonHandler}> 
-                    <LefttMiddleBar>
+                    <LeftMiddleBar>
                         <TitleStyled>Sign Up</TitleStyled>
                     <StyledForm>
                         <InputWrapper>
                             
                             <LoginInput onChange={(event) => setEmail(event.target.value)} type='email' placeholder='Email'/>
                         </InputWrapper>
-                        <LinkAn>Already have an account? <Link to='/Login' >Sing In</Link></LinkAn>  
+                        <LinkAn>Already have an account? <Link to='/login' >Sign In</Link></LinkAn>
                     </StyledForm>
             
-                    </LefttMiddleBar>
+                    </LeftMiddleBar>
                     <LeftBottomBar2>
                         <BaseButton type='submit'>CONTINUE</BaseButton>
                     </LeftBottomBar2>
