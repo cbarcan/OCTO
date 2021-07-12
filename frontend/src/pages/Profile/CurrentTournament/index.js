@@ -1,8 +1,8 @@
-import React from 'react';
 import styled from "styled-components";
-import TeamCard from "./TeamCard";
+import React from 'react';
+import TournamentCard from "./TournamentCard";
 
-const TeamDiv = styled.div `
+const TournamentDiv = styled.div `
     height: 300px;
     width: 100%;
     display: flex;
@@ -12,17 +12,17 @@ const TeamDiv = styled.div `
     }
 `
 
-const Teams = styled.div`
+const Tournaments = styled.div`
     height: 100%;
     width: 90%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-   /* box-shadow: 1px 1px 20px -5px #ffffff75; */
+   /* box-shadow: 1px 1px 20px -5px #292d3dd3; */
 `
 
-const TeamHeader = styled.div `
+const Header = styled.div `
     background-color: black; 
     display: flex;
     justify-content: space-between; 
@@ -30,8 +30,8 @@ const TeamHeader = styled.div `
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    box-shadow: 1px 1px 20px -5px #ffffff75; 
-    `
+    box-shadow: 1px 1px 20px -5px #ffffff75;
+`
 const Label = styled.span`
   display: flex;
   align-items: center;
@@ -48,32 +48,28 @@ const Label = styled.span`
     margin: 0 10px;
   }
 `;
-
-
-
-const TeamHeaderName = styled.p`
+const Name = styled.p`
     font-size: 1.5rem;
     margin-left: 2rem;
     color: white; 
     display: flex; 
     justify-content: center;
-    align-items: center;   
+    align-items: center;  
 `;
 
-
-const TeamContainer = () => {
+const CurrentTournament = () => {
     return <>
-         <TeamDiv>
-            <Teams>
-                <TeamHeader>
-                        <TeamHeaderName>Teams</TeamHeaderName>
-                        <Label/>
-                </TeamHeader>
-                <TeamCard/>
-                <TeamCard/>
-            </Teams>
-        </TeamDiv>
+        <TournamentDiv>
+            <Tournaments>
+                <Header>
+                    <Name>Current tournaments</Name>
+                    <Label/>
+                </Header>
+                <TournamentCard/>
+                <TournamentCard/>
+            </Tournaments>
+        </TournamentDiv>
     </>
 };
 
-export default TeamContainer
+export default CurrentTournament
