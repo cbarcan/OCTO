@@ -31,4 +31,7 @@ urlpatterns = [
 
     # Registration URL's
     path('backend/api/', include('registration.urls')),
+
+    # Team URL's
+    path('backend/api/team/', include('team.urls')),
 ]
