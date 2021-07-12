@@ -67,7 +67,6 @@ const EmailSignUp = (props) => {
 
     const registerButtonHandler = (event) => {
         event.preventDefault();
-        console.log('click continue', email)
         // registerUser({ email: email });
         dispatch(apiUserSignUp(email));
         // maybe check server response first
