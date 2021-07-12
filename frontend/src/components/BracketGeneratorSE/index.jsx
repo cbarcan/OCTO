@@ -80,7 +80,7 @@ const Round = (props) => {
                                item
                                ?
                                <>
-                                   < Match match={item}/>
+                                   <Match match={item}/>
                                    <Path className={"thing"}>
                                        <Left className={"left"}/>
                                        <Right className={"right"}/>

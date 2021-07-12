@@ -1,12 +1,9 @@
-import PageTitle from '../styles/page-title';
 import { SectionTitle } from '../styles/section-title';
 import styled from 'styled-components';
 import Soccer from '../assets/svgs/soccer-ball.svg'
 import Map from '../components/Mapbox'
 import Participant from '../components/Participant'
 import Details from '../components/Details'
-import {Route, Switch} from "react-router-dom";
-import BracketPage from "./BracketPage";
 
 const BaseButton = styled.button `
     border-radius: 30px;
@@ -117,10 +114,6 @@ const Home = () => {
                         </LocationContainer>
                     </RightContainer>
                 </MainContainer>
-
-                /** <Switch>
-                <Route path={`/tournament/:id`} component={ BracketPage } />
-            </Switch> **/
     )
 }
 

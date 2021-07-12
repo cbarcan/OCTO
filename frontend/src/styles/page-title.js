@@ -11,7 +11,6 @@ const PageTitleLine = styled.div`
 `;
 
 const PageTitleContainer = styled.div`
-    margin-top: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -20,7 +19,7 @@ const PageTitleContainer = styled.div`
 `;
 
 const PageTitleText = styled.h1`
-    font-size: 24px;
+    font-size: 32px;
     color: white;
 `;
 
@@ -28,7 +27,7 @@ const PageTitleText = styled.h1`
 
 const PageTitle = (props) => {
     return (
-        <PageTitleContainer>
+        <PageTitleContainer style={{"marginTop":props.marginTop || "40px"}}>
             <PageTitleText>{props.pageTitle}</PageTitleText>
             <PageTitleLine />
         </PageTitleContainer>
