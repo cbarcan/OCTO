@@ -11,6 +11,9 @@ import EmailSignUp from './pages/Login/SingUp/EmailForm';
 import CongratsMessage from './pages/Login/SingUp/CongratsDiv';
 import VerificationForm from './pages/Login/SingUp/Verification'
 import Tournament from './pages/Tournament';
+import CreateTournament from './pages/CreateTournament';
+import Message from './pages/CreateTournament/message';
+import PrivateOrPublic from './pages/CreateTournament/PrivateOr';
 import BracketPage from './pages/BracketPage';
 import {PageContainer, PageContent} from './styles/page-layout';
 import Profile from "./pages/Profile/index";
@@ -31,6 +34,9 @@ ReactDOM.render(
               <Route exact path="/registration" component={ EmailSignUp } />
               <Route exact path="/confirmation" component={ CongratsMessage } />
               <Route exact path="/verification" component={ VerificationForm} />
+              <Route exact path="/create" component={ CreateTournament } />
+              <Route exact path="/message" component={ Message } />
+              <Route exact path="/privacy" component={ PrivateOrPublic } />
               <Route exact path="/user/profile" component={Profile} />
             </Switch>
             </PageContent>
