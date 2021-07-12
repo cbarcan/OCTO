@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { OvalContainer, OvalBlue, OvalWhite  } from './EmailForm';
 import checkIcon from '../../../assets/svgs/checked.svg';
-import { PageContentPicture} from '../LeftContainer';
-import OctoWall from '../RigthContainer';
-import { LeftContainer, LeftTopBar, LeftMiddleBar, TitleStyled, StyledForm, InputWrapper, LeftBottomBar, BaseButton} from '../LeftContainer';
+import { PageContentPicture} from '..';
+import OctoWall from '../OctoWall';
+import { LeftContainer, LeftTopBar, LeftMiddleBar, TitleStyled, StyledForm, InputWrapper, LeftBottomBar, BaseButton} from '..';
 
 
 

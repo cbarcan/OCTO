@@ -1,38 +1,6 @@
 import Axios from '../../axios';
 
 //////////
-// REDUCER
-//////////
-
-export const user = (
-  state = {
-    token: null,
-    userData: {},
-  },
-  action
-) => {
-  switch (action.type) {
-    case 'USER_ADD_TOKEN':
-      localStorage.setItem('userToken', action.payload);
-      return {
-        ...state,
-        ...{
-          token: action.payload,
-        },
-      };
-    case 'USER_ADD_DATA':
-      return {
-        ...state,
-        ...{
-          userData: action.payload,
-        },
-      };
-    default:
-      return state;
-  }
-};
-
-//////////
 // ACTIONS
 //////////
 
@@ -88,7 +56,7 @@ export const apiUserLogin = (email, password) => (dispatch) => {
 };
 
 export const apiUserSignUp = (email) => (dispatch) => {
-  const url = 'auth/registration/';
+  const url = 'registration/';
   const msgData = {
     email: email,
   };
@@ -108,15 +76,15 @@ export const apiUserVerify = (
   code,
   password,
   passwordRepeat,
-) => (dispatch) => {
-  const url = 'auth/registration/validation/';
-  const msgData = {
-    email: email,
-    username: userName,
-    code: code,
-    password: password,
-    password_repeat: passwordRepeat,
-  };
+  ) => (dispatch) => {
+    const url = 'registration/validate/';
+    const msgData = {
+      email: email,
+      username: userName,
+      code: code,
+      password: password,
+      password_confirmation: passwordRepeat,
+    };
 
   Axios.patch(url, msgData)
     .then((response) => {
@@ -135,7 +103,7 @@ export const apiUserGetData = (token) => (dispatch) => {
   }
 
   // prepare data
-  const url = 'users/me/';
+  const url = 'user/me/';
   const auth = 'Bearer ' + token;
   const headers = { headers: { Authorization: auth } };
 
@@ -148,3 +116,6 @@ export const apiUserGetData = (token) => (dispatch) => {
       console.log('apiUserGetData', error.response.data);
     });
 };
+
+
+
