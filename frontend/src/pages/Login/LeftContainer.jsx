@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 // import BackgroundImg2 from '../../assets/images/background6.jpg';
 import OctoWall from './RigthContainer';
 // import octoLogo from "../../assets/svgs/octo-text-outline_2p.svg";
-import { apiUserLogin } from '../../store/user';
+import { apiUserLogin } from '../../store/actions/userAction';
 
 
 export const PageContentPicture = styled.div`
@@ -199,7 +199,6 @@ export const Login = () => {
     };
 
     const onPwdChange = (e) => {
-        console.log(e)
         setPassword(e.target.value);
     };
 
