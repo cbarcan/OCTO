@@ -14,25 +14,25 @@ import pingpong from "../../assets/svgs/pingpong.svg";
 
 
 export const PageContentPicture = styled.div`
-    // border: solid red;
+    //border: solid red;
     display: flex;
     justify-content: center;
     align-items: center;
     background: black;
     height: 100%; 
-    width: 100%; 
+    width: 90%; 
     margin: 0;
 
     a {
         color: white;
     }
-    
-    
+
     
 `
 
 export const TitleHead = styled.div`
     // border: solid green;
+    padding-left: 4%;
     width: 22ch;
     color: white;
     animation: typing 2s steps(22), blink .5s step-end infinite alternate;
@@ -59,18 +59,16 @@ export const TitleHead = styled.div`
 
 
 export const CardsContainers = styled.div`
-    // border: solid yellow;
+    //border: solid yellow;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100%;
-    width: 27%;
+    width: 100%;
     margin: 0;
     padding: 0;
     transform: scale(0.48);
     
-
     &:hover {
         transform: scale(0.54);
     }
@@ -78,12 +76,68 @@ export const CardsContainers = styled.div`
 `
 
 export const InnerContainer = styled.div`
-    // border: solid red;
-    padding-top: 30%;
     cursor: pointer;
-    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
+    margin: 20px auto;
+    width: 500px;
+    height: 500px;
+    background: black;
+    border-radius: 100px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: lighter;
+    letter-spacing: 2px;
+    transition: 1s box-shadow;
+
+    &:hover {
+        box-shadow: 0 5px 35px 0px rgba(0,0,0,.1);
+    }
+
+
+    &:hover::before, &:hover::after {
+        display: block;
+        content: '';
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        background: #19c5db;
+        border-radius: 100px;
+        z-index: -1;
+        animation: 1s clockwise infinite;
+    }
     
+    &:hover:after {
+        background: white;
+        animation: 2s counterclockwise infinite;
+    }
+
+    @keyframes clockwise {
+        0% { top: -5px; left: 0;}
+        12% { top: -2px; left: 2px; }
+        25% { top: 0; left: 5px;}
+        37% { top: 2px; left: 2px;}
+        50% { top: 5px; left: 0;}
+        62% { top: 2px; left: -2px; }
+        75% { top: 0; left: -5px; }
+        87% { top: -2px; left: -2px; }
+        100% { top: -5px; left: 0; }
+    }
+
+    @keyframes counterclockwise {
+        0% { top: -5px; right: 0; }
+        12% { top: -2px; right: 2px;}
+        25% { top: 0; right: 5px;    }
+        37% { top: 2px; right: 2px;}
+        50% { top: 5px; right: 0;}
+        62% { top: 2px; right: -2px; }
+        75% { top: 0; right: -5px; }
+        87% { top: -2px; right: -2px; }
+        100% { top: -5px; right: 0; }
+    }
+
     
     
 `
@@ -103,66 +157,50 @@ export const Name = styled.div`
 ` */
 
 export const Futball = styled.img`
-    height: 100%;
+    height: 75%;
     margin: 0;
-    transition: transform .2s;
-    position: relative;
     z-index: 1;
-    bottom: 10%;
-    transform-origin: 50% bottom;
-    
-    
-    
 
-    &:hover {
-        transform: scale(2);
-       
-    }
 `
 
 
 export const RacketImg = styled.img`
-    height: 80%;
+    height: 75%;
     margin: 0;
-    transition: transform .2s;
-    position: relative;
     z-index: 1;
-    bottom: 10%;
-    transform-origin: 50% bottom;
-    
-    
-
-    &:hover {
-        transform: scale(2);
-
-    }
+ 
    
 `
 
 export const BallImg = styled.img`
     height: 20%;
     margin: 0;
-    transition: transform .2s;
-    position: relative;
     z-index: 1;
-    bottom: 30%;
-    left: 50%;
-    transform-origin: 50% bottom;
-  
-    &:hover {
-        transform: scale(2);
+    position: relative;
+    top: 25%;
+    right: 12%;
+    animation: 3s rotate infinite;
 
+    
+
+    @keyframes rotate {
+        0% { transform: rotate(0);}
+        100% { transform: rotate(360deg);}
     }
+
+    
+
+ 
    
 `
 
 export const InnerDiv = styled.div`
-    // border: solid pink;
+    //border: solid pink;
     height: 100%;
     width: 100%;
     display: flex;
     margin: 0;
-    padding-left: 10%;
+    
 `
 
 
@@ -178,11 +216,11 @@ export const CreateTournament = () => {
 
     return (
         <>
-        <TitleHead>Select a sport:</TitleHead>
+        
         <PageContentPicture>
 
-            
-        
+        <TitleHead>Select a sport:</TitleHead>
+          <InnerDiv>
             <CardsContainers>
                 <InnerContainer>
                 <Futball src={ball} alt='logo'/>
@@ -203,6 +241,8 @@ export const CreateTournament = () => {
                 </InnerContainer>
             </CardsContainers>
             <Link to='/privacy'> --- </Link>
+
+            </InnerDiv>
         </PageContentPicture>
         </>
 

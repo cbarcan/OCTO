@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 
 export const PageContentPicture = styled.div`
     /* border: solid red; */
-
+    border: none;
     font-family: "Archivo Black", sans-serif;
     background: #14d1d1;
     display: flex;
