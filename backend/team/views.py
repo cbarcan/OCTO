@@ -26,4 +26,4 @@ class RetrieveUpdateDestroyTeamView(RetrieveUpdateDestroyAPIView):
     queryset = Team.objects.all()
     # permission_classes = []
     serializer_class = ListTeamSerializer
-    lookup_field = 'id'
+    lookup_field = 'pk'
