@@ -7,7 +7,8 @@ import { decodeMessage } from '../../../lib/helpers';
 import { PageContentPicture} from '../LeftContainer';
 import OctoWall from '../RigthContainer';
 import { FormContainer, LeftContainer, LeftTopBar, LinkAn, LeftMiddleBar, TitleStyled, StyledForm, InputWrapper, LoginInput, LeftBottomBar, BaseButton} from '../LeftContainer';
-
+import { apiUserSignUp } from '../../../store/actions/userAction';
+import { useDispatch } from 'react-redux';
 
 
 
@@ -55,6 +56,7 @@ const EmailSignUp = (props) => {
 
     const [email, setEmail] = useState('');
     const { push } = useHistory();
+    const dispatch = useDispatch();
 
 
    /*  const Continuing = (event) => {
@@ -65,7 +67,12 @@ const EmailSignUp = (props) => {
 
     const registerButtonHandler = (event) => {
         event.preventDefault();
-        registerUser({ email: email });
+        console.log('click continue', email)
+        // registerUser({ email: email });
+        dispatch(apiUserSignUp(email));
+        // maybe check server response first
+        push('/confirmation');
+
     };
 
     // register

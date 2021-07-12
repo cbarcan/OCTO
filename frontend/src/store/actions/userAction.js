@@ -56,7 +56,8 @@ export const apiUserLogin = (email, password) => (dispatch) => {
 };
 
 export const apiUserSignUp = (email) => (dispatch) => {
-  const url = 'auth/registration/';
+  console.log('in da action')
+  const url = 'registration/';
   const msgData = {
     email: email,
   };
