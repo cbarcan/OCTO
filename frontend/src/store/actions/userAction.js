@@ -46,7 +46,7 @@ export const apiUserLogin = (email, password) => (dispatch) => {
     .then((response) => {
       const token = response.data.access;
       dispatch(setToken(token));
-      //dispatch(apiUserGetData(token));
+      dispatch(apiUserGetData(token));
       console.log('Login successful.');
     })
     .catch((error) => {
@@ -103,7 +103,7 @@ export const apiUserGetData = (token) => (dispatch) => {
   }
 
   // prepare data
-  const url = 'users/me/';
+  const url = 'user/me/';
   const auth = 'Bearer ' + token;
   const headers = { headers: { Authorization: auth } };
 
