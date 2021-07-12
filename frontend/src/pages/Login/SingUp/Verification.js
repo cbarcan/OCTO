@@ -6,10 +6,10 @@ import { useHistory } from 'react-router-dom';
 import Axios from '../../../axios';
 import { decodeMessage } from '../../../lib/helpers';
 //import emailIcon from '../../../assets/images/Shape.png';
-import { PageContentPicture} from '../LeftContainer';
-import OctoWall from '../RigthContainer';
+import { PageContentPicture} from '..';
+import OctoWall from '../OctoWall';
 import { TitleStyled2, OvalContainer2 } from './CongratsDiv';
-import { LeftContainer, LeftTopBar, LeftMiddleBar, StyledForm, InputWrapper, LoginInput, LeftBottomBar, BaseButton} from '../LeftContainer';
+import { LeftContainer, LeftTopBar, LeftMiddleBar, StyledForm, InputWrapper, LoginInput, LeftBottomBar, BaseButton} from '..';
 import { useDispatch } from 'react-redux';
 import { apiUserVerify } from '../../../store/actions/userAction';
 
@@ -83,23 +83,7 @@ const VerificationForm = () => {
         ));
         push('/');
     };
-
-    // verify
-    const validateUser = (data) => {
-        const url = `registration/validation/`;
-
-        Axios.post(url, data)
-        .then((response) => {
-            console.log('User validation successful');
-            push('/login');
-        })
-        .catch((error) => {
-            console.log('Validation error', error.response.data);
-            decodeMessage(error.response.data);
-        });
-    };
-
-
+    
     
     return (
 

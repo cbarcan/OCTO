@@ -4,9 +4,9 @@ import { Link, useHistory  } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Axios from '../../../axios';
 import { decodeMessage } from '../../../lib/helpers';
-import { PageContentPicture} from '../LeftContainer';
-import OctoWall from '../RigthContainer';
-import { FormContainer, LeftContainer, LeftTopBar, LinkAn, LeftMiddleBar, TitleStyled, StyledForm, InputWrapper, LoginInput, LeftBottomBar, BaseButton} from '../LeftContainer';
+import { PageContentPicture} from '..';
+import OctoWall from '../OctoWall';
+import { FormContainer, LeftContainer, LeftTopBar, LinkAn, LeftMiddleBar, TitleStyled, StyledForm, InputWrapper, LoginInput, LeftBottomBar, BaseButton} from '..';
 import { apiUserSignUp } from '../../../store/actions/userAction';
 import { useDispatch } from 'react-redux';
 
@@ -73,22 +73,7 @@ const EmailSignUp = (props) => {
         push('/confirmation');
 
     };
-
-    // register
-    const registerUser = (data) => {
-    const url = `reg/`;
-
-    Axios.post(url, data)
-        .then((response) => {
-            console.log('User creation successful');
-            push('/confirmation');
-        })
-        .catch((error) => {
-            console.log('Creation error', error.response.data);
-            decodeMessage(error.response.data);
-        });
-    };
-
+    
     
     return (
         <PageContentPicture>
