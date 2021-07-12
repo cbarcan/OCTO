@@ -56,7 +56,6 @@ export const apiUserLogin = (email, password) => (dispatch) => {
 };
 
 export const apiUserSignUp = (email) => (dispatch) => {
-  console.log('in da action')
   const url = 'registration/';
   const msgData = {
     email: email,
@@ -78,13 +77,13 @@ export const apiUserVerify = (
   password,
   passwordRepeat,
   ) => (dispatch) => {
-    const url = 'auth/registration/validation/';
+    const url = 'registration/validate/';
     const msgData = {
       email: email,
       username: userName,
       code: code,
       password: password,
-      password_repeat: passwordRepeat,
+      password_confirmation: passwordRepeat,
     };
 
   Axios.patch(url, msgData)
