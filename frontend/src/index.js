@@ -6,7 +6,7 @@ import {Provider} from 'react-redux';
 import {ThemeProvider} from 'styled-components';
 import store from './store';
 import Home from './pages/Home';
-import Login from './pages/Login/LeftContainer';
+import Login from './pages/Login';
 import EmailSignUp from './pages/Login/SingUp/EmailForm';
 import CongratsMessage from './pages/Login/SingUp/CongratsDiv';
 import VerificationForm from './pages/Login/SingUp/Verification'

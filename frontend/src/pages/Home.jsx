@@ -25,13 +25,14 @@ const MiddleContainer = styled.div`
 `
 
 const ButtonContainer = styled.div`
-    height: 100%;
+    height: 1000px;
     width: 100%;
     border: solid yellow;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    a, a:hover, a:active, a:visited { color: white; }
 
 `
 
@@ -43,13 +44,15 @@ const Home = () => {
         <Main>
         <MiddleContainer>
             <ButtonContainer>
-                <button>press me</button>
-            </ButtonContainer>
-            <ButtonContainer>
-                <button>press me</button>
-            </ButtonContainer>
-            <ButtonContainer>
-            <Link to='/Login' >Sing UP</Link>
+                <Link to='/tournament/:id'>Tournament</Link>
+                <Link to='/tournament/:id/bracket'>Bracket</Link>
+                <Link to='/Login'>Login</Link>
+                <Link to='/registration'>Registration</Link>
+                <Link to='/confirmation'>Confirmation</Link>
+                <Link to='/verification'>Verification</Link>
+                <Link to='/create'>Create</Link>
+                <Link to='/privacy'>Privacy</Link>
+                <Link to='/user/profile'>User Profile</Link>
             </ButtonContainer>
 
         </MiddleContainer>

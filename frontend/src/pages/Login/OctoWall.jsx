@@ -3,7 +3,7 @@ import React from 'react';
 import octo from "../../assets/images/octopus_poly.png";
 // import octo from "../../assets/svgs/octopus_poly_white.svg";
 
-export const RigthContainer = styled.div`
+export const OctoWall = styled.div`
 height: 100%;
 width: 45%;
 margin-left: 5%;
@@ -49,9 +49,9 @@ class OctoContainer extends React.Component {
     render() {
         
         return (
-            <RigthContainer>
+            <OctoWall>
                 <img src={octo} alt='logo'/>
-            </RigthContainer>
+            </OctoWall>
         )
     }
 
