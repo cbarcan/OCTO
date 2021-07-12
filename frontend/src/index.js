@@ -30,7 +30,7 @@ ReactDOM.render(
               <Route exact path="/" component={ Home } />
               <Route exact path="/tournament/:id" component={Tournament} />
               <Route exact path="/tournament/:id/bracket" component={BracketPage} />
-              <Route exact path="/Login" component={ Login } />
+              <Route exact path="/login" component={ Login } />
               <Route exact path="/registration" component={ EmailSignUp } />
               <Route exact path="/confirmation" component={ CongratsMessage } />
               <Route exact path="/verification" component={ VerificationForm} />
