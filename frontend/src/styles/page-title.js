@@ -19,8 +19,11 @@ const PageTitleContainer = styled.div`
 `;
 
 const PageTitleText = styled.h1`
+    font-weight: 800;
     font-size: 32px;
-    color: white;
+    color: white; 
+    -webkit-text-stroke: 1px ${props => props.theme.octoBlue};
+    text-shadow: 0 0 20px ${props => props.theme.octoBlue};
 `;
 
 //React component

@@ -2,11 +2,11 @@ import PageTitle from "../../styles/page-title";
 import BracketGeneratorSE from "../BracketGeneratorSE";
 
 
-const SingleElimination = () => {
+const SingleElimination = (props) => {
     return (
         <>
             <PageTitle pageTitle="Name of the tournament" />
-            <BracketGeneratorSE />
+            <BracketGeneratorSE tournament_id={props.tournament_id}/>
         </>
     )
 }

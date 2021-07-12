@@ -25,7 +25,7 @@ const RoundWrapper = styled.div`
 `
 
 const MatchWrapper = styled.div`
-  min-height: 110px;
+  min-height: 90px;
   height: 100%;
   width: 100%;
   display: flex;
@@ -103,47 +103,6 @@ const BracketGeneratorSE = () => {
         {
             id: "0",
             rounds: [
-                {
-                    id: "2",
-                    matches: [
-                        {
-                            id: "6",
-                            players: [
-                                {
-                                    id: "234",
-                                    first_name: "Jon",
-                                    last_name: "Name"
-                                },
-                                {
-                                    id: "234",
-                                    first_name: "Jon",
-                                    last_name: "Name"
-                                }
-                            ]
-                        },
-                        undefined,
-                        undefined,
-                        undefined,
-                        undefined,
-                        undefined,
-                        {
-                            id: "6",
-                            players: [
-                                {
-                                    id: "234",
-                                    first_name: "Jon",
-                                    last_name: "Name"
-                                },
-                                {
-                                    id: "234",
-                                    first_name: "Jon",
-                                    last_name: "Name"
-                                }
-                            ]
-                        },
-                        undefined,
-                    ]
-                },
                 {
                     id: "0",
                     matches: [
