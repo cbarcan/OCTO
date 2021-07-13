@@ -14,9 +14,10 @@ import Tournament from './pages/Tournament';
 import CreateTournament from './pages/CreateTournament';
 import Message from './pages/CreateTournament/message';
 import PrivateOrPublic from './pages/CreateTournament/PrivateOr';
-import BracketPage from './pages/BracketPage';
+import Bracket from './pages/Bracket';
 import {PageContainer, PageContent} from './styles/page-layout';
 import Profile from "./pages/Profile/index";
+import Standing from "./pages/Standing";
 import EditProfile from "./pages/Profile/EditProfile";
 import Tournaments from "./pages/Tournaments";
 
@@ -32,7 +33,8 @@ ReactDOM.render(
               <Route exact path="/" component={ Home } />
               <Route exact path="/tournaments" component={Tournaments} />
               <Route exact path="/tournament/:id" component={Tournament} />
-              <Route exact path="/tournament/:id/bracket" component={BracketPage} />
+              <Route exact path="/tournament/:id/bracket" component={Bracket} />
+              <Route exact path="/tournament/:id/standing" component={Standing} />
               <Route exact path="/login" component={ Login } />
               <Route exact path="/registration" component={ EmailSignUp } />
               <Route exact path="/confirmation" component={ CongratsMessage } />

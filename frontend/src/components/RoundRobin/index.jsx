@@ -1,11 +1,12 @@
 import PageTitle from "../../styles/page-title";
-import BracketGeneratorSE from "../BracketGeneratorSE";
+import BracketGeneratorRR from "../BracketGeneratorRR";
 import {useLocation} from "react-router-dom";
 
-
-const SingleElimination = (props) => {
+const RoundRobin = (props) => {
 
     const location = useLocation();
+
+    console.log(location)
 
     return (
         <>
@@ -15,10 +16,10 @@ const SingleElimination = (props) => {
                 ?
                 <h1>bla</h1>
                 :
-                <BracketGeneratorSE tournament_id={props.tournament_id}/>
+                <BracketGeneratorRR tournament_id={props.tournament_id}/>
             }
         </>
     )
 }
 
-export default SingleElimination
+export default RoundRobin
