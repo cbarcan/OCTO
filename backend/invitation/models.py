@@ -1,7 +1,5 @@
 from django.db import models
 
-from tournament.models import Tournament
-
 
 class Invitation(models.Model):
     email = models.EmailField()
