@@ -5,7 +5,7 @@ import bluepin from '../../assets/svgs/map2.svg';
 import camara from '../../assets/svgs/photo-camera.svg';
 import icon from '../../assets/images/faceicon.png'
 import { PageContentPicture2, TitleHead2  } from './PrivateOr';
-import { LeftMiddleBar, LeftBottomBar, BaseButton, InputWrapper} from '../Login/LeftContainer';
+import { LeftMiddleBar, LeftBottomBar, BaseButton, InputWrapper} from '../Login/index';
 import { InputWrapper2, InputsDiv, LongInput, ShortInput, StyledForm2, LabelText} from '../Login/SingUp/Verification';
 import MovingBackground from '../../components/MovingBackground';
 

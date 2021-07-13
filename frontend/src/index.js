@@ -14,12 +14,9 @@ import Tournament from './pages/Tournament';
 import CreateTournament from './pages/CreateTournament';
 import Message from './pages/CreateTournament/message';
 import PrivateOrPublic from './pages/CreateTournament/PrivateOr';
-<<<<<<< HEAD
 import DetailsCreate from './pages/CreateTournament/DetailsTournament';
-import BracketPage from './pages/BracketPage';
-=======
+// import BracketPage from './pages/BracketPage';
 import Bracket from './pages/Bracket';
->>>>>>> 193d34614bdbbe1632cdddfea9c98dd0ea233a45
 import {PageContainer, PageContent} from './styles/page-layout';
 import Profile from "./pages/Profile/index";
 import Standing from "./pages/Standing";
