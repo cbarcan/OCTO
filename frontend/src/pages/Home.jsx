@@ -45,6 +45,7 @@ const Home = () => {
         <MiddleContainer>
             <ButtonContainer>
                 <Link to='/tournament/:id'>Tournament</Link>
+                <Link to='/tournament/:id/admin'>Tournament Admin</Link>
                 <Link to='/tournament/:id/bracket'>Bracket</Link>
                 <Link to='/Login'>Login</Link>
                 <Link to='/registration'>Registration</Link>
