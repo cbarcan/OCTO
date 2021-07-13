@@ -1,3 +1,4 @@
 from django.contrib import admin
+from invitation.models import Invitation
 
-# Register your models here.
+admin.site.register(Invitation)

@@ -34,4 +34,7 @@ urlpatterns = [
 
     # Team URL's
     path('backend/api/team/', include('team.urls')),
+
+    # Tournament URL's
+    path('backend/api/tournament/', include('tournament.urls')),
 ]

@@ -1,7 +1,6 @@
 from django.contrib.auth import get_user_model
-from django.http import Http404
+
 from rest_framework.generics import RetrieveUpdateDestroyAPIView, ListCreateAPIView
-from rest_framework.response import Response
 
 from team.models import Team
 from team.serializers.serializers import CreateTeamSerializer, ListTeamSerializer
