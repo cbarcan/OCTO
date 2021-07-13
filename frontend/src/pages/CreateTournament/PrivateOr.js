@@ -1,128 +1,165 @@
 import styled from 'styled-components';
 import React, { useState, useEffect } from 'react';
+import Popup from 'reactjs-popup';
+import { PageContentPicture, OvalContainer2, OvalBlue2, OvalWhite2, TitleHead  } from './index';
+import octoLogo from '../../assets/svgs/Slicehead.svg';
+import { Link } from 'react-router-dom';
 
-export const PageContentPicture = styled.div`
+export const PageContentPicture2 = styled(PageContentPicture)`
+    width: 90%; 
+    height:77.4%;
+    padding-bottom: 7%;
+    position: absolute;
+
+    &:hover {
+        
+        transform:scale(1);
+        filter:blur(0px);
+        opacity:1;
+        box-shadow:0 8px 20px 0px rgba(0,0,0,0.125);
+        
+    }
+
+`
+
+export const InnerContainer = styled.div`
+    //border: solid yellow;
     
-
-    font-family: "Archivo Black", sans-serif;
-    background: #14d1d1;
+    width: 100%;
+    height:84%;
     display: flex;
-    flex-direction: column;
-    height: 100%; 
-    width: 100%; 
     justify-content: center;
     align-items: center;
-    color: #14d1d1;
-    font-size: 0;
-    line-height: 1.5;
 
-    :nth-child(2) {
-        animation-delay: 0.5s; 
+    a {
+        color:white;
+    }
+    
+`
+
+export const ButtonContainer = styled.button`
+    
+    padding:30px;
+    margin:2%;
+    width:20%;
+    border:1px solid white;
+    border-radius:3px; 
+    transition:.2s all;
+    font-weight: bold; 
+    filter:blur(1px);
+    opacity:.5;
+    transform: scale(.98);
+    cursor: pointer;
+	letter-spacing: 1em;
+    transition: width 2s;
+    
+
+    &:hover {
+        width: 500px;
+        color: #19c5db;
+        background: white;
+        border: 1px solid #19c5db;
+        filter:blur(0px);
+        opacity:1;
+        -webkit-box-shadow: 0px 20px 35px -16px rgba(255, 159, 16, 0.6);
+        -moz-box-shadow: 0px 20px 35px -16px rgba(255, 159, 16, 0.6);
+        box-shadow: 0px 20px 35px -16px rgba(125, 249, 255, 0.6);      
+
+        
     }
 
-    :nth-child(3) {
-        animation-delay: 1s;
+    
+`
+
+
+export const ContentBox = styled.div`
+    color: whitesmoke;
+    opacity: 0.8;
+    padding: 50%;
+    
+    width: 200%;
+    letter-spacing: 0.1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 2px solid white;
+`
+
+export const OctoLogo = styled.img`
+    width: 60%;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+    top:55.4% ;
+    left: 25%;
+    
+
+    &:hover {
+
+        animation: shake 10.82s cubic-bezier(.36, .07, .19, .97) both infinite;
+        transform: translate3d(0, 0, 0);
+        backface-visibility: hidden;
+        perspective: 1000px;
     }
 
-    :nth-child(4) {
-        animation-delay: 1.5s;
+    @keyframes shake {
+        .76%, 6.84% {transform: translate3d(-1px, 0, 0)}
+        1.52%, 6.08% {transform: translate3d(2px, 0, 0)}
+        2.28%, 3.8%, 5.32% {transform: translate3d(-4px, 0, 0)}
+        3.04%, 4.56% {transform: translate3d(4px, 0, 0)}
     }
-
-    :nth-child(5) {
-        animation-delay: 2s;
-    }
-
-    :nth-child(6) {
-        animation-delay: 2.5s;
-    }
-
-    :nth-child(7) {
-        animation-delay: 3s;
-    }
-
-    span {
-        font-size: 5rem;
-        display: inline-block;
-        animation: move 3s ease-in-out infinite;
-
-        @keyframes move {
-            0% {
-                transform: translate(-30%, 0);
-            }
-            50% {
-                text-shadow: 0 25px 50px rgba(0, 0, 0, 0.75);
-            }
-            100% {
-                transform: translate(30%, 0);
-            }
-        }
-
-        :nth-child(2) {
-            animation-delay: 0.5s;
-        }
-
-        :nth-child(3) {
-            animation-delay: 1s;
-        }
-
-        :nth-child(4) {
-            animation-delay: 1.5s;
-        }
-
-        :nth-child(5) {
-            animation-delay: 2s;
-        }
-
-        :nth-child(6) {
-            animation-delay: 2.5s;
-        }
-
-        :nth-child(7) {
-            animation-delay: 3s;
-        }
-    }
+    
     
     
 `
+
+export const TitleHead2 = styled(TitleHead)`
+    margin: 0;
+    margin-top: 7%;
+    margin-right: 50%;
+    
+`
+
+
+
 
 
 
 export const PrivateOrPublic = () => {
 
     return (
-        <PageContentPicture>
+        <>
+        
+        <PageContentPicture2>
+            <TitleHead2>Select a lobby:</TitleHead2>
+            <InnerContainer>
+            <Popup trigger={() => (
+                <ButtonContainer>PUBLIC </ButtonContainer>)} position="bottom center" on='hover'>
+                    <br/> 
+                <ContentBox>  Everyone can join. </ContentBox>
+            </Popup>
+        
+            <Popup trigger={() => (
+                <ButtonContainer>PRIVATE</ButtonContainer>)} position="top center" on='hover'>
+                    <br/> 
+                <ContentBox> Participans can only join <br/> with invitations. </ContentBox>
+            </Popup>
 
-            <div>
-                <span>R</span>
-                <span>E</span>
-                <span>D</span>
-                <span>Y</span>
-            </div>
+            <Link to='/details'> --- </Link>
+            </InnerContainer>
 
-            <div>
-                <span>F</span>
-                <span>O</span>
-                <span>R</span>
-
-                <span>T</span>
-                <span>H</span>
-                <span>E</span>
-            </div>
-
-            <div>
-                <span>C</span>
-                <span>H</span>
-                <span>A</span>
-                <span>L</span>
-                <span>L</span>
-                <span>E</span>
-                <span>N</span>
-                <span>G</span>
-                <span>E</span>
-                <span>?</span>
-            </div>
+            <OvalContainer2>
+                <OvalWhite2 />
+                <OvalBlue2 />
+                <OvalWhite2 />
+            </OvalContainer2>
             
-        </PageContentPicture>
+            
+        </PageContentPicture2>
+
+        <OctoLogo src={octoLogo} alt='logo'/>
+
+        </>
 
 
 

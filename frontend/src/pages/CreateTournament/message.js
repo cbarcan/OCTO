@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 
 
 export const PageContentPicture = styled.div`
-    /* border: solid red; */
+    /* 
     border: none;
     font-family: "Archivo Black", sans-serif;
     background: #14d1d1;
@@ -82,18 +82,9 @@ export const PageContentPicture = styled.div`
             animation-delay: 3s;
         }
     }
-    
-    
-`
 
 
-
-export const Message = () => {
-
-    return (
-        <PageContentPicture>
-
-            <div>
+    <div>
                 <span>R</span>
                 <span>E</span>
                 <span>D</span>
@@ -122,6 +113,50 @@ export const Message = () => {
                 <span>E</span>
                 <span>?</span>
             </div>
+     */
+
+            margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    padding-bottom: 5%;
+
+    p {
+        position: relative;
+        font-family: sans-serif;
+        text-transform: uppercase;
+        font-size: 2em;
+        letter-spacing: 4px;
+        overflow: hidden;
+        background: linear-gradient(90deg, #000, #fff, #000);
+        background-repeat: no-repeat;
+        background-size: 80%;
+        animation: animate 3s linear infinite;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: rgba(255, 255, 255, 0);
+
+
+  
+        @keyframes animate {
+            0% { background-position: -500%; }
+            100% { background-position: 500%; }
+        }
+    }
+    
+`
+
+
+
+export const Message = () => {
+
+    return (
+        <PageContentPicture>
+
+            <p>READY FOR THE CHALLENGE?</p>
             
         </PageContentPicture>
 

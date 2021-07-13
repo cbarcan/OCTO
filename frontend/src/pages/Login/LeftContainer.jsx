@@ -126,7 +126,7 @@ export const LoginInput =styled.input`
     padding-left: 30px;
     background: #ffffff75;
     border-radius: 30px;
-    
+    color: white;
     
     ::placeholder {
         color: white;

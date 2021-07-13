@@ -45,7 +45,7 @@ export const InputWrapper2 = styled(InputWrapper)`
     width: 48%;
 `
 
-const StyledForm2 = styled(StyledForm)`
+export const StyledForm2 = styled(StyledForm)`
 
     width: 80%;
     color: white;
