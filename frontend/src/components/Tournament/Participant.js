@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
-import avatar from "../assets/svgs/avatar.svg"
+import avatar from "../../assets/svgs/avatar.svg"
 
 const Container = styled.div`
     margin: 0 auto;

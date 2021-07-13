@@ -10,7 +10,8 @@ import Login from './pages/Login';
 import EmailSignUp from './pages/Login/SingUp/EmailForm';
 import CongratsMessage from './pages/Login/SingUp/CongratsDiv';
 import VerificationForm from './pages/Login/SingUp/Verification'
-import Tournament from './pages/Tournament';
+import TournamentOverview from './pages/TournamentOverview';
+import TournamentAdmin from './pages/TournamentAdmin.jsx';
 import CreateTournament from './pages/CreateTournament';
 import Message from './pages/CreateTournament/message';
 import PrivateOrPublic from './pages/CreateTournament/PrivateOr';
@@ -33,8 +34,9 @@ ReactDOM.render(
             <PageContent>
             <Switch>
               <Route exact path="/" component={ Home } />
+              <Route exact path="/tournament/:id" component={TournamentOverview} />
+              <Route exact path="/tournament/:id/admin" component={TournamentAdmin} />
               <Route exact path="/tournaments" component={Tournaments} />
-              <Route exact path="/tournament/:id" component={Tournament} />
               <Route exact path="/tournament/:id/bracket" component={Bracket} />
               <Route exact path="/tournament/:id/standing" component={Standing} />
               <Route exact path="/login" component={ Login } />
