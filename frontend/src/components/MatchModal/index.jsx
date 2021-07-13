@@ -4,7 +4,8 @@ import PageTitle from "../../styles/page-title";
 import Participant from "../Participant";
 import Modal from "react-modal";
 import styled from "styled-components";
-import {BaseButton} from "../../pages/Login/LeftContainer";
+import {BaseButton} from "../../pages/Login";
+import calendar_icon from "../../assets/svgs/calendar.svg"
 
 const ScoreWrapper = styled.div`
   height: 70vh;
@@ -28,6 +29,40 @@ const ScoreWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    .date_time {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      color: white;
+      padding: 0 2%;
+
+      p {
+        margin-right: 2%;
+      }
+
+      button {
+        height: 40px;
+        width: 40px;
+        background: none;
+        border: none;
+        outline: none;
+        display: flex;
+        transform: perspective(100px) translateZ(0px);
+        transition: transform 100ms linear;
+
+        :hover {
+          cursor: pointer;
+          transform: perspective(100px) translateZ(20px);
+        }
+
+        :active {
+          transform: translateY(2px);
+        }
+
+      }
+    }
 
     .wrapper_score {
       height: 50%;
@@ -185,7 +220,11 @@ const MatchModal = (props) => {
                     <CloseButton onClick={closeModal}>X</CloseButton>
                 </div>
                 <form className={"result"}>
-                    <PageTitle pageTitle={"Bolor VS Valentina"} marginTop={"none"}/>
+                    <PageTitle pageTitle={"Bolor VS Valentina"} margin={"none"}/>
+                    <div className={"date_time"}>
+                        <p>time</p>
+                        <button type={"button"}><img src={calendar_icon} alt={"calendar_icon"}/></button>
+                    </div>
                     <div className={"wrapper_score"}>
                         <Player>
                             <h1 className={value1 > value2 ? "on" : "off"}>WINNER</h1>

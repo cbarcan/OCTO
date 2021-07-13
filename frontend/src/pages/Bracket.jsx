@@ -10,11 +10,11 @@ const Wrapper = styled.div`
   align-items: center;
 `
 
-const BracketPage = () => {
+const Bracket = () => {
 
     // conditional rendering depending on tournament format
 
-    const format = 'round_robin' // this can be passed by props
+    const format = 'single_elimination' // this can be passed by props
     const tournament_id = 1
 
     if (format === 'single_elimination') {
@@ -31,8 +31,8 @@ const BracketPage = () => {
             </Wrapper>
         )
     }
-     // else round_robin
+     // else mixed
 
 }
 
-export default BracketPage
+export default Bracket

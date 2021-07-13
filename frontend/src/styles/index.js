@@ -20,6 +20,8 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     #root {
+        min-width: 100%;
+        width: fit-content;
         display: flex;
         color: white;
         // background: #1A1C2C;
