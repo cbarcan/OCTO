@@ -3,32 +3,11 @@ import { SectionTitle } from '../styles/section-title';
 import styled from 'styled-components';
 import Soccer from '../assets/svgs/soccer-ball.svg'
 import Map from '../components/Mapbox'
-import Participant from '../components/Participant'
-import Details from '../components/Details'
+import Participant from '../components/Tournament/Participant'
+import Details from '../components/Tournament/Details'
 import {Route, Switch} from "react-router-dom";
 import BracketPage from "./BracketPage";
-
-const BaseButton = styled.button `
-    border-radius: 30px;
-    width: 310px;
-    height: 90px;
-    color: #ecebeb;
-    background: linear-gradient(90deg, rgba(0,142,210,1) 1%, rgba(33,246,255,0.9192051820728291) 100%);
-    border: solid 4px #14d1d1;
-    font-size: large;
-    margin-top: 100px;
-    border: none;
-
-
-    &:hover {
-        cursor: pointer;
-    }
-
-    &:active {
-        transform: translateY(4px);
-    }
-    
-`
+import {BaseButton} from '../styles/buttons'
 
 
 const MainContainer = styled.div`
@@ -86,6 +65,8 @@ const ParticipantsContainer = styled.div`
     overflow: scroll;
 
 `
+
+
 
 
 const Home = () => {
