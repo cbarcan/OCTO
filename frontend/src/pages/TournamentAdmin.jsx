@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Soccer from '../assets/svgs/soccer-ball.svg'
 import Details from '../components/Tournament/Details'
 import StartButton from '../components/StartButton'
+import TournamentCard from "../components/TournamentCard";
 
 
 
@@ -14,15 +15,6 @@ const MainContainer = styled.div`
     align-items: center;
     justify-content: space-around;
     color: white;
-
-    img {
-        width: 10%;
-        border-radius: 50%;
-        background-color: ${props => props.theme.octoBlue };
-    }
-
-
-
 `
 
 
@@ -79,8 +71,7 @@ const Home = () => {
                                 <div className='invitation'>participants</div>                        
                             </Counter>
                         </Invitations>
-                        <img src={Soccer} alt="Avatar" />
-                        <Details/>
+                        <TournamentCard/>
                         <StartButton text={'START'}/>
                     </MainContainer>
     )

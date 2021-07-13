@@ -4,6 +4,8 @@ import Soccer from '../assets/svgs/soccer-ball.svg'
 import Map from '../components/Mapbox'
 import Participant from '../components/Tournament/Participant'
 import Details from '../components/Tournament/Details'
+import TournamentCard from "../components/TournamentCard";
+
 
 const BaseButton = styled.button `
     border-radius: 30px;
@@ -46,14 +48,9 @@ const LeftContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
     color: white;
 
-    img {
-        width: 20%;
-        border-radius: 50%;
-        background-color: ${props => props.theme.octoBlue };
-        margin-bottom: 100px;
-    }
 
 
 
@@ -89,8 +86,7 @@ const Home = () => {
     return (
                 <MainContainer>
                     <LeftContainer>
-                        <SectionTitle pageTitle="My awesome Tournament"></SectionTitle>
-                        <img src={Soccer} alt="Avatar" />
+                        <TournamentCard/>
                         <Details/>
                         <BaseButton>JOIN</BaseButton>
                     </LeftContainer>
