@@ -6,6 +6,7 @@ export const PageContainer = styled.div`
     display: grid;
     grid-template-rows: 1fr auto;
     padding: 5vw;
+    margin: 0;
 `;
 
 export const PageContent = styled.div`
@@ -14,6 +15,5 @@ export const PageContent = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: ${props => props.theme.backgroundDarkNavy };
-    box-shadow: ${props => props.theme.boxShadowDark};
+    margin: 0;
 `;

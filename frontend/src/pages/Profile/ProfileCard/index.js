@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
-import avatar from "../../../assets/svgs/avatar.svg"
+import avatarWhite from "../../../assets/svgs/avatarWhite.svg"
 
 const Container = styled.div`
     margin: 0 auto;
@@ -73,7 +73,7 @@ const ProfileCard = () => {
     return <>
         <Container>
             <CardLeft>
-                <UserProfilePicIcon src={ avatar || "https://via.placeholder.com/50x50" } />
+                <UserProfilePicIcon src={ avatarWhite || "https://via.placeholder.com/50x50" } />
                 <Name>
                     Bolor Munkhbold
                 </Name>
