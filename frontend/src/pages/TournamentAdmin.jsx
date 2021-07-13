@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-import Soccer from '../assets/svgs/soccer-ball.svg'
-import Details from '../components/Tournament/Details'
 import StartButton from '../components/StartButton'
 import TournamentCard from "../components/TournamentCard";
 
