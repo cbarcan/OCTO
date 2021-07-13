@@ -11,16 +11,19 @@ import ball from "../../assets/svgs/Ball.svg";
 import tennis from "../../assets/svgs/tennis.svg";
 import tennisBall from "../../assets/svgs/tennisBall.svg";
 import pingpong from "../../assets/svgs/pingpong.svg";
+import { OvalContainer, OvalBlue, OvalWhite  } from '../Login/SingUp/EmailForm';
 
 
 export const PageContentPicture = styled.div`
     //border: solid red;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background: black;
-    height: 100%; 
-    width: 90%; 
+    border-left: 8px solid white;
+    height: 94%; 
+    width: 100%; 
     margin: 0;
 
     a {
@@ -64,7 +67,7 @@ export const CardsContainers = styled.div`
     justify-content: center;
     align-items: center;
     height: 100%;
-    width: 100%;
+    width: 30%;
     margin: 0;
     padding: 0;
     transform: scale(0.48);
@@ -196,16 +199,41 @@ export const BallImg = styled.img`
 
 export const InnerDiv = styled.div`
     //border: solid pink;
-    height: 100%;
+    height: 60%;
     width: 100%;
     display: flex;
     margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
 `
 
 
 
 
+export const OvalContainer2 = styled(OvalContainer)`
+    //border: solid yellow;
+    margin: 0;
+    width: 20%;
+    height:10%;
+    
+`
+
+export const OvalBlue2 = styled(OvalBlue)`
+    height: 12px;
+    width: 12px;
+    margin-right: 5%;
+    margin-left: 5.5%;
+`
+
+export const OvalWhite2 = styled(OvalWhite)`
+    background: white;
+    height: 7px;
+    width: 7px;
+    margin-right: 5%;
+    margin-left: 5.5%;
+`
 
 
 
@@ -219,30 +247,38 @@ export const CreateTournament = () => {
         
         <PageContentPicture>
 
-        <TitleHead>Select a sport:</TitleHead>
+        
           <InnerDiv>
-            <CardsContainers>
-                <InnerContainer>
-                <Futball src={ball} alt='logo'/>
-                
-                </InnerContainer>
-            </CardsContainers>
-            <CardsContainers>
-            <InnerContainer>
-                <RacketImg src={tennis} alt='logo'/>
-                <BallImg src={tennisBall} alt='logo'/>
-                
-                </InnerContainer>
-            </CardsContainers>
-            <CardsContainers>
-            <InnerContainer>
-                <RacketImg src={pingpong} alt='logo'/>
-                
-                </InnerContainer>
-            </CardsContainers>
-            <Link to='/privacy'> --- </Link>
+          <TitleHead>Select a sport:</TitleHead>
+                <CardsContainers>
+                    <InnerContainer>
+                        <Futball src={ball} alt='logo'/>
+                    </InnerContainer>
+                </CardsContainers>
+
+                <CardsContainers>
+                    <InnerContainer>
+                        <RacketImg src={tennis} alt='logo'/>
+                        <BallImg src={tennisBall} alt='logo'/>
+                    </InnerContainer>
+                </CardsContainers>
+
+                <CardsContainers>
+                    <InnerContainer>
+                        <RacketImg src={pingpong} alt='logo'/>
+                    </InnerContainer>
+                </CardsContainers>
+
+                <Link to='/privacy'> --- </Link>
 
             </InnerDiv>
+
+            <OvalContainer2>
+                <OvalBlue2 />
+                <OvalWhite2 />
+                <OvalWhite2 />
+            </OvalContainer2>
+
         </PageContentPicture>
         </>
 
