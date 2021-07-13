@@ -12,10 +12,14 @@ const Wrapper = styled.div`
 
 const Standing = () => {
 
+    const url = window.location.pathname;
+    const url_array = url.split("/");
+    const tournament_id = url_array[url_array.length - 2];
+
     // conditional rendering depending on tournament format
 
-    const format = 'round_robin' // this can be passed by props
-    const tournament_id = 1
+    const format = 'single_elimination' // this can be passed by props
+    // const tournament_id = 1
 
     if (format === 'single_elimination') {
         return (
