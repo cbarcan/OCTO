@@ -11,24 +11,25 @@ const PageTitleLine = styled.div`
 `;
 
 const PageTitleContainer = styled.div`
-    margin-top: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-bottom: 40px;
 `;
 
 const PageTitleText = styled.h1`
-    font-size: 24px;
-    color: white;
+    font-weight: 800;
+    font-size: 32px;
+    color: white; 
+    -webkit-text-stroke: 1px ${props => props.theme.octoBlue};
+    text-shadow: 0 0 20px ${props => props.theme.octoBlue};
 `;
 
 //React component
 
 const PageTitle = (props) => {
     return (
-        <PageTitleContainer>
+        <PageTitleContainer style={{"margin":props.margin || "40px 0"}}>
             <PageTitleText>{props.pageTitle}</PageTitleText>
             <PageTitleLine />
         </PageTitleContainer>
