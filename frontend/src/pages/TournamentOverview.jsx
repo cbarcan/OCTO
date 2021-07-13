@@ -1,4 +1,3 @@
-import PageTitle from '../styles/page-title';
 import { SectionTitle } from '../styles/section-title';
 import styled from 'styled-components';
 import Soccer from '../assets/svgs/soccer-ball.svg'
