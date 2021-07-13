@@ -3,8 +3,8 @@ import { SectionTitle } from '../styles/section-title';
 import styled from 'styled-components';
 import Soccer from '../assets/svgs/soccer-ball.svg'
 import Map from '../components/Mapbox'
-import Participant from '../components/Participant'
-import Details from '../components/Details'
+import Participant from '../components/Tournament/Participant'
+import Details from '../components/Tournament/Details'
 
 const BaseButton = styled.button `
     border-radius: 30px;
