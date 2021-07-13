@@ -5,9 +5,9 @@ import { useDispatch, useSelector } from 'react-redux';
 // import octo from "../../assets/images/octopus_poly.png";
 // import BackgroundImg from '../../assets/images/background8.jpg';
 // import BackgroundImg2 from '../../assets/images/background6.jpg';
-import OctoWall from './RigthContainer';
+import OctoWall from './OctoWall';
 // import octoLogo from "../../assets/svgs/octo-text-outline_2p.svg";
-import { apiUserLogin } from '../../store/user';
+import { apiUserLogin } from '../../store/actions/userAction';
 
 
 export const PageContentPicture = styled.div`
@@ -199,7 +199,6 @@ export const Login = () => {
     };
 
     const onPwdChange = (e) => {
-        console.log(e)
         setPassword(e.target.value);
     };
 

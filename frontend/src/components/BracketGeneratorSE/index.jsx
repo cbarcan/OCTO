@@ -25,7 +25,7 @@ const RoundWrapper = styled.div`
 `
 
 const MatchWrapper = styled.div`
-  min-height: 110px;
+  min-height: 90px;
   height: 100%;
   width: 100%;
   display: flex;
@@ -80,7 +80,7 @@ const Round = (props) => {
                                item
                                ?
                                <>
-                                   < Match match={item}/>
+                                   <Match match={item}/>
                                    <Path className={"thing"}>
                                        <Left className={"left"}/>
                                        <Right className={"right"}/>
@@ -104,10 +104,10 @@ const BracketGeneratorSE = () => {
             id: "0",
             rounds: [
                 {
-                    id: "2",
+                    id: "0",
                     matches: [
                         {
-                            id: "6",
+                            id: "1",
                             players: [
                                 {
                                     id: "234",
@@ -121,13 +121,8 @@ const BracketGeneratorSE = () => {
                                 }
                             ]
                         },
-                        undefined,
-                        undefined,
-                        undefined,
-                        undefined,
-                        undefined,
                         {
-                            id: "6",
+                            id: "1",
                             players: [
                                 {
                                     id: "234",
@@ -141,7 +136,436 @@ const BracketGeneratorSE = () => {
                                 }
                             ]
                         },
-                        undefined,
+                        {
+                            id: "1",
+                            players: [
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                },
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                }
+                            ]
+                        },
+                        {
+                            id: "1",
+                            players: [
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                },
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                }
+                            ]
+                        },
+                        {
+                            id: "1",
+                            players: [
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                },
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                }
+                            ]
+                        },
+                        {
+                            id: "0",
+                            players: [
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                },
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                }
+                            ]
+                        },
+                        {
+                            id: "1",
+                            players: [
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                },
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                }
+                            ]
+                        },
+                        {
+                            id: "2",
+                            players: [
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                },
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                }
+                            ]
+                        },
+                        {
+                            id: "3",
+                            players: [
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                },
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    id: "0",
+                    matches: [
+                        {
+                            id: "0",
+                            players: [
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                },
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                }
+                            ]
+                        },
+                        {
+                            id: "1",
+                            players: [
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                },
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                }
+                            ]
+                        },
+                        {
+                            id: "2",
+                            players: [
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                },
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                }
+                            ]
+                        },
+                        {
+                            id: "3",
+                            players: [
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                },
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    id: "0",
+                    matches: [
+                        {
+                            id: "0",
+                            players: [
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                },
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                }
+                            ]
+                        },
+                        {
+                            id: "1",
+                            players: [
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                },
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                }
+                            ]
+                        },
+                        {
+                            id: "2",
+                            players: [
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                },
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                }
+                            ]
+                        },
+                        {
+                            id: "3",
+                            players: [
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                },
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    id: "0",
+                    matches: [
+                        {
+                            id: "0",
+                            players: [
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                },
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                }
+                            ]
+                        },
+                        {
+                            id: "1",
+                            players: [
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                },
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                }
+                            ]
+                        },
+                        {
+                            id: "2",
+                            players: [
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                },
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                }
+                            ]
+                        },
+                        {
+                            id: "3",
+                            players: [
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                },
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    id: "0",
+                    matches: [
+                        {
+                            id: "0",
+                            players: [
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                },
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                }
+                            ]
+                        },
+                        {
+                            id: "1",
+                            players: [
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                },
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                }
+                            ]
+                        },
+                        {
+                            id: "2",
+                            players: [
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                },
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                }
+                            ]
+                        },
+                        {
+                            id: "3",
+                            players: [
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                },
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    id: "0",
+                    matches: [
+                        {
+                            id: "0",
+                            players: [
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                },
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                }
+                            ]
+                        },
+                        {
+                            id: "1",
+                            players: [
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                },
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                }
+                            ]
+                        },
+                        {
+                            id: "2",
+                            players: [
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                },
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                }
+                            ]
+                        },
+                        {
+                            id: "3",
+                            players: [
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                },
+                                {
+                                    id: "234",
+                                    first_name: "Jon",
+                                    last_name: "Name"
+                                }
+                            ]
+                        }
                     ]
                 },
                 {
