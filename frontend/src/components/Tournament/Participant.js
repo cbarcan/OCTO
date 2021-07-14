@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
-import avatar from "../assets/svgs/avatar.svg"
+import avatar from "../../assets/svgs/avatar.svg"
 
 const Container = styled.div`
     margin: 0 auto;
@@ -8,13 +8,10 @@ const Container = styled.div`
     opacity: 90%; 
     border-radius: 4px;
     padding: 20px;
-
     width: 80%;
-
     display: flex;
     justify-content: center;
-
-    ; 
+    box-shadow: ${props => props.theme.boxShadowOcto};
 `;
 
 const CardLeft = styled.div`
