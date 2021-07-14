@@ -11,8 +11,8 @@ import { LeftContainer, LeftTopBar, LeftMiddleBar, TitleStyled, StyledForm, Inpu
 
 const CheckRelative = styled.img` 
     position: relative;
-    top: 17%; left: 38%;
-    width: 25%;
+    top: 17%; left: 30%;
+    width: 40%;
     margin-bottom: 5%;
     animation-name: rotate;
     animation-duration: 0.7s;
@@ -26,12 +26,12 @@ const CheckRelative = styled.img`
 `
 
 export const OvalContainer2 = styled(OvalContainer)` 
-    padding-top: 6%;
+    //border: solid yellow;
+    height: 5%;
+    margin: 0;
+    padding: 0;
 `
 
-const LeftTopBar2 = styled(LeftTopBar)` 
-    margin-bottom: 1%;
-`
 
 export const TitleStyled2 = styled(TitleStyled)` 
     padding: 0;
@@ -39,12 +39,14 @@ export const TitleStyled2 = styled(TitleStyled)`
     margin-bottom: 0;
     padding-right: 10px;
     font-size: 40px;
+    
 `
 
 const InputWrapper2 = styled(InputWrapper)` 
     padding: 0;
     margin-top: 0px;
     margin-bottom: 30px;
+    
 `
 
 const ParagraphText = styled.p` 
@@ -53,6 +55,29 @@ const ParagraphText = styled.p`
     padding-left: 1%;
 
 `
+
+const LeftTopBar2 = styled(LeftTopBar)` 
+    //border: solid blue;
+    margin-bottom: 7%;
+`
+
+const LeftMiddleBar2 = styled(LeftMiddleBar)` 
+    //border: solid green;
+    height: 41.2%;
+`
+
+const LeftBottomBar2 = styled(LeftBottomBar)` 
+    //border: solid red;
+    height: 10%;
+    margin-bottom: 5%;
+`
+
+const Link2 = styled(Link)`
+    //border: solid blue;
+    width: 100%;
+    text-align: center;
+`
+
 
 
 const CongratsMessage = () => {
@@ -66,7 +91,7 @@ const CongratsMessage = () => {
                 <LeftTopBar2 />
                 
                 
-                <LeftMiddleBar>
+                <LeftMiddleBar2>
                     <TitleStyled2>Congratulations!</TitleStyled2>
                     <StyledForm>
                         <InputWrapper2>
@@ -77,11 +102,11 @@ const CongratsMessage = () => {
                         <ParagraphText>tina@mail.com</ParagraphText>
 
                     </StyledForm>
-                </LeftMiddleBar>
+                </LeftMiddleBar2>
 
-                <LeftBottomBar>
-                    <Link to="/verification"><BaseButton>CONTINUE</BaseButton></Link>
-                </LeftBottomBar>
+                <LeftBottomBar2>
+                    <Link2 to="/verification"><BaseButton>CONTINUE</BaseButton></Link2>
+                </LeftBottomBar2>
                 
 
                 <OvalContainer2>
