@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
-from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
+from rest_framework.generics import RetrieveUpdateDestroyAPIView, ListAPIView, CreateAPIView
+from rest_framework.response import Response
 
 from tournament.models import Tournament
 from tournament.serializers.serializers import CreateTournamentSerializer, ListTournamentSerializer
@@ -7,17 +8,21 @@ from tournament.serializers.serializers import CreateTournamentSerializer, ListT
 User = get_user_model()
 
 
-class ListCreateTournamentView(ListCreateAPIView):
+class ListTournamentView(ListAPIView):
     # permission_classes = []
     queryset = Tournament.objects.all()
+    serializer_class = ListTournamentSerializer
 
-    def get_serializer_class(self):
-        if self.request.method == 'POST':
-            return CreateTournamentSerializer
-        return ListTournamentSerializer
 
-    def perform_create(self, serializer):
-        serializer.save(organizer=self.request.user)
+class CreateTournamentView(CreateAPIView):
+    serializer_class = CreateTournamentSerializer
+    # permission_classes = []
+
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save(organizer=request.user)
+        return Response(serializer.data)
 
 
 class RetrieveUpdateDestroyTournamentView(RetrieveUpdateDestroyAPIView):

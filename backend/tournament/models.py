@@ -14,8 +14,8 @@ def user_directory_path(instance, filename):
 class Tournament(models.Model):
     name = models.CharField(max_length=40, unique=True)
     description = models.TextField()
-    location = models.CharField()
-    format = models.CharField()
+    location = models.CharField(max_length=100)
+    format = models.CharField(max_length=50)
     private = models.BooleanField(default=False)
     team_type = models.TextChoices('team_type', 'Player Team')
     status = models.TextChoices('status', 'planned active finished')
