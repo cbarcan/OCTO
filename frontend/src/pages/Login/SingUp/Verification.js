@@ -7,7 +7,7 @@ import { useHistory } from 'react-router-dom';
 import { PageContentPicture} from '..';
 import OctoWall from '../OctoWall';
 import { TitleStyled2, OvalContainer2, LeftBottomBar2} from './CongratsDiv';
-import { LeftContainer, LeftTopBar, LeftMiddleBar, StyledForm, InputWrapper, LoginInput, LeftBottomBar, BaseButton} from '..';
+import { LeftContainer, LeftTopBar, LeftMiddleBar, StyledForm, InputWrapper, LoginInput, BaseButton} from '..';
 import { useDispatch } from 'react-redux';
 import { apiUserVerify } from '../../../store/actions/userAction';
 
