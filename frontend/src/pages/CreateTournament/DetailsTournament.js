@@ -10,6 +10,7 @@ import { InputWrapper2, InputsDiv, LongInput, ShortInput, StyledForm2, LabelText
 import MovingBackground from '../../components/MovingBackground';
 
 
+
 export const PageContentPicture3 = styled(PageContentPicture2)`
 border-left: none;
 color: #1a1f36;
@@ -27,7 +28,8 @@ export const FormContainer = styled.div`
     color: white;
     height: 80%;
     width: 70%;
-    border: 1px solid white;
+    // border: 1px solid white;
+    box-shadow: 1px 1px 20px -5px #ffffff75;
     margin-bottom: 5%;
 `
 

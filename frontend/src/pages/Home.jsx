@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import Message from '../pages/CreateTournament/message';
+import SideMenu from '../components/Menu';
 
 const Main = styled.div`
     width: 100%;
@@ -27,8 +28,9 @@ const Home = () => {
     return (
         <Main>
             <Message/>
+            <SideMenu/>
             <Links>
-                <Link to='/Login'>Login</Link>
+                <Link to='/login'>Login</Link>
                 <Link to='/registration'>Registration</Link>
                 <Link to='/confirmation'>Confirmation</Link>
                 <Link to='/verification'>Verification</Link>
