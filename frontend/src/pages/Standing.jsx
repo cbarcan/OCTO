@@ -18,7 +18,7 @@ const Standing = () => {
 
     // conditional rendering depending on tournament format
 
-    const format = 'round_robin' // this can be passed by props
+    const format = 'single_elimination' // this can be passed by props
     // const tournament_id = 1
 
     if (format === 'single_elimination') {

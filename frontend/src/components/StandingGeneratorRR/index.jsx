@@ -125,6 +125,186 @@ const StandingGeneratorRR = () => {
             score_diff: 3,
             points: 6,
         },
+        {
+            id: "0",
+            user: {
+                first_name: "Jon",
+                last_name: "Name"
+            },
+            matches_played: 2,
+            wins: 2,
+            draws: 0,
+            loses: 0,
+            score_for: 5,
+            score_against: 2,
+            score_diff: 3,
+            points: 6,
+        },
+        {
+            id: "0",
+            user: {
+                first_name: "Jon",
+                last_name: "Name"
+            },
+            matches_played: 2,
+            wins: 2,
+            draws: 0,
+            loses: 0,
+            score_for: 5,
+            score_against: 2,
+            score_diff: 3,
+            points: 6,
+        },
+        {
+            id: "0",
+            user: {
+                first_name: "Jon",
+                last_name: "Name"
+            },
+            matches_played: 2,
+            wins: 2,
+            draws: 0,
+            loses: 0,
+            score_for: 5,
+            score_against: 2,
+            score_diff: 3,
+            points: 6,
+        },
+        {
+            id: "0",
+            user: {
+                first_name: "Jon",
+                last_name: "Name"
+            },
+            matches_played: 2,
+            wins: 2,
+            draws: 0,
+            loses: 0,
+            score_for: 5,
+            score_against: 2,
+            score_diff: 3,
+            points: 6,
+        },
+        {
+            id: "0",
+            user: {
+                first_name: "Jon",
+                last_name: "Name"
+            },
+            matches_played: 2,
+            wins: 2,
+            draws: 0,
+            loses: 0,
+            score_for: 5,
+            score_against: 2,
+            score_diff: 3,
+            points: 6,
+        },
+        {
+            id: "0",
+            user: {
+                first_name: "Jon",
+                last_name: "Name"
+            },
+            matches_played: 2,
+            wins: 2,
+            draws: 0,
+            loses: 0,
+            score_for: 5,
+            score_against: 2,
+            score_diff: 3,
+            points: 6,
+        },
+        {
+            id: "0",
+            user: {
+                first_name: "Jon",
+                last_name: "Name"
+            },
+            matches_played: 2,
+            wins: 2,
+            draws: 0,
+            loses: 0,
+            score_for: 5,
+            score_against: 2,
+            score_diff: 3,
+            points: 6,
+        },
+        {
+            id: "0",
+            user: {
+                first_name: "Jon",
+                last_name: "Name"
+            },
+            matches_played: 2,
+            wins: 2,
+            draws: 0,
+            loses: 0,
+            score_for: 5,
+            score_against: 2,
+            score_diff: 3,
+            points: 6,
+        },
+        {
+            id: "0",
+            user: {
+                first_name: "Jon",
+                last_name: "Name"
+            },
+            matches_played: 2,
+            wins: 2,
+            draws: 0,
+            loses: 0,
+            score_for: 5,
+            score_against: 2,
+            score_diff: 3,
+            points: 6,
+        },
+        {
+            id: "0",
+            user: {
+                first_name: "Jon",
+                last_name: "Name"
+            },
+            matches_played: 2,
+            wins: 2,
+            draws: 0,
+            loses: 0,
+            score_for: 5,
+            score_against: 2,
+            score_diff: 3,
+            points: 6,
+        },
+        {
+            id: "0",
+            user: {
+                first_name: "Jon",
+                last_name: "Name"
+            },
+            matches_played: 2,
+            wins: 2,
+            draws: 0,
+            loses: 0,
+            score_for: 5,
+            score_against: 2,
+            score_diff: 3,
+            points: 6,
+        },
+        {
+            id: "0",
+            user: {
+                first_name: "Jon",
+                last_name: "Name"
+            },
+            matches_played: 2,
+            wins: 2,
+            draws: 0,
+            loses: 0,
+            score_for: 5,
+            score_against: 2,
+            score_diff: 3,
+            points: 6,
+        },
     ]
 
 

@@ -1,11 +1,13 @@
 import Participant from "../Tournament/Participant";
 import styled from "styled-components";
+import octo_victory from "../../assets/svgs/octo-victory-transparent.svg"
 
 const Wrapper = styled.div`
   height: fit-content;
   width: 100%;
   display: flex;
   padding: 0 10%;
+  align-items: center;
 
   .place {
     margin: 1% 0;
@@ -45,10 +47,11 @@ const Left = styled.div`
 `
 
 const Right = styled.div`
-  height: fit-content;
+  height: 547px;
   width: 50%;
   display: flex;
   flex-direction: column;
+  margin-left: 5%;
 `
 
 const StandingGeneratorSE = () => {
@@ -63,7 +66,7 @@ const StandingGeneratorSE = () => {
                 <Participant name={'Tina'} location={'Bed'}/>
             </Left>
             <Right>
-
+                <img src={octo_victory} alt={"octo victory"}/>
             </Right>
         </Wrapper>
     )
