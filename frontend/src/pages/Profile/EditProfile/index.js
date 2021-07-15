@@ -11,7 +11,7 @@ import camera from "../../../assets/svgs/photo-camera.svg"
 
 
 const Container = styled(FormContainer)`
-   width: 40%;
+   width: 40%; 
 `
 const Top = styled.div `
     display: flex; 
@@ -35,7 +35,7 @@ const WrapperAvatar = styled.div `
     }
   
     &:hover ${UserProfilePicIcon}{
-      opacity: 0.5;
+      opacity: 0.3;
     }
   `
 const Wrapper = styled.div`
