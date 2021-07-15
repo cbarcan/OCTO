@@ -4,7 +4,9 @@ import Popup from 'reactjs-popup';
 import { PageContentPicture, OvalContainer2, OvalBlue2, OvalWhite2, TitleHead  } from './index';
 import octoLogo from '../../assets/svgs/Slicehead.svg';
 import { Link } from 'react-router-dom';
-import SideMenu from '../../components/Menu';
+import SideMenu from '../../components/Menus/LoginUserMenu';
+
+
 
 export const PageContentPicture2 = styled(PageContentPicture)`
     width: 90%; 
@@ -130,7 +132,7 @@ export const PrivateOrPublic = () => {
 
     return (
         <>
-
+        
         <SideMenu/>
         
         <PageContentPicture2>

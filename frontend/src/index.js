@@ -23,7 +23,9 @@ import Profile from "./pages/Profile/index";
 import Standing from "./pages/Standing";
 import EditProfile from "./pages/Profile/EditProfile";
 import Tournaments from "./pages/Tournaments";
-import LoginInUserSideMenu from "./components/LoginUserMenu"
+import LoginInUserSideMenu from "./components/Menus/LoginUserMenu";
+import TestHome from './pages/Home2';
+
 
 
 ReactDOM.render(
@@ -51,6 +53,7 @@ ReactDOM.render(
               <Route exact path="/user/profile" component={Profile} />
               <Route exact path="/user/profile/edit" component={EditProfile} />
               <Route exact path="/menu" component={ LoginInUserSideMenu } />
+              <Route exact path="/test" component={ TestHome } />
             </Switch>
             </PageContent>
         </PageContainer>

@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import React from 'react';
-import home from '../assets/svgs/home.svg';
-import tIcon from '../assets/svgs/happy.svg';
-import octoIcon from '../assets/svgs/octopus1.svg';
-import signup from '../assets/svgs/signup.svg';
-import lupa from '../assets/svgs/lupa.svg';
-import login from '../assets/svgs/user.svg';
+import home from '../../assets/svgs/home.svg';
+import tIcon from '../../assets/svgs/happy.svg';
+import octoIcon from '../../assets/svgs/octopus1.svg';
+import signup from '../../assets/svgs/signup.svg';
+import lupa from '../../assets/svgs/lupa.svg';
+import login from '../../assets/svgs/user.svg';
 import { Link } from 'react-router-dom';
 
 export const MenuContainer = styled.div`

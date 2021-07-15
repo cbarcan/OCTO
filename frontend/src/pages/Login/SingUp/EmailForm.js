@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link, useHistory  } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Axios from '../../../axios';
-import { decodeMessage } from '../../../lib/helpers';
 import { PageContentPicture} from '..';
 import OctoWall from '../OctoWall';
 import { FormContainer, LeftContainer, LeftTopBar, LinkAn, LeftMiddleBar, TitleStyled, StyledForm, InputWrapper, LoginInput, LeftBottomBar, BaseButton} from '..';
@@ -38,18 +36,24 @@ export const OvalWhite= styled.div`
     margin-right: 1%;
     margin-left: 1.5%;
 `
+
+export const LeftMiddleBar2 = styled(LeftMiddleBar)`
+    height: 60%;
+    
+`
+
 const FormContainer2 = styled(FormContainer)`
     height: 47.4%;
     
 `
  const LeftTopBar2 = styled(LeftTopBar)`
-    margin-bottom: 3%;
+    margin-bottom: 6.4%;
 `
 
 const LeftBottomBar2 = styled(LeftBottomBar)`
     //border: solid yellow; 
     padding: 0;
-    margin-top: 15.3%;
+    margin-top: 18.1%;
     justify-content: center;
 
 ` 
@@ -88,7 +92,7 @@ const EmailSignUp = (props) => {
                 </LeftTopBar2>
                 
                 <FormContainer2 onSubmit={registerButtonHandler}> 
-                    <LeftMiddleBar>
+                    <LeftMiddleBar2>
                         <TitleStyled>Sign Up</TitleStyled>
                     <StyledForm>
                         <InputWrapper>
@@ -98,7 +102,7 @@ const EmailSignUp = (props) => {
                         <LinkAn>Already have an account? <Link to='/login' >Sign In</Link></LinkAn>
                     </StyledForm>
             
-                    </LeftMiddleBar>
+                    </LeftMiddleBar2>
                     <LeftBottomBar2>
                         <BaseButton type='submit'>CONTINUE</BaseButton>
                     </LeftBottomBar2>
