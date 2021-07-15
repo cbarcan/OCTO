@@ -12,7 +12,7 @@ import { LeftContainer, LeftTopBar, LeftMiddleBar, TitleStyled, StyledForm, Inpu
 const CheckRelative = styled.img` 
     position: relative;
     top: 17%; left: 30%;
-    width: 40%;
+    width: 45%;
     margin-bottom: 5%;
     animation-name: rotate;
     animation-duration: 0.7s;
@@ -27,9 +27,9 @@ const CheckRelative = styled.img`
 
 export const OvalContainer2 = styled(OvalContainer)` 
     //border: solid yellow;
-    height: 5%;
+    height: 0;
     margin: 0;
-    padding: 0;
+    
 `
 
 
@@ -58,18 +58,18 @@ const ParagraphText = styled.p`
 
 const LeftTopBar2 = styled(LeftTopBar)` 
     //border: solid blue;
-    margin-bottom: 7%;
+    margin-bottom: 0.5%;
 `
 
 const LeftMiddleBar2 = styled(LeftMiddleBar)` 
     //border: solid green;
-    height: 41.2%;
+    height: 50.5%;
 `
 
-const LeftBottomBar2 = styled(LeftBottomBar)` 
+export const LeftBottomBar2 = styled(LeftBottomBar)` 
     //border: solid red;
     height: 10%;
-    margin-bottom: 5%;
+    margin-bottom: 1%;
 `
 
 const Link2 = styled(Link)`

@@ -16,7 +16,8 @@ export const OvalContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 4%;
+    margin-top: 15.2%;
+
     
 `
 
@@ -42,11 +43,13 @@ const FormContainer2 = styled(FormContainer)`
     
 `
  const LeftTopBar2 = styled(LeftTopBar)`
-    margin-bottom: 15%;
+    margin-bottom: 3%;
 `
 
 const LeftBottomBar2 = styled(LeftBottomBar)`
+    //border: solid yellow; 
     padding: 0;
+    margin-top: 15.3%;
     justify-content: center;
 
 ` 

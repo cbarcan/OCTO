@@ -8,7 +8,7 @@ import { decodeMessage } from '../../../lib/helpers';
 //import emailIcon from '../../../assets/images/Shape.png';
 import { PageContentPicture} from '..';
 import OctoWall from '../OctoWall';
-import { TitleStyled2, OvalContainer2 } from './CongratsDiv';
+import { TitleStyled2, OvalContainer2, LeftBottomBar2} from './CongratsDiv';
 import { LeftContainer, LeftTopBar, LeftMiddleBar, StyledForm, InputWrapper, LoginInput, LeftBottomBar, BaseButton} from '..';
 import { useDispatch } from 'react-redux';
 import { apiUserVerify } from '../../../store/actions/userAction';
@@ -32,7 +32,7 @@ export const InputsDiv = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-bottom: 14.5%;
+    margin-bottom: 11%;
     
 `
 
@@ -48,17 +48,21 @@ export const InputWrapper2 = styled(InputWrapper)`
 `
 
 export const StyledForm2 = styled(StyledForm)`
-
+    //border: solid red;
     width: 80%;
     color: white;
 `
+
 export const LabelText = styled.label`
     color: white; ;
     font-size: 13px;
     margin-bottom: 2%;
     padding-left: 1%;
 `
-
+export const OvalContainer3 = styled(OvalContainer2)`
+    //border: solid red;
+    height: 5%;
+`
 
 
 const VerificationForm = () => {
@@ -119,16 +123,16 @@ const VerificationForm = () => {
                     </StyledForm2>
                     </LeftMiddleBar>
 
-                    <LeftBottomBar>
+                    <LeftBottomBar2>
                         <BaseButton type="submit">COMPLETE</BaseButton>
-                    </LeftBottomBar>
+                    </LeftBottomBar2>
                 </form>
 
-                <OvalContainer2>
+                <OvalContainer3>
                     <OvalWhite />
                     <OvalWhite />
                     <OvalBlue />
-                </OvalContainer2>
+                </OvalContainer3>
 
             </LeftContainer>
             <OctoWall/>
