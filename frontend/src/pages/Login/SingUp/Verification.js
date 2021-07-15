@@ -3,8 +3,6 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import {  OvalBlue, OvalWhite } from './EmailForm';
 import { useHistory } from 'react-router-dom';
-import Axios from '../../../axios';
-import { decodeMessage } from '../../../lib/helpers';
 //import emailIcon from '../../../assets/images/Shape.png';
 import { PageContentPicture} from '..';
 import OctoWall from '../OctoWall';
