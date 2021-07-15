@@ -39,10 +39,14 @@ const CardBottomRight = styled.div`
     grid-area: bottom-right;
 `;
 
-const UserProfilePicIcon = styled.img`
+export const UserProfilePicIcon = styled.img`
     height: 78px;
     width: 78px;
     margin-bottom: 1rem;
+        
+    &:hover img{
+        box-shadow: 0 0 0 2px #1da1f2e6;
+    }
 `;
 
 const Name = styled.p`

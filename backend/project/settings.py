@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     # my apps
     'user',
     'registration',
+    'team',
+    'tournament',
 ]
 
 
