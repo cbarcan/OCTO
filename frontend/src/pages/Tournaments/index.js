@@ -4,6 +4,7 @@ import TournamentCard from "../../components/TournamentCard";
 import ball from  "../../assets/svgs/Ball.svg"
 import tennis from "../../assets/svgs/tennis.svg"
 import pingpong from "../../assets/svgs/pingpong.svg"
+import {TitleHead3} from "../CreateTournament/DetailsTournament";
 
 const Container = styled.div `
   display: flex; 
@@ -55,10 +56,8 @@ const Bottom = styled.div `
     align-items: center; 
     align-items: center; 
 `
-const Text = styled.p`
-    font-size: 1.2rem;
-    margin: 0.5rem;
-    color: white; 
+const TitleHead4 = styled(TitleHead3)`
+    width: 80%; 
 `;
 
 const Icon = styled.img`
@@ -95,7 +94,7 @@ const Tournaments = () => {
   return <>
   <Container>
     <Create>
-      <Top><Text>Create your tournament!</Text></Top>
+      <Top><TitleHead4>Create your tournament</TitleHead4></Top>
       <Middle>
         <Icon src={ball}/>
         <Icon src={tennis}/>

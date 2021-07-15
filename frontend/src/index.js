@@ -23,6 +23,7 @@ import Profile from "./pages/Profile/index";
 import Standing from "./pages/Standing";
 import EditProfile from "./pages/Profile/EditProfile";
 import Tournaments from "./pages/Tournaments";
+import LoginInUserSideMenu from "./components/LoginUserMenu"
 
 
 ReactDOM.render(
@@ -49,6 +50,7 @@ ReactDOM.render(
               <Route exact path="/details" component={ DetailsCreate } />
               <Route exact path="/user/profile" component={Profile} />
               <Route exact path="/user/profile/edit" component={EditProfile} />
+              <Route exact path="/menu" component={ LoginInUserSideMenu } />
             </Switch>
             </PageContent>
         </PageContainer>
