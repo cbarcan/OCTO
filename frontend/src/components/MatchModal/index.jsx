@@ -95,6 +95,10 @@ const ScoreWrapper = styled.div`
         background: ${props => props.theme.mediumGrey60};
         border-radius: 5px;
         margin-top: 4%;
+        
+        :hover {
+          cursor: text;
+        }
       }
 
       .winner {
@@ -179,20 +183,40 @@ const SubmitButton = styled(BaseButton)`
 
 const MatchModal = (props) => {
 
-    const [value1, setValue1] = useState(null);
-    const [value2, setValue2] = useState(null);
+    const [value1, setValue1] = useState(0);
+    const [value2, setValue2] = useState(0);
 
     const changeValue1 = (e) => {
-        setValue1(e.target.value)
+        if (parseInt(e.target.value)){
+            console.log(e.target.value)
+            setValue1(parseInt(e.target.value));
+        }
+        else if (e.target.value===""){
+            setValue1(0);
+        }
+        else {
+            console.log(e.target.value)
+            e.preventDefault();
+        }
     }
 
     const changeValue2 = (e) => {
-        setValue2(e.target.value)
+        if (parseInt(e.target.value)) {
+            console.log(e.target.value)
+            setValue2(parseInt(e.target.value));
+        }
+        else if (e.target.value===""){
+            setValue2(0);
+        }
+        else {
+            console.log(e.target.value)
+            e.preventDefault()
+        }
     }
 
     const closeModal = () => {
-        setValue1(null);
-        setValue2(null);
+        setValue1(0);
+        setValue2(0);
         props.closeModal();
     }
 
@@ -230,13 +254,13 @@ const MatchModal = (props) => {
                             <h1 className={value1 > value2 ? "on" : "off"}>WINNER</h1>
                             <Participant name={'Tina'} location={'Bed'}/>
                         </Player>
-                        <div className={value1 === value2 ? "points" : value1 > value2 ? "points winner" : "points loser"}>
+                        <label className={value1 === value2 ? "points" : value1 > value2 ? "points winner" : "points loser"}>
                             <input type={"text"} placeholder={0} value={value1} onChange={changeValue1}/>
-                        </div>
+                        </label>
                         <p className={value1 === value2 ? "draw_on" : "draw_off"}>DRAW</p>
-                        <div className={value1 === value2 ? "points" : value1 < value2 ? "points winner" : "points loser"}>
+                        <label className={value1 === value2 ? "points" : value1 < value2 ? "points winner" : "points loser"}>
                             <input type={"text"} placeholder={0} value={value2} onChange={changeValue2}/>
-                        </div>
+                        </label>
                         <Player>
                             <h1 className={value1 < value2 ? "on" : "off"}>WINNER</h1>
                             <Participant name={'Tina'} location={'Bed'}/>
