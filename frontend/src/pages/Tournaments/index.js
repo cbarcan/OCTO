@@ -29,7 +29,6 @@ margin: 0 auto;
       ;
       
      &:hover {
-        cursor: pointer;
         box-shadow: 1px 1px 20px -5px #14d1d1;
     }
 `
@@ -90,6 +89,10 @@ const Button = styled.button `
     }
 `
 
+const Tournaments = () => {
+
+
+
 const Tournaments = ({ history }) => {
 
   const CreateTournamentHandler = /**async**/ e => {
@@ -112,13 +115,11 @@ const Tournaments = ({ history }) => {
         <Button onClick={CreateTournamentHandler}>CREATE NOW!!!</Button>
       </Bottom>
     </Create>
-    <TournamentCard/>
-    <TournamentCard/>
-    <TournamentCard/>
-    <TournamentCard/>
-    <TournamentCard/>
-    <TournamentCard/>
-     <TournamentCard/>
+    <TournamentCard id={1} />
+    <TournamentCard id={2} />
+    <TournamentCard id={3} />
+    <TournamentCard id={4} />
+    <TournamentCard id={5} />
   </Container>
   </>
 }

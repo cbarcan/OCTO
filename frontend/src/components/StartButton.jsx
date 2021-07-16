@@ -36,6 +36,7 @@ const MainContainer = styled.div`
 .cta:hover {
     transition: 0.5s;
     box-shadow: 10px 10px 0 #00ECFF;
+    cursor: pointer;
 }
 
 .cta span:nth-child(2) {

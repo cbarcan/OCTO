@@ -51,6 +51,8 @@ const Background = styled.div `
   background: linear-gradient(to bottom, #edfffa 0%,#31c5d6 100%);
   position: relative;
   overflow: hidden;
+  
+  Buble()
 `
 
 const Bubble = styled.img `

@@ -1,6 +1,6 @@
 import { SectionTitle } from '../styles/section-title';
 import styled from 'styled-components';
-import Map from '../components/Mapbox'
+import Map from '../components/Map/Map'
 import Participant from '../components/Tournament/Participant'
 import Details from '../components/Tournament/Details'
 import TournamentCard from "../components/TournamentCard";
@@ -49,6 +49,8 @@ const LeftContainer = styled.div`
     align-items: center;
     justify-content: space-around;
     color: white;
+
+
   
 `
 
@@ -64,7 +66,9 @@ const RightContainer = styled.div`
 `
 
 const LocationContainer = styled.div`
-    height: 50%;
+    border: solid blue;
+    height: 42%;
+    box-sizing: border-box;
 `
 
 
@@ -78,9 +82,15 @@ const ParticipantsContainer = styled.div`
 `
 
 
+
+
+
 const Home = () => {
+
+
     return (
                 <MainContainer>
+
                     <LeftContainer>
                         <TournamentCard/>
                         <Details/>
@@ -100,10 +110,9 @@ const Home = () => {
                                 <Participant name={'Gian'} location={'Aarau'}/>
                                 <Participant name={'Bolor'} location={'Zurich'}/>
                         </ParticipantsContainer>
+
                         <SectionTitle pageTitle="Location: Propulsion Academy, Heinrichstrasse 200, 8005 Zürich"></SectionTitle>
-                        <LocationContainer>
-                            <Map />
-                        </LocationContainer>
+
                     </RightContainer>
                 </MainContainer>
     )

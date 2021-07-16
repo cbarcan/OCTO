@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import {  OvalBlue, OvalWhite } from './EmailForm';
+import {  OvalBlue, OvalWhite, LeftMiddleBar2 } from './EmailForm';
 import { useHistory } from 'react-router-dom';
-import Axios from '../../../axios';
-import { decodeMessage } from '../../../lib/helpers';
-//import emailIcon from '../../../assets/images/Shape.png';
 import { PageContentPicture} from '..';
 import OctoWall from '../OctoWall';
 import { TitleStyled2, OvalContainer2, LeftBottomBar2} from './CongratsDiv';
-import { LeftContainer, LeftTopBar, LeftMiddleBar, StyledForm, InputWrapper, LoginInput, LeftBottomBar, BaseButton} from '..';
+import { LeftContainer, LeftTopBar, LeftMiddleBar, StyledForm, InputWrapper, LoginInput, BaseButton} from '..';
 import { useDispatch } from 'react-redux';
 import { apiUserVerify } from '../../../store/actions/userAction';
 
@@ -61,7 +58,7 @@ export const LabelText = styled.label`
 `
 export const OvalContainer3 = styled(OvalContainer2)`
     //border: solid red;
-    height: 5%;
+    height: 8%;
 `
 
 
@@ -95,7 +92,7 @@ const VerificationForm = () => {
             <LeftContainer>
                 <LeftTopBar3 />
                 <form onSubmit={completeButtonHandler}>
-                    <LeftMiddleBar>
+                    <LeftMiddleBar2>
                         <TitleStyled2>Verification</TitleStyled2>
                     <StyledForm2>
                         <InputWrapper>
@@ -121,7 +118,7 @@ const VerificationForm = () => {
                             </InputWrapper2>
                         </InputsDiv>
                     </StyledForm2>
-                    </LeftMiddleBar>
+                    </LeftMiddleBar2>
 
                     <LeftBottomBar2>
                         <BaseButton type="submit">COMPLETE</BaseButton>

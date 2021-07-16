@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 
 export const PageContentPicture = styled.div`
@@ -115,7 +115,7 @@ export const PageContentPicture = styled.div`
             </div>
      */
 
-            margin: 0;
+    margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
@@ -136,6 +136,7 @@ export const PageContentPicture = styled.div`
         background-repeat: no-repeat;
         background-size: 80%;
         animation: animate 3s linear infinite;
+        background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: rgba(255, 255, 255, 0);
 

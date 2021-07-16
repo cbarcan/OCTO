@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 import React from 'react';
-import home from '../assets/svgs/home.svg';
-import bracket from '../assets/svgs/fixtures.svg';
-import octoIcon from '../assets/svgs/octopus1.svg';
-import happy from '../assets/svgs/vote.svg';
-import ranking from '../assets/svgs/top.svg';
-import logout from '../assets/svgs/enter.svg';
-import eye from '../assets/svgs/eye.svg';
-import admin from '../assets/svgs/settings1.svg';
+import home from '../../assets/svgs/home.svg';
+import bracket from '../../assets/svgs/fixtures.svg';
+import octoIcon from '../../assets/svgs/octopus1.svg';
+import happy from '../../assets/svgs/vote.svg';
+import ranking from '../../assets/svgs/top.svg';
+import logout from '../../assets/svgs/enter.svg';
+import eye from '../../assets/svgs/eye.svg';
+import admin from '../../assets/svgs/settings1.svg';
 import { Link } from 'react-router-dom';
 import { MenuContainer, InnerLinksContainer, IndividualLinksContainer, SingContainer } from './Menu';
 
