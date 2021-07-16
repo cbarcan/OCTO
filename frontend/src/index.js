@@ -27,6 +27,8 @@ import Dashboard from "./pages/Dashboard";
 import Sidebar from './components/Sidebar';
 import LoginInUserSideMenu from "./components/Menus/LoginUserMenu";
 import TestHome from './pages/Home2';
+import {withAuth} from './hoc/AuthHOC'
+import LoginTopHeader from "./components/HeaderOptions/LoginTopHeader";
 
 
 
@@ -52,7 +54,7 @@ ReactDOM.render(
               <Route exact path="/verification" component={ VerificationForm} />
               <Route exact path="/create" component={ CreateTournament } />
               <Route exact path="/message" component={ Message } />
-              <Route exact path="/privacy" component={ PrivateOrPublic } />
+              <Route exact path="/privacy" component={ withAuth(PrivateOrPublic) } />
               <Route exact path="/details" component={ DetailsCreate } />
               <Route exact path="/user/:id" component={Profile} />
               <Route exact path="/user/:id/edit" component={EditProfile} />
@@ -62,6 +64,7 @@ ReactDOM.render(
               <Route exact path="/test" component={ TestHome } />
             </Switch>
             </PageContent>
+            <LoginTopHeader/>
         </PageContainer>
     </Router>
     </ThemeProvider>

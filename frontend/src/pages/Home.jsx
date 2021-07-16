@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import Message from '../pages/CreateTournament/message';
-import LoginTopHeader from "../components/HeaderOptions/LoginTopHeader";
 
 const Main = styled.div`
     width: 100%;
@@ -46,7 +45,6 @@ const Home = () => {
                 <Link to="/user/profile">Profile</Link>
                 <Link to="/user/profile/edit">EditProfile</Link>
             </Links>
-            <LoginTopHeader/>
         </Main>
     )
 }
