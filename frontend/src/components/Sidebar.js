@@ -136,16 +136,13 @@ export const SideMenu = () => {
     // fetch user data if token is there but page is reloaded
 
     useEffect(() => {
-
-        console.log(id)
-
         if(location.pathname.includes('tournament/')) {
             setIsTournament(true)
         } else {
             setIsTournament(false)
             dispatch(addTournamentData(''));
         }
-    }, [id, userIsLoggedIn, isTournament, location.pathname])
+    }, [dispatch, id, userIsLoggedIn, isTournament, location.pathname])
 
 
     const logoutHandler = () => {
@@ -224,7 +221,7 @@ export const SideMenu = () => {
 
                     </>) : null }
                     {
-                        myTournaments.includes(id) ?                     
+                        (myTournaments.includes(id) && userIsLoggedIn)  ?                     
                         <IndividualLinksContainer>
                             <img onClick={(e) => history.push(`/tournament/${id}/admin`)} src={admin} alt='admin'/>
                             <NavLink activeClassName="active" to={`/tournament/${id}/admin`}>ADMIN</NavLink>  
