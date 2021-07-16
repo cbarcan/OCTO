@@ -92,7 +92,8 @@ export const LinkAn = styled.p`
 
 
 export const LeftMiddleBar = styled.div `
-    height: 60%;
+    //border: 1px solid yellow;
+    height: 64.9%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -169,6 +170,7 @@ export const BaseButton = styled.button `
 
 export const FormContainer = styled.form`
     height: 100%;
+    //border: 1px solid yellow;
     
 `
 

@@ -6,6 +6,7 @@ import octo from "../../assets/images/octopus_poly.png";
 export const OctoWall = styled.div`
 height: 100%;
 width: 45%;
+margin-top: 2%;
 margin-left: 5%;
 color: white;
 display: flex;

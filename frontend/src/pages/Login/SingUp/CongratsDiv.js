@@ -58,12 +58,12 @@ const ParagraphText = styled.p`
 
 const LeftTopBar2 = styled(LeftTopBar)` 
     //border: solid blue;
-    margin-bottom: 0.5%;
+    margin-bottom: 4%;
 `
 
 const LeftMiddleBar2 = styled(LeftMiddleBar)` 
     //border: solid green;
-    height: 50.5%;
+    height: 51.7%;
 `
 
 export const LeftBottomBar2 = styled(LeftBottomBar)` 
@@ -80,7 +80,7 @@ const Link2 = styled(Link)`
 
 
 
-const CongratsMessage = () => {
+const CongratsMessage = ({emailValue}) => {
     
         
     return (
@@ -99,7 +99,7 @@ const CongratsMessage = () => {
                         </InputWrapper2>
 
                         <ParagraphText>We've sent a confirmation code to your email. </ParagraphText>
-                        <ParagraphText>tina@mail.com</ParagraphText>
+                        <ParagraphText>{emailValue}</ParagraphText>
 
                     </StyledForm>
                 </LeftMiddleBar2>

@@ -115,7 +115,7 @@ export const PageContentPicture = styled.div`
             </div>
      */
 
-            margin: 0;
+    margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
