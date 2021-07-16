@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import TournamentCard from "../../components/TournamentCard";
-import ball from  "../../assets/svgs/Ball.svg"
-import tennis from "../../assets/svgs/tennis.svg"
-import pingpong from "../../assets/svgs/pingpong.svg"
-import {TitleHead3} from "../CreateTournament/DetailsTournament";
+import TournamentCard from "../components/TournamentCard";
+import ball from  "./../assets/svgs/Ball.svg"
+import tennis from "./../assets/svgs/tennis.svg"
+import pingpong from "./../assets/svgs/pingpong.svg"
+import {TitleHead3} from "./CreateTournament/DetailsTournament";
 
 const Container = styled.div `
   display: flex; 
@@ -96,7 +96,6 @@ const Tournaments = () => {
   return <>
   <Container>
     <Create>
-      <Top><TitleHead4>Create your tournament</TitleHead4></Top>
       <Middle>
         <Icon src={ball}/>
         <Icon src={tennis}/>
@@ -106,10 +105,9 @@ const Tournaments = () => {
         <Button>CREATE NOW!!!</Button>
       </Bottom>
     </Create>
-    <TournamentCard id={1} />
-    <TournamentCard id={2} />
+
     <TournamentCard id={3} />
-    <TournamentCard id={4} />
+
     <TournamentCard id={5} />
   </Container>
   </>

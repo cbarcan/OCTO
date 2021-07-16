@@ -216,7 +216,7 @@ export const Login = () => {
 
     useEffect(() => {
         if (token) {
-            push('/');
+            push('/tournaments');
             
         }
     }, [token, push, dispatch]);

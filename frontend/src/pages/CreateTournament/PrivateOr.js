@@ -1,10 +1,9 @@
 import styled from 'styled-components';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Popup from 'reactjs-popup';
 import { PageContentPicture, OvalContainer2, OvalBlue2, OvalWhite2, TitleHead  } from './index';
 import octoLogo from '../../assets/svgs/Slicehead.svg';
 import { Link } from 'react-router-dom';
-import SideMenu from '../../components/Menu';
 
 export const PageContentPicture2 = styled(PageContentPicture)`
     width: 90%; 
@@ -131,7 +130,6 @@ export const PrivateOrPublic = () => {
     return (
         <>
 
-        <SideMenu/>
         
         <PageContentPicture2>
             <TitleHead2>Select a lobby:</TitleHead2>

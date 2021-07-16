@@ -23,7 +23,8 @@ import Profile from "./pages/Profile/index";
 import Standing from "./pages/Standing";
 import EditProfile from "./pages/Profile/EditProfile";
 import Tournaments from "./pages/Tournaments";
-import LoginInUserSideMenu from "./components/LoginUserMenu"
+import Dashboard from "./pages/Dashboard";
+import Sidebar from './components/Sidebar';
 
 
 ReactDOM.render(
@@ -32,12 +33,14 @@ ReactDOM.render(
       <GlobalStyle />
       <Router>
       <PageContainer>
+            <Sidebar/>
             <PageContent>
             <Switch>
-              <Route exact path="/" component={ Home } />
-              <Route exact path="/tournament/:id" component={TournamentOverview} />
+              <Route exact path="/home" component={ Home } />
+              <Route exact path="/tournament/:id/overview" component={TournamentOverview} />
               <Route exact path="/tournament/:id/admin" component={TournamentAdmin} />
               <Route exact path="/tournaments" component={Tournaments} />
+              <Route exact path="/dashboard" component={Dashboard} />
               <Route exact path="/tournament/:id/bracket" component={Bracket} />
               <Route exact path="/tournament/:id/standing" component={Standing} />
               <Route exact path="/login" component={ Login } />
@@ -48,9 +51,8 @@ ReactDOM.render(
               <Route exact path="/message" component={ Message } />
               <Route exact path="/privacy" component={ PrivateOrPublic } />
               <Route exact path="/details" component={ DetailsCreate } />
-              <Route exact path="/user/profile" component={Profile} />
-              <Route exact path="/user/profile/edit" component={EditProfile} />
-              <Route exact path="/menu" component={ LoginInUserSideMenu } />
+              <Route exact path="/user/:id" component={Profile} />
+              <Route exact path="/user/:id/edit" component={EditProfile} />
             </Switch>
             </PageContent>
         </PageContainer>

@@ -3,12 +3,12 @@ import React from 'react';
 
 //Style component
 
-const SectionTitleLine = styled.div`
-    width: 100px;
-    height: 3px;
-    background-color: #00ECFF;
-    margin-top: 20px;
-`;
+// const SectionTitleLine = styled.div`
+//     width: 100px;
+//     height: 3px;
+//     background-color: #00ECFF;
+//     margin-top: 20px;
+// `;
 
 const SectionTitleContainer = styled.div`
     margin-top: 40px;

@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link, useHistory  } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Axios from '../../../axios';
-import { decodeMessage } from '../../../lib/helpers';
 import { PageContentPicture} from '..';
 import OctoWall from '../OctoWall';
 import { FormContainer, LeftContainer, LeftTopBar, LinkAn, LeftMiddleBar, TitleStyled, StyledForm, InputWrapper, LoginInput, LeftBottomBar, BaseButton} from '..';
