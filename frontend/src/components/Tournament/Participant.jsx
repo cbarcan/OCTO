@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components'
 import avatar from "../../assets/svgs/avatar.svg"
+import { useHistory } from "react-router-dom";
+
 
 const Container = styled.div`
     margin: 0 auto;
@@ -12,6 +14,10 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     box-shadow: ${props => props.theme.boxShadowOcto};
+
+    &:hover {
+        cursor: pointer;
+    }
 `;
 
 const CardLeft = styled.div`
@@ -42,8 +48,16 @@ const Location = styled.p`
 
 
 const Participant = (props) => {
+
+    const history = useHistory();
+
+
+    const handleClick = () => {
+        history.push(`/user/${props.id}`);
+    }
+
     return <>
-        <Container>
+        <Container onClick={handleClick}>
             <CardLeft>
                 <UserProfilePicIcon src={ avatar || "https://via.placeholder.com/50x50" } />
                 <Name>{props.name}</Name>
