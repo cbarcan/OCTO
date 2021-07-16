@@ -49,10 +49,7 @@ const LeftContainer = styled.div`
     align-items: center;
     justify-content: space-around;
     color: white;
-
-
-
-
+  
 `
 
 const RightContainer = styled.div`

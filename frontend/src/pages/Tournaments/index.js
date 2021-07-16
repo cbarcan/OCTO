@@ -90,7 +90,15 @@ const Button = styled.button `
     }
 `
 
-const Tournaments = () => {
+const Tournaments = ({ history }) => {
+
+  const CreateTournamentHandler = /**async**/ e => {
+        e.preventDefault();
+        //const response = await loginAction(loginData);
+        //if (response.status === 200) history.push('/create');
+        history.push("/create");
+    };
+
   return <>
   <Container>
     <Create>
@@ -101,7 +109,7 @@ const Tournaments = () => {
         <Icon src={pingpong}/>
       </Middle>
       <Bottom>
-        <Button>CREATE NOW!!!</Button>
+        <Button onClick={CreateTournamentHandler}>CREATE NOW!!!</Button>
       </Bottom>
     </Create>
     <TournamentCard/>
