@@ -1,6 +1,6 @@
 import { SectionTitle } from '../styles/section-title';
 import styled from 'styled-components';
-import Map from '../components/Map/Map'
+import Map from '../components/Mapbox'
 import Participant from '../components/Tournament/Participant'
 import Details from '../components/Tournament/Details'
 import TournamentCard from "../components/TournamentCard";
@@ -98,20 +98,22 @@ const Home = () => {
                     <RightContainer>
                     <SectionTitle pageTitle="Participants"></SectionTitle>
                         <ParticipantsContainer>
-                                <Participant name={'Tina'} location={'Bed'}/>
-                                <Participant name={'Jon'} location={'Lake'}/>
-                                <Participant name={'Catalin'} location={'Online'}/>
-                                <Participant name={'Gian'} location={'Aarau'}/>
-                                <Participant name={'Bolor'} location={'Zurich'}/>
-                                <Participant name={'Tina'} location={'Bed'}/>
-                                <Participant name={'Jon'} location={'Lake'}/>
-                                <Participant name={'Catalin'} location={'Online'}/>
-                                <Participant name={'Gian'} location={'Aarau'}/>
-                                <Participant name={'Bolor'} location={'Zurich'}/>
+                                <Participant name={'Tina'} location={'Bed'} id={1}/>
+                                <Participant name={'Jon'} location={'Lake'} id={2}/>
+                                <Participant name={'Catalin'} location={'Online'} id={3}/>
+                                <Participant name={'Gian'} location={'Aarau'} id={4}/>
+                                <Participant name={'Bolor'} location={'Zurich'} id={5}/>
+                                <Participant name={'Tina'} location={'Bed'} id={6}/>
+                                <Participant name={'Jon'} location={'Lake'} id={7}/>
+                                <Participant name={'Catalin'} location={'Online'} id={8}/>
+                                <Participant name={'Gian'} location={'Aarau'} id={9}/>
+                                <Participant name={'Bolor'} location={'Zurich'} id={10}/>
                         </ParticipantsContainer>
                         
                         <SectionTitle pageTitle="Location: Propulsion Academy, Heinrichstrasse 200, 8005 Zürich"></SectionTitle>
-                        
+                        <LocationContainer>
+                            <Map/>
+                        </LocationContainer>
                     </RightContainer>
                 </MainContainer>
     )
