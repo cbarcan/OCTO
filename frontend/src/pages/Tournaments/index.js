@@ -5,6 +5,7 @@ import ball from  "../../assets/svgs/Ball.svg"
 import tennis from "../../assets/svgs/tennis.svg"
 import pingpong from "../../assets/svgs/pingpong.svg"
 import {TitleHead3} from "../CreateTournament/DetailsTournament";
+import { useHistory } from "react-router-dom";
 
 const Container = styled.div `
   display: flex; 
@@ -91,6 +92,8 @@ const Button = styled.button `
 
 const Tournaments = () => {
 
+  const history = useHistory();
+
 
 
   return <>
@@ -103,7 +106,7 @@ const Tournaments = () => {
         <Icon src={pingpong}/>
       </Middle>
       <Bottom>
-        <Button>CREATE NOW!!!</Button>
+        <Button onClick={(e) => history.push('/create')}>CREATE NOW!!!</Button>
       </Bottom>
     </Create>
     <TournamentCard id={1} />
