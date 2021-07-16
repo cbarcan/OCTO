@@ -6,7 +6,8 @@ import tennis from "../../assets/svgs/tennis.svg"
 import pingpong from "../../assets/svgs/pingpong.svg"
 import {TitleHead3} from "../CreateTournament/DetailsTournament";
 
-const Container = styled.div `
+
+const Container = styled.div`
   display: flex; 
   flex-flow: row wrap;
   width: 100%; 
@@ -89,10 +90,6 @@ const Button = styled.button `
     }
 `
 
-const Tournaments = () => {
-
-
-
 const Tournaments = ({ history }) => {
 
   const CreateTournamentHandler = /**async**/ e => {
@@ -104,6 +101,7 @@ const Tournaments = ({ history }) => {
 
   return <>
   <Container>
+
     <Create>
       <Top><TitleHead4>Create your tournament</TitleHead4></Top>
       <Middle>
