@@ -1,5 +1,6 @@
 export const user = (
   state = {
+    myTournaments: [3, 5, 7],
     token: null,
     userData: {},
   }, action) => {

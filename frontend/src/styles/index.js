@@ -58,9 +58,10 @@ export const defaultTheme = {
     // Box Shadows:
     boxShadowDark: `-5px 6px 15px 1px rgba(0,0,0,0.50)`,
     boxShadowDarkRight: `5px 6px 10px 1px rgba(0,0,0,0.50)`,
+    boxShadowWhiteRight: `5px 6px 10px 1px rgba(255,255,255,0.50)`,
     boxShadowLight: `-5px 6px 15px 1px rgba(0,0,0,0.25)`,
     boxShadowLighter: `-5px 6px 15px 1px rgba(0,0,0,0.15)`,
-    boxShadowOcto: `-5px 6px 15px 1px rgba(0,236,255,0.50)`,
+    boxShadowOcto: `5px 6px 10px 1px rgba(0,236,255,0.50)`,
     boxShadowNav: `2px 0 24px 0 rgba(0,0,0,0.04)`,
     boxShadowTiles: `0 2px 24px 0 rgba(0,0,0,0.04)`,
     boxShadowInTiles: `0 1px 3px 0 rgba(0,0,0,0.2)`,

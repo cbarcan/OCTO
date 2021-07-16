@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import map from '../../assets/svgs/map.svg';
 import bluepin from '../../assets/svgs/map2.svg';
 import camara from '../../assets/svgs/photo-camera.svg';
@@ -8,6 +8,7 @@ import { PageContentPicture2, TitleHead2  } from './PrivateOr';
 import { LeftMiddleBar, LeftBottomBar, BaseButton, InputWrapper} from '../Login/index';
 import { InputWrapper2, InputsDiv, LongInput, ShortInput, StyledForm2, LabelText} from '../Login/SingUp/Verification';
 import MovingBackground from '../../components/MovingBackground';
+
 
 
 export const PageContentPicture3 = styled(PageContentPicture2)`
@@ -27,7 +28,8 @@ export const FormContainer = styled.div`
     color: white;
     height: 80%;
     width: 70%;
-    border: 1px solid white;
+    // border: 1px solid white;
+    box-shadow: 1px 1px 20px -5px #ffffff75;
     margin-bottom: 5%;
 `
 

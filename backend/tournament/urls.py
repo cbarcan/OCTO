@@ -7,7 +7,7 @@ urlpatterns = [
     path('list/', ListTournamentView.as_view()),
 
     # create tournament
-    path('new/', CreateTournamentView),
+    path('new/', CreateTournamentView.as_view()),
 
     # Retrieve Update Destroy one tournament
     path('<int:pk>/', RetrieveUpdateDestroyTournamentView.as_view()),

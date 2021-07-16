@@ -4,6 +4,7 @@ import TournamentCard from "../../components/TournamentCard";
 import ball from  "../../assets/svgs/Ball.svg"
 import tennis from "../../assets/svgs/tennis.svg"
 import pingpong from "../../assets/svgs/pingpong.svg"
+import {TitleHead3} from "../CreateTournament/DetailsTournament";
 
 const Container = styled.div `
   display: flex; 
@@ -28,7 +29,6 @@ margin: 0 auto;
       ;
       
      &:hover {
-        cursor: pointer;
         box-shadow: 1px 1px 20px -5px #14d1d1;
     }
 `
@@ -55,10 +55,8 @@ const Bottom = styled.div `
     align-items: center; 
     align-items: center; 
 `
-const Text = styled.p`
-    font-size: 1.2rem;
-    margin: 0.5rem;
-    color: white; 
+const TitleHead4 = styled(TitleHead3)`
+    width: 80%; 
 `;
 
 const Icon = styled.img`
@@ -92,10 +90,13 @@ const Button = styled.button `
 `
 
 const Tournaments = () => {
+
+
+
   return <>
   <Container>
     <Create>
-      <Top><Text>Create your tournament!</Text></Top>
+      <Top><TitleHead4>Create your tournament</TitleHead4></Top>
       <Middle>
         <Icon src={ball}/>
         <Icon src={tennis}/>
@@ -105,13 +106,11 @@ const Tournaments = () => {
         <Button>CREATE NOW!!!</Button>
       </Bottom>
     </Create>
-    <TournamentCard/>
-    <TournamentCard/>
-    <TournamentCard/>
-    <TournamentCard/>
-    <TournamentCard/>
-    <TournamentCard/>
-     <TournamentCard/>
+    <TournamentCard id={1} />
+    <TournamentCard id={2} />
+    <TournamentCard id={3} />
+    <TournamentCard id={4} />
+    <TournamentCard id={5} />
   </Container>
   </>
 }

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { Link, useHistory } from 'react-router-dom';
-import React, { useState, useEffect } from 'react';
+import { Link,  } from 'react-router-dom';
+import React from 'react';
 // import { useDispatch, useSelector } from 'react-redux';
 // import OctoWall from './RigthContainer';
 // import octoLogo from "../../assets/svgs/octo-text-outline_2p.svg";
@@ -244,6 +244,7 @@ export const CreateTournament = () => {
 
     return (
         <>
+        
         
         <PageContentPicture>
 
