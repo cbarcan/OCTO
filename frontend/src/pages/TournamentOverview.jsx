@@ -51,6 +51,7 @@ const LeftContainer = styled.div`
     color: white;
 
 
+  
 `
 
 const RightContainer = styled.div`
@@ -80,7 +81,7 @@ const ParticipantsContainer = styled.div`
 
 `
 
-   
+
 
 
 
@@ -89,7 +90,7 @@ const Home = () => {
 
     return (
                 <MainContainer>
-                    
+
                     <LeftContainer>
                         <TournamentCard/>
                         <Details/>
@@ -109,9 +110,9 @@ const Home = () => {
                                 <Participant name={'Gian'} location={'Aarau'}/>
                                 <Participant name={'Bolor'} location={'Zurich'}/>
                         </ParticipantsContainer>
-                        
+
                         <SectionTitle pageTitle="Location: Propulsion Academy, Heinrichstrasse 200, 8005 Zürich"></SectionTitle>
-                        
+
                     </RightContainer>
                 </MainContainer>
     )

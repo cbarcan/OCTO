@@ -6,7 +6,8 @@ import tennis from "../../assets/svgs/tennis.svg"
 import pingpong from "../../assets/svgs/pingpong.svg"
 import {TitleHead3} from "../CreateTournament/DetailsTournament";
 
-const Container = styled.div `
+
+const Container = styled.div`
   display: flex; 
   flex-flow: row wrap;
   width: 100%; 
@@ -89,12 +90,18 @@ const Button = styled.button `
     }
 `
 
-const Tournaments = () => {
+const Tournaments = ({ history }) => {
 
-
+  const CreateTournamentHandler = /**async**/ e => {
+        e.preventDefault();
+        //const response = await loginAction(loginData);
+        //if (response.status === 200) history.push('/create');
+        history.push("/create");
+    };
 
   return <>
   <Container>
+
     <Create>
       <Top><TitleHead4>Create your tournament</TitleHead4></Top>
       <Middle>
@@ -103,7 +110,7 @@ const Tournaments = () => {
         <Icon src={pingpong}/>
       </Middle>
       <Bottom>
-        <Button>CREATE NOW!!!</Button>
+        <Button onClick={CreateTournamentHandler}>CREATE NOW!!!</Button>
       </Bottom>
     </Create>
     <TournamentCard id={1} />
