@@ -1,27 +1,15 @@
-import React, { useEffect } from 'react';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useSelector } from "react-redux"
 
-const protectedComponent = (WrappedComponent) => (props) => {
-  const { push } = useHistory();
-  const { token } = props.user;
+export const withAuth = (WrapperComponent) => {
+  return (props) => {
+    // console.log('withAuth props', props)
+    const token = useSelector((state) => state.user.token)
 
-  useEffect(() => {
-    if (!token) {
-      push(`/login`);
+    if (token || localStorage.getItem('userToken')) {
+      return <WrapperComponent />
+    } else {
+      props.history.push("/login");
+      return null;
     }
-  }, [token, push]);
-
-  return <WrappedComponent />;
-};
-
-const mapStateToProps = (state) => {
-  return {
-    user: state.user,
-  };
-};
-
-const composedComponent = compose(connect(mapStateToProps), protectedComponent);
-
-export default composedComponent;
+  }
+}
