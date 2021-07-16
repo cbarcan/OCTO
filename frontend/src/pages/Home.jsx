@@ -2,10 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import Message from '../pages/CreateTournament/message';
-import SideMenu from '../components/Menu';
+import SideMenu from '../components/Menus/Menu.js';
+import LoginTopHeader from "../components/HeaderOptions/LoginTopHeader";
 
 const Main = styled.div`
     width: 100%;
+    height: 100%;
+    background: black;
     display: flex;
     justify-content: space-around;
     flex-direction: column;
@@ -19,7 +22,7 @@ const Links = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    a, a:hover, a:active, a:visited { color: white; }
+    a { color: white; }
 
 `
 
@@ -45,6 +48,7 @@ const Home = () => {
                 <Link to="/user/profile">Profile</Link>
                 <Link to="/user/profile/edit">EditProfile</Link>
             </Links>
+            <LoginTopHeader/>
         </Main>
     )
 }

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 
 export const PageContentPicture = styled.div`
@@ -115,7 +115,7 @@ export const PageContentPicture = styled.div`
             </div>
      */
 
-            margin: 0;
+    margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
