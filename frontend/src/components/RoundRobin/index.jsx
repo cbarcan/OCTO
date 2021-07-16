@@ -1,6 +1,7 @@
 import PageTitle from "../../styles/page-title";
 import BracketGeneratorRR from "../BracketGeneratorRR";
 import {useLocation} from "react-router-dom";
+import StandingGeneratorRR from "../StandingGeneratorRR";
 
 const RoundRobin = (props) => {
 
@@ -14,7 +15,7 @@ const RoundRobin = (props) => {
             {
                 location.pathname === `/tournament/${props.tournament_id}/standing`
                 ?
-                <h1>bla</h1>
+                <StandingGeneratorRR tournament_id={props.tournament_id}/>
                 :
                 <BracketGeneratorRR tournament_id={props.tournament_id}/>
             }

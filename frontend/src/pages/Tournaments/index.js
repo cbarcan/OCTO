@@ -57,7 +57,7 @@ const Bottom = styled.div `
     align-items: center; 
 `
 const TitleHead4 = styled(TitleHead3)`
-    width: 75%; 
+    width: 80%; 
 `;
 
 const Icon = styled.img`
