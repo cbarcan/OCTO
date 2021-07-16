@@ -85,6 +85,8 @@ const ParticipantsContainer = styled.div`
 
 
 const Home = () => {
+
+
     return (
                 <MainContainer>
                     
