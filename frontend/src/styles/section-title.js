@@ -4,18 +4,17 @@ import React from 'react';
 //Style component
 
 const SectionTitleContainer = styled.div`
-    margin-top: 40px;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-bottom: 40px;
+    margin-bottom: 1%;
+    
 `;
 
 const SectionitleText = styled.h2`
     color: white;
     font-size: 20px;
-
+    font-family: monospace;
 `;
 
 //React component
