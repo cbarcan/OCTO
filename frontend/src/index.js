@@ -12,7 +12,7 @@ import CongratsMessage from './pages/Login/SingUp/CongratsDiv';
 import VerificationForm from './pages/Login/SingUp/Verification'
 import TournamentOverview from './pages/TournamentOverview';
 import TournamentAdmin from './pages/TournamentAdmin.jsx';
-import CreateTournament from './pages/CreateTournament';
+import CreateTournament from './pages/CreateTournament/SelectSport';
 import Message from './pages/CreateTournament/message';
 import PrivateOrPublic from './pages/CreateTournament/PrivateOr';
 import DetailsCreate from './pages/CreateTournament/DetailsTournament';
