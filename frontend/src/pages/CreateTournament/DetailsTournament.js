@@ -29,8 +29,8 @@ export const FormContainer = styled.div`
     height: 80%;
     width: 70%;
     // border: 1px solid white;
-    box-shadow: 1px 1px 20px -5px #ffffff75;
-    margin-bottom: 5%;
+    box-shadow: 3px 11px 21px 35px rgba(33,33,33,0.44);
+    
 `
 
 export const TitleHead3 = styled(TitleHead2)`
@@ -107,7 +107,6 @@ export const LeftBottomBar2 = styled(LeftBottomBar)`
 export const SelectTorunament = styled.select`
     width: 100%;
     height: 47%;
-    
     outline: none;
     border: none;
     padding-left: 30px;
@@ -165,25 +164,12 @@ export const CameraImg = styled.img`
         animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both ;
         transform: translate3d(0, 0, 0);
 
-        @keyframes shake {
-  10%,
-  90% {
-    transform: translate3d(-1px, 0, 0);
-  }
-  20%,
-  80% {
-    transform: translate3d(2px, 0, 0);
-  }
-  30%,
-  50%,
-  70% {
-    transform: translate3d(-4px, 0, 0);
-  }
-  40%,
-  60% {
-    transform: translate3d(4px, 0, 0);
-  }
-}
+        @keyframes shake { 
+            10%, 90% { transform: translate3d(-1px, 0, 0);}
+            20%, 80% { transform: translate3d(2px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+            40%, 60% {  transform: translate3d(4px, 0, 0); } 
+        }
     }
 
     &:active {
@@ -197,7 +183,7 @@ export const IconImg = styled.img`
     position: relative; 
     bottom: 172%;
     width: 30%;
-    height: 150%;
+    height: 127%;
     left: 63%;
     right: 0;
 

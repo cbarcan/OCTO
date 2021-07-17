@@ -2,15 +2,18 @@ import styled from 'styled-components';
 import React from 'react';
 
 //Style component
-
+/* 
 const PageTitleLine = styled.div`
     width: 100px;
-    height: 3px;
+    height: 20%;
     background-color: #00ECFF;
-    margin-top: 20px;
-`;
+`; */
 
 const PageTitleContainer = styled.div`
+    //border: solid blue;
+    border-bottom: 1.5px solid #fff;
+    height: 15%;
+    width: 45%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,20 +21,22 @@ const PageTitleContainer = styled.div`
 `;
 
 const PageTitleText = styled.h1`
+    //border: solid pink;
     font-weight: 800;
-    font-size: 32px;
+    font-size: 50px;
+    font-family: monospace;
+    letter-spacing: .1em;
     color: white; 
-    -webkit-text-stroke: 1px ${props => props.theme.octoBlue};
-    text-shadow: 0 0 20px ${props => props.theme.octoBlue};
+    //-webkit-text-stroke: 1px ${props => props.theme.octoBlue};
+    //text-shadow: 2px 5px 2px rgba(136,238,255,0.57);
 `;
 
 //React component
 
 const PageTitle = (props) => {
     return (
-        <PageTitleContainer style={{"margin":props.margin || "40px 0"}}>
+        <PageTitleContainer style={{"margin":props.margin || "10px 0"}}>
             <PageTitleText>{props.pageTitle}</PageTitleText>
-            <PageTitleLine />
         </PageTitleContainer>
     );
 };

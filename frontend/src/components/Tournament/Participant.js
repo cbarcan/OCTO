@@ -5,22 +5,31 @@ import { useHistory } from "react-router-dom";
 
 
 const Container = styled.div`
-    margin: 0 auto;
+    //border: solid pink;
+    margin: 0;
     background-color: black;
     opacity: 90%; 
-    border-radius: 4px;
-    padding: 20px;
+    border-radius: 15px;
+    padding: 1%;
     width: 80%;
+    height: 95%;
     display: flex;
     justify-content: center;
     box-shadow: ${props => props.theme.boxShadowOcto};
 
+
+    box-shadow: 3px 11px 21px 35px rgba(33,33,33,0.44);
+    cursor: pointer;
+
     &:hover {
         cursor: pointer;
+        background: ${props => props.theme.octoGradientBlueColor};
     }
 `;
 
 const CardLeft = styled.div`
+    padding: 2%;
+    //border: solid blue;
     grid-area: left;
     display: flex;
     flex-flow: column nowrap;
@@ -36,12 +45,13 @@ const UserProfilePicIcon = styled.img`
 
 const Name = styled.p`
     font-size: 1.5rem;
+    font-weight: bold;
     margin-bottom: 0.5rem;
     color: white; 
 `;
 
 const Location = styled.p`
-    font-weight: 300;
+    font-weight: 300px;
     font-size: 0.85rem;
     color: white; 
 `;
