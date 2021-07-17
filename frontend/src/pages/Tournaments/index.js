@@ -1,69 +1,99 @@
 import React from "react";
 import styled from "styled-components";
 import TournamentCard from "../../components/TournamentCard";
-import ball from  "../../assets/svgs/Ball.svg"
-import tennis from "../../assets/svgs/tennis.svg"
-import pingpong from "../../assets/svgs/pingpong.svg"
-import {TitleHead3} from "../CreateTournament/DetailsTournament";
+// import ball from  "../../assets/svgs/Ball.svg"
+// import tennis from "../../assets/svgs/tennis.svg"
+import join from "../../assets/svgs/join.svg"
+import { TitleHead } from "../CreateTournament/index"
 
 const Container = styled.div `
+  //border: solid blue;
   display: flex; 
   flex-flow: row wrap;
   width: 100%; 
   margin: 20px; 
+  padding: 0 5%;
   gap:40px; 
 `
 const Create = styled.div `
-margin: 0 auto;
+    margin: 0;
     background-color: black;
-    border-radius: 5px;
+    border-radius: 15px;
+    padding: 3.5% 2%;
     height: 350px;
-    width: 18%;
-    box-shadow: 1px 1px 20px -5px #ffffff75;
-    display: grid;
-    grid-template-rows: 100px auto auto;
-    grid-template-areas: 
-      "top"
-      "middle"
-      "bottom"
-      ;
+    width: 21.5%;
+    box-shadow: 3px 11px 21px 35px rgba(33,33,33,0.44);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
       
      &:hover {
         cursor: pointer;
         box-shadow: 1px 1px 20px -5px #14d1d1;
-    }
+        transition: background-color .05s ease-out;
+        background-color: white;
+        transform: scale(1.04);
+        color: black;
+        transition: transform .45 ease;
+        transition: color .45s ease;
+
+        div {
+          color: black;
+          font-weight: bold;
+
+        }
+
+        img {
+            filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(200%);
+            
+            &:hover {
+              filter: invert(48%) sepia(70%) saturate(8000%) hue-rotate(180deg) brightness(135%) contrast(119%);
+            }
+        }
+
+        button {
+            background: ${props => props.theme.octoGradientBlueColor};
+            border: none;
+
+
+            &:hover {
+                color: white;
+            }
+        }
+      }
 `
 
-const Top = styled.div `
-    grid-area: top;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    justify-content: center;
-`
-const Middle = styled.div `
-    grid-area: middle;
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: center;
-`
-const Bottom = styled.div `
-    grid-area: bottom;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: flex-start;
-    align-items: center; 
-    align-items: center; 
-`
-const TitleHead4 = styled(TitleHead3)`
-    width: 80%; 
+
+export const TitlePage = styled.h1`
+    //border: solid yellow;
+    width: 25%;
+    margin-right: 72%;
+    margin-left: 12%;
+    margin-bottom: 2%;
+    padding-bottom: 1%;
+    font-family: monospace;
+    font-size: 2em;
+    border-bottom: 1px solid white;
+`;
+
+
+const TitleHead4 = styled(TitleHead)`
+    //border: solid yellow;
+    height: 35%;
+    width: 80%;
+    font-size:20px;
 `;
 
 const Icon = styled.img`
-    height: 78px;
-    width: 78px;
-    color: white; 
+    //border: solid red;
+    height: 50%;
+    
+    color: white;
+    margin-bottom: 15%; 
+
+    
 `;
 
 const Button = styled.button `
@@ -92,25 +122,20 @@ const Button = styled.button `
 
 const Tournaments = () => {
   return <>
+  <TitlePage>Torunaments</TitlePage>
   <Container>
+    <TournamentCard/>
+    <TournamentCard/>
+    <TournamentCard/>
+    <TournamentCard/>
+    <TournamentCard/>
+    <TournamentCard/>
+    <TournamentCard/>
     <Create>
-      <Top><TitleHead4>Create your tournament</TitleHead4></Top>
-      <Middle>
-        <Icon src={ball}/>
-        <Icon src={tennis}/>
-        <Icon src={pingpong}/>
-      </Middle>
-      <Bottom>
-        <Button>CREATE NOW!!!</Button>
-      </Bottom>
-    </Create>
-    <TournamentCard/>
-    <TournamentCard/>
-    <TournamentCard/>
-    <TournamentCard/>
-    <TournamentCard/>
-    <TournamentCard/>
-     <TournamentCard/>
+      <TitleHead4>Create your <br/>tournament:</TitleHead4>
+      <Icon src={join} alt="logo join"/>
+      <Button>Ready?</Button>
+    </Create> 
   </Container>
   </>
 }

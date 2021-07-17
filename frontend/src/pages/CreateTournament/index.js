@@ -12,6 +12,7 @@ import tennis from "../../assets/svgs/tennis.svg";
 import tennisBall from "../../assets/svgs/tennisBall.svg";
 import pingpong from "../../assets/svgs/pingpong.svg";
 import { OvalContainer, OvalBlue, OvalWhite  } from '../Login/SingUp/EmailForm';
+//import Message from './message';
 
 
 export const PageContentPicture = styled.div`
@@ -21,8 +22,8 @@ export const PageContentPicture = styled.div`
     justify-content: center;
     align-items: center;
     background: black;
-    border-left: 8px solid white;
-    height: 94%; 
+    padding: 0 6%;
+    height: 100%; 
     width: 100%; 
     margin: 0;
 
@@ -44,7 +45,7 @@ export const TitleHead = styled.div`
     border-right: 3px solid;
     font-family: monospace;
     font-size: 2em;
-    margin: 0;
+    margin-bottom: 2%;
 
     @keyframes typing {
         from { width: 0
@@ -168,7 +169,7 @@ export const Futball = styled.img`
 
 
 export const RacketImg = styled.img`
-    height: 75%;
+    height: 80%;
     margin: 0;
     z-index: 1;
  
@@ -244,13 +245,12 @@ export const CreateTournament = () => {
 
     return (
         <>
-        
-        
+       
         <PageContentPicture>
-
-        
-          <InnerDiv>
-          <TitleHead>Select a sport:</TitleHead>
+           
+            <TitleHead>Select a sport:</TitleHead>
+            <InnerDiv>
+          
                 <CardsContainers>
                     <InnerContainer>
                         <Futball src={ball} alt='logo'/>

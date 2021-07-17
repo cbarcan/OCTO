@@ -82,9 +82,9 @@ const Map = () => {
 
     const [pins, setPins] = useState([]);
 
-    const myStorage = window.localStorage
     
-    const [currentUsername] = useState(myStorage.getItem("user"));
+    
+    const [currentUsername] = useState("tina");
     const [newPlace, setNewPlace] = useState(null)
     const [title, setTitle] = useState(null);
     const [desc, setDesc] = useState(null);
@@ -111,6 +111,7 @@ const Map = () => {
 
 
     const handleAddClick = (e) => {
+        console.log(e);
         const [longitude, latitude] = e.lngLat;
         setNewPlace({
           lat: latitude,
@@ -150,7 +151,7 @@ const Map = () => {
             
                 {pins.map((p) => (
                 <>
-                    <Marker latitude={p.lat} longitude={p.long} offsetLeft={-3.5 * viewport.zoom} 
+                    <Marker latitude={p.l} longitude={p.long} offsetLeft={-3.5 * viewport.zoom} 
                     offsetTop={-7 * viewport.zoom}>
                         <Room style={{
                             fontSize: 7 * viewport.zoom,

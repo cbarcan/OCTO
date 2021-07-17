@@ -3,11 +3,13 @@ import RoundRobin from "../components/RoundRobin";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  height: fit-content;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    //border: solid blue;
+    height: fit-content;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `
 
 const Standing = () => {
