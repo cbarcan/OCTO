@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import map from '../../assets/svgs/map.svg';
 import bluepin from '../../assets/svgs/map2.svg';
 import camara from '../../assets/svgs/photo-camera.svg';

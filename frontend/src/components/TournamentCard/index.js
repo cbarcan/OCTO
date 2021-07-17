@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import shark from  "../../assets/svgs/shark.svg"
+//import soccer from  "../../assets/svgs/soccer-ball.svg"
+import { useHistory } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { addTournamentData } from '../../store/actions/tournamentAction'
+
 
 const Container = styled.div`
     //border: solid red;
@@ -112,9 +117,22 @@ const ParagContainer = styled.div `
 
 
 
-const TournamentCard = () => {
+const TournamentCard = (props) => {
+
+    // update current Tournament id
+
+    const dispatch = useDispatch();
+
+
+    const history = useHistory();
+
+    const handleClick = () => {
+        history.push(`/tournament/${props.id}/overview`);
+        dispatch(addTournamentData(props.id))
+    }
+  
     return <>
-        <Container>
+        <Container onClick={handleClick}>
             <Top>
                 <Icon src={ shark || 'https://via.placeholder.com/50x50' } alt="shark"/>    
             </Top>

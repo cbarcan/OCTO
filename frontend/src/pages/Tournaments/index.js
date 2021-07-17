@@ -6,8 +6,9 @@ import TournamentCard from "../../components/TournamentCard";
 import join from "../../assets/svgs/join.svg"
 import { TitleHead } from "../CreateTournament/index"
 
-const Container = styled.div `
-  //border: solid blue;
+
+
+const Container = styled.div`
   display: flex; 
   flex-flow: row wrap;
   width: 100%; 
@@ -30,7 +31,6 @@ const Create = styled.div `
 
       
      &:hover {
-        cursor: pointer;
         box-shadow: 1px 1px 20px -5px #14d1d1;
         transition: background-color .05s ease-out;
         background-color: white;
@@ -120,21 +120,29 @@ const Button = styled.button `
     }
 `
 
-const Tournaments = () => {
+const Tournaments = ({ history }) => {
+
+  const CreateTournamentHandler = /**async**/ e => {
+        e.preventDefault();
+        //const response = await loginAction(loginData);
+        //if (response.status === 200) history.push('/create');
+        history.push("/create");
+    };
+
   return <>
   <TitlePage>Torunaments</TitlePage>
   <Container>
-    <TournamentCard/>
-    <TournamentCard/>
-    <TournamentCard/>
-    <TournamentCard/>
-    <TournamentCard/>
-    <TournamentCard/>
-    <TournamentCard/>
+    <TournamentCard id={1} />
+    <TournamentCard id={2} />
+    <TournamentCard id={3} />
+    <TournamentCard id={4} />
+    <TournamentCard id={5} />
+    <TournamentCard id={6} />
+    <TournamentCard id={7} />
     <Create>
       <TitleHead4>Create your <br/>tournament:</TitleHead4>
       <Icon src={join} alt="logo join"/>
-      <Button>Ready?</Button>
+      <Button onClick={CreateTournamentHandler}>Ready?</Button>
     </Create> 
   </Container>
   </>

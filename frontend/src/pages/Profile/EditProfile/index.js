@@ -19,7 +19,7 @@ const Top = styled.div `
     justify-content: center; 
 `
 const Title = styled(TitleHead3)`
-    width: 45%;
+    width: 50%;
     font-size: 30px;
     margin: 40px; 
 `

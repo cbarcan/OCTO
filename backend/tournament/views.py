@@ -1,6 +1,8 @@
 from django.contrib.auth import get_user_model
 from rest_framework.generics import RetrieveUpdateDestroyAPIView, ListAPIView, CreateAPIView
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
+
 
 from tournament.models import Tournament
 from tournament.serializers.serializers import CreateTournamentSerializer, ListTournamentSerializer
@@ -16,7 +18,7 @@ class ListTournamentView(ListAPIView):
 
 class CreateTournamentView(CreateAPIView):
     serializer_class = CreateTournamentSerializer
-    # permission_classes = []
+    permission_classes = [IsAuthenticated]
 
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
@@ -27,6 +29,6 @@ class CreateTournamentView(CreateAPIView):
 
 class RetrieveUpdateDestroyTournamentView(RetrieveUpdateDestroyAPIView):
     queryset = Tournament.objects.all()
-    # permission_classes = []
+    permission_classes = [IsAuthenticated]
     serializer_class = ListTournamentSerializer
     lookup_field = 'pk'

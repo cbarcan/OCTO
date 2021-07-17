@@ -7,7 +7,7 @@ import octo from '../assets/svgs/octopusWhite.svg';
 import Participant from '../components/Tournament/Participant';
 import { LabelText } from './Login/SingUp/Verification';
 import { BaseButton, LoginInput } from './Login/index';
-import SideMenu from '../components/Menus/LoginUserMenu';
+//import SideMenu from '../components/Menus/LoginUserMenu';
 //import { TitlePage } from './Tournaments/index';
 
 
@@ -110,6 +110,7 @@ const LeftContainer = styled.div`
     color: white;
 
 
+  
 `
 
 const RightContainer = styled.div`
@@ -196,15 +197,14 @@ const InputContainer = styled.div`
     background: black;
 ` */
 
-   
-
 
 
 const Home = () => {
+
+
     return (
         
                 <MainContainer>
-                    
                     
                     <LeftContainer>
                         <GameDetailsCard>
@@ -250,8 +250,9 @@ const Home = () => {
                         
                         <SectionTitle pageTitle="Location:   Propulsion Academy,   Heinrichstrasse 200,   8005 Zürich"></SectionTitle>
                         
+
                     </RightContainer>
-                    <SideMenu/>
+                    
                     
                 </MainContainer>
     )

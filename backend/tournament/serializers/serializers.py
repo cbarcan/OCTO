@@ -14,4 +14,4 @@ class CreateTournamentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tournament
         fields = '__all__'
-        read_only_field = ['captain']
+        read_only_field = ['organizer']

@@ -16,6 +16,7 @@ import CreateTournament from './pages/CreateTournament';
 import Message from './pages/CreateTournament/message';
 import PrivateOrPublic from './pages/CreateTournament/PrivateOr';
 import DetailsCreate from './pages/CreateTournament/DetailsTournament';
+import AboutUs from "./pages/AboutUs"
 // import BracketPage from './pages/BracketPage';
 import Bracket from './pages/Bracket';
 import {PageContainer, PageContent} from './styles/page-layout';
@@ -23,8 +24,12 @@ import Profile from "./pages/Profile/index";
 import Standing from "./pages/Standing";
 import EditProfile from "./pages/Profile/EditProfile";
 import Tournaments from "./pages/Tournaments";
+import Dashboard from "./pages/Dashboard";
+import Sidebar from './components/Sidebar';
 import LoginInUserSideMenu from "./components/Menus/LoginUserMenu";
 import TestHome from './pages/Home2';
+import {withAuth} from './hoc/AuthHOC'
+import LoginTopHeader from "./components/HeaderOptions/LoginTopHeader";
 
 
 
@@ -34,12 +39,14 @@ ReactDOM.render(
       <GlobalStyle />
       <Router>
       <PageContainer>
+            <Sidebar/>
             <PageContent>
             <Switch>
-              <Route exact path="/" component={ Home } />
-              <Route exact path="/tournament/:id" component={TournamentOverview} />
+              <Route exact path="/home" component={ Home } />
+              <Route exact path="/tournament/:id/overview" component={TournamentOverview} />
               <Route exact path="/tournament/:id/admin" component={TournamentAdmin} />
               <Route exact path="/tournaments" component={Tournaments} />
+              <Route exact path="/dashboard" component={Dashboard} />
               <Route exact path="/tournament/:id/bracket" component={Bracket} />
               <Route exact path="/tournament/:id/standing" component={Standing} />
               <Route exact path="/login" component={ Login } />
@@ -48,14 +55,19 @@ ReactDOM.render(
               <Route exact path="/verification" component={ VerificationForm} />
               <Route exact path="/create" component={ CreateTournament } />
               <Route exact path="/message" component={ Message } />
-              <Route exact path="/privacy" component={ PrivateOrPublic } />
+              <Route exact path="/privacy" component={ withAuth(PrivateOrPublic) } />
               <Route exact path="/details" component={ DetailsCreate } />
+              <Route exact path="/user/:id" component={Profile} />
+              <Route exact path="/user/:id/edit" component={EditProfile} />
               <Route exact path="/user/profile" component={Profile} />
               <Route exact path="/user/profile/edit" component={EditProfile} />
               <Route exact path="/menu" component={ LoginInUserSideMenu } />
+              <Route exact path="/aboutus" component={ AboutUs } />
+
               <Route exact path="/test" component={ TestHome } />
             </Switch>
             </PageContent>
+            <LoginTopHeader/>
         </PageContainer>
     </Router>
     </ThemeProvider>
