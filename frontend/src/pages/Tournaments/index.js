@@ -130,7 +130,7 @@ const Tournaments = ({ history }) => {
     };
 
   return <>
-  <TitlePage>Torunaments</TitlePage>
+  <TitlePage>Tournaments</TitlePage>
   <Container>
     <TournamentCard id={1} />
     <TournamentCard id={2} />
