@@ -221,7 +221,7 @@ export const DetailsCreate = () => {
 
                 <InputsDiv2> 
                     <InputWrapper4>
-                        <LabelText> Torunament Name</LabelText>
+                        <LabelText> Tournament Name</LabelText>
                         <ShortInput2 type="text" />
                     </InputWrapper4>
                     <InputWrapper4>
