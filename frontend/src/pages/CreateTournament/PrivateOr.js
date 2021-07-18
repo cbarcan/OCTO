@@ -2,17 +2,13 @@ import styled from 'styled-components';
 import React from 'react';
 import Popup from 'reactjs-popup';
 import { PageContentPicture, OvalContainer2, OvalBlue2, OvalWhite2, TitleHead  } from './index';
-import octoLogo from '../../assets/svgs/Slicehead.svg';
+// import octoLogo from '../../assets/svgs/Slicehead.svg';
 import { Link } from 'react-router-dom';
 import SideMenu from '../../components/Menus/LoginUserMenu';
 
 
 
 export const PageContentPicture2 = styled(PageContentPicture)`
-    width: 90%; 
-    height:77.4%;
-    padding-bottom: 7%;
-    position: absolute;
 
     &:hover {
         
@@ -29,7 +25,9 @@ export const InnerContainer = styled.div`
     //border: solid yellow;
     
     width: 100%;
-    height:84%;
+    height:50%;
+    padding-bottom: 13%;
+    margin-top: 5.5%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -46,7 +44,7 @@ export const ButtonContainer = styled.button`
     margin:2%;
     width:20%;
     border:1px solid white;
-    border-radius:3px; 
+    border-radius:50px; 
     transition:.2s all;
     font-weight: bold; 
     filter:blur(1px);
@@ -78,8 +76,7 @@ export const ButtonContainer = styled.button`
 export const ContentBox = styled.div`
     color: whitesmoke;
     opacity: 0.8;
-    padding: 50%;
-    
+    padding: 30%;
     width: 200%;
     letter-spacing: 0.1em;
     display: flex;
@@ -117,9 +114,9 @@ export const OctoLogo = styled.img`
 `
 
 export const TitleHead2 = styled(TitleHead)`
-    margin: 0;
-    margin-top: 7%;
-    margin-right: 50%;
+   
+    margin-bottom: 6%;
+    
     
 `
 
@@ -137,21 +134,21 @@ export const PrivateOrPublic = () => {
 
 
         <PageContentPicture2>
-            <TitleHead2>Select a lobby:</TitleHead2>
+            <TitleHead>Select a lobby:</TitleHead>
             <InnerContainer>
-            <Popup trigger={() => (
-                <ButtonContainer>PUBLIC </ButtonContainer>)} position="bottom center" on='hover'>
-                    <br/> 
-                <ContentBox>  Everyone can join. </ContentBox>
-            </Popup>
+                <Popup trigger={() => (
+                    <ButtonContainer>PUBLIC </ButtonContainer>)} position="bottom center" on='hover'>
+                        <br/> 
+                    <ContentBox>  Everyone can join. </ContentBox>
+                </Popup>
         
-            <Popup trigger={() => (
-                <ButtonContainer>PRIVATE</ButtonContainer>)} position="top center" on='hover'>
-                    <br/> 
-                <ContentBox> Participans can only join <br/> with invitations. </ContentBox>
-            </Popup>
+                <Popup trigger={() => (
+                    <ButtonContainer>PRIVATE</ButtonContainer>)} position="bottom center" on='hover'>
+                        <br/> 
+                    <ContentBox> Participans can only join <br/> with invitations. </ContentBox>
+                </Popup>
 
-            <Link to='/details'> --- </Link>
+                <Link to='/details'> --- </Link>
             </InnerContainer>
 
             <OvalContainer2>
@@ -162,8 +159,6 @@ export const PrivateOrPublic = () => {
             
             
         </PageContentPicture2>
-
-        <OctoLogo src={octoLogo} alt='logo'/>
 
         </>
 
