@@ -2,6 +2,7 @@ from django.core.mail import send_mail
 from rest_framework.generics import CreateAPIView
 
 from invitation.models import Invitation
+from invitation.serializers.serializers import ListCreateInvitationSerializer
 from project.settings import DEFAULT_FROM_EMAIL
 from tournament.models import Tournament
 
@@ -9,7 +10,7 @@ from tournament.models import Tournament
 class CreateInvitationView(CreateAPIView):
 
     queryset = Invitation.objects.all
-    # serializer_class =
+    serializer_class = ListCreateInvitationSerializer
     lookup_url_kwarg = 'tournament_id'
     lookup_url_kwarg = 'id'
     # permission_classes =
