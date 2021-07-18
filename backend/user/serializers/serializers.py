@@ -1,14 +1,10 @@
+from django.contrib.auth import get_user_model
 from rest_framework import serializers
 
 from team.serializers.serializers import ListTeamSerializer
 from tournament.serializers.serializers import ListTournamentSerializer
-from user.models import User
 
-
-class UserBracketSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ["id", "first_name", "last_name", "location", "avatar"]
+User = get_user_model()
 
 
 class ListUserSerializer(serializers.ModelSerializer):
