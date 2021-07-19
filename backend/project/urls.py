@@ -37,4 +37,7 @@ urlpatterns = [
 
     # Tournament URL's
     path('backend/api/tournament/', include('tournament.urls')),
+
+    # Tournament Bracket URL's
+    path('backend/api/tournament/<int:id>/', include('bracket.urls')),
 ]
