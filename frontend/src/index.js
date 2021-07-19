@@ -12,7 +12,7 @@ import CongratsMessage from './pages/Login/SingUp/CongratsDiv';
 import VerificationForm from './pages/Login/SingUp/Verification'
 import TournamentOverview from './pages/TournamentOverview';
 import TournamentAdmin from './pages/TournamentAdmin.jsx';
-import CreateTournament from './pages/CreateTournament/SelectSport';
+import CreateTournament from './pages/CreateTournament/';
 import Message from './pages/CreateTournament/message';
 import PrivateOrPublic from './pages/CreateTournament/PrivateOr';
 import DetailsCreate from './pages/CreateTournament/DetailsTournament';
@@ -24,6 +24,7 @@ import Profile from "./pages/Profile/index";
 import Standing from "./pages/Standing";
 import EditProfile from "./pages/Profile/EditProfile";
 import Tournaments from "./pages/Tournaments";
+import Tournament from "./pages/Tournament";
 import Dashboard from "./pages/Dashboard";
 import Sidebar from './components/Sidebar';
 import LoginInUserSideMenu from "./components/Menus/LoginUserMenu";
@@ -67,7 +68,6 @@ ReactDOM.render(
               <Route exact path="/test" component={ TestHome } />
             </Switch>
             </PageContent>
-            <LoginTopHeader/>
         </PageContainer>
     </Router>
     </ThemeProvider>
