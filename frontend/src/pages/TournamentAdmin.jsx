@@ -4,6 +4,7 @@ import {useState} from "react";
 import InvitationModal from "../components/Tournament/InvitationModal";
 import Axios from '../axios';
 import { useHistory } from "react-router-dom";
+import Header from './Tournament'
 
 
 
@@ -16,6 +17,8 @@ const MainContainer = styled.div`
     align-items: center;
     justify-content: space-around;
     color: white;
+    font-family: monospace;
+    font-size: 2em;
 `
 
 
@@ -25,7 +28,6 @@ const Invitations = styled.div`
     justify-content: space-around;
     align-content: center;
     width: 100%; 
-    transform: skewX(-15deg);
 
 
 
@@ -107,6 +109,7 @@ const Admin = () => {
 
     return (
             <>
+                <Header/>
                 <MainContainer>
                     <div onClick={openModal}>
                         <StartButton text={'INVITE'}/>
