@@ -12,11 +12,12 @@ class CreateInvitationView(CreateAPIView):
     queryset = Invitation.objects.all
     serializer_class = ListCreateInvitationSerializer
     lookup_url_kwarg = 'tournament_id'
-    lookup_url_kwarg = 'id'
+    lookup_field = 'id'
     # permission_classes =
 
     def perform_create(self, serializer):
 
+        link = self.kwargs['tournament_id']
         tour = Tournament.objects.get(id=self.kwargs['tournament_id'])
         serializer.save(
             email=self.request.data['email'],
@@ -25,7 +26,7 @@ class CreateInvitationView(CreateAPIView):
         send_mail(
             'You have been invited to a tournament on Octo!',
             f'{tour.organizer} has invited you to join. Click on this link to participate in your upcoming challenge'
-            f'https://octo.propulsion-learn.ch/join/',
+            f'https://octo.propulsion-learn.ch/tournament/{link}/overview',
             DEFAULT_FROM_EMAIL,
             [self.request.data['email']],
             fail_silently=False,
