@@ -52,7 +52,7 @@ export const InputWrapper4 = styled(InputWrapper2)`
     height: 20%;
     padding: 0;
     margin: 0;
-    position:relative;
+    position:relative; // check this
 
     
 `
@@ -119,9 +119,7 @@ export const SelectTorunament = styled.select`
     padding-left: 30px;
     background: #ffffff75;
     border-radius: 30px;
-
     appearance: none;
-
     
     option {
         padding-right: 40%;
@@ -163,14 +161,11 @@ export const PinImg = styled.img`
 `
 
 export const CameraImg = styled.img`
-
     height: 50%;
-
     position: absolute;
     top: 10%;
     margin-left: 20%;
-
-
+  
     &:hover {
         animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both ;
         transform: translate3d(0, 0, 0);
@@ -187,14 +182,11 @@ export const CameraImg = styled.img`
         transform: translateY(4px);
     }
 
-
-
 `
 
 export const IconImg = styled.img`
     align-self: center;
     justify-self: center;
-
     object-fit: contain;
     max-width: 100%;
     max-height: 100%;
@@ -226,7 +218,6 @@ export const MapLink = styled.div`
 
 
 export const DetailsCreate = (props) => {
-
 
     const dispatch = useDispatch();
     const history = useHistory();
@@ -267,7 +258,7 @@ export const DetailsCreate = (props) => {
 
     const createHandler  = () => {
 
-        const tournamentData = new FormData();    
+        const tournamentData = new FormData();
         tournamentData.append('sport', sport)
         tournamentData.append('private', privacy)
         tournamentData.append('name', name)
@@ -280,7 +271,7 @@ export const DetailsCreate = (props) => {
         tournamentData.append('start_date', start)
         tournamentData.append('end_date', end)
         tournamentData.append('description', description)
-    
+
         const url = 'tournament/new/';
         const auth = 'Bearer ' + localStorage.getItem('userToken');
         const headers = {
@@ -339,6 +330,8 @@ export const DetailsCreate = (props) => {
                     <InputWrapper4>
                         <LabelText> Torunament Name</LabelText>
                         <ShortInput2 onChange={nameHandler} type="text" />
+                        <LabelText> Tournament Name</LabelText>
+                        <ShortInput2 type="text" />
                     </InputWrapper4>
                     <InputWrapper4>
                         <LabelText> Avatar</LabelText>
@@ -362,11 +355,10 @@ export const DetailsCreate = (props) => {
                         
                     </InputWrapper4>
 
-
                     <InputWrapper4>
                         <LabelText>Start</LabelText>
                         <ShortInput2 onChange={startDateHandler}  type="datetime-local" />
-                    </InputWrapper4> 
+                    </InputWrapper4>
                     <InputWrapper4>
                         <LabelText> Description</LabelText>
                         <ShortInput2 onChange={descriptionHandler} type="text" />
@@ -387,17 +379,13 @@ export const DetailsCreate = (props) => {
 
                 </InputsDiv2>
 
-
-
-
-
+                <InputWrapper3>
+                        <LabelText> Description</LabelText>
+                        <LongInput2  type="text" />
+                </InputWrapper3>
 
             </StyledForm3>
-
-            
             </LeftMiddleBar2>
-
- 
 
             <LeftBottomBar2>
                 <BaseButton type="submit" onClick={createHandler}>COMPLETE</BaseButton>
@@ -405,6 +393,7 @@ export const DetailsCreate = (props) => {
 
         </FormContainer>
 
+        
             
     </PageContentPicture3>
 

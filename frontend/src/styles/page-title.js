@@ -9,7 +9,7 @@ const PageTitleLine = styled.div`
     background-color: #00ECFF;
 `; */
 
-const PageTitleContainer = styled.div`
+export const PageTitleContainer = styled.div`
     //border: solid blue;
     //border-bottom: 1.5px solid #fff;
     height: 15%;
@@ -20,13 +20,14 @@ const PageTitleContainer = styled.div`
     justify-content: center;
 `;
 
-const PageTitleText = styled.h1`
+export const PageTitleText = styled.h1`
     //border: solid pink;
     font-weight: 800;
     font-size: 50px;
     font-family: monospace;
     letter-spacing: .1em;
     color: white; 
+    //margin-bottom: 30px; 
     //-webkit-text-stroke: 1px ${props => props.theme.octoBlue};
     //text-shadow: 2px 5px 2px rgba(136,238,255,0.57);
 `;

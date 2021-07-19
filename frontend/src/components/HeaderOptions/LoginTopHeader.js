@@ -132,14 +132,14 @@ export const LoginTopHeader = () => {
                 <HeaderTitle>About Us</HeaderTitle>)} position="bottom center" on='hover'>
                      
                 <ContentBox2> 
-                    <Link to='/user/profile'>
+                    <Link to='/contactus'>
                         <img src={infosign} alt='info'/>
                             Contact
                         <SmallDescription>Email Us
                             <img src={arrow} alt='arrow'/>
                         </SmallDescription>
                     </Link>
-                    <Link to='/user/profile'> 
+                    <Link to='/aboutus'>
                         <img src={more} alt='info'/>
                             Learn More
                         <SmallDescription>Behind the App!

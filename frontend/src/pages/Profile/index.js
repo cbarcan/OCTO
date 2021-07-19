@@ -1,7 +1,5 @@
-import ProfileBanner from "../../pages/Profile/Banner"
 import TeamContainer from "../../pages/Profile/Teams"
 import ProfileCard from "./ProfileCard";
-import banner from "../../assets/images/banner.png"
 import CurrentTournament from "./CurrentTournament";
 import { useDispatch, useSelector } from 'react-redux';
 import { apiUserGetData } from '../../store/actions/userAction'
@@ -14,7 +12,7 @@ const Profile = () => {
     const dispatch = useDispatch();
 
 
-    const user = useSelector((state) => state.user.userData); 
+    const user = useSelector((state) => state.user.userData);
 
 
     useEffect(() => {
@@ -26,9 +24,7 @@ const Profile = () => {
 
     return (
         <>
-            <ProfileBanner banner = {banner} >
             <ProfileCard user = {user}/>
-            </ProfileBanner>
             <TeamContainer/>
             <CurrentTournament/>
         </>

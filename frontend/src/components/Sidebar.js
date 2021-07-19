@@ -26,7 +26,7 @@ export const MenuContainer = styled.div`
     padding-left: 3.3%;
     position: fixed;  
     z-index: 100;
-    top: 1%;
+    top: 5.5%;
     left: 0;
     right: 1%;
     background-color: black;
@@ -36,8 +36,7 @@ export const MenuContainer = styled.div`
     //border: 0.5px solid white;
     box-shadow: 1px 1px 20px -5px #ffffff75;
     display: flex;
-
-    overflow: scroll;
+    overflow: hidden;
     
     &:hover {
         width: 20%;
