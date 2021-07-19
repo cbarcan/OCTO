@@ -11,7 +11,7 @@ const SectionTitleContainer = styled.div`
     
 `;
 
-const SectionitleText = styled.h2`
+export const SectionTitleText = styled.h2`
     color: white;
     font-size: 20px;
     font-family: monospace;
@@ -22,7 +22,7 @@ const SectionitleText = styled.h2`
 export const SectionTitle = (props) => {
     return (
         <SectionTitleContainer>
-            <SectionitleText>{props.pageTitle}</SectionitleText>
+            <SectionTitleText>{props.pageTitle}</SectionTitleText>
         </SectionTitleContainer>
     );
 };

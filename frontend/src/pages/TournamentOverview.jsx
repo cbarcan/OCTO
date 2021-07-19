@@ -222,7 +222,7 @@ const Home = () => {
                                     <LabelText2> Select the Game Type</LabelText2>
                                     <SelectBox name="Turnament">
 
-                                        <option value="Futball">Futball</option>
+                                        <option value="Futball">Football</option>
                                         <option value="Ping Pong">Ping Pong</option>
                                         <option value="Tennis">Tennis</option>
 

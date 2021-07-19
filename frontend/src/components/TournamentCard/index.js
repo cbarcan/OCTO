@@ -61,8 +61,7 @@ const Bottom = styled.div `
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-start;
-    align-items: center; 
-    align-items: center; 
+    align-items: center;
 `
 const Icon = styled.img`
     height: 78px;
@@ -110,9 +109,6 @@ const ParagContainer = styled.div `
     display: flex;
     align-items: center;
     width: 80%;
-    
-     
-    
 `
 
 
