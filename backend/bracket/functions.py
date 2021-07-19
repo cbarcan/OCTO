@@ -11,7 +11,7 @@ def participants_shuffle(array):
     return new_array
 
 
-# noqa: C901
+# flake8: noqa: C901
 def create_bracket(serializer):
     participants = []
     for i in range(0, serializer.data["no_of_players"]):
@@ -123,7 +123,7 @@ def create_bracket(serializer):
                     match_serializer.save()
 
 
-# noqa: C901
+# flake8: noqa: C901
 def recreate_bracket(tournament, request, kwargs):
     if request.data["status"] == tournament.status:
         print("1")
