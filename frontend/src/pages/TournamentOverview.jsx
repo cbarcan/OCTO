@@ -10,7 +10,7 @@ import { BaseButton, LoginInput } from './Login/index';
 //import SideMenu from '../components/Menus/LoginUserMenu';
 //import { TitlePage } from './Tournaments/index';
 
-
+import Header from './Tournament'
 
 const GameDetailsCard = styled.div`
     //border: solid purple;
@@ -203,7 +203,8 @@ const Home = () => {
 
 
     return (
-
+        <>
+                <Header/>
                 <MainContainer>
                     
                     <LeftContainer>
@@ -255,6 +256,7 @@ const Home = () => {
 
 
                 </MainContainer>
+                </>
     )
 }
 

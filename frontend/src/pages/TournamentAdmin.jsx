@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import StartButton from '../components/StartButton'
 import {useState} from "react";
 import InvitationModal from "../components/Tournament/InvitationModal";
+import Axios from '../axios';
+import { useHistory } from "react-router-dom";
 
 
 
@@ -71,12 +73,36 @@ const Admin = () => {
 
     const [modalIsOpen, setIsOpen] = useState(false);
 
+    const [id, setId] = useState(1);
+
+
     const openModal = () =>  {
-        console.log('click')
         setIsOpen(true);
     }
 
+    const history = useHistory();
+
+
     const closeModal = () => setIsOpen(false);
+
+    const startTournamentHandler = () => {
+        const tournamentData = new FormData();    
+        tournamentData.append('status', 'OG')
+        const url = `/tournament/${id}/`;
+        const auth = 'Bearer ' + localStorage.getItem('userToken');
+        const headers = {
+            headers: { Authorization: auth, 'Content-Type': 'multipart/form-data' },
+        };
+        Axios.patch(url, tournamentData, headers)
+            .then((response) => {
+                console.log('Tournament started!');
+                console.log(response);
+                history.push(`/tournament/${id}/overview`);
+            })
+            .catch((error) => {
+                console.log('Tournament Start error', error.response.data);
+            });
+    };
 
 
     return (
@@ -96,7 +122,7 @@ const Admin = () => {
                             <div className='invitation'>participants</div>                        
                         </Counter>
                     </Invitations>
-                    <StartButton text={'START'}/>
+                    <StartButton clickHandler={startTournamentHandler} text={'START'}/>
                 </MainContainer>
                 <InvitationModal modalIsOpen={modalIsOpen} openModal={openModal} closeModal={closeModal}/>
             </>
