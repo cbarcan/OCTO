@@ -11,56 +11,91 @@ import camera from "../../../assets/svgs/photo-camera.svg"
 
 
 const Container = styled(FormContainer)`
-   width: 40%; 
+  //border: solid yellow;
+  width: 60%;
+  height: 80%;
+  display: flex;
 `
 const Top = styled.div `
-    display: flex; 
-    align-items:center; 
-    justify-content: center; 
+  //border: solid blue;
+  text-align: center;
+  width: 70%;
+  padding: 6% 1%;
 `
 const Title = styled(TitleHead3)`
-    width: 45%;
-    font-size: 30px;
-    margin: 40px; 
+  //border: solid yellow;
+  width: 100%;
+  font-size: 25px; 
 `
 const WrapperAvatar = styled.div `
-    display: flex; 
-    align-items:center; 
-    flex-direction: column;  
+  //border: solid red;
+  background: white;
+  border-radius: 25px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
     
-    &:hover {
+    /* &:hover {
       img {
         display: inline;
       }
-    }
+    } 
   
     &:hover ${UserProfilePicIcon}{
       opacity: 0.3;
     }
+
+    img {
+      height: 20%;
+    }*/
   `
 const Wrapper = styled.div`
-    display: flex; 
-    align-items:center; 
-    flex-direction: column;
+  //border: solid purple;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  label {
+    color: black;
+    //font-family: monospace;
+    margin: 0;
+  }
 `
 const ButtonWrapper = styled.div`
-    display: flex; 
-    align-items:center; 
-    flex-direction: column;
-    margin: 20px; 
+  //border: solid green;
+  width: 100%;
+  text-align: center;
+  button {
+    color: black;
+  }
 `
 const ProfileInput = styled(LongInput2)`
-    height:40px;
-    width: 350px; 
-    margin: 10px 0; 
+  border: solid peru;
+  height:40px;
+  width: 350px; 
+  margin: 10px 0;
+  color: black; 
 `
 const Img = styled.img`
-    height: 20px;
-    width: 20px; 
-    position: absolute;
-    margin-top:29px; 
-    display:none;   
+  border: solid grey;
+  height: 20%;
+  width: 20%; 
+  /* position: absolute;
+  margin-top:29px; 
+  display:none;  */  
 `
+
+/* const RigthWrapper = styled.div`
+  border: solid grey;
+  display: flex;
+  flex-direction: column;
+` */
+
 const EditProfile = () => {
 
     const realFileInput = React.useRef(null);
@@ -75,12 +110,14 @@ const EditProfile = () => {
     return <>
         <MovingBackground/>
              <Container>
-               <Top><Title>Edit your Profile</Title></Top>
-               <WrapperAvatar>
+                <Top>
+                 <Title>Edit your Profile</Title>
                  <UserProfilePicIcon src = { avatarWhite } alt="avatar"/>
                  <Img onClick={replaceFileInput} src={camera} alt="camera"/>
                  <input type="file" style={{display: "none"}} ref={realFileInput} onChange={e => handleAvatar(e)} accept="image/png, image/jpeg" multiple/>
-               </WrapperAvatar>
+                </Top>
+
+               <WrapperAvatar>
                <Wrapper>
                  <LabelText>First name</LabelText>
                  <ProfileInput />
@@ -104,6 +141,8 @@ const EditProfile = () => {
                <ButtonWrapper>
                  <BaseButton type="submit">Save changes</BaseButton>
                </ButtonWrapper>
+               </WrapperAvatar>
+
             </Container>
     </>
 };

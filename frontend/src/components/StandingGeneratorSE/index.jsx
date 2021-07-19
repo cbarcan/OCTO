@@ -3,8 +3,10 @@ import styled from "styled-components";
 import octo_victory from "../../assets/svgs/octo-victory-transparent.svg"
 
 const Wrapper = styled.div`
+  //border: solid yellow;
   height: fit-content;
   width: 100%;
+  height: 80%;
   display: flex;
   padding: 0 10%;
   align-items: center;
@@ -40,18 +42,53 @@ const Wrapper = styled.div`
 `
 
 const Left = styled.div`
+  //border: solid yellowgreen;
   height: fit-content;
   width: 50%;
+  height: 100%;
   display: flex;
   flex-direction: column;
+  padding: 2% 0;
+
+  p {
+    //border: solid red;
+    font-family: monospace;
+    padding-top: 2%;
+    padding-bottom: 3%;
+    padding-left: 3%
+  }
 `
 
 const Right = styled.div`
-  height: 547px;
-  width: 50%;
+  //border: solid red;
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   margin-left: 5%;
+  perspective: 600px;
+  
+  img {
+    height: 70%;
+    animation: introduceLabel 2s cubic-bezier(0.19, 1, 0.22, 1) 1s 1 both,
+    rotateLabel 5s linear 3s infinite;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    @keyframes introduceLabel {
+      0% { opacity: 0; transform: translate(-50%, -50%) scale(0.4) rotateY(-1800deg); }
+      100% { opacity: 1; transform: translate(-50%, -50%) scale(1) rotateY(20deg);}
+    }
+
+    @keyframes rotateLabel { 
+      0% { transform: translate(-50%, -50%) rotateY(20deg);}
+      50% { transform: translate(-50%, -50%) rotateY(-20deg);}
+      100% {  transform: translate(-50%, -50%) rotateY(20deg);}
+    }
+
+  }
 `
 
 const StandingGeneratorSE = () => {

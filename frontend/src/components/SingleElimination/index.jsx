@@ -10,7 +10,7 @@ const SingleElimination = (props) => {
 
     return (
         <>
-            <PageTitle pageTitle="Name of the tournament" />
+            <PageTitle pageTitle="Tournament Name" />
             {
                 location.pathname === `/tournament/${props.tournament_id}/standing`
                 ?

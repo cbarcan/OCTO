@@ -16,6 +16,8 @@ import CreateTournament from './pages/CreateTournament';
 import Message from './pages/CreateTournament/message';
 import PrivateOrPublic from './pages/CreateTournament/PrivateOr';
 import DetailsCreate from './pages/CreateTournament/DetailsTournament';
+import AboutUs from "./pages/AboutUs"
+import ContactUs from "./pages/ContactUs";
 // import BracketPage from './pages/BracketPage';
 import Bracket from './pages/Bracket';
 import {PageContainer, PageContent} from './styles/page-layout';
@@ -61,6 +63,10 @@ ReactDOM.render(
               <Route exact path="/user/profile" component={Profile} />
               <Route exact path="/user/profile/edit" component={EditProfile} />
               <Route exact path="/menu" component={ LoginInUserSideMenu } />
+              <Route exact path="/aboutus" component={ AboutUs } />
+              <Route exact path="/contactus" component={ ContactUs } />
+
+
               <Route exact path="/test" component={ TestHome } />
             </Switch>
             </PageContent>

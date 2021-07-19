@@ -17,7 +17,7 @@ align-items: center;
 img {
     height: 65%;
     padding-right: 12%;
-    animation-duration: 2s;
+    animation-duration: 2.7s;
     animation-iteration-count: infinite;
     margin: 0 auto 0 auto;
     transform-origin: bottom;

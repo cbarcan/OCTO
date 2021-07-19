@@ -1,18 +1,21 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import soccer from  "../../assets/svgs/soccer-ball.svg"
+import shark from  "../../assets/svgs/shark.svg"
+//import soccer from  "../../assets/svgs/soccer-ball.svg"
 import { useHistory } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { addTournamentData } from '../../store/actions/tournamentAction'
 
 
 const Container = styled.div`
+    //border: solid red;
     margin: 0 auto;
     background-color: black;
-    border-radius: 5px;
+    padding: 3%;
+    border-radius: 15px;
     height: 350px;
-    width: 18%;
-    box-shadow: 1px 1px 20px -5px #ffffff75;
+    width: 21%;
+    box-shadow: 3px 11px 21px 35px rgba(33,33,33,0.44);
     display: grid;
     grid-template-rows: 150px auto auto;
     grid-template-areas: 
@@ -23,7 +26,13 @@ const Container = styled.div`
       
      &:hover {
         cursor: pointer;
-        box-shadow: 1px 1px 20px -5px #14d1d1;
+        background: ${props => props.theme.octoGradientBlueColor};
+        box-shadow: 0px 15px 19px -6px rgba(33,115,122,0.6);
+
+        img {
+            transform: translateY(-4px);
+            
+        }
     }
 
     &:active {
@@ -31,6 +40,7 @@ const Container = styled.div`
     }
     `
 const Top = styled.div `
+    margin: 0;
     grid-area: top;
     display: flex;
     flex-flow: column nowrap;
@@ -51,40 +61,58 @@ const Bottom = styled.div `
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-start;
-    align-items: center; 
-    align-items: center; 
+    align-items: center;
 `
 const Icon = styled.img`
     height: 78px;
     width: 78px;
-    border-radius: 50px; 
-    margin-bottom: 1rem;
+    border-radius: 50px;
+    margin: 0;
     background-color: white; 
 `;
 
 const Name = styled.p`
-    font-size: 0.85rem;
+    font-weight: bold;
+    font-size: 0.90rem;
     margin: 0.5rem;
-    color: white; 
+    color: white;
+    margin-left: 2%;
+    margin-right: 8%;
 `;
 
 const SportType = styled.p `
-    font-weight: 300;
-    font-size: 0.85rem;
-    color: white; 
+    //border: solid pink;
+    font-weight: bold;
+    font-size: 0.90rem;
+    color: white;
+    margin-left: 2%;
+    margin-right: 8%;
 `
 
 const Location = styled.p`
-    font-weight: 300;
-    font-size: 0.85rem;
-    color: white; 
+    font-weight: bold;
+    font-size: 0.90rem;
+    color: white;
+    margin-left: 3%;
+    margin-right: 8%;
 `;
 
 const Status = styled.p `
-    font-weight: 300;
-    font-size: 0.85rem;
+    font-weight: bold;
+    font-size: 0.90rem;
     color: white; 
+    margin-left: 2%;
+    margin-right: 8%;
 `
+const ParagContainer = styled.div `
+    //border: solid yellow;
+    display: flex;
+    align-items: center;
+    width: 80%;
+`
+
+
+
 const TournamentCard = (props) => {
 
     // update current Tournament id
@@ -102,16 +130,26 @@ const TournamentCard = (props) => {
     return <>
         <Container onClick={handleClick}>
             <Top>
-                <Icon src={ soccer || 'https://via.placeholder.com/50x50' } alt="soccer">
-                </Icon>
-                <Status>Status: On going</Status>
+                <Icon src={ shark || 'https://via.placeholder.com/50x50' } alt="shark"/>    
             </Top>
             <Middle>
-                 <SportType>Type: Soccer</SportType>
-                 <Name>Team: OCTO</Name>
+
+                
+                <ParagContainer>
+                    <SportType>Type:</SportType> Soccer
+                </ParagContainer>
+                <ParagContainer>
+                    <Name>Team:</Name> OCTO
+                </ParagContainer>
+                <ParagContainer>
+                    <Status>Status:</Status> On going
+                </ParagContainer>
+                 
             </Middle>
             <Bottom>
-                <Location>Location: Zurich</Location>
+                <ParagContainer>
+                    <Location>Location:</Location> Zurich
+                </ParagContainer>
             </Bottom>
         </Container>
     </>
