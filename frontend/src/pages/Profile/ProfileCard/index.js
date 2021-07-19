@@ -1,4 +1,4 @@
-import React from 'react';
+import Reactr from 'react';
 import styled from 'styled-components'
 import avatarWhite from "../../../assets/svgs/avatarWhite.svg"
 
@@ -73,19 +73,19 @@ const Achievement = styled.p `
     color: white; 
 `
 
-const ProfileCard = () => {
+const ProfileCard = (props) => {
     return <>
         <Container>
             <CardLeft>
                 <UserProfilePicIcon src={ avatarWhite || "https://via.placeholder.com/50x50" } />
                 <Name>
-                    Bolor Munkhbold
+                    {props.user.username}
                 </Name>
-                <Location>Zurich</Location>
+                <Location>{props.user.location}</Location>
             </CardLeft>
             <CardTopRight>
                 <CompanyName>
-                    Propulsion Academy
+                    {props.user.company}
                 </CompanyName>
             </CardTopRight>
             <CardBottomRight>
