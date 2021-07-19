@@ -8,7 +8,7 @@ import Participant from '../components/Tournament/Participant';
 import { LabelText } from './Login/SingUp/Verification';
 import { BaseButton, LoginInput } from './Login/index';
 //import SideMenu from '../components/Menus/LoginUserMenu';
-//import { TitlePage } from './Tournaments/index';
+import { TitlePage } from './Tournaments/index';
 
 
 
@@ -17,38 +17,32 @@ const GameDetailsCard = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 12% 3%;
+    padding: 8% 3%;
+    //padding-bottom: 2%;
     width: 85%;
-    height: 75%;
-    background: black;
-    color: white;
+    height: 70%;
+    background: white;
+    color: black;
     box-shadow: 3px 11px 21px 35px rgba(33,33,33,0.44);
     border-radius: 15px;
-    transition: transform .45s ease, background-color .45s ease;
+    transition: transform .45s ease;
 
     &:hover {
-        transition: background-color .05s ease-out;
-        background-color: white;
+        //transition: background-color .05s ease-out;
+        //background-color: white;
         transform: scale(1.04);
-        color: black;
-        transition: transform .45 ease;
-        transition: color .45s ease;
+        //color: black;
+        //transition: transform .45 ease;
+        //transition: color .45s ease;
 
         img {
             filter: invert(48%) sepia(0%) saturate(5476%) hue-rotate(0deg) brightness(0%) contrast(119%);
         }
 
-        label {
+        /* label {
             color: black;
-        }
+        } 
 
-        button {
-            color: black;
-
-            &:hover {
-                color: white;
-            }
-        }
 
         input {
             background: whitesmoke;
@@ -64,17 +58,29 @@ const GameDetailsCard = styled.div`
             background: whitesmoke;
             color: black;
             
-        }
+        }*/
         
     }
 
     img {
         
         height: 38%;
-        padding-bottom: 2%;
+        margin-bottom: 5%;
+        filter: invert(48%) sepia(0%) saturate(5476%) hue-rotate(0deg) brightness(0%) contrast(119%);
         
         &:hover {
             filter: invert(48%) sepia(70%) saturate(8000%) hue-rotate(180deg) brightness(145%) contrast(119%);
+        }
+    }
+
+    button {
+        margin-top: 5%;
+        color: grey;
+        font-weight: bold;
+        font-size: 11px;
+
+        &:hover {
+            color: white;
         }
     }
 
@@ -101,7 +107,7 @@ const MainContainer = styled.div`
 
 const LeftContainer = styled.div`
     //border: solid yellow;
-    margin-top: 3%;
+    margin-top: 6%;
     width: 50%;
     height: 100%;
     display: flex;
@@ -128,14 +134,14 @@ const FormContainer = styled.form`
     //border: solid blue;
     height: 100%;
     width: 100%;
-    margin-top: 3%;
+    margin-top: 8%;
     display: flex;
     flex-direction: column;
     align-items: center;
     
 `
 
-const SelectBox = styled.select`
+/* const SelectBox = styled.select`
     //border: solid blue;
     
     height: 50%;
@@ -148,7 +154,7 @@ const SelectBox = styled.select`
     color: white;
     font-size: 80%;
     
-`
+` */
 
 
 const ParticipantsContainer = styled.div`
@@ -162,16 +168,19 @@ const ParticipantsContainer = styled.div`
 
 `
 
-const InputStyle = styled(LoginInput)`
+/* const InputStyle = styled(LoginInput)`
     height: 50%;
     width: 75%;
     margin-left: 0.5%;
     border: 0.5px solid grey;
 
-`
+` */
 
 const LabelText2 = styled(LabelText)`
-    color: white;
+    //border: solid blue;
+    color: black;
+    margin-left: 18%;
+    margin-bottom: 2%;
 `
 
 const InputContainer = styled.div`
@@ -179,10 +188,9 @@ const InputContainer = styled.div`
     height: 30%;
     width: 100%;
     display: flex;
-    padding-left: 19%;
+    //padding-left: 19%;
     flex-direction: column;
-    margin-top: 2%;
-    margin-bottom: 2%;
+    //margin-bottom: 2%;
     
 
     label {
@@ -192,10 +200,13 @@ const InputContainer = styled.div`
     }
 `
 
-/* const BaseButton2 = styled(BaseButton)`
-    margin-top: 2%;
-    background: black;
-` */
+const TitlePage2 = styled(TitlePage)`
+    //border: solid pink;
+    margin-left: 20%;
+    width: 50%;
+    font-weight: bold;
+    
+`
 
 
 
@@ -213,22 +224,16 @@ const Home = () => {
                             <FormContainer>
 
                                 <InputContainer>
-                                    <LabelText2> Team Name</LabelText2>
-                                    <InputStyle type="text" placeholder="Octo Team?"/>
+                                    <LabelText2> Tournament Name</LabelText2>
+                                    <TitlePage2>OCTO TEAM</TitlePage2>
                                 </InputContainer>
                                 
 
                                 <InputContainer>
-                                    <LabelText2> Select the Game Type</LabelText2>
-                                    <SelectBox name="Turnament">
-
-                                        <option value="Futball">Football</option>
-                                        <option value="Ping Pong">Ping Pong</option>
-                                        <option value="Tennis">Tennis</option>
-
-                                    </SelectBox>
+                                    <LabelText2> Selected Game Type</LabelText2>
+                                    <TitlePage2>PING-PONG</TitlePage2>
                                 </InputContainer>
-                                <BaseButton>JOIN</BaseButton>
+                                <BaseButton>READY TO JOIN?</BaseButton>
                             </FormContainer>
 
                         </GameDetailsCard>
