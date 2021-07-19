@@ -11,4 +11,7 @@ urlpatterns = [
 
     # Retrieve Update Destroy one tournament
     path('<int:pk>/', RetrieveUpdateDestroyTournamentView.as_view()),
+
+    # Join a specific Tournament
+    path('<int:pk>/join/')
 ]

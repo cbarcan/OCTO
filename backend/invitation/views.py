@@ -31,4 +31,3 @@ class CreateInvitationView(CreateAPIView):
             [self.request.data['email']],
             fail_silently=False,
         )
-
