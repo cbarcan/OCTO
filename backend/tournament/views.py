@@ -50,4 +50,3 @@ class JoinTournamentView(UpdateAPIView):
         else:
             tournament.participants.remoce(user)
             return Response({'success': 'quit'}, status=status.HTTP_200_OK)
-
