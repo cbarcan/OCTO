@@ -144,17 +144,25 @@ class CreateTournamentView(CreateAPIView):
 
 class RetrieveUpdateDestroyTournamentView(RetrieveUpdateDestroyAPIView):
     queryset = Tournament.objects.all()
-    serializer_class = ListTournamentSerializer
     permission_classes = [IsAuthenticated]
     lookup_field = 'pk'
 
-    def patch(self, request, *args, **kwargs):
+    def get_serializer_class(self):
+        if self.request.method == 'PATCH':
+            return CreateTournamentSerializer
+        return ListTournamentSerializer
 
+    def patch(self, request, *args, **kwargs):
+        tournament = self.get_object()
         try:
+            print(tournament.status)
+            if request.data["status"] == tournament.status:
+                print("1")
+                return Response({"details": f'The status of the tournament is already {tournament.get_status_display()}'})
             if request.data["status"] == "OG":
                 bracket = Bracket.objects.get(tournament=kwargs["pk"])
                 bracket.delete()
-                tournament = self.get_object()
+
                 participants = tournament.participants.all()
                 bracket_data = {"tournament": tournament.id}
                 bracket_serializer = BracketSerializer(data=bracket_data)
