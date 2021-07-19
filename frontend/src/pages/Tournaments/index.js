@@ -4,7 +4,7 @@ import TournamentCard from "../../components/TournamentCard";
 // import ball from  "../../assets/svgs/Ball.svg"
 // import tennis from "../../assets/svgs/tennis.svg"
 import join from "../../assets/svgs/join.svg"
-import { TitleHead } from "../CreateTournament/index"
+import { TitleHead } from "../CreateTournament/SelectSport"
 
 
 
@@ -130,7 +130,7 @@ const Tournaments = ({ history }) => {
     };
 
   return <>
-  <TitlePage>Torunaments</TitlePage>
+  <TitlePage>Tournaments</TitlePage>
   <Container>
     <TournamentCard id={1} />
     <TournamentCard id={2} />
