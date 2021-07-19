@@ -4,7 +4,7 @@ import shark from  "../../assets/svgs/shark.svg"
 //import soccer from  "../../assets/svgs/soccer-ball.svg"
 import { useHistory } from "react-router-dom";
 import { useDispatch } from 'react-redux';
-import { addTournamentData } from '../../store/actions/tournamentAction'
+import { getTournamentByID } from '../../store/actions/tournamentAction'
 
 
 const Container = styled.div`
@@ -128,7 +128,7 @@ const TournamentCard = (props) => {
 
     const handleClick = () => {
         history.push(`/tournament/${props.id}/overview`);
-        dispatch(addTournamentData(props.id))
+        dispatch(getTournamentByID(props.id))
     }
   
     return <>
