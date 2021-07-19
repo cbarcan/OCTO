@@ -15,7 +15,7 @@ const Container = styled.div`
     border-radius: 15px;
     height: 350px;
     width: 21%;
-    box-shadow: 3px 11px 21px 35px rgba(33,33,33,0.44);;
+    box-shadow: 3px 11px 21px 35px rgba(33,33,33,0.44);
     display: grid;
     grid-template-rows: 150px auto auto;
     grid-template-areas: 
