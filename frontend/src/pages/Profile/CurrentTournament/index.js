@@ -73,7 +73,8 @@ const Name = styled.p`
     align-items: center;  
 `;
 
-const CurrentTournament = () => {
+const CurrentTournament = (props) => {
+
     return <>
         <TournamentDiv>
             <Header>
@@ -81,10 +82,11 @@ const CurrentTournament = () => {
                 <Label><p>◀</p><p>▶</p></Label>
             </Header>
             <Tournaments>
-                <TournamentCard/>
-                <TournamentCard/>
-                <TournamentCard/>
-                <TournamentCard/>
+                {
+                    props.user.my_tournaments.map((tournament, index) => (                
+                        <TournamentCard key={index} tournament={tournament}/>
+                    ))
+                }
             </Tournaments>
         </TournamentDiv>
     </>

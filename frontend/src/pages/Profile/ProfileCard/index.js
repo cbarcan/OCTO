@@ -55,7 +55,7 @@ const RigthSide = styled.div`
     flex-direction: column;
     height: 100%;
     width: 100%;
-` 
+`
 
 const CardTopRight = styled.div`
     //border: solid lightcoral;
@@ -161,13 +161,13 @@ const NumSection = styled.div `
     
 `
 
-const ProfileCard = () => {
+const ProfileCard = (props) => {
     return <>
         <Container>
             <CardLeft>
                 <UserProfilePicIcon src={ avatarWhite || "https://via.placeholder.com/50x50" } alt="avatar"/>
                 <Name>
-                    Anonymous 
+                    {props.user.username}
                 </Name>
                 <BaseButton><Link to="/user/profile/edit"> Edit Profile </Link> </BaseButton>
             </CardLeft>
@@ -175,9 +175,9 @@ const ProfileCard = () => {
             <RigthSide>
                 <CardTopRight>
                     <CompanyName>
-                    Propulsion Academy
+                    {props.user.company}
                     </CompanyName>
-                    <Location>Zurich</Location>
+                    <Location>{props.user.location}</Location>
                 </CardTopRight>
                 <CardBottomRight>
 

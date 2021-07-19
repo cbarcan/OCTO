@@ -241,7 +241,19 @@ export const OvalWhite2 = styled(OvalWhite)`
 
 
 
-export const CreateTournament = () => {
+export const SportSelection = (props) => {
+
+    const futballHandler = () => {
+        props.selectSport('F')
+    }
+
+    const tennisHandler = () => {
+        props.selectSport('T')
+    }
+
+    const pingpongHandler = () => {
+        props.selectSport('P')
+    }
 
     return (
         <>
@@ -251,26 +263,25 @@ export const CreateTournament = () => {
             <TitleHead>Select a sport:</TitleHead>
             <InnerDiv>
           
-                <CardsContainers>
+                <CardsContainers onClick={futballHandler}>
                     <InnerContainer>
                         <Futball src={ball} alt='logo'/>
                     </InnerContainer>
                 </CardsContainers>
 
-                <CardsContainers>
+                <CardsContainers onClick={tennisHandler}>
                     <InnerContainer>
                         <RacketImg src={tennis} alt='logo'/>
                         <BallImg src={tennisBall} alt='logo'/>
                     </InnerContainer>
                 </CardsContainers>
 
-                <CardsContainers>
+                <CardsContainers onClick={pingpongHandler}> 
                     <InnerContainer>
                         <RacketImg src={pingpong} alt='logo'/>
                     </InnerContainer>
                 </CardsContainers>
 
-                <Link to='/privacy'> --- </Link>
 
             </InnerDiv>
 
@@ -287,4 +298,4 @@ export const CreateTournament = () => {
     )
 }
 
-export default CreateTournament
+export default SportSelection
