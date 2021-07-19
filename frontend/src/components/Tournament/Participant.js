@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components'
 import avatar from "../../assets/svgs/avatar.svg"
 import { useHistory } from "react-router-dom";
-
+import Axios from '../../axios';
 
 const Container = styled.div`
     //border: solid pink;
@@ -59,22 +59,46 @@ const Location = styled.p`
 
 const Participant = (props) => {
 
+    const [participant, setParticipant] = useState(null)
+
     const history = useHistory();
-
-
     const handleClick = () => {
         history.push(`/user/${props.id}`);
     }
 
+    const userByID = (id) => {
+        // prepare data
+        const url = `/user/${id}/`;
+        const auth = 'Bearer ' + localStorage.userToken;
+        const headers = { headers: { Authorization: auth } };
+        Axios.get(url, headers)
+            .then((response) => {
+                setParticipant(response.data);
+            })
+            .catch((error) => {
+                console.log('userByID Error', error.response.data);
+            });
+        };
+
+    useEffect(() => {
+        userByID(props.id);
+    }, [props.id])
+
+
     return <>
+        {
+        participant ?
         <Container onClick={handleClick}>
             <CardLeft>
                 <UserProfilePicIcon src={ avatar || "https://via.placeholder.com/50x50" } />
-                <Name>{props.name}</Name>
-                <Location>{props.location}</Location>
+                <Name>{participant.username}</Name>
+                <Location>{participant.location}</Location>
             </CardLeft>
         </Container>
+        : null 
+        }       
     </>
+
 }
 
 export default Participant

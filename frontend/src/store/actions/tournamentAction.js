@@ -4,6 +4,11 @@ export const addTournamentData = (data) => {
     return { type: 'TOURNAMENT_ADD_DATA', payload: data };
 };
 
+export const addTournamentsData = (data) => {
+    return { type: 'TOURNAMENTS_ADD_DATA', payload: data };
+};
+
+
 
 export const getTournamentByID = (id) => (dispatch) => {
     // prepare data
@@ -18,5 +23,21 @@ export const getTournamentByID = (id) => (dispatch) => {
     })
     .catch((error) => {
         console.log('getTournamentByID Error', error.response.data);
+    });
+};
+
+export const getTournaments = () => (dispatch) => {
+    // prepare data
+    const url = `/tournament/list/`;
+    const auth = 'Bearer ' + localStorage.userToken;
+    const headers = { headers: { Authorization: auth } };
+
+    Axios.get(url, headers)
+        .then((response) => {
+        console.log('Tournaments data retrieved');
+        dispatch(addTournamentsData(response.data))
+    })
+    .catch((error) => {
+        console.log('getTournaments Error', error.response.data);
     });
 };

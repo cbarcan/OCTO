@@ -21,13 +21,17 @@ const Profile = () => {
         }
     }, [user.id, dispatch])
 
-
-    return (
-        <>
-            <ProfileCard user = {user}/>
-            <CurrentTournament/>
-        </>
-        )
+        return(
+            <>
+                {user.id ? 
+                    <>
+                    <ProfileCard user = {user}/>
+                    <CurrentTournament user = {user}/>
+                    </>
+                    : 
+                    null
+                }
+            </>)
     };
 
 export default Profile

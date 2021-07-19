@@ -2,12 +2,13 @@ import { applyMiddleware, createStore, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { user } from './reducers/userReducer'
-import { tournament } from './reducers/tournamentReducer'
+import { tournament, tournaments } from './reducers/tournamentReducer'
 
 const middlewares = [thunk];
 const reducers = combineReducers({
     user,
-    tournament
+    tournament,
+    tournaments
 });
 
 const store = createStore(reducers, composeWithDevTools(

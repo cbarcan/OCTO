@@ -6,11 +6,13 @@ import octo from '../assets/svgs/octopusWhite.svg';
 //import octoLogo from '../assets/svgs/octopusWhite.svg';
 import Participant from '../components/Tournament/Participant';
 import { LabelText } from './Login/SingUp/Verification';
-import { BaseButton, LoginInput } from './Login/index';
+import { BaseButton } from './Login/index';
 //import SideMenu from '../components/Menus/LoginUserMenu';
 import { TitlePage } from './Tournaments/index';
-
 import Header from './Tournament'
+import {useEffect} from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { getTournamentByID } from '../store/actions/tournamentAction';
 
 const GameDetailsCard = styled.div`
     //border: solid purple;
@@ -211,10 +213,24 @@ const TitlePage2 = styled(TitlePage)`
 
 
 const Home = () => {
+    const dispatch = useDispatch();
+    const url = window.location.pathname;
+    const url_array = url.split("/");
+    const tournament_id = url_array[url_array.length - 2];
+    const tournament = useSelector((state) => state.tournament); 
 
-
+    useEffect(() => {
+        if(!tournament.id) {
+            dispatch(getTournamentByID(tournament_id));
+        }
+    }, [tournament_id, tournament.id, dispatch])
+    
+    
     return (
         <>
+        {(tournament.id) ?
+        (
+            <>
                 <Header/>
                 <MainContainer>
                     
@@ -243,15 +259,11 @@ const Home = () => {
                     <RightContainer>
                         <SectionTitle pageTitle="PARTICIPANTS"></SectionTitle>
                             <ParticipantsContainer>
-                                    <Participant name={'Tina'} location={'Bed'}/>
-                                    <Participant name={'Jon'} location={'Lake'}/>
-                                    <Participant name={'Catalin'} location={'Online'}/>
-                                    <Participant name={'Gian'} location={'Aarau'}/>
-                                    <Participant name={'Bolor'} location={'Zurich'}/>
-                                    <Participant name={'Tina'} location={'Bed'}/>
-                                    <Participant name={'Jon'} location={'Lake'}/>
-                                    <Participant name={'Catalin'} location={'Online'}/>
-                                    <Participant name={'Gian'} location={'Aarau'}/>
+                            { tournament ?
+                            tournament.participants.map((participant, index) => (                
+                                <Participant key={index} id={participant}/>
+                            )): null
+                            }
                             </ParticipantsContainer>
                         
                         <SectionTitle pageTitle="Location:   Propulsion Academy,   Heinrichstrasse 200,   8005 Zürich"></SectionTitle>
@@ -262,8 +274,12 @@ const Home = () => {
 
                 </MainContainer>
                 </>
+        ) : null }
+
+        </>
+
+
     )
 }
-
 
 export default Home
