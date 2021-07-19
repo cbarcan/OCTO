@@ -115,16 +115,11 @@ const ParagContainer = styled.div `
 
 const TournamentCard = (props) => {
 
-    // update current Tournament id
-
-    const dispatch = useDispatch();
-
 
     const history = useHistory();
 
     const handleClick = () => {
-        history.push(`/tournament/${props.id}/overview`);
-        dispatch(getTournamentByID(props.id))
+        history.push(`/tournament/${props.tournament.id}/overview`);
     }
   
     return <>
@@ -133,22 +128,16 @@ const TournamentCard = (props) => {
                 <Icon src={ shark || 'https://via.placeholder.com/50x50' } alt="shark"/>    
             </Top>
             <Middle>
-
-                
                 <ParagContainer>
-                    <SportType>Type:</SportType> Soccer
+                    <SportType>Name:</SportType> {props.tournament.name}
                 </ParagContainer>
                 <ParagContainer>
-                    <Name>Team:</Name> OCTO
+                    <SportType>Sport:</SportType> {props.tournament.sport}
                 </ParagContainer>
-                <ParagContainer>
-                    <Status>Status:</Status> On going
-                </ParagContainer>
-                 
             </Middle>
             <Bottom>
                 <ParagContainer>
-                    <Location>Location:</Location> Zurich
+                    <Location>Location:</Location>{props.tournament.location}
                 </ParagContainer>
             </Bottom>
         </Container>
