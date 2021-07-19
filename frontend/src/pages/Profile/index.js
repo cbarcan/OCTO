@@ -25,7 +25,6 @@ const Profile = () => {
     return (
         <>
             <ProfileCard user = {user}/>
-            <TeamContainer/>
             <CurrentTournament/>
         </>
         )

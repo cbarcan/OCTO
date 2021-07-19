@@ -330,8 +330,6 @@ export const DetailsCreate = (props) => {
                     <InputWrapper4>
                         <LabelText> Torunament Name</LabelText>
                         <ShortInput2 onChange={nameHandler} type="text" />
-                        <LabelText> Tournament Name</LabelText>
-                        <ShortInput2 type="text" />
                     </InputWrapper4>
                     <InputWrapper4>
                         <LabelText> Avatar</LabelText>
