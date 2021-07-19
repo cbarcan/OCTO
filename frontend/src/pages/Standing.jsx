@@ -1,6 +1,7 @@
 import SingleElimination from "../components/SingleElimination";
 import RoundRobin from "../components/RoundRobin";
 import styled from "styled-components";
+import Header from './Tournament'
 
 const Wrapper = styled.div`
     //border: solid blue;
@@ -26,6 +27,7 @@ const Standing = () => {
     if (format === 'single_elimination') {
         return (
             <Wrapper>
+                <Header/>
                 <SingleElimination tournament_id={tournament_id}/>
             </Wrapper>
         )
@@ -33,6 +35,7 @@ const Standing = () => {
     else if (format === 'round_robin') {
         return (
             <Wrapper>
+                <Header/>
                 <RoundRobin tournament_id={tournament_id}/>
             </Wrapper>
         )
