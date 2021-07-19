@@ -29,22 +29,6 @@ const Home = () => {
     return (
         <Main>
             <Message/>
-            <Links>
-                <Link to='/login'>Login</Link>
-                <Link to='/registration'>Registration</Link>
-                <Link to='/confirmation'>Confirmation</Link>
-                <Link to='/verification'>Verification</Link>
-                <Link to="/tournaments">Tournaments</Link>
-                <Link to='/create'>Create</Link>
-                <Link to='/privacy'>Privacy</Link>
-                <Link to="/details">DetailsCreate </Link>
-                <Link to='/tournament/:id/overview'>Tournament</Link>
-                <Link to='/tournament/:id/admin'>Tournament Admin</Link>
-                <Link to='/tournament/:id/bracket'>Bracket</Link>
-                <Link to="/tournament/:id/standing" >Standing</Link>
-                <Link to="/user/profile">Profile</Link>
-                <Link to="/user/profile/edit">EditProfile</Link>
-            </Links>
         </Main>
     )
 }
