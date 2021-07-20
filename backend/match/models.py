@@ -22,7 +22,14 @@ def mock_default(a=""):
     return result
 
 
+status_choices = [
+    ("OG", "On going"),
+    ("ED", "Ended"),
+]
+
+
 class Match(models.Model):
+    status = models.CharField(max_length=2, choices=status_choices, default="OG")
     result = ArrayField(models.PositiveIntegerField(), size=2, default=result_default, blank=True)
     mock_players = ArrayField(models.JSONField(blank=True), size=2, blank=True, default=mock_default)
     comment = models.CharField(max_length=100, blank=True)
