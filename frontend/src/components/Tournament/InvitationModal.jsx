@@ -5,6 +5,7 @@ import Modal from "react-modal";
 import styled from "styled-components";
 import {BaseButton} from "../../pages/Login";
 import StartButton from '../StartButton'
+import Axios from '../../axios';
 
 
 const Wrapper = styled.div`
@@ -188,8 +189,34 @@ const InvitationModal = (props) => {
         setBorder("#19c5db");
         setPlaceholder("Email");
         setMail("");
+        sendMails();
+
         props.closeModal();
     }
+
+    const sendMails = () => {
+      mails.forEach(email => {
+        sendInvitation(email.text)
+      });
+    }
+
+
+
+    const sendInvitation = (email) => {
+      const url = `invitation/tournament/${props.id}/`;
+      const auth = 'Bearer ' + localStorage.userToken;
+      const headers = { headers: { Authorization: auth } };
+      const profileData = new FormData();
+      profileData.append('email', email);
+  
+      Axios.post(url, profileData, headers)
+          .then((response) => {
+          console.log('send invitation');
+      })
+      .catch((error) => {
+          console.log('sendInvitation Error', error.response.data);
+      });
+  };
 
     const customStyles = {
         content: {
