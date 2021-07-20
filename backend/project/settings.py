@@ -54,7 +54,6 @@ INSTALLED_APPS = [
     'round',
     'match',
     'invitation',
-    'match',
     'standing'
 ]
 
