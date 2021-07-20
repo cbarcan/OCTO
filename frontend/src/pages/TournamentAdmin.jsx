@@ -4,7 +4,7 @@ import {useState} from "react";
 import InvitationModal from "../components/Tournament/InvitationModal";
 import Axios from '../axios';
 import { useHistory } from "react-router-dom";
-import Header from './Tournament';
+import Header from './TournamentHeader';
 import { BaseButton } from './Login';
 import add from '../assets/svgs/message2.svg';
 //import PageTitle from "../styles/page-title";
