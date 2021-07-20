@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'bracket',
     'round',
     'match',
+    'invitation',
+    'match',
     'standing'
 ]
 
