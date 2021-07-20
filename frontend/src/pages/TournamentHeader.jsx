@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import PageTitle from "../styles/page-title";
 import { useHistory } from "react-router-dom";
@@ -101,72 +101,58 @@ export const Header = styled.div`
 
 `
 
-export const Tournament = () => {
+export const Tournament = (props) => {
 
     const history = useHistory();
-    const dispatch = useDispatch();
     const url = window.location.pathname;
     const url_array = url.split("/");
-    const tournament_id = url_array[url_array.length - 2];
-    const tournament = useSelector((state) => state.tournament); 
+    const id = url_array[url_array.length - 2];
+    const my_tournaments = useSelector((state) => state.user.userData.my_tournaments);
+    const [isAdmin, setIsAdmin] = useState(false);
 
     useEffect(() => {
-        if(!tournament.id) {
-            // get id from URL
-
-            dispatch(getTournamentByID(tournament_id));
+        if (my_tournaments)
+        {
+            my_tournaments.forEach(tournament => {
+                if (tournament.id === parseInt(id)){
+                    setIsAdmin(true)
+                }
+            })
         }
-    }, [tournament_id, tournament.id, dispatch])
-
-
-    const user = useSelector((state) => state.user.userData); 
-
-
-    useEffect(() => {
-        if(!user.id) {
-            dispatch(apiUserGetData(localStorage.getItem('userToken')));
-        }
-    }, [user.id, dispatch])
+    }, [my_tournaments, id])
 
     return (
-        <>
-        {(user.id && tournament.id) ?
-        (
         <InfoBox>
-        <PageTitle pageTitle={tournament.name}/>   
+        <PageTitle pageTitle={props.name}/>   
         <InnerLinksContainer>
 
             <IndividualLinksContainer>
-            <img onClick={(e) => history.push(`/tournament/${tournament.id}/overview`)} src={eye} alt='overview'/>
-            <NavLink activeClassName="active" to={`/tournament/${tournament.id}/overview`}>OVERVIEW</NavLink>
+            <img onClick={(e) => history.push(`/tournament/${id}/overview`)} src={eye} alt='overview'/>
+            <NavLink activeClassName="active" to={`/tournament/${id}/overview`}>OVERVIEW</NavLink>
             </IndividualLinksContainer>
                 
 
             <IndividualLinksContainer>
-            <img onClick={(e) => history.push(`/tournament/${tournament.id}/bracket`)} src={bracket} alt='bracket'/>
-            <NavLink activeClassName="active" to={`/tournament/${tournament.id}/bracket`}>BRACKET</NavLink>
+            <img onClick={(e) => history.push(`/tournament/${id}/bracket`)} src={bracket} alt='bracket'/>
+            <NavLink activeClassName="active" to={`/tournament/${id}/bracket`}>BRACKET</NavLink>
             </IndividualLinksContainer>
 
             <IndividualLinksContainer>
-            <img onClick={(e) => history.push(`/tournament/${tournament.id}/standing`)} src={ranking} alt='standing'/>
-            <NavLink activeClassName="active" to={`/tournament/${tournament.id}/standing`}>STANDING</NavLink>
+            <img onClick={(e) => history.push(`/tournament/${id}/standing`)} src={ranking} alt='standing'/>
+            <NavLink activeClassName="active" to={`/tournament/${id}/standing`}>STANDING</NavLink>
             </IndividualLinksContainer>  
 
             {
-                (user.id === tournament.organizer) ?
+                (isAdmin) ?
                     <IndividualLinksContainer>
-                        <img onClick={(e) => history.push(`/tournament/${tournament.id}/admin`)} src={admin} alt='admin'/>
-                        <NavLink activeClassName="active" to={`/tournament/${tournament.id}/admin`}>ADMIN</NavLink>  
+                        <img onClick={(e) => history.push(`/tournament/${id}/admin`)} src={admin} alt='admin'/>
+                        <NavLink activeClassName="active" to={`/tournament/${id}/admin`}>ADMIN</NavLink>  
                     </IndividualLinksContainer> 
                 
                     : null
             }           
             </InnerLinksContainer>
         </InfoBox>
-        ) : null }
-
-        </>
-
 
     )
 }
