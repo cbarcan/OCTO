@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
-from rest_framework.generics import RetrieveUpdateDestroyAPIView, ListAPIView, CreateAPIView
+from rest_framework import status
+from rest_framework.generics import RetrieveUpdateDestroyAPIView, ListAPIView, CreateAPIView, UpdateAPIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
@@ -45,3 +46,20 @@ class RetrieveUpdateDestroyTournamentView(RetrieveUpdateDestroyAPIView):
             return self.partial_update(request, *args, **kwargs)
         except KeyError:
             return self.partial_update(request, *args, **kwargs)
+
+
+class JoinTournamentView(UpdateAPIView):
+    queryset = Tournament.objects.all()
+    serializer_class = ListTournamentSerializer
+    # permission_classes =
+
+    def post(self, request, *args, **kwargs):
+        tournament = self.get_object()
+        user = self.request.user
+
+        if user not in tournament.participants.all():
+            tournament.participants.add(user)
+            return Response({'success': 'joined'}, status=status.HTTP_200_OK)
+        else:
+            tournament.participants.remoce(user)
+            return Response({'success': 'quit'}, status=status.HTTP_200_OK)
