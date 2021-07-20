@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import SingleElimination from "../components/SingleElimination";
 import RoundRobin from "../components/RoundRobin";
+import Header from './Tournament'
+
 
 const Wrapper = styled.div`
   height: fit-content;
@@ -24,6 +26,7 @@ const Bracket = () => {
     if (format === 'single_elimination') {
         return (
             <Wrapper>
+                <Header/>
                 <SingleElimination tournament_id={tournament_id}/>
             </Wrapper>
         )
@@ -31,6 +34,7 @@ const Bracket = () => {
     else if (format === 'round_robin') {
         return (
             <Wrapper>
+                <Header/>
                 <RoundRobin tournament_id={tournament_id}/>
             </Wrapper>
         )

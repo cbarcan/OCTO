@@ -1,10 +1,12 @@
-import React from "react";
 import styled from "styled-components";
 import TournamentCard from "../../components/TournamentCard";
 // import ball from  "../../assets/svgs/Ball.svg"
 // import tennis from "../../assets/svgs/tennis.svg"
 import join from "../../assets/svgs/join.svg"
-import { TitleHead } from "../CreateTournament/index"
+import { TitleHead } from "../CreateTournament/SelectSport"
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getTournaments } from '../../store/actions/tournamentAction'
 
 
 
@@ -124,26 +126,34 @@ const Tournaments = ({ history }) => {
 
   const CreateTournamentHandler = /**async**/ e => {
         e.preventDefault();
-        //const response = await loginAction(loginData);
-        //if (response.status === 200) history.push('/create');
         history.push("/create");
     };
+
+    // get all tournaments
+
+    const dispatch = useDispatch();
+
+    const tournaments = useSelector((state) => state.tournaments.data);
+    
+    useEffect(() => {
+      dispatch(getTournaments());
+    },[dispatch])
+
 
   return <>
   <TitlePage>Tournaments</TitlePage>
   <Container>
-    <TournamentCard id={1} />
-    <TournamentCard id={2} />
-    <TournamentCard id={3} />
-    <TournamentCard id={4} />
-    <TournamentCard id={5} />
-    <TournamentCard id={6} />
-    <TournamentCard id={7} />
+    { tournaments ?
+      tournaments.map((tournament, index) => (                
+          <TournamentCard key={index} tournament={tournament}/>
+      )): null
+    }
+
     <Create>
       <TitleHead4>Create your <br/>tournament:</TitleHead4>
       <Icon src={join} alt="logo join"/>
       <Button onClick={CreateTournamentHandler}>Ready?</Button>
-    </Create> 
+    </Create>
   </Container>
   </>
 }

@@ -3,11 +3,17 @@ import React from 'react';
 import map from '../../assets/svgs/map.svg';
 import bluepin from '../../assets/svgs/map2.svg';
 import camara from '../../assets/svgs/photo-camera.svg';
-import icon from '../../assets/images/faceicon.png'
+import defaultAvatar from '../../assets/svgs/shark.svg'
 import { PageContentPicture2, TitleHead2  } from './PrivateOr';
 import { LeftMiddleBar, LeftBottomBar, BaseButton, InputWrapper} from '../Login/index';
 import { InputWrapper2, InputsDiv, LongInput, ShortInput, StyledForm2, LabelText} from '../Login/SingUp/Verification';
 import MovingBackground from '../../components/MovingBackground';
+import { useState, useEffect } from 'react';
+import {createTournament} from '../../store/actions/tournamentAction'
+import { useDispatch } from 'react-redux';
+import { useHistory } from "react-router-dom";
+import Map from '../../components/Mapbox'
+import Axios from '../../axios';
 
 
 
@@ -36,17 +42,18 @@ export const FormContainer = styled.div`
 export const TitleHead3 = styled(TitleHead2)`
     //border: solid blue;
     margin: 0;
-    width: 30%;
+    width: min-content;
     font-size: 17px;
     margin: 1.5%;
 `
 
 
 export const InputWrapper4 = styled(InputWrapper2)`
-    //border: solid yellow;
     height: 20%;
     padding: 0;
     margin: 0;
+    position:relative; // check this
+
     
 `
 export const LongInput2 = styled(LongInput)`
@@ -112,6 +119,7 @@ export const SelectTorunament = styled.select`
     padding-left: 30px;
     background: #ffffff75;
     border-radius: 30px;
+    appearance: none;
     
     option {
         padding-right: 40%;
@@ -153,13 +161,11 @@ export const PinImg = styled.img`
 `
 
 export const CameraImg = styled.img`
-    // border: solid lightblue;
-    height: 145%;
-    position: relative;
-    bottom: 40%;
-    cursor: pointer;
-    right: 15%;
-
+    height: 50%;
+    position: absolute;
+    top: 10%;
+    margin-left: 20%;
+  
     &:hover {
         animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both ;
         transform: translate3d(0, 0, 0);
@@ -179,21 +185,63 @@ export const CameraImg = styled.img`
 `
 
 export const IconImg = styled.img`
-    // border: solid lightblue;
-    position: relative; 
-    bottom: 172%;
-    width: 30%;
-    height: 127%;
-    left: 63%;
-    right: 0;
+    align-self: center;
+    justify-self: center;
+    object-fit: contain;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    border-radius: 50%;    
+
+    &:hover {
+        opacity: 30%
+    }
+`
+
+export const InputWrapper5 = styled(InputWrapper2)`
+    height: 20%;
+    padding: 0;
+    margin: 0;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
 
 `
 
+export const MapLink = styled.div`
+    position: relative;
+    bottom: 0;
+    // border: 1px solid white;
+    
+`
+
+
+export const DetailsCreate = (props) => {
+
+    const dispatch = useDispatch();
+    const history = useHistory();
+
+    useEffect(() => {
+        setSport(props.sport)
+        setPrivacy(props.privacy)
+    }, [])
 
 
 
-
-export const DetailsCreate = () => {
+    const [sport, setSport] = useState(null)
+    const [privacy, setPrivacy] = useState(null)
+    const [name, setName] = useState(null)
+    const [avatar, setAvatar] = useState(defaultAvatar)
+    const [preview, setPreview] = useState(null)
+    const [players, setPlayers] = useState(null)
+    const [format, setFormat] = useState(null)
+    const [location, setLocation] = useState(null)
+    const [lat, setLat] = useState(47.3769)
+    const [lng, setlng] = useState(8.5417)
+    const [start, setStart] = useState(null)
+    const [end, setEnd] = useState(null)
+    const [description, setDescription] = useState('false')
 
 
     const realFileInput = React.useRef(null);
@@ -204,7 +252,66 @@ export const DetailsCreate = () => {
 
     const handleAvatar = (e) => {
         e.preventDefault()
-        /* setUserImage(e.target.files[0]); */
+        setAvatar(e.target.files[0])
+        if (e.target.files[0]) setPreview(URL.createObjectURL(e.target.files[0]))
+    }
+
+    const createHandler  = () => {
+
+        const tournamentData = new FormData();
+        tournamentData.append('sport', sport)
+        tournamentData.append('private', privacy)
+        tournamentData.append('name', name)
+        //tournamentData.append('picture', avatar)
+        tournamentData.append('no_of_players', players)
+        tournamentData.append('format', format)
+        //tournamentData.append('location', location)
+        //tournamentData.append('latitude', lat)
+        //tournamentData.append('longitude', lng)
+        tournamentData.append('start_date', start)
+        tournamentData.append('end_date', end)
+        tournamentData.append('description', description)
+
+        const url = 'tournament/new/';
+        const auth = 'Bearer ' + localStorage.getItem('userToken');
+        const headers = {
+            headers: { Authorization: auth, 'Content-Type': 'multipart/form-data' },
+        };
+        Axios.post(url, tournamentData, headers)
+            .then((response) => {
+                console.log('Tournament Creation successful.');
+                console.log(response);
+                history.push(`/tournament/${response.data.id}/`);
+    })
+            .catch((error) => {
+                console.log('Tournament Creation error', error.response.data);
+            });
+    };
+
+    const nameHandler = (e) => {
+        setName(e.target.value)
+    }
+
+    const playersHandler = (e) => {
+        console.log(e.target.value)
+        setPlayers(e.target.value)
+    }
+
+    const formatHandler = (e) => {
+        console.log(e.target)
+        setFormat(e.target.value)
+    }
+
+    const startDateHandler = (e) => {
+        setStart(e.target.value)
+    }
+
+    const endDateHandler = (e) => {
+        setEnd(e.target.value)
+    }
+
+    const descriptionHandler = (e) => {
+        setDescription(e.target.value)
     }
 
     return (
@@ -221,41 +328,53 @@ export const DetailsCreate = () => {
 
                 <InputsDiv2> 
                     <InputWrapper4>
-                        <LabelText> Tournament Name</LabelText>
-                        <ShortInput2 type="text" />
+                        <LabelText> Torunament Name</LabelText>
+                        <ShortInput2 onChange={nameHandler} type="text" />
                     </InputWrapper4>
                     <InputWrapper4>
                         <LabelText> Avatar</LabelText>
                         <input type="file" style={{display: "none"}} ref={realFileInput} onChange={e => handleAvatar(e)} accept="image/png, image/jpeg" multiple/>
-                        <CameraImg onClick={replaceFileInput} src={camara} alt='camera'/> 
-                        <IconImg src={icon} alt='icon face'/> 
+                        <IconImg onClick={replaceFileInput} src={preview ? preview : defaultAvatar} alt='avatar'/>
                     </InputWrapper4>
                     <InputWrapper4>
                         <LabelText> Amount of Players</LabelText>
-                        <ShortInput2 type="number" />
+                        <ShortInput2 onChange={playersHandler} type="number" />
                     </InputWrapper4>
                     <InputWrapper4>
 
                         <LabelText> Type of Tournament </LabelText>
 
-                        <SelectTorunament name="Turnament">
-                            <option value="Single Elimination">Single Elimination</option>
-                            <option value="Round robin">Round Robin</option>
-                            <option value="fiaMixed: groups + singlet">Groups + Elimination</option>
+                        <SelectTorunament onChange={formatHandler} name="Tournament">
+                            <option value="SE">Single Elimination</option>
+                            <option value="RR">Round Robin</option>
+                            <option value="MX">Groups + Elimination</option>
                         </SelectTorunament>
 
                         
                     </InputWrapper4>
 
                     <InputWrapper4>
-                        <LabelText> Location</LabelText>
-                        <PinImg src={bluepin} alt='map position'/>
-                        <MapImg src={map} alt='map'/>
+                        <LabelText>Start</LabelText>
+                        <ShortInput2 onChange={startDateHandler}  type="datetime-local" />
                     </InputWrapper4>
                     <InputWrapper4>
-                        <LabelText> Time Field</LabelText>
-                        <ShortInput2  type="datetime-local" />
+                        <LabelText> Description</LabelText>
+                        <ShortInput2 onChange={descriptionHandler} type="text" />
+                    </InputWrapper4>
+                    <InputWrapper4>
+                        <LabelText>End</LabelText>
+                        <ShortInput2 onChange={endDateHandler}  type="datetime-local" />
                     </InputWrapper4> 
+
+
+                <InputWrapper4>
+
+
+                <LabelText> Location</LabelText>
+                <ShortInput2 type="text" />
+
+                </InputWrapper4>
+
                 </InputsDiv2>
 
                 <InputWrapper3>
@@ -267,7 +386,7 @@ export const DetailsCreate = () => {
             </LeftMiddleBar2>
 
             <LeftBottomBar2>
-                <BaseButton type="submit">COMPLETE</BaseButton>
+                <BaseButton type="submit" onClick={createHandler}>COMPLETE</BaseButton>
             </LeftBottomBar2>
 
         </FormContainer>

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import React from 'react';
 import Popup from 'reactjs-popup';
-import { PageContentPicture, OvalContainer2, OvalBlue2, OvalWhite2, TitleHead  } from './index';
+import { PageContentPicture, OvalContainer2, OvalBlue2, OvalWhite2, TitleHead  } from './SelectSport';
 // import octoLogo from '../../assets/svgs/Slicehead.svg';
 import { Link } from 'react-router-dom';
 import SideMenu from '../../components/Menus/LoginUserMenu';
@@ -125,7 +125,15 @@ export const TitleHead2 = styled(TitleHead)`
 
 
 
-export const PrivateOrPublic = () => {
+export const PrivateOrPublic = (props) => {
+
+    const privateHandler = () => {
+        props.selectPrivacy(true)
+    }
+
+    const publicHandler = () => {
+        props.selectPrivacy(false)
+    }
 
     return (
         <>
@@ -137,18 +145,16 @@ export const PrivateOrPublic = () => {
             <TitleHead>Select a lobby:</TitleHead>
             <InnerContainer>
                 <Popup trigger={() => (
-                    <ButtonContainer>PUBLIC </ButtonContainer>)} position="bottom center" on='hover'>
+                    <ButtonContainer onClick={publicHandler}>PUBLIC </ButtonContainer>)} position="bottom center" on='hover'>
                         <br/> 
                     <ContentBox>  Everyone can join. </ContentBox>
                 </Popup>
         
                 <Popup trigger={() => (
-                    <ButtonContainer>PRIVATE</ButtonContainer>)} position="bottom center" on='hover'>
+                    <ButtonContainer onClick={privateHandler}>PRIVATE</ButtonContainer>)} position="bottom center" on='hover'>
                         <br/> 
                     <ContentBox> Participans can only join <br/> with invitations. </ContentBox>
                 </Popup>
-
-                <Link to='/details'> --- </Link>
             </InnerContainer>
 
             <OvalContainer2>

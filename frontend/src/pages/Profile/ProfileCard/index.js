@@ -55,7 +55,7 @@ const RigthSide = styled.div`
     flex-direction: column;
     height: 100%;
     width: 100%;
-` 
+`
 
 const CardTopRight = styled.div`
     //border: solid lightcoral;
@@ -162,7 +162,6 @@ const NumSection = styled.div `
 `
 
 const ProfileCard = (props) => {
-console.log('inside profilecard', props.user)
     return <>
         <Container>
             <CardLeft>
@@ -176,9 +175,9 @@ console.log('inside profilecard', props.user)
             <RigthSide>
                 <CardTopRight>
                     <CompanyName>
-                    Propulsion Academy
+                    {props.user.company}
                     </CompanyName>
-                    <Location>Zurich</Location>
+                    <Location>{props.user.location}</Location>
                 </CardTopRight>
                 <CardBottomRight>
 
