@@ -1,7 +1,7 @@
 import SingleElimination from "../components/SingleElimination";
 import RoundRobin from "../components/RoundRobin";
 import styled from "styled-components";
-import Header from './Tournament'
+import Header from './TournamentHeader'
 
 const Wrapper = styled.div`
     //border: solid blue;
