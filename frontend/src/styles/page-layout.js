@@ -8,6 +8,7 @@ export const PageContainer = styled.div`
   grid-template-rows: 1fr auto;
   padding: 5vw;
   margin: 0;
+  overflow: hidden;
 `;
 
 export const PageContent = styled.div`
@@ -17,4 +18,6 @@ export const PageContent = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 0;
+  //overflow: hidden;
+  //border: solid red;
 `;

@@ -21,6 +21,7 @@ const GameDetailsCard = styled.div`
     //padding-bottom: 2%;
     width: 85%;
     height: 70%;
+    overflow: hidden;
     background: white;
     color: black;
     box-shadow: 3px 11px 21px 35px rgba(33,33,33,0.44);
@@ -139,6 +140,11 @@ const FormContainer = styled.form`
     flex-direction: column;
     align-items: center;
     
+    button {
+        font-family: monospace;
+        font-size: 11px;
+    }
+    
 `
 
 /* const SelectBox = styled.select`
@@ -181,6 +187,7 @@ const LabelText2 = styled(LabelText)`
     color: black;
     margin-left: 18%;
     margin-bottom: 2%;
+    font-family: monospace;
 `
 
 const InputContainer = styled.div`

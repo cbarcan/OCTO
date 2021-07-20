@@ -10,6 +10,10 @@ export const InnerBackground1 = styled.div`
     overflow: hidden;
     background-color: black;
     padding-top:13%;
+    position: absolute;
+    min-height: 92.4%;
+    min-width: 99%;
+    overflow: hidden;
 `
 
 export const InnerBackground2 = styled.div`
