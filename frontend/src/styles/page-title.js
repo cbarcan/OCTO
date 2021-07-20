@@ -11,9 +11,9 @@ const PageTitleLine = styled.div`
 
 export const PageTitleContainer = styled.div`
     //border: solid blue;
-    border-bottom: 1.5px solid #fff;
+    //border-bottom: 1.5px solid #fff;
     height: 15%;
-    width: 45%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;

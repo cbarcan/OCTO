@@ -57,6 +57,7 @@ export const apiUserLogin = (email, password) => (dispatch) => {
 
 
 export const apiUserSignUp = (email) => (dispatch) => {
+  dispatch(addUserData({email: email}))
   const url = 'registration/';
   const msgData = {
     email: email,

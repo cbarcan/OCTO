@@ -105,7 +105,7 @@ path.two {
 
 const Start = (props) => {
     return (
-                <MainContainer>
+                <MainContainer onClick={props.clickHandler}>
                         <div className="cta">
                             <div className='start'>{props.text}</div>
                             <span>

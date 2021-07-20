@@ -6,6 +6,7 @@ import checkIcon from '../../../assets/svgs/checked.svg';
 import { PageContentPicture} from '..';
 import OctoWall from '../OctoWall';
 import { LeftContainer, LeftTopBar, LeftMiddleBar, TitleStyled, StyledForm, InputWrapper, LeftBottomBar, BaseButton} from '..';
+import { useSelector } from 'react-redux';
 
 
 
@@ -23,7 +24,6 @@ const CheckRelative = styled.img`
     }
 
 `
-
 
 
 
@@ -80,7 +80,12 @@ const Link2 = styled(Link)`
 
 
 
-const CongratsMessage = ({emailValue}) => {
+const CongratsMessage = () => {
+
+    const signUpMail = useSelector((state) => state.user.userData.email);
+
+
+
     
         
     return (
@@ -99,7 +104,7 @@ const CongratsMessage = ({emailValue}) => {
                         </InputWrapper2>
 
                         <ParagraphText>We've sent a confirmation code to your email. </ParagraphText>
-                        <ParagraphText>{emailValue} valentinaaa</ParagraphText>
+                        <ParagraphText>{signUpMail}</ParagraphText>
 
                     </StyledForm>
                 </LeftMiddleBar2>
