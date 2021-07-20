@@ -20,6 +20,8 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     #root {
+        min-height: 100vh;
+        height: fit-content;
         min-width: 100%;
         width: fit-content;
         display: flex;
