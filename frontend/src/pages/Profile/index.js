@@ -21,12 +21,12 @@ const Profile = () => {
 
         return(
             <>
-                {user.id ? 
+                {user.id ?
                     <>
                     <ProfileCard user = {user} edit={true}/>
                     <CurrentTournament user = {user}/>
                     </>
-                    : 
+                    :
                     null
                 }
             </>)
