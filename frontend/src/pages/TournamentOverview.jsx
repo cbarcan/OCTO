@@ -13,6 +13,9 @@ import Header from './TournamentHeader'
 import {useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { getTournamentByID } from '../store/actions/tournamentAction';
+import Axios from '../axios';
+import {useState} from "react";
+
 
 const GameDetailsCard = styled.div`
     //border: solid purple;
@@ -133,7 +136,7 @@ export const RightContainer = styled.div`
 
 `
 
-const FormContainer = styled.form`
+const FormContainer = styled.div`
     //border: solid blue;
     height: 100%;
     width: 100%;
@@ -225,10 +228,48 @@ const Home = () => {
     const url_array = url.split("/");
     const tournament_id = url_array[url_array.length - 2];
     const tournament = useSelector((state) => state.tournament); 
+    const [joined, setJoined] = useState(false)
+    const my_id = useSelector((state) => state.user.userData.id);
+
+
 
     useEffect(() => {
         dispatch(getTournamentByID(tournament_id));
-    }, [tournament_id, tournament.id, dispatch])
+    }, [tournament_id, dispatch])
+
+    // check if already in tournament
+    useEffect(() => {
+        if (tournament.participants)
+        {
+            tournament.participants.forEach(participant => {
+                if (participant === my_id){
+                    setJoined(true)
+                }
+            })
+        }
+    }, [tournament, my_id, joined])
+
+
+    const joinHandler = () => {
+        const url = `/tournament/${tournament_id}/join/`;
+        const auth = 'Bearer ' + localStorage.userToken;
+        const configs = { headers: { Authorization: auth } };
+    
+        Axios.post(url, {}, configs)
+            .then((response) => {
+                console.log('Tournament joined!');
+                setJoined(true);
+
+            })
+            .catch((error) => {
+                console.log('Tournament join error', error.response.data);
+            }); 
+    };
+
+
+    const cancelHandler = () => {
+        console.log('cancel my participation')
+    };
     
     
     return (
@@ -255,8 +296,12 @@ const Home = () => {
                                     <LabelText2> Selected Game Type</LabelText2>
                                     <TitlePage2>PING-PONG</TitlePage2>
                                 </InputContainer>
-                                <BaseButton>READY TO JOIN?</BaseButton>
-                            </FormContainer>
+                                { joined ?
+                                <BaseButton onClick={cancelHandler}>CANCEL</BaseButton>
+                                :                                 
+                                <BaseButton onClick={joinHandler}>READY TO JOIN?</BaseButton>
+                                }
+                                </FormContainer>
 
                         </GameDetailsCard>
 
@@ -278,7 +323,7 @@ const Home = () => {
 
 
                 </MainContainer>
-                </>
+            </>
         ) : null }
 
         </>
