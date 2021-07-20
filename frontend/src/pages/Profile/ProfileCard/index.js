@@ -161,13 +161,14 @@ const NumSection = styled.div `
     
 `
 
-const ProfileCard = () => {
+const ProfileCard = (props) => {
+console.log('inside profilecard', props.user)
     return <>
         <Container>
             <CardLeft>
                 <UserProfilePicIcon src={ avatarWhite || "https://via.placeholder.com/50x50" } alt="avatar"/>
                 <Name>
-                    Anonymous 
+                    {props.user.username}
                 </Name>
                 <BaseButton><Link to="/user/profile/edit"> Edit Profile </Link> </BaseButton>
             </CardLeft>
