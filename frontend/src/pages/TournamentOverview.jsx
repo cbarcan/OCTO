@@ -108,7 +108,7 @@ const MainContainer = styled.div`
 
 `
 
-const LeftContainer = styled.div`
+export const LeftContainer = styled.div`
     //border: solid yellow;
     margin-top: 6%;
     width: 50%;
@@ -122,7 +122,7 @@ const LeftContainer = styled.div`
   
 `
 
-const RightContainer = styled.div`
+export const RightContainer = styled.div`
     //border: solid blue;
     width: 50%;
     display: flex;
