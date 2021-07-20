@@ -1,5 +1,7 @@
 from django.core.mail import send_mail
+from rest_framework import status
 from rest_framework.generics import CreateAPIView
+from rest_framework.response import Response
 
 from invitation.models import Invitation
 from invitation.serializers.serializers import ListCreateInvitationSerializer
@@ -11,23 +13,22 @@ class CreateInvitationView(CreateAPIView):
 
     queryset = Invitation.objects.all
     serializer_class = ListCreateInvitationSerializer
-    lookup_url_kwarg = 'tournament_id'
-    lookup_field = 'id'
+    # lookup_url_kwarg = 'id'
+    # lookup_field = 'id'
     # permission_classes =
 
-    def perform_create(self, serializer):
-
-        link = self.kwargs['tournament_id']
-        tour = Tournament.objects.get(id=self.kwargs['tournament_id'])
-        serializer.save(
-            email=self.request.data['email'],
-            tournament=tour,
-        )
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        tour = Tournament.objects.get(id=self.kwargs['id'])
+        serializer.save(tournament=tour)
+        link = self.kwargs['id']
         send_mail(
             'You have been invited to a tournament on Octo!',
-            f'{tour.organizer} has invited you to join. Click on this link to participate in your upcoming challenge'
+            f'{tour.organizer} has invited you to join. Click on this link to participate in your upcoming challenge: '
             f'https://octo.propulsion-learn.ch/tournament/{link}/overview',
             DEFAULT_FROM_EMAIL,
             [self.request.data['email']],
             fail_silently=False,
         )
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
