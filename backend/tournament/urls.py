@@ -1,6 +1,7 @@
 from django.urls import path
 
-from tournament.views import ListTournamentView, CreateTournamentView, RetrieveUpdateDestroyTournamentView
+from tournament.views import ListTournamentView, CreateTournamentView, RetrieveUpdateDestroyTournamentView, \
+    JoinTournamentView
 
 urlpatterns = [
     # list all tournaments
@@ -13,5 +14,5 @@ urlpatterns = [
     path('<int:pk>/', RetrieveUpdateDestroyTournamentView.as_view()),
 
     # Join a specific Tournament
-    path('<int:pk>/join/')
+    path('<int:pk>/join/', JoinTournamentView.as_view())
 ]
