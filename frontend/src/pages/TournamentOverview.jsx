@@ -247,7 +247,7 @@ const Home = () => {
                 }
             })
         }
-    }, [tournament, my_id])
+    }, [tournament, my_id, joined])
 
 
     const joinHandler = () => {
