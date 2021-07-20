@@ -11,12 +11,14 @@ import ranking from '../assets/svgs/top.svg';
 import logout from '../assets/svgs/enter.svg';
 import eye from '../assets/svgs/eye.svg';
 import admin from '../assets/svgs/settings1.svg';
+import about from '../assets/svgs/aboutUs.svg';
+import contact from '../assets/svgs/mail.svg';
 import vote from '../assets/svgs/vote.svg';
 import { useHistory } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { setToken } from '../store/actions/userAction';
+import { setToken, apiUserGetData } from '../store/actions/userAction';
 import { addTournamentData } from '../store/actions/tournamentAction'
 
 
@@ -123,25 +125,14 @@ export const SingContainer = styled.div`
 
 export const SideMenu = () => {
     const history = useHistory();
-    const location = useLocation();
     const dispatch = useDispatch();
     
     const userIsLoggedIn = useSelector((state) => state.user.token ? state.user.token : localStorage.userToken); // prevent log-out by page refresh
-    const myTournaments = useState([3,5]);  // fetch this at tournaments page and load here from redux 
-    const [isTournament, setIsTournament] = useState(false);
-    const id = useSelector((state) => state.tournament.id); 
-
-
-    // fetch user data if token is there but page is reloaded
+    const userID = useSelector((state) => state.user.userData.id); // prevent log-out by page refresh
 
     useEffect(() => {
-        if(location.pathname.includes('tournament/')) {
-            setIsTournament(true)
-        } else {
-            setIsTournament(false)
-            dispatch(addTournamentData(''));
-        }
-    }, [dispatch, id, userIsLoggedIn, isTournament, location.pathname])
+        dispatch(apiUserGetData(userIsLoggedIn))
+    }, [userIsLoggedIn, dispatch])
 
 
     const logoutHandler = () => {
@@ -158,8 +149,8 @@ export const SideMenu = () => {
             
             <InnerLinksContainer>
                     <IndividualLinksContainer>
-                    <img onClick={(e) => history.push(`/home`)} src={home} alt='home'/>
-                        <NavLink activeClassName="active" to='/home'>HOME</NavLink>
+                    <img onClick={(e) => history.push(`/`)} src={home} alt='home'/>
+                        <NavLink activeClassName="active" to='/'>HOME</NavLink>
 
 
 
@@ -186,15 +177,14 @@ export const SideMenu = () => {
 
 
                     <IndividualLinksContainer>
-                        <img onClick={(e) => history.push('/user/profile')} src={octoIcon} alt='dashboard'/>
-                    <NavLink activeClassName="active" to='/user/profile'>MY PROFILE</NavLink>
+                        <img onClick={(e) => history.push(`/user/${userID}`)} src={octoIcon} alt='dashboard'/>
+                    <NavLink activeClassName="active" to={`/user/${userID}`}>MY PROFILE</NavLink>
                     
                     
                 </IndividualLinksContainer> : null }
 
 
-                    <SingContainer>
-                        {
+                    {
                             userIsLoggedIn ? 
 
 
@@ -207,26 +197,31 @@ export const SideMenu = () => {
                         
                     (<>
                     <IndividualLinksContainer>
-                        <img onClick={(e) => history.push(`/login`)} src={login} alt='login'/>
+                        <img onClick={(e) => history.push('/login')} src={login} alt='login'/>
                         <NavLink activeClassName="active" to='/login'>SIGN IN</NavLink>
                         
                         
                     </IndividualLinksContainer>
                     <IndividualLinksContainer>
-                        <img onClick={(e) => history.push(`/registration`)} src={signup} alt='registration'/>
+                        <img onClick={(e) => history.push('/registration')} src={signup} alt='registration'/>
                         <NavLink activeClassName="active" to='/registration'>SIGN UP</NavLink>
                         
                         
                     </IndividualLinksContainer>
 
                     </>)
-
-                    
-
-
                     }
+                    <IndividualLinksContainer>
+                    <img onClick={(e) => history.push(`/aboutus`)} src={about} alt='about us'/>
+                        <NavLink activeClassName="active" to='/aboutus'>ABOUT</NavLink>
 
-                    </SingContainer>
+                    </IndividualLinksContainer>
+
+                    <IndividualLinksContainer>
+                    <img onClick={(e) => history.push(`/contactus`)} src={contact} alt='contact us'/>
+                        <NavLink activeClassName="active" to='/contactus'>CONTACT</NavLink>
+
+                    </IndividualLinksContainer>
         
                 </InnerLinksContainer>
 
