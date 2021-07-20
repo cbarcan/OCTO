@@ -4,7 +4,6 @@ import ReactMapGL, { Marker, Popup } from "react-map-gl";
 //import * as Zurich from "./zurich-data.json";
 import axios from "axios";
 //Whit this the icon pin can change of color dependig on the user
-import { Room } from "@material-ui/icons";
 
 
 export const FormContainer = styled.form`
@@ -153,10 +152,10 @@ const Map = () => {
                 <>
                     <Marker latitude={p.l} longitude={p.long} offsetLeft={-3.5 * viewport.zoom} 
                     offsetTop={-7 * viewport.zoom}>
-                        <Room style={{
+{/*                         <Room style={{
                             fontSize: 7 * viewport.zoom,
                             color: currentUsername === p.username ? "black" : "grey"}}
-                            />
+                            /> */}
                     </Marker>
 
                     
