@@ -34,6 +34,7 @@ const CardLeft = styled.div`
     button {
         //border: solid yellow;
         margin-top: 8%;
+        
         width: 50%;
         
 
@@ -45,6 +46,7 @@ const CardLeft = styled.div`
             text-decoration: none;
             color: white;
             font-weight: bold;
+            font-size: 11.5px;
         }
     }
 `;
@@ -55,7 +57,7 @@ const RigthSide = styled.div`
     flex-direction: column;
     height: 100%;
     width: 100%;
-` 
+`
 
 const CardTopRight = styled.div`
     //border: solid lightcoral;
@@ -76,10 +78,20 @@ const CardBottomRight = styled.div`
 `;
 
 export const UserProfilePicIcon = styled.img`
-    margin-top: 14%;
+    background: black;
+    border-radius: 30px;
     width: 55%;
     //border: solid yellow;
     //box-shadow: 0px 5px 24px -6px #000000;
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both ;
+    transform: translate3d(0, 0, 0);
+
+    @keyframes shake { 
+        10%, 90% { transform: translate3d(-1px, 0, 0);}
+        20%, 80% { transform: translate3d(2px, 0, 0); }
+        30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+        40%, 60% {  transform: translate3d(4px, 0, 0); } 
+    }
 
 `;
 
@@ -161,13 +173,13 @@ const NumSection = styled.div `
     
 `
 
-const ProfileCard = () => {
+const ProfileCard = (props) => {
     return <>
         <Container>
             <CardLeft>
                 <UserProfilePicIcon src={ avatarWhite || "https://via.placeholder.com/50x50" } alt="avatar"/>
                 <Name>
-                    Anonymous 
+                    {props.user.username}
                 </Name>
                 <BaseButton><Link to="/user/profile/edit"> Edit Profile </Link> </BaseButton>
             </CardLeft>
@@ -175,9 +187,9 @@ const ProfileCard = () => {
             <RigthSide>
                 <CardTopRight>
                     <CompanyName>
-                    Propulsion Academy
+                    {props.user.company}
                     </CompanyName>
-                    <Location>Zurich</Location>
+                    <Location>{props.user.location}</Location>
                 </CardTopRight>
                 <CardBottomRight>
 

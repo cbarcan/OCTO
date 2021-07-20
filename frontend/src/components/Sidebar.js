@@ -127,7 +127,7 @@ export const SideMenu = () => {
     const dispatch = useDispatch();
     
     const userIsLoggedIn = useSelector((state) => state.user.token ? state.user.token : localStorage.userToken); // prevent log-out by page refresh
-    const myTournaments = useSelector((state) => state.user.myTournaments);  // fetch this at tournaments page and load here from redux 
+    const myTournaments = useState([3,5]);  // fetch this at tournaments page and load here from redux 
     const [isTournament, setIsTournament] = useState(false);
     const id = useSelector((state) => state.tournament.id); 
 
@@ -174,7 +174,7 @@ export const SideMenu = () => {
                     </IndividualLinksContainer>
       
                     <IndividualLinksContainer>
-                        <img onClick={(e) => history.push('/create')} src={octoIcon} alt='create'/>
+                        <img onClick={(e) => history.push('/create')} src={vote} alt='create'/>
                         <NavLink activeClassName="active" to='/create'>CREATE TOURNAMENT</NavLink>
                         
                         
@@ -186,48 +186,11 @@ export const SideMenu = () => {
 
 
                     <IndividualLinksContainer>
-                        <img onClick={(e) => history.push('dashboard')} src={vote} alt='dashboard'/>
-                    <NavLink activeClassName="active" to='/dashboard'>MY TOURNAMENTS</NavLink>
+                        <img onClick={(e) => history.push('/user/profile')} src={octoIcon} alt='dashboard'/>
+                    <NavLink activeClassName="active" to='/user/profile'>MY PROFILE</NavLink>
                     
                     
                 </IndividualLinksContainer> : null }
-
-                    {
-                        isTournament ? 
-                    (<>
-
-                    <IndividualLinksContainer>
-                        <img onClick={(e) => history.push(`/tournament/${id}/overview`)} src={eye} alt='overview'/>
-                        <NavLink activeClassName="active" to={`/tournament/${id}/overview`}>OVERVIEW</NavLink>
-                        
-                        
-                    </IndividualLinksContainer>
-
-
-                    <IndividualLinksContainer>
-                    <img onClick={(e) => history.push(`/tournament/${id}/bracket`)} src={bracket} alt='bracket'/>
-                    <NavLink activeClassName="active" to={`/tournament/${id}/bracket`}>BRACKET</NavLink>
-                        
-                        
-                    </IndividualLinksContainer>
-
-                    <IndividualLinksContainer>
-                        <img onClick={(e) => history.push(`/tournament/${id}/standing`)} src={ranking} alt='standing'/>
-                        <NavLink activeClassName="active" to={`/tournament/${id}/standing`}>STANDING</NavLink>
-                        
-                        
-                    </IndividualLinksContainer>
-
-                    </>) : null }
-                    {
-                        (myTournaments.includes(id) && userIsLoggedIn)  ?                     
-                        <IndividualLinksContainer>
-                            <img onClick={(e) => history.push(`/tournament/${id}/admin`)} src={admin} alt='admin'/>
-                            <NavLink activeClassName="active" to={`/tournament/${id}/admin`}>ADMIN</NavLink>  
-                        </IndividualLinksContainer> 
-                        : null
-                    }
-                    
 
 
                     <SingContainer>

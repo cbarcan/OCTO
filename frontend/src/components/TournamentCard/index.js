@@ -4,7 +4,7 @@ import shark from  "../../assets/svgs/shark.svg"
 //import soccer from  "../../assets/svgs/soccer-ball.svg"
 import { useHistory } from "react-router-dom";
 import { useDispatch } from 'react-redux';
-import { addTournamentData } from '../../store/actions/tournamentAction'
+import { getTournamentByID } from '../../store/actions/tournamentAction'
 
 
 const Container = styled.div`
@@ -108,23 +108,18 @@ const ParagContainer = styled.div `
     //border: solid yellow;
     display: flex;
     align-items: center;
-    width: 80%;
+    width: 92%;
 `
 
 
 
 const TournamentCard = (props) => {
 
-    // update current Tournament id
-
-    const dispatch = useDispatch();
-
 
     const history = useHistory();
 
     const handleClick = () => {
-        history.push(`/tournament/${props.id}/overview`);
-        dispatch(addTournamentData(props.id))
+        history.push(`/tournament/${props.tournament.id}/overview`);
     }
   
     return <>
@@ -133,22 +128,16 @@ const TournamentCard = (props) => {
                 <Icon src={ shark || 'https://via.placeholder.com/50x50' } alt="shark"/>    
             </Top>
             <Middle>
-
-                
                 <ParagContainer>
-                    <SportType>Type:</SportType> Soccer
+                    <SportType>Name:</SportType> {props.tournament.name}
                 </ParagContainer>
                 <ParagContainer>
-                    <Name>Team:</Name> OCTO
+                    <SportType>Sport:</SportType> {props.tournament.sport}
                 </ParagContainer>
-                <ParagContainer>
-                    <Status>Status:</Status> On going
-                </ParagContainer>
-                 
             </Middle>
             <Bottom>
                 <ParagContainer>
-                    <Location>Location:</Location> Zurich
+                    <Location>Location:</Location>{props.tournament.location}
                 </ParagContainer>
             </Bottom>
         </Container>

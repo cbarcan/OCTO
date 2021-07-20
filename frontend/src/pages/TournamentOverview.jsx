@@ -6,11 +6,13 @@ import octo from '../assets/svgs/octopusWhite.svg';
 //import octoLogo from '../assets/svgs/octopusWhite.svg';
 import Participant from '../components/Tournament/Participant';
 import { LabelText } from './Login/SingUp/Verification';
-import { BaseButton, LoginInput } from './Login/index';
+import { BaseButton } from './Login/index';
 //import SideMenu from '../components/Menus/LoginUserMenu';
 import { TitlePage } from './Tournaments/index';
-
-
+import Header from './Tournament'
+import {useEffect} from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { getTournamentByID } from '../store/actions/tournamentAction';
 
 const GameDetailsCard = styled.div`
     //border: solid purple;
@@ -21,6 +23,7 @@ const GameDetailsCard = styled.div`
     //padding-bottom: 2%;
     width: 85%;
     height: 70%;
+    overflow: hidden;
     background: white;
     color: black;
     box-shadow: 3px 11px 21px 35px rgba(33,33,33,0.44);
@@ -139,6 +142,11 @@ const FormContainer = styled.form`
     flex-direction: column;
     align-items: center;
     
+    button {
+        font-family: monospace;
+        font-size: 11px;
+    }
+    
 `
 
 /* const SelectBox = styled.select`
@@ -181,6 +189,7 @@ const LabelText2 = styled(LabelText)`
     color: black;
     margin-left: 18%;
     margin-bottom: 2%;
+    font-family: monospace;
 `
 
 const InputContainer = styled.div`
@@ -211,10 +220,25 @@ const TitlePage2 = styled(TitlePage)`
 
 
 const Home = () => {
+    const dispatch = useDispatch();
+    const url = window.location.pathname;
+    const url_array = url.split("/");
+    const tournament_id = url_array[url_array.length - 2];
+    const tournament = useSelector((state) => state.tournament); 
 
-
+    useEffect(() => {
+        if(!tournament.id) {
+            dispatch(getTournamentByID(tournament_id));
+        }
+    }, [tournament_id, tournament.id, dispatch])
+    
+    
     return (
-        
+        <>
+        {(tournament.id) ?
+        (
+            <>
+                <Header/>
                 <MainContainer>
                     
                     <LeftContainer>
@@ -227,7 +251,7 @@ const Home = () => {
                                     <LabelText2> Tournament Name</LabelText2>
                                     <TitlePage2>OCTO TEAM</TitlePage2>
                                 </InputContainer>
-                                
+
 
                                 <InputContainer>
                                     <LabelText2> Selected Game Type</LabelText2>
@@ -237,31 +261,32 @@ const Home = () => {
                             </FormContainer>
 
                         </GameDetailsCard>
-                        
+
                     </LeftContainer>
                     <RightContainer>
                         <SectionTitle pageTitle="PARTICIPANTS"></SectionTitle>
                             <ParticipantsContainer>
-                                    <Participant name={'Tina'} location={'Bed'}/>
-                                    <Participant name={'Jon'} location={'Lake'}/>
-                                    <Participant name={'Catalin'} location={'Online'}/>
-                                    <Participant name={'Gian'} location={'Aarau'}/>
-                                    <Participant name={'Bolor'} location={'Zurich'}/>
-                                    <Participant name={'Tina'} location={'Bed'}/>
-                                    <Participant name={'Jon'} location={'Lake'}/>
-                                    <Participant name={'Catalin'} location={'Online'}/>
-                                    <Participant name={'Gian'} location={'Aarau'}/>
+                            { tournament ?
+                            tournament.participants.map((participant, index) => (                
+                                <Participant key={index} id={participant}/>
+                            )): null
+                            }
                             </ParticipantsContainer>
                         
                         <SectionTitle pageTitle="Location:   Propulsion Academy,   Heinrichstrasse 200,   8005 Zürich"></SectionTitle>
-                        
+
 
                     </RightContainer>
-                    
-                    
+
+
                 </MainContainer>
+                </>
+        ) : null }
+
+        </>
+
+
     )
 }
-
 
 export default Home

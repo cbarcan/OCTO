@@ -6,14 +6,14 @@ import checkIcon from '../../../assets/svgs/checked.svg';
 import { PageContentPicture} from '..';
 import OctoWall from '../OctoWall';
 import { LeftContainer, LeftTopBar, LeftMiddleBar, TitleStyled, StyledForm, InputWrapper, LeftBottomBar, BaseButton} from '..';
+import { useSelector } from 'react-redux';
 
 
 
-const CheckRelative = styled.img` 
-    position: relative;
-    top: 17%; left: 30%;
-    width: 45%;
-    margin-bottom: 5%;
+const CheckRelative = styled.img`
+    //border: solid yellow;
+    width: 27%;
+    //margin-bottom: 5%;
     animation-name: rotate;
     animation-duration: 0.7s;
 
@@ -25,51 +25,51 @@ const CheckRelative = styled.img`
 
 `
 
-export const OvalContainer2 = styled(OvalContainer)` 
-    //border: solid yellow;
-    height: 0;
+
+
+const InputWrapper2 = styled(InputWrapper)`
+    //border: solid orange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60%;
+    width: 100%;
     margin: 0;
-    
-`
-
-
-export const TitleStyled2 = styled(TitleStyled)` 
-    padding: 0;
-    margin-top: 10px;
-    margin-bottom: 0;
-    padding-right: 10px;
-    font-size: 40px;
-    
-`
-
-const InputWrapper2 = styled(InputWrapper)` 
-    padding: 0;
+    padding-bottom: 4%;
+    /* padding: 0;
     margin-top: 0px;
-    margin-bottom: 30px;
+    margin-bottom: 30px; */
     
 `
 
-const ParagraphText = styled.p` 
+const ParagraphText = styled.p`
+    //border: solid pink;
+    height: 10%;
     color: rgb(110, 110, 110);
     text-align: center;
     padding-left: 1%;
+    padding-top: 2%;
+    
+    
 
 `
 
 const LeftTopBar2 = styled(LeftTopBar)` 
     //border: solid blue;
-    margin-bottom: 4%;
+    margin-bottom: 16%;
 `
 
 const LeftMiddleBar2 = styled(LeftMiddleBar)` 
     //border: solid green;
-    height: 51.7%;
+    height: 40%;
+    padding-bottom: 8%;
 `
 
 export const LeftBottomBar2 = styled(LeftBottomBar)` 
     //border: solid red;
-    height: 10%;
-    margin-bottom: 1%;
+    //height: 10%;
+    margin-bottom: 19%;
+    margin-top: 2% ;
 `
 
 const Link2 = styled(Link)`
@@ -80,7 +80,12 @@ const Link2 = styled(Link)`
 
 
 
-const CongratsMessage = ({emailValue}) => {
+const CongratsMessage = () => {
+
+    const signUpMail = useSelector((state) => state.user.userData.email);
+
+
+
     
         
     return (
@@ -92,14 +97,14 @@ const CongratsMessage = ({emailValue}) => {
                 
                 
                 <LeftMiddleBar2>
-                    <TitleStyled2>Congratulations!</TitleStyled2>
+                    <TitleStyled>Congratulations!</TitleStyled>
                     <StyledForm>
                         <InputWrapper2>
                             <CheckRelative src={ checkIcon } alt='check icon'/>
                         </InputWrapper2>
 
                         <ParagraphText>We've sent a confirmation code to your email. </ParagraphText>
-                        <ParagraphText>{emailValue}</ParagraphText>
+                        <ParagraphText>{signUpMail}</ParagraphText>
 
                     </StyledForm>
                 </LeftMiddleBar2>
@@ -109,11 +114,11 @@ const CongratsMessage = ({emailValue}) => {
                 </LeftBottomBar2>
                 
 
-                <OvalContainer2>
+                <OvalContainer>
                     <OvalWhite />
                     <OvalBlue />
                     <OvalWhite />
-                </OvalContainer2>
+                </OvalContainer>
 
             </LeftContainer>
 

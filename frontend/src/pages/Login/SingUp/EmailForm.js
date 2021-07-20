@@ -11,10 +11,12 @@ import { useDispatch } from 'react-redux';
 
 
 export const OvalContainer = styled.div`
+    //border: solid lightseagreen;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 15.2%;
+    height: 6%;
+    //margin-top: 15.2%;
 
     
 `
@@ -37,26 +39,6 @@ export const OvalWhite= styled.div`
     margin-left: 1.5%;
 `
 
-export const LeftMiddleBar2 = styled(LeftMiddleBar)`
-    height: 60%;
-    
-`
-
-const FormContainer2 = styled(FormContainer)`
-    height: 47.4%;
-    
-`
- const LeftTopBar2 = styled(LeftTopBar)`
-    margin-bottom: 6.4%;
-`
-
-const LeftBottomBar2 = styled(LeftBottomBar)`
-    //border: solid yellow; 
-    padding: 0;
-    margin-top: 18.1%;
-    justify-content: center;
-
-` 
 
 
 const EmailSignUp = (props) => {
@@ -86,28 +68,26 @@ const EmailSignUp = (props) => {
         <PageContentPicture>
 
             <LeftContainer>
-                
-                <LeftTopBar2>
-                    
-                </LeftTopBar2>
-                
-                <FormContainer2 onSubmit={registerButtonHandler}> 
-                    <LeftMiddleBar2>
+             
+                <FormContainer onSubmit={registerButtonHandler}>
+
+                    <LeftMiddleBar>
                         <TitleStyled>Sign Up</TitleStyled>
-                    <StyledForm>
-                        <InputWrapper>
+                        <StyledForm>
+                            <InputWrapper>
                             
-                            <LoginInput onChange={(event) => setEmail(event.target.value)} type='email' placeholder='Email'/>
-                        </InputWrapper>
-                        <LinkAn>Already have an account? <Link to='/login' >Sign In</Link></LinkAn>
-                    </StyledForm>
+                                <LoginInput onChange={(event) => setEmail(event.target.value)} type='email' placeholder='Email'/>
+                            </InputWrapper>
+                            <LinkAn>Already have an account? <Link to='/login' >Sign In</Link></LinkAn>
+                        </StyledForm>
             
-                    </LeftMiddleBar2>
-                    <LeftBottomBar2>
-                        <BaseButton type='submit'>CONTINUE</BaseButton>
-                    </LeftBottomBar2>
+                    </LeftMiddleBar>
                     
-                </FormContainer2>
+                    <LeftBottomBar>
+                        <BaseButton type='submit'>CONTINUE</BaseButton>
+                    </LeftBottomBar>
+                    
+                </FormContainer>
 
                 <OvalContainer>
                     <OvalBlue />

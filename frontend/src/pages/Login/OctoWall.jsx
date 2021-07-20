@@ -4,9 +4,10 @@ import octo from "../../assets/images/octopus_poly.png";
 // import octo from "../../assets/svgs/octopus_poly_white.svg";
 
 export const OctoWall = styled.div`
-height: 100%;
-width: 45%;
-margin-top: 2%;
+//border: solid yellow;
+min-height: 100%;
+min-width: 45%;
+margin-bottom: 1%;
 margin-left: 5%;
 color: white;
 display: flex;
@@ -15,9 +16,9 @@ align-items: center;
 
 
 img {
-    height: 65%;
-    padding-right: 12%;
-    animation-duration: 2.7s;
+    min-height: 60%;
+    padding-right: 5%;
+    animation-duration: 2.8s;
     animation-iteration-count: infinite;
     margin: 0 auto 0 auto;
     transform-origin: bottom;
