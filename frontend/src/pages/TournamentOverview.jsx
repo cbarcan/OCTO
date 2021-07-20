@@ -9,7 +9,7 @@ import { LabelText } from './Login/SingUp/Verification';
 import { BaseButton } from './Login/index';
 //import SideMenu from '../components/Menus/LoginUserMenu';
 import { TitlePage } from './Tournaments/index';
-import Header from './Tournament'
+import Header from './TournamentHeader'
 import {useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { getTournamentByID } from '../store/actions/tournamentAction';
@@ -108,7 +108,7 @@ const MainContainer = styled.div`
 
 `
 
-const LeftContainer = styled.div`
+export const LeftContainer = styled.div`
     //border: solid yellow;
     margin-top: 6%;
     width: 50%;
@@ -122,7 +122,7 @@ const LeftContainer = styled.div`
   
 `
 
-const RightContainer = styled.div`
+export const RightContainer = styled.div`
     //border: solid blue;
     width: 50%;
     display: flex;
@@ -227,9 +227,7 @@ const Home = () => {
     const tournament = useSelector((state) => state.tournament); 
 
     useEffect(() => {
-        if(!tournament.id) {
-            dispatch(getTournamentByID(tournament_id));
-        }
+        dispatch(getTournamentByID(tournament_id));
     }, [tournament_id, tournament.id, dispatch])
     
     
@@ -238,7 +236,7 @@ const Home = () => {
         {(tournament.id) ?
         (
             <>
-                <Header/>
+                <Header name={tournament.name}/>
                 <MainContainer>
                     
                     <LeftContainer>

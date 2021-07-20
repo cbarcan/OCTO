@@ -334,7 +334,7 @@ export const DetailsCreate = (props) => {
 
                 <InputsDiv2> 
                     <InputWrapper4>
-                        <LabelText> Torunament Name</LabelText>
+                        <LabelText> Tournament Name</LabelText>
                         <ShortInput2 onChange={nameHandler} type="text" />
                     </InputWrapper4>
                     <InputWrapper4>

@@ -16,7 +16,7 @@ class User(AbstractUser):
     first_name = models.CharField(max_length=30, blank=True)
     last_name = models.CharField(max_length=30, blank=True)
     company = models.CharField(max_length=50, blank=True)
-    location = models.CharField(max_length=50, blank=True)
+    location = models.CharField(max_length=50, blank=True, default="")
     avatar = models.ImageField(upload_to=user_directory_path, blank=True, null=True)
     banner = models.ImageField(upload_to=user_directory_path, blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)

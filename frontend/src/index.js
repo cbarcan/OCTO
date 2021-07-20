@@ -21,11 +21,12 @@ import ContactUs from "./pages/ContactUs";
 // import BracketPage from './pages/BracketPage';
 import Bracket from './pages/Bracket';
 import {PageContainer, PageContent} from './styles/page-layout';
-import Profile from "./pages/Profile/index";
+import Profile from "./pages/Profile";
+import PublicProfile from "./pages/Profile/public";
 import Standing from "./pages/Standing";
 import EditProfile from "./pages/Profile/EditProfile";
 import Tournaments from "./pages/Tournaments";
-import Tournament from "./pages/Tournament";
+import Tournament from "./pages/TournamentHeader";
 import Dashboard from "./pages/Dashboard";
 import Sidebar from './components/Sidebar';
 import LoginInUserSideMenu from "./components/Menus/LoginUserMenu";
@@ -44,31 +45,23 @@ ReactDOM.render(
             <Sidebar/>
             <PageContent>
             <Switch>
-              <Route exact path="/home" component={ Home } />
-              <Route exact path="/tournament/:id/overview" component={TournamentOverview} />
-              <Route exact path="/tournament/:id/admin" component={TournamentAdmin} />
+              <Route exact path="/" component={ Home } />
               <Route exact path="/tournaments" component={Tournaments} />
-              <Route exact path="/dashboard" component={Dashboard} />
+              <Route exact path="/tournament/:id/overview" component={withAuth(TournamentOverview)} />
               <Route exact path="/tournament/:id/bracket" component={Bracket} />
               <Route exact path="/tournament/:id/standing" component={Standing} />
+              <Route exact path="/tournament/:id/admin" component={TournamentAdmin} />
               <Route exact path="/login" component={ Login } />
               <Route exact path="/registration" component={ EmailSignUp } />
               <Route exact path="/confirmation" component={ CongratsMessage } />
               <Route exact path="/verification" component={ VerificationForm} />
               <Route exact path="/create" component={ CreateTournament } />
-              <Route exact path="/message" component={ Message } />
               <Route exact path="/privacy" component={ withAuth(PrivateOrPublic) } />
-              <Route exact path="/details" component={ DetailsCreate } />
-              <Route exact path="/user/:id" component={Profile} />
+              <Route exact path="/details" component={ withAuth(DetailsCreate) } />
+              <Route exact path="/user/:id" component={PublicProfile} />
               <Route exact path="/user/:id/edit" component={EditProfile} />
-              <Route exact path="/user/profile" component={Profile} />
-              <Route exact path="/user/profile/edit" component={EditProfile} />
-              <Route exact path="/menu" component={ LoginInUserSideMenu } />
               <Route exact path="/aboutus" component={ AboutUs } />
               <Route exact path="/contactus" component={ ContactUs } />
-
-
-              <Route exact path="/test" component={ TestHome } />
             </Switch>
             </PageContent>
         </PageContainer>

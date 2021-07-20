@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import {UserProfilePicIcon} from "../ProfileCard";
 import avatarWhite from "../../../assets/svgs/avatarWhite.svg"
@@ -9,6 +8,11 @@ import {TitleHead3} from "../../CreateTournament/DetailsTournament";
 import {LabelText} from "../../Login/SingUp/Verification";
 import {BaseButton} from "../../Login";
 import camera from "../../../assets/svgs/photo-camera.svg";
+import { apiUserGetData } from '../../../store/actions/userAction'
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import Axios from '../../../axios';
+import { useHistory } from "react-router-dom";
 
 
 const Container = styled(FormContainer)`
@@ -131,15 +135,87 @@ const ProfileInput = styled(LongInput2)`
 
 const EditProfile = () => {
 
-    const realFileInput = React.useRef(null);
-    const replaceFileInput = (e) => {
-        e.preventDefault()
-        realFileInput.current.click()
-    }
 
-    const handleAvatar = (e) => {
-        e.preventDefault()
-    }
+
+    const dispatch = useDispatch();
+    const history = useHistory();
+
+
+
+
+
+
+
+  const me = useSelector((state) => state.user);
+  const [username, setUsername] = useState(me.userData.username);
+  const [first_name, setFirst_name] = useState(me.userData.first_name);
+  const [last_name, setLast_name] = useState(me.userData.last_name);
+  const [email, setEmail] = useState(me.userData.email);
+  const [location, setLocation] = useState(me.userData.location);
+  const [company, setCompany] = useState(me.userData.company);
+  const [profilePictureTemp, setProfilePictureTemp] = useState(null);
+
+
+  const realFileInput = React.useRef(null);
+  const replaceFileInput = (e) => {
+      e.preventDefault()
+      realFileInput.current.click()
+  }
+
+  const handleAvatar = (e) => {
+      e.preventDefault()
+      setProfilePictureTemp(e.target.files[0]);
+  }
+
+
+
+  const editProfileAction = (profileData) => {
+    const url = 'user/me/';
+    const auth = 'Bearer ' + localStorage.getItem('userToken');
+    const headers = {
+      headers: { Authorization: auth, 'Content-Type': 'multipart/form-data' },
+    };
+
+    Axios.patch(url, profileData, headers)
+      .then((response) => {
+        console.log('Edit Profile successful.', response);
+        history.push(`/user/${me.userData.id}`)
+      })
+      .catch((error) => {
+        console.log('Edit Profile failed', error.response);
+      });
+  };
+
+  const setData = (data) => {
+    setUsername(data.username);
+    setFirst_name(data.first_name);
+    setLast_name(data.last_name);
+    setEmail(data.email);
+    setLocation(data.location);
+    setCompany(data.company);
+  };
+
+  useEffect(() => {
+    dispatch(apiUserGetData(localStorage.getItem('userToken')));
+  }, [dispatch]);
+
+  useEffect(() => {
+    setData(me.userData);
+  }, [me]);
+
+  const edithProfileButtonHandler = (event) => {
+    event.preventDefault();
+    const profileData = new FormData();
+    profileData.append('username', username);
+    profileData.append('first_name', first_name);
+    profileData.append('last_name', last_name);
+    profileData.append('email', email);
+    profileData.append('location', location);
+    profileData.append('company', company);
+    if (profilePictureTemp) profileData.append('avatar', profilePictureTemp);
+    editProfileAction(profileData);
+  };
+
     return (
     <>
         <MovingBackground/>
@@ -153,27 +229,47 @@ const EditProfile = () => {
                <WrapperAvatar>
                <Title>Edit your Profile</Title>
                <Wrapper>
+                 <LabelText>Username</LabelText>
+                 <ProfileInput defaultValue={me.userData.username}
+                    onChange={(event) => setUsername(event.target.value)}
+                    type="text" />
+               </Wrapper>
+               <Wrapper>
                  <LabelText>First name</LabelText>
-                 <ProfileInput type="text" />
+                 <ProfileInput defaultValue={me.userData.first_name}
+                    onChange={(event) => setFirst_name(event.target.value)}
+                    type="text" />
                </Wrapper>
                <Wrapper>
                  <LabelText>Last name</LabelText>
-                 <ProfileInput type="text"/>
+                 <ProfileInput 
+                  defaultValue={me.userData.last_name}
+                  onChange={(event) => setLast_name(event.target.value)}
+                  type="text"/>
                </Wrapper>
                <Wrapper>
                  <LabelText>Company</LabelText>
-                 <ProfileInput type="text"/>
+                 <ProfileInput 
+                  defaultValue={me.userData.company}
+                  onChange={(event) => setCompany(event.target.value)}
+                  type="text"/>
                </Wrapper>
                <Wrapper>
                  <LabelText>Location</LabelText>
-                 <ProfileInput type="text"/>
+                 <ProfileInput 
+                 defaultValue={me.userData.location}
+                 onChange={(event) => setLocation(event.target.value)}
+                 type="text"/>
                </Wrapper>
                <Wrapper>
                  <LabelText>Email</LabelText>
-                 <ProfileInput type="email"/>
+                 <ProfileInput 
+                  defaultValue={me.userData.email}
+                  onChange={(event) => setEmail(event.target.value)}
+                  type="text"/>
                </Wrapper>
                <ButtonWrapper>
-                 <BaseButton type="submit">Save Changes</BaseButton>
+                 <BaseButton onClick={edithProfileButtonHandler} type="submit">Save Changes</BaseButton>
                </ButtonWrapper>
                </WrapperAvatar>
 

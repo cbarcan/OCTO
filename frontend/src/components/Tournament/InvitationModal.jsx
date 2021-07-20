@@ -8,11 +8,14 @@ import StartButton from '../StartButton'
 
 
 const Wrapper = styled.div`
+  //border: solid yellow;
   height: 70vh;
-  width: 50vw;
+  width: 60vw;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-between;
+  padding-bottom: 3%;
 
 
   //close button div
@@ -25,37 +28,54 @@ const Wrapper = styled.div`
   }
 
   .result {
-    height: 90%;
+    //border: solid red;
+    height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 
+    h1 {
+      color: black;
+      border-bottom: 1px solid black;
+      padding-bottom: 3%;
+      padding-right: 15%;
+    }
+
+  }
+
+  button {
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+
+    &:hover {
+      color: white;
+    }
   }
 `
 
-
 const EditButton = styled(BaseButton)`
   margin: 20px;
-  font-weight: 700;
-  font-size: 24px;
+  font-weight: 500;
+  font-size: 15px;
   align-self: center;
   
 ` 
 
 
 const Mails = styled.ul`
-  width: 50%;
+  //border: solid green;
+  width: 70%;
+  padding: 0 3%;
   color: white;
   overflow: auto;
   max-height: 30vh;
-  margin-top: 50px;
-  list-style-type: none;  
-  background-color: black;
+  margin: 2% 0;
+  list-style-type: none; 
 
 
   div {
-
     display: flex;
     justify-content: space-between;
     text-align: center;
@@ -66,11 +86,13 @@ const Mails = styled.ul`
     background: none;
     max-width: max-content;
     margin: 20px;
-    padding: 10px;
-    color: white;
+    //padding: 3px;
+    color: black;
     border: solid 3px  ${props => props.borderColor};
     text-align: center;
     font-size: 20px;
+    outline: none;
+
   }
   
   li {
@@ -79,11 +101,21 @@ const Mails = styled.ul`
     background: none;
     padding: 10px;
     margin: 20px;
-
-    color: white;
-    border: solid 3px #19c5db;
+    margin-left: 5%;
+    color: grey;
+    //border: solid 3px #19c5db;
     text-align: center;
     font-size: 20px;
+  }
+
+  button {
+    color: grey;
+    font-weight: bold;
+    //margin-right: 5%;
+
+    &:hover {
+      color: white;
+    }
   }
 
 
@@ -100,10 +132,9 @@ const CloseButton = styled.button`
   outline: none;
   background: none;
   border: none;
-  color: white;
+  color: black;
   font-size: 20px;
   margin-right: 2%;
-  margin-top: 2%;
   transform: perspective(100px) translateZ(0px);
   transition: transform 100ms linear;
 
@@ -123,7 +154,7 @@ const InvitationModal = (props) => {
     const [mails, setMails] = useState([]);
     const [mail, setMail] = useState("");
     const [border, setBorder] = useState("#19c5db");
-    const [placeholder, setPlaceholder] = useState("email");
+    const [placeholder, setPlaceholder] = useState("Email");
 
     const re = /\S+@\S+\.\S+/;
 
@@ -140,7 +171,7 @@ const InvitationModal = (props) => {
         setMail("");
       } else {
         setMail("");
-        setPlaceholder("invalid email");
+        setPlaceholder("Invalid Email");
         setBorder("red");
 
       } 
@@ -155,7 +186,7 @@ const InvitationModal = (props) => {
 
     const closeModal = () => {
         setBorder("#19c5db");
-        setPlaceholder("email");
+        setPlaceholder("Email");
         setMail("");
         props.closeModal();
     }
@@ -168,9 +199,12 @@ const InvitationModal = (props) => {
             bottom: 'auto',
             marginRight: '-50%',
             transform: 'translate(-50%, -50%)',
-            background: `url(${BackgroundImg})`,
+            background: 'white',
+            borderRadius: '30px',
+            padding: '2%',
         },
     };
+    
 
     return (
         <Modal 
@@ -188,11 +222,11 @@ const InvitationModal = (props) => {
               <Mails borderColor={border}>
                 <div>  
                   <input
-                    type="email"
+                    type="Email"
                     onChange={(e) => {
                       if (re.test(mail)) {
                         setBorder("#19c5db");
-                        setPlaceholder("email");
+                        setPlaceholder("Email");
                       } 
                       setMail(e.target.value)}
                     }
@@ -211,7 +245,7 @@ const InvitationModal = (props) => {
                 ))}
               </Mails>
             </div>
-            <StartButton onClick={closeModal} type='submit'text={'SEND'}/>
+            <BaseButton onClick={closeModal} type='submit'>SEND</BaseButton>
           </Wrapper>
         </Modal>
     )

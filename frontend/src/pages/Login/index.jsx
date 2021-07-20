@@ -198,10 +198,6 @@ export const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    /* const next = props.location.search.substr(
-        props.location.search.indexOf('=') + 1
-    );
-    console.log('next', next); */
 
     const onSubmitForm = (e) => {
         e.preventDefault();
@@ -217,22 +213,9 @@ export const Login = () => {
         setPassword(e.target.value);
     };
 
-
-    /* useEffect(() => {
-        if (token) {
-          if (next) {
-            push(`/${next}`);
-          } else {
-            push('/profile');
-          }
-        }
-    }, [token, push, dispatch]); */
-    
-
     useEffect(() => {
         if (token) {
             push('/tournaments');
-            
         }
     }, [token, push, dispatch]);
 
