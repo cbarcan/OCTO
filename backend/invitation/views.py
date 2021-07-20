@@ -13,9 +13,6 @@ class CreateInvitationView(CreateAPIView):
 
     queryset = Invitation.objects.all
     serializer_class = ListCreateInvitationSerializer
-    # lookup_url_kwarg = 'id'
-    # lookup_field = 'id'
-    # permission_classes =
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data, partial=True)
