@@ -196,7 +196,7 @@ const Admin = () => {
 
                         <Invitations>
                             <Counter>
-                                <div className='invitation'>Open <br/> Invitations</div>
+                                <div className='invitation'>Open Invitations</div>
                                 <div className='number'>10 </div> 
                                 
                             </Counter>
