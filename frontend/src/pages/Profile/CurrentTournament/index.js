@@ -87,6 +87,11 @@ const CurrentTournament = (props) => {
                         <TournamentCard key={index} tournament={tournament}/>
                     ))
                 }
+                {
+                    props.user.part_in_tournaments.map((tournament, index) => (                
+                        <TournamentCard key={index} tournament={tournament}/>
+                    ))
+                }
             </Tournaments>
         </TournamentDiv>
     </>
