@@ -23,5 +23,5 @@ class Standing(models.Model):
     loses = models.PositiveIntegerField(default=0, blank=True)
     score_for = models.PositiveIntegerField(default=0, blank=True)
     score_against = models.PositiveIntegerField(default=0, blank=True)
-    score_diff = models.PositiveIntegerField(default=0, blank=True)
+    score_diff = models.IntegerField(default=0, blank=True)
     points = models.PositiveIntegerField(default=0, blank=True)
