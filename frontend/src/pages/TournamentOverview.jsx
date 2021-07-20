@@ -278,7 +278,7 @@ const Home = () => {
 
 
                 </MainContainer>
-                </>
+            </>
         ) : null }
 
         </>
