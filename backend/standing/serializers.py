@@ -5,7 +5,7 @@ from user.serializers.bracket_user_serializer import UserBracketSerializer
 
 
 class StandingSerializer(serializers.ModelSerializer):
-    user = UserBracketSerializer(many=True, read_only=True)
+    user = UserBracketSerializer(read_only=True)
 
     class Meta:
         model = Standing

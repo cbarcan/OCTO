@@ -1,12 +1,12 @@
 from rest_framework.generics import ListAPIView
 from rest_framework.permissions import IsAuthenticated
 
-from match.serializers import MatchSerializer
 from standing.models import Standing
+from standing.serializers import StandingSerializer
 
 
 class ListStandingView(ListAPIView):
-    serializer_class = MatchSerializer
+    serializer_class = StandingSerializer
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):

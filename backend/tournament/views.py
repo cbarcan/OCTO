@@ -4,6 +4,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from bracket.functions import create_bracket, recreate_bracket
+from standing.functions import create_standing, recreate_standing
 from tournament.models import Tournament
 from tournament.serializers.serializers import CreateTournamentSerializer, ListTournamentSerializer
 
@@ -25,6 +26,7 @@ class CreateTournamentView(CreateAPIView):
         serializer.is_valid(raise_exception=True)
         serializer.save(organizer=request.user)
         create_bracket(serializer)
+        create_standing(serializer)
         return Response(serializer.data)
 
 
@@ -41,7 +43,10 @@ class RetrieveUpdateDestroyTournamentView(RetrieveUpdateDestroyAPIView):
     def patch(self, request, *args, **kwargs):
         tournament = self.get_object()
         try:
+            if request.data["status"] == tournament.status:
+                return Response({"details": f'The status of the tournament is already {tournament.get_status_display()}'})
             recreate_bracket(tournament, request, kwargs)
+            recreate_standing(tournament, request, kwargs)
             return self.partial_update(request, *args, **kwargs)
         except KeyError:
             return self.partial_update(request, *args, **kwargs)

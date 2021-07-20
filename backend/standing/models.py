@@ -7,10 +7,16 @@ from tournament.models import Tournament
 User = get_user_model()
 
 
+def mock_default(a=""):
+    result = dict(a)
+    return result
+
+
 class Standing(models.Model):
-    user = models.OneToOneField(to=User, related_name='standing', on_delete=models.SET_NULL, null=True)
+    user = models.OneToOneField(to=User, related_name='standing', on_delete=models.SET_NULL, null=True, blank=True)
     team = models.OneToOneField(to=Team, related_name='standing', on_delete=models.SET_NULL, null=True)
     tournament = models.ForeignKey(to=Tournament, related_name='standings', on_delete=models.CASCADE)
+    mock_user = models.JSONField(blank=True, default=mock_default)
     matches_played = models.PositiveIntegerField(default=0, blank=True)
     wins = models.PositiveIntegerField(default=0, blank=True)
     draws = models.PositiveIntegerField(default=0, blank=True)
