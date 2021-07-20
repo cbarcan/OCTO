@@ -1,23 +1,29 @@
 import styled from 'styled-components';
 import React from 'react';
-import map from '../../assets/svgs/map.svg';
-import bluepin from '../../assets/svgs/map2.svg';
-import camara from '../../assets/svgs/photo-camera.svg';
+//import map from '../../assets/svgs/map.svg';
+//import bluepin from '../../assets/svgs/map2.svg';
+//import camara from '../../assets/svgs/photo-camera.svg';
+//import icon from '../../assets/images/faceicon.png'
+import { TitleHead2  } from './PrivateOr';
+
+
 import defaultAvatar from '../../assets/svgs/shark.svg'
-import { PageContentPicture2, TitleHead2  } from './PrivateOr';
-import { LeftMiddleBar, LeftBottomBar, BaseButton, InputWrapper} from '../Login/index';
-import { InputWrapper2, InputsDiv, LongInput, ShortInput, StyledForm2, LabelText} from '../Login/SingUp/Verification';
+
+import { LeftMiddleBar, LeftBottomBar, BaseButton, InputWrapper, StyledForm} from '../Login/index';
+
+import { InputWrapper2, InputsDiv, LongInput, ShortInput, LabelText} from '../Login/SingUp/Verification';
+
 import MovingBackground from '../../components/MovingBackground';
 import { useState, useEffect } from 'react';
-import {createTournament} from '../../store/actions/tournamentAction'
+//import {createTournament} from '../../store/actions/tournamentAction'
 import { useDispatch } from 'react-redux';
 import { useHistory } from "react-router-dom";
-import Map from '../../components/Mapbox'
+//import Map from '../../components/Mapbox'
 import Axios from '../../axios';
 
 
 
-export const PageContentPicture3 = styled(PageContentPicture2)`
+/* export const PageContentPicture3 = styled(PageContentPicture2)`
 border-left: none;
 color: #1a1f36;
 box-sizing: border-box;
@@ -25,16 +31,18 @@ min-height: 100%;
 width: 100%;
 overflow: hidden;
 flex-grow: 1;
-`
+` */
 
 export const FormContainer = styled.div`
     position: absolute;
+    margin: 4%;
     z-index: 1; 
-    background: black;
+    background: rgba(0, 0, 0, 1);
+    border-radius: 25px;
     color: white;
-    height: 80%;
+    height: 72%;
     width: 70%;
-    // border: 1px solid white;
+    //border: 1px solid white;
     box-shadow: 3px 11px 21px 35px rgba(33,33,33,0.44);
     
 `
@@ -80,12 +88,10 @@ export const InputsDiv2 = styled(InputsDiv)`
     height: 80%;
 `
 
-export const StyledForm3 = styled(StyledForm2)`
-    // border: solid green;
-    height: 80%;
-    padding: 0;
-    margin: 0;
-
+export const StyledForm2 = styled(StyledForm)`
+    border: solid yellow;
+    width: 80%;
+    color: white;
 `
 
 export const InputWrapper3 = styled(InputWrapper)`
@@ -316,15 +322,15 @@ export const DetailsCreate = (props) => {
 
     return (
     
-    <PageContentPicture3>
+    <>
         
         <MovingBackground/>
 
         <FormContainer>
 
             <LeftMiddleBar2>
-                <TitleHead3>Complete Tournament Details:</TitleHead3>
-            <StyledForm3>
+                <TitleHead2>Complete Tournament Details:</TitleHead2>
+            <StyledForm2>
 
                 <InputsDiv2> 
                     <InputWrapper4>
@@ -382,7 +388,7 @@ export const DetailsCreate = (props) => {
                         <LongInput2  type="text" />
                 </InputWrapper3>
 
-            </StyledForm3>
+            </StyledForm2>
             </LeftMiddleBar2>
 
             <LeftBottomBar2>
@@ -393,7 +399,7 @@ export const DetailsCreate = (props) => {
 
         
             
-    </PageContentPicture3>
+    </>
 
         
 

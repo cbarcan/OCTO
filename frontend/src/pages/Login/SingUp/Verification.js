@@ -1,64 +1,77 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import {  OvalBlue, OvalWhite, LeftMiddleBar2 } from './EmailForm';
+import {  OvalBlue, OvalWhite, OvalContainer } from './EmailForm';
 import { useHistory } from 'react-router-dom';
 import { PageContentPicture} from '..';
 import OctoWall from '../OctoWall';
-import { TitleStyled2, OvalContainer2, LeftBottomBar2} from './CongratsDiv';
-import { LeftContainer, LeftTopBar, LeftMiddleBar, StyledForm, InputWrapper, LoginInput, BaseButton} from '..';
+//import { TitleStyled2, LeftBottomBar2} from './CongratsDiv';
+import { LeftBottomBar, TitleStyled, LeftContainer, LeftTopBar, LeftMiddleBar, StyledForm, InputWrapper, LoginInput, BaseButton} from '..';
 import { useDispatch } from 'react-redux';
 import { apiUserVerify } from '../../../store/actions/userAction';
 
 
-const LeftTopBar3 = styled(LeftTopBar)` 
-    border: none;
+const LeftTopBar2 = styled(LeftTopBar)` 
+    //border: solid red;
+    margin-bottom: 8%;
     
 `
 
 export const LongInput = styled(LoginInput)`
-    width: 100%;
+    //border: solid yellow;
+    width: 83.7%;
+    height: 30px;
     font-size: ${props => props.theme.textSizeM}; ;
-    padding-top: 0.5%;
-    padding-right: 2%;
-    padding-bottom: 0.5%;
+    margin: 0;
+    margin-bottom: 2%;
+    
 `
 
 export const InputsDiv = styled.div`
+    //border: solid orange;
     width: 100%;
+    height: 100%;
+    padding: 0 8%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-bottom: 11%;
+    margin-bottom: 5%;
     
 `
 
 export const ShortInput = styled(LoginInput)`
+    //border: solid blue;
     width: 100%;
-    height: 25px;
+    height: 30px;
 `
 
 export const InputWrapper2 = styled(InputWrapper)`
+    //border: solid purple;
+    margin: 3% 0;
     display: flex;
     flex-direction: column;
     width: 48%;
 `
 
-export const StyledForm2 = styled(StyledForm)`
-    //border: solid red;
-    width: 80%;
-    color: white;
-`
-
 export const LabelText = styled.label`
+    //border: solid yellow;
+    display: flex;
+    width: 100%;
     color: white; ;
     font-size: 13px;
-    margin-bottom: 2%;
-    padding-left: 1%;
+    margin-bottom: 5%;
+    padding-left: 3%;
 `
-export const OvalContainer3 = styled(OvalContainer2)`
+export const LabelText2 = styled(LabelText)`
+    //border: solid yellow;
+    width: 87%;
+    margin-bottom: 1%;
+`
+
+export const OvalContainer2 = styled(OvalContainer)`
     //border: solid red;
-    height: 8%;
+    margin-top: 21%;
+
 `
 
 
@@ -90,13 +103,15 @@ const VerificationForm = () => {
 
         <PageContentPicture>
             <LeftContainer>
-                <LeftTopBar3 />
+                <LeftTopBar2 />
                 <form onSubmit={completeButtonHandler}>
-                    <LeftMiddleBar2>
-                        <TitleStyled2>Verification</TitleStyled2>
-                    <StyledForm2>
+                    <LeftMiddleBar>
+                        <TitleStyled>Verification</TitleStyled>
+
+                    <StyledForm>
+                        <LabelText2> Validation code</LabelText2>
                         <InputWrapper>
-                            <LabelText> Validation code</LabelText>
+                            
                             <LongInput value={code} onChange={(event) => setValidationCode(event.target.value)} type="text" />
                         </InputWrapper>
                         <InputsDiv> 
@@ -117,19 +132,19 @@ const VerificationForm = () => {
                                 <ShortInput  value={password_repeat || ''} onChange={(event) => setPasswordRepeat(event.target.value)} type="password" />
                             </InputWrapper2>
                         </InputsDiv>
-                    </StyledForm2>
-                    </LeftMiddleBar2>
+                    </StyledForm>
+                    </LeftMiddleBar>
 
-                    <LeftBottomBar2>
+                    <LeftBottomBar>
                         <BaseButton type="submit">COMPLETE</BaseButton>
-                    </LeftBottomBar2>
+                    </LeftBottomBar>
                 </form>
 
-                <OvalContainer3>
+                <OvalContainer2>
                     <OvalWhite />
                     <OvalWhite />
                     <OvalBlue />
-                </OvalContainer3>
+                </OvalContainer2>
 
             </LeftContainer>
             <OctoWall/>
