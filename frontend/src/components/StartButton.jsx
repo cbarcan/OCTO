@@ -18,12 +18,12 @@ const MainContainer = styled.div`
     display: flex;
     padding: 10px 45px;
     text-decoration: none;
-    font-family: 'Poppins', sans-serif;
+    font-family: monospace;
     font-size: 40px;
     color: white;
     background: black;
     transition: 1s;
-    transform: skewX(-15deg);
+    transform: skewX(-5deg);
     border-radius: 30px;
     border: solid 3px #19c5db;
 
