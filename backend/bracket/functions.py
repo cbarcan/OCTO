@@ -1,5 +1,3 @@
-from rest_framework.response import Response
-
 from bracket.models import Bracket
 from bracket.serializers import BracketSerializer
 from match.serializers import MatchSerializer
@@ -125,9 +123,6 @@ def create_bracket(serializer):
 
 # flake8: noqa: C901
 def recreate_bracket(tournament, request, kwargs):
-    if request.data["status"] == tournament.status:
-        print("1")
-        return Response({"details": f'The status of the tournament is already {tournament.get_status_display()}'})
     if request.data["status"] == "OG":
         bracket = Bracket.objects.get(tournament=kwargs["pk"])
         bracket.delete()

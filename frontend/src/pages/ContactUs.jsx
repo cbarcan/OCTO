@@ -80,7 +80,7 @@ export const Wrapper = styled.div`
   margin: 0;
   //border: solid green; 
 `
-const EmailImg = styled.img `
+const EmailImg = styled.img`
   height: 100%;
   &:hover {
         animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both ;
@@ -103,13 +103,14 @@ export const SectionTitleBig = styled(SectionTitleText)`
   font-weight: bold;
   font-size: 35px;
 `
+
 const ContactUs = () => {
  const Mailto = ({ email, subject = '', body = '', children }) => {
   let params = subject || body ? '?' : '';
   if (subject) params += `subject=${encodeURIComponent(subject)}`;
   if (body) params += `${subject ? '&' : ''}body=${encodeURIComponent(body)}`;
 
-  return <a href={`mailto:${email}${params}`}>{children}</a>;
+  return <a style={{textDecoration:"none"}} href={`mailto:${email}${params}`}>{children}</a>;
 };
   return <>
   <Container>
@@ -131,7 +132,7 @@ const ContactUs = () => {
        <SectionTitle pageTitle="Heinrichstrasse 200,8005 Zürich"></SectionTitle>
     </LeftBottom>
     <RightTop>
-         <EmailImg src={email} alt={"email"}/>
+      <EmailImg src={email} alt={"email"} />
     </RightTop>
     <RightMiddle>
       <SectionTitleBig>EMAIL</SectionTitleBig>
