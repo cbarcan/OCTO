@@ -16,16 +16,14 @@ const Profile = () => {
 
 
     useEffect(() => {
-        if(!user.id) {
-            dispatch(apiUserGetData(localStorage.getItem('userToken')));
-        }
-    }, [user.id, dispatch])
+        dispatch(apiUserGetData(localStorage.getItem('userToken')));
+    }, [dispatch])
 
         return(
             <>
                 {user.id ? 
                     <>
-                    <ProfileCard user = {user}/>
+                    <ProfileCard user = {user} edit={true}/>
                     <CurrentTournament user = {user}/>
                     </>
                     : 
