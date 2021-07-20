@@ -177,11 +177,14 @@ const ProfileCard = (props) => {
     return <>
         <Container>
             <CardLeft>
-                <UserProfilePicIcon src={ avatarWhite || "https://via.placeholder.com/50x50" } alt="avatar"/>
+                <UserProfilePicIcon src={ props.user ? avatarWhite :  props.user.avatar} alt="avatar"/>
                 <Name>
                     {props.user.username}
                 </Name>
-                <BaseButton><Link to="/user/profile/edit"> Edit Profile </Link> </BaseButton>
+                {
+                    props.edit ?
+                <BaseButton><Link to={`/user/${props.user.id}/edit`}> Edit Profile </Link> </BaseButton> : null
+                }
             </CardLeft>
 
             <RigthSide>
