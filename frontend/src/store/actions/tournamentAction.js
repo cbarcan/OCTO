@@ -29,10 +29,8 @@ export const getTournamentByID = (id) => (dispatch) => {
 export const getTournaments = () => (dispatch) => {
     // prepare data
     const url = `/tournament/list/`;
-    const auth = 'Bearer ' + localStorage.userToken;
-    const headers = { headers: { Authorization: auth } };
 
-    Axios.get(url, headers)
+    Axios.get(url)
         .then((response) => {
         console.log('Tournaments data retrieved');
         dispatch(addTournamentsData(response.data))

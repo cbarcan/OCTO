@@ -48,10 +48,12 @@ export const apiUserLogin = (email, password) => (dispatch) => {
       dispatch(setToken(token));
       dispatch(apiUserGetData(token));
       console.log('Login successful.');
+      return true;
     })
     .catch((error) => {
       dispatch(setToken(''));
       console.log('Login failed', error.response.data);
+      return false;
     });
 };
 
