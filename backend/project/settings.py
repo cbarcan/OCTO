@@ -52,7 +52,8 @@ INSTALLED_APPS = [
     'tournament',
     'bracket',
     'round',
-    'match'
+    'match',
+    'standing'
 ]
 
 

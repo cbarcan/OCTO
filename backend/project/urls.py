@@ -43,4 +43,7 @@ urlpatterns = [
 
     # Match URL's
     path('backend/api/match/', include('match.urls')),
+
+    # Standing URL's
+    path('backend/api/standing/', include('standing.urls')),
 ]

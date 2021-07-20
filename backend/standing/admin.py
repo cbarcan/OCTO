@@ -1,3 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
+from standing.models import Standing
+
+admin.site.register(Standing)
