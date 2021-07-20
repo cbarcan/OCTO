@@ -6,11 +6,12 @@ import Header from './Tournament'
 const Wrapper = styled.div`
     //border: solid blue;
     height: fit-content;
-    width: 100%;
-    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
 `
 
 const Standing = () => {

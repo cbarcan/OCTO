@@ -23,8 +23,8 @@ export const PageContentPicture = styled.div`
     align-items: center;
     background: black;
     padding: 0 6%;
-    height: 100%; 
-    width: 100%; 
+    min-height: 100%; 
+    min-width: 100%; 
     margin: 0;
 
     a {

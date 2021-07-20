@@ -11,7 +11,7 @@ import { apiUserLogin } from '../../store/actions/userAction';
 
 
 export const PageContentPicture = styled.div`
-    
+    //border: solid red;
     width: 90%;
     height: 100%;
     display: flex;
@@ -19,6 +19,7 @@ export const PageContentPicture = styled.div`
 `
 
 export const LeftContainer = styled.div`
+    //border: solid blue;
     background: #0a0a0a;
     box-shadow: 3px 44px 21px 1px #00000053;
     border-radius: 17px;
@@ -62,6 +63,7 @@ export const LeftContainer = styled.div`
 `  */
 
 export const LeftTopBar = styled.div `
+    //border: solid blue;
     height: 10%;
     padding-top: 6% ;
     padding-right: 2%;
@@ -72,9 +74,10 @@ export const LeftTopBar = styled.div `
 `
 
 export const LinkAn = styled.p`
-    padding-top: 5%;
+    //border: solid orange;
     text-align: center;
-    margin: 20px;
+    margin: 15px;
+    width: 50%;
     text-decoration: none;
     color: white;
     font-size: 11px;
@@ -92,8 +95,8 @@ export const LinkAn = styled.p`
 
 
 export const LeftMiddleBar = styled.div `
-    //border: 1px solid yellow;
-    height: 64.9%;
+    //border: solid yellow;
+    height: 65%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -102,26 +105,34 @@ export const LeftMiddleBar = styled.div `
 `
 
 export const TitleStyled = styled.h1 `
+    //border: solid purple;
     font-size: 300%;
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: 10px;
 `
 
 export const StyledForm = styled.div`
+    //border: solid lightblue;
     display: flex;
     flex-direction: column;
-    width: 40%;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
 
 `
 
 export const InputWrapper =styled.div`
-    margin-top: 12%; 
+    //border: solid pink;
+    text-align: center;
+    margin-top: 2%; 
+    height: 15.5%;
+    width: 100%;
 
 `
 
 export const LoginInput =styled.input`
-    width: 100%;
-    height: 200%;
+    width: 45%;
+    height: 100%;
     outline: none;
     border: none;
     padding-left: 30px;
@@ -136,7 +147,7 @@ export const LoginInput =styled.input`
 `
 
 export const LeftBottomBar = styled.div `
-    height: 40%;
+    //border: solid yellowgreen;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -169,7 +180,9 @@ export const BaseButton = styled.button `
 `
 
 export const FormContainer = styled.form`
-    height: 100%;
+    //border: solid lightseagreen;
+    height: 60%;
+    margin-top: 32%;
     //border: 1px solid yellow;
     
 `
