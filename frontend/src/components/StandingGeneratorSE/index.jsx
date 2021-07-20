@@ -96,11 +96,11 @@ const StandingGeneratorSE = () => {
         <Wrapper>
             <Left>
                 <p className={"place"}>First place</p>
-                <Participant name={'Tina'} location={'Bed'}/>
+                <Participant id={1}/>
                 <p className={"place"}>Second place</p>
-                <Participant name={'Tina'} location={'Bed'}/>
+                <Participant id={2}/>
                 <p className={"place"}>Third place</p>
-                <Participant name={'Tina'} location={'Bed'}/>
+                <Participant id={1}/>
             </Left>
             <Right>
                 <img src={octo_victory} alt={"octo victory"}/>
