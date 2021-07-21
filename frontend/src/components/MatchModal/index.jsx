@@ -15,7 +15,6 @@ const ScoreWrapper = styled.div`
   width: 60vw;
   display: flex;
   flex-direction: column;
-  
   padding: 5%;
   justify-content: center;
 
@@ -156,6 +155,7 @@ const ScoreWrapper = styled.div`
 const Player = styled.div`
   height: 100%;
   width: 30%;
+  color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
