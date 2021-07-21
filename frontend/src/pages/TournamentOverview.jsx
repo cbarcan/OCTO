@@ -296,6 +296,14 @@ const Home = () => {
                                     <LabelText2> Selected Game Type</LabelText2>
                                     <TitlePage2>{tournament.sport}</TitlePage2>
                                 </InputContainer>
+
+                                <InputContainer>
+                                    <LabelText2> Location</LabelText2>
+                                    <TitlePage2>{tournament.location} Propulsion Academy,   Heinrichstrasse 200,   8005 Zürich</TitlePage2>
+                                </InputContainer>
+
+
+
                                 { joined ?
                                 <BaseButton onClick={cancelHandler}>CANCEL</BaseButton>
                                 :                                 
@@ -315,10 +323,6 @@ const Home = () => {
                             )): null
                             }
                             </ParticipantsContainer>
-                        
-                        <SectionTitle pageTitle="Location:   Propulsion Academy,   Heinrichstrasse 200,   8005 Zürich"></SectionTitle>
-
-
                     </RightContainer>
 
 
