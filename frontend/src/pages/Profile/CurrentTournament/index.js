@@ -94,9 +94,7 @@ const CurrentTournament = (props) => {
                 }
                 {
                     props.user.part_in_tournaments.map((tournament, index) => {
-                        console.log(!props.user.my_tournaments.contains(tournament))
-                        if (!props.user.my_tournaments.contains(tournament)) return <TournamentCard key={index} tournament={tournament}/>
-                        else return null
+                        return <TournamentCard key={index} tournament={tournament}/>
                     })
                 } 
             </Tournaments>
