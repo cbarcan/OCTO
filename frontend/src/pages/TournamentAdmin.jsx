@@ -21,7 +21,7 @@ const MainContainer = styled.div`
     color: white;
     font-family: monospace;
     font-size: 2em;
-    margin-right: 8%;
+    margin-left: 8%;
     //padding-right: 10%;
 `
 
@@ -31,9 +31,10 @@ const Invitations = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 6% 0;
-    width: 60%;
-    height: 70%;
+    padding: 3% 0;
+    padding-bottom: 16%;
+    width: 70%;
+    height: 100%;
 
 `
 const Counter = styled.div`
@@ -42,8 +43,11 @@ const Counter = styled.div`
     background: black;
     padding: 10% 0;
     width: 100%;
-    text-align:center;
-    height: 15em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 20em;
     margin: 6% 0;
     box-shadow: 0px 20px 35px -16px rgba(125, 249, 255, 0.6);
 
@@ -56,8 +60,9 @@ const Counter = styled.div`
     div.invitation {
         font-size: 1.3em;
         color: white;
-        width: 65%;
-        margin-left: 15%;
+        width: 60%;
+        text-align: center;
+        //margin-left: 15%;
         border-bottom: 1px solid white;
         padding-bottom: 5%;
         
@@ -87,19 +92,18 @@ const Counter = styled.div`
 ` */
 
 const ButtonDiv = styled.div`
-    height: 55%;
+    height: 70%;
     //border: solid orange;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 10%;
     cursor: pointer;
     border-radius: 25px;
     border-right: solid 4px #19c5db;
     background: white;
     padding: 10% 0;
-    margin: 3% 0;
+    margin-bottom: 0%;
     box-shadow: 0px 20px 35px -16px rgba(125, 249, 255, 0.6);
     animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both ;
     transform: translate3d(0, 0, 0);
@@ -141,12 +145,12 @@ const LeftContainer2 = styled(LeftContainer)`
     //border: solid yellow;
     height: 90%;
     margin: 0;
-    padding-top: 5%;
+    padding-top: 8%;
 `
 
 const RightContainer2 = styled(RightContainer)`
     //border: solid blue;
-    height: 90%;
+    height: 100%;
     margin: 0;
 `
 
@@ -191,37 +195,32 @@ const Admin = () => {
             <>
                 <TitlePage> Admin</TitlePage>
                 <MainContainer>
-                    
-                    <LeftContainer2>
-
-                        <Invitations>
-                            <Counter>
-                                <div className='invitation'>Open Invitations</div>
-                                <div className='number'>10 </div> 
-                                
-                            </Counter>
-                            
-                            <Counter>
-                                <div className='invitation'>Participants</div> 
-                                <div className='number'>12 </div> 
-                                                       
-                            </Counter>
-                        </Invitations>
-
-                    </LeftContainer2>
 
                     <RightContainer2>
-                    
+
                         <ButtonDiv onClick={openModal}>
                             <img src={add} alt="add"/>
                             <p>SEND INVITATIONS</p>
                         </ButtonDiv>
 
-                        
-                        <StartButton clickHandler={startTournamentHandler} text={'START'}/>
-                        
-
                     </RightContainer2>
+
+                    <LeftContainer2>
+
+                        <Invitations>
+                            
+                            <Counter>
+                                <div className='invitation'>Participants</div> 
+                                <div className='number'>12 </div>                           
+                            </Counter>
+
+                            <StartButton clickHandler={startTournamentHandler} text={'START'}/>
+
+                        </Invitations>
+
+                    </LeftContainer2>
+
+                    
 
                 </MainContainer>
                 <InvitationModal modalIsOpen={modalIsOpen} openModal={openModal} closeModal={closeModal}/>

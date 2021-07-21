@@ -2,25 +2,26 @@ import styled from "styled-components";
 import Match from "../Match";
 
 const Wrapper = styled.div`
-  height: fit-content;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 5%;
-  justify-content: center;
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 5%;
+    justify-content: center;
 `
 
 const RoundWrapper = styled.div`
-  height: fit-content;
-  width: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    
+    height: fit-content;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   
-  h1 {
-    font-size: 20px;
-    font-weight: 500;
-  }
+    h1 {
+        font-size: 20px;
+        font-weight: 500;
+    }
 `
 
 const Round = (props) => {

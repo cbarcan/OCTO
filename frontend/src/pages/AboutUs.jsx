@@ -1,65 +1,50 @@
 import styled from "styled-components";
-import {Container, PageTitleTxt, PageTitleCont, Top, LeftTop, RightTop, Wrapper} from "../pages/ContactUs"
+import {Container, PageTitleTxt, Wrapper} from "../pages/ContactUs"
 import React from "react";
 import PageParagraph from "../styles/section-pragraph";
-import octoText from "../assets/svgs/octo-text-outline.svg"
-import octoPoly from "../assets/svgs/octopus_poly_white.svg"
+import octoText from "../assets/svgs/octo-text.svg";
+import octo from "../assets/svgs/SliceOcto2.svg";
 
 const ContainerAboutUs = styled(Container) `
-   grid-template-columns: 750px  auto;
-    grid-template-rows:  250px 150px auto auto;
-    grid-template-areas: 
-      "top top"
-      "left right"
-      "left right"
-      "left right"
-      ;
+  //border: solid yellow;
+  display: flex;
+  background: white;
+  padding-bottom: 10%;
+  height: 75%;
 `
-const Left = styled.div`
-  grid-area: left;
-  //margin-left: 30px; 
-  
-  //border: solid red; 
-`
-const Right = styled.div`
-  grid-area: right;
-  margin-right: 100px; 
-  //border: solid red;
-`
+
 const OctoTxtImg = styled.img`
-  height: 8%;
+  //border: solid blue;
+  height: 20%;
+  padding-bottom: 2%;
+  margin: 2% 0;
+  //border-bottom: 1px solid #00ECFF;
+  width: 75%;
   display: flex;
   justify-content: center;
   align-self: center;
 `
 const OctoImg = styled.img`
-  height: 35%;
-  display: flex;
-  justify-content: center;
-  align-self: center;
+  //border: solid pink;
+  position: fixed;
+  height: 74%;
+  top:26%;
+  opacity: 0.8;
 `
 
 const AboutUs = () => {
   return <>
     <ContainerAboutUs>
-      <Top>
-        <PageTitleCont>
-          <PageTitleTxt> About OCTO </PageTitleTxt>
-        </PageTitleCont>
-      </Top>
-      <Left>
-        <Wrapper>
-          <OctoTxtImg src={octoText} />
-          <OctoImg src={octoPoly}/>
-        </Wrapper>
-      </Left>
-      <Right>
-        <PageParagraph pageParagraph="We are group of students that developing OCTO tournament web-based application as our final project.
-         OCTO stands for Organize Create Tournament Online. Currently, OCTO was build to organize and track three different sports which includes
-         football, tennis, and table tennis. Our goal is to grow, modify OCTO into all sorts of sport competition tracking application for the users.">
-        </PageParagraph>
-      </Right>
+
+      <OctoTxtImg src={octoText} />
+      <PageParagraph />
+
     </ContainerAboutUs>
+
+    <OctoImg src={octo}/>
   </>
 }
 export default AboutUs
+
+// <PageTitleTxt> About OCTO </PageTitleTxt>
+//<OctoImg src={octoPoly}/>

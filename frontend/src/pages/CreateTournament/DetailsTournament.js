@@ -132,39 +132,6 @@ export const SelectTorunament = styled.select`
     }
 `
 
-export const MapImg = styled.img`
-    // border: solid lightblue;
-    height: 300%;
-    position: relative;
-    bottom: 435%;
-
-`
-
-export const PinImg = styled.img`
-    //border: solid lightblue;
-    height: 300%;
-    z-index: 1;
-    position: relative;
-    bottom: 132%;
-    cursor: pointer;
-
-    &:hover {
-
-        animation: bounce 1s infinite alternate;
-        -webkit-animation: bounce 1s infinite alternate;
-
-        @keyframes bounce {
-            from { transform: translateY(0px); }
-            to { transform: translateY(-15px);  }
-        }
-
-        @-webkit-keyframes bounce {
-            from { transform: translateY(0px);}
-            to { transform: translateY(-15px);}
-        }
-    }
-
-`
 
 export const CameraImg = styled.img`
     height: 50%;
