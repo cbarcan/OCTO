@@ -15,7 +15,6 @@ const ScoreWrapper = styled.div`
   width: 60vw;
   display: flex;
   flex-direction: column;
-  color: black;
   padding: 5%;
   justify-content: center;
 
@@ -27,9 +26,6 @@ const ScoreWrapper = styled.div`
     justify-content: flex-end;
     align-items: flex-start;
     
-    button {
-      color: black;
-    }
   }
 
   //match content div
@@ -87,8 +83,8 @@ const ScoreWrapper = styled.div`
 
     .wrapper_score {
       //border: solid blue;
-      height: 50%;
-      width: 100%;
+      height: 30%;
+      width: 80%;
       margin: 0 2%;
       margin-top: 2%;
       display: flex;
@@ -97,12 +93,12 @@ const ScoreWrapper = styled.div`
       align-items: center;
 
       .draw_on {
-        //writing-mode: vertical-rl;
+        writing-mode: vertical-rl;
         letter-spacing: 10px;
         text-orientation: upright;
-        color: black;
-        font-weight: 1000;
-        font-size: 40px;
+        color: white;
+        font-weight: 700;
+        font-size: 30px;
         margin: 0 4%;
         margin-top: 4%;
         text-shadow: -3px 2px 8px #707070;
@@ -159,6 +155,7 @@ const ScoreWrapper = styled.div`
 const Player = styled.div`
   height: 100%;
   width: 30%;
+  color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -211,13 +208,6 @@ const SubmitButton = styled(BaseButton)`
   margin-top: 7%;
   font-weight: 700;
   font-size: 24px;
-  color: grey;
-  
-
-  &:hover {
-    color: white;
-  }
-
 
 `
 
@@ -293,7 +283,7 @@ const MatchModal = (props) => {
             bottom: 'auto',
             marginRight: '-50%',
             transform: 'translate(-50%, -50%)',
-            background: 'white',
+            background: 'black',
             borderRadius: '30px',
             padding: '2%',
         },

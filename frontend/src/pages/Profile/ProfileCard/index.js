@@ -27,6 +27,7 @@ const CardLeft = styled.div`
     width: 30%;
     //border: solid red;
     display: flex;
+    padding: 2% 0;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -136,13 +137,13 @@ const IconSection = styled.div `
     flex-direction: column;
     //justify-content: center;
     align-items: center;
-    padding-top: 5%;
+    padding: 0 5%;
     height: 100%;
     width: 40%;
 
     img {
         height: 65%;
-        margin-bottom: 9%;
+        margin-bottom: 2%;
     }
     
     p { 
@@ -181,8 +182,7 @@ const ProfileCard = (props) => {
                 <Name>
                     {props.user.username}
                 </Name>
-                {
-                    props.edit ?
+                {                    props.edit ?
                 <BaseButton><Link to={`/user/${props.user.id}/edit`}> Edit Profile </Link> </BaseButton> : null
                 }
             </CardLeft>
