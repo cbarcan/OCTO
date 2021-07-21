@@ -9,10 +9,14 @@ import Axios from "../../axios";
 // import calendar_icon from "../../assets/svgs/calendar.svg"
 
 const ScoreWrapper = styled.div`
-  height: 70vh;
-  width: 70vw;
+  //border: solid yellow;
+  border-radius: 30px;
+  height: 60vh;
+  width: 60vw;
   display: flex;
   flex-direction: column;
+  color: black;
+  padding: 5%;
   justify-content: center;
 
   //close button div
@@ -22,6 +26,10 @@ const ScoreWrapper = styled.div`
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
+    
+    button {
+      color: black;
+    }
   }
 
   //match content div
@@ -32,15 +40,26 @@ const ScoreWrapper = styled.div`
     flex-direction: column;
     align-items: center;
 
+    h1 {
+      text-align: center;
+      width: 80%;
+      letter-spacing: 0.1em;
+      color: black;
+      border-bottom: 1px solid black;
+      padding-bottom: 3%;
+      //padding-right: 15%;
+    }
+    
     /*.date_time {
       width: 100%;
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      color: white;
+      color: black;
       padding: 0 2%;
 
       p {
+        font-weight: bold;
         margin-right: 2%;
       }
 
@@ -67,21 +86,26 @@ const ScoreWrapper = styled.div`
     }*/
 
     .wrapper_score {
+      //border: solid blue;
       height: 50%;
       width: 100%;
       margin: 0 2%;
+      margin-top: 2%;
       display: flex;
+      //flex-direction: column;
       justify-content: space-evenly;
       align-items: center;
 
       .draw_on {
-        writing-mode: vertical-rl;
+        //writing-mode: vertical-rl;
         letter-spacing: 10px;
         text-orientation: upright;
-        color: white;
-        font-weight: 700;
-        font-size: 24px;
+        color: black;
+        font-weight: 1000;
+        font-size: 40px;
+        margin: 0 4%;
         margin-top: 4%;
+        text-shadow: -3px 2px 8px #707070;
       }
 
       .draw_off {
@@ -89,14 +113,18 @@ const ScoreWrapper = styled.div`
       }
 
       .points {
-        height: 25%;
-        width: 8%;
+        height: 80%;
+        width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
         background: ${props => props.theme.mediumGrey60};
-        border-radius: 5px;
+        border-right: solid 4px #19c5db;
+        box-shadow: 0px 20px 35px -16px rgba(125, 249, 255, 0.6);
+        border-radius: 6px;
         margin-top: 4%;
+        color: black;
+        
 
         :hover {
           cursor: text;
@@ -113,15 +141,16 @@ const ScoreWrapper = styled.div`
       }
 
       input {
-        height: 30px;
-        width: 40px;
+        border: solid red;
+        height: 55%;
+        width: 100%;
         outline: none;
         border: none;
         background: none;
-        font-size: 30px;
+        font-size:100px;
         font-weight: 700;
         text-align: center;
-        color: ${props => props.theme.backgroundLigthNavy};
+        color: white;
       }
     }
   }
@@ -179,9 +208,17 @@ const CloseButton = styled.button`
 `
 
 const SubmitButton = styled(BaseButton)`
-  margin-top: 4%;
+  margin-top: 7%;
   font-weight: 700;
   font-size: 24px;
+  color: grey;
+  
+
+  &:hover {
+    color: white;
+  }
+
+
 `
 
 const Title = styled.div`
@@ -256,7 +293,9 @@ const MatchModal = (props) => {
             bottom: 'auto',
             marginRight: '-50%',
             transform: 'translate(-50%, -50%)',
-            background: `url(${BackgroundImg})`,
+            background: 'white',
+            borderRadius: '30px',
+            padding: '2%',
         },
     };
 
@@ -345,3 +384,8 @@ const MatchModal = (props) => {
 }
 
 export default MatchModal
+
+{/* <div className={"date_time"}>
+  <p>time</p>
+  <button type={"button"}><img src={calendar_icon} alt={"calendar_icon"}/></button>
+</div> */}

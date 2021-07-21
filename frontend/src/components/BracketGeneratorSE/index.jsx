@@ -14,6 +14,7 @@ const Wrapper = styled.div`
 `
 
 const RoundWrapper = styled.div`
+    //border: solid yellow;
   height: 100%;
   width: 100%;
   display: flex;
@@ -28,6 +29,7 @@ const RoundWrapper = styled.div`
 `
 
 const MatchWrapper = styled.div`
+    //border: solid red;
   min-height: 90px;
   height: 100%;
   width: 100%;

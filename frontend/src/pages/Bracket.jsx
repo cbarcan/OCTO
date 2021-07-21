@@ -8,11 +8,12 @@ import {getTournamentByID} from "../store/actions/tournamentAction";
 
 
 const Wrapper = styled.div`
-  height: fit-content;
-  min-width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    //border: solid orange;
+    height: fit-content;
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `
 
 const Bracket = () => {

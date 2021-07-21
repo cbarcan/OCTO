@@ -1,108 +1,112 @@
 import styled from "styled-components";
-import {FormContainer, MapImg, PinImg} from "./CreateTournament/DetailsTournament";
+//import {FormContainer, MapImg, PinImg} from "./CreateTournament/DetailsTournament";
 import {PageTitleContainer, PageTitleText} from "../styles/page-title";
 import {SectionTitle, SectionTitleText} from "../styles/section-title";
-import bluepin from "../assets/svgs/map2.svg";
-import map from "../assets/svgs/map.svg";
+import letter from "../assets/svgs/letter1.svg";
+import direction from "../assets/svgs/direction2.svg";
 import React from "react";
-import email from "../assets/svgs/email.svg"
+
+//import map from '../assets/svgs/map.svg';
+//import bluepin from '../assets/svgs/map2.svg';
 
 
-export const Container = styled(FormContainer)`
+
+export const Container = styled.div`
   //border: red solid;
-  width: 75%;
-  display: grid;
-    grid-template-columns: 750px  auto;
-    grid-template-rows:  250px 150px auto auto;
-    grid-template-areas: 
-      "top top"
-      "left-top right-top"
-      "left-middle right-middle"
-      "left-bottom right-bottom"
-      ;
-  `
+  width: 90%;
+  height: 90%;
+  //margin-top: 1%;
+  //margin-bottom: 0;
+  background: black;
+  overflow: hidden;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-left: solid 4px #19c5db;
+  box-shadow: 0px 20px 35px -16px rgba(125, 249, 255, 0.4);
+`
 
-export const Top = styled.div `
-  grid-area: top;
-  //border: solid red;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`
-export const LeftTop = styled.div `
-  grid-area: left-top;
-  //border: solid red;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-`
-export const LeftMiddle = styled.div `
-  grid-area: left-middle;
-  //border: solid red;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`
-export const LeftBottom = styled.div `
-  grid-area: left-bottom;
-  //border: solid yellow;
-  display: flex;
-   align-items: flex-start;
-  justify-content: center;
-`
-export const RightTop = styled.div `
-  grid-area: right-top;
-  //border: solid green;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`
-export const RightMiddle = styled.div `
-  grid-area: right-middle;
-  //border: solid green;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`
-export const RightBottom = styled.div `
-  grid-area: right-bottom;
-  //border: solid yellow;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-`
+
 export const Wrapper = styled.div`
+  //border: solid orange;
   display: flex; 
   align-items:center;
+  justify-content: center;
   flex-direction: column;
-  height: 70%;
-  padding: 0;
-  margin: 0;
-  //border: solid green; 
-`
-const EmailImg = styled.img`
+  width: 100%;
   height: 100%;
-  &:hover {
-        animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both ;
-        transform: translate3d(0, 0, 0);
+  padding-bottom: 3%;
 
-        @keyframes shake { 
-            10%, 90% { transform: translate3d(-1px, 0, 0);}
-            20%, 80% { transform: translate3d(2px, 0, 0); }
-            30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
-            40%, 60% {  transform: translate3d(4px, 0, 0); } 
-        }
+  img {
+    height: 27%;
+    margin-bottom: 10%;
+  }
 `
-export const PageTitleCont = styled(PageTitleContainer)`
-  height: 20%
+
+export const InfoBox = styled.div`
+    //border: solid green;
+    display: flex;
+    height:69%;
+    width: 63%;
+    
 `
 export const PageTitleTxt = styled(PageTitleText)`
-  margin-bottom: 30px; 
+  //border: solid yellow;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  font-weight: normal;
+  height: 27%;
+  width: 75%;
+  padding-bottom: 2%;
+  border-bottom: 1px solid white;
+  
+  
+  
 `
 export const SectionTitleBig = styled(SectionTitleText)`
   font-weight: bold;
   font-size: 35px;
+  margin-bottom: 3%;
 `
+
+/* export const MapImg = styled.img`
+    border: solid lightblue;
+    height: 300%;
+    position: relative;
+    bottom: 435%;
+
+`
+
+export const PinImg = styled.img`
+    border: solid lightblue;
+    height: 300%;
+    z-index: 1;
+    position: relative;
+    bottom: 132%;
+    cursor: pointer;
+
+    &:hover {
+
+        animation: bounce 1s infinite alternate;
+        -webkit-animation: bounce 1s infinite alternate;
+
+        @keyframes bounce {
+            from { transform: translateY(0px); }
+            to { transform: translateY(-15px);  }
+        }
+
+        @-webkit-keyframes bounce {
+            from { transform: translateY(0px);}
+            to { transform: translateY(-15px);}
+        }
+    }
+
+` */
+
+
 
 const ContactUs = () => {
  const Mailto = ({ email, subject = '', body = '', children }) => {
@@ -112,35 +116,34 @@ const ContactUs = () => {
 
   return <a style={{textDecoration:"none"}} href={`mailto:${email}${params}`}>{children}</a>;
 };
-  return <>
-  <Container>
-    <Top>
-      <PageTitleCont>
-        <PageTitleTxt> Contact Us</PageTitleTxt>
-      </PageTitleCont>
-    </Top>
-    <LeftTop>
-      <Wrapper>
-        <PinImg src={bluepin} alt='map position'/>
-        <MapImg src={map} alt='map'/>
-      </Wrapper>
-    </LeftTop>
-    <LeftMiddle>
-       <SectionTitleBig>ADDRESS</SectionTitleBig>
-    </LeftMiddle>
-    <LeftBottom>
-       <SectionTitle pageTitle="Heinrichstrasse 200,8005 Zürich"></SectionTitle>
-    </LeftBottom>
-    <RightTop>
-      <EmailImg src={email} alt={"email"} />
-    </RightTop>
-    <RightMiddle>
-      <SectionTitleBig>EMAIL</SectionTitleBig>
-    </RightMiddle>
-    <RightBottom>
-      <Mailto email={"octo.tournament@gmail.com"}><SectionTitle pageTitle="octo.tournament@gmail.com"></SectionTitle></Mailto>
-    </RightBottom>
+  return (
+  
+  <>
+    <Container>
+    
+    
+      <PageTitleTxt> Contact Us</PageTitleTxt>
+
+      <InfoBox>
+        <Wrapper>
+
+          <img src={direction} alt=""/>
+          <SectionTitleBig>ADDRESS</SectionTitleBig>
+          <SectionTitle pageTitle="Heinrichstrasse 200,8005 Zürich."></SectionTitle>
+        </Wrapper>
+    
+        <Wrapper>
+          <img src={letter} alt=""/>
+          <SectionTitleBig>EMAIL</SectionTitleBig>
+          <Mailto email={"octo.tournament@gmail.com"}><SectionTitle pageTitle="octo.tournament@gmail.com"></SectionTitle></Mailto>
+        </Wrapper>
+      </InfoBox>
+
+  
   </Container>
-  </>
+</>
+)
 }
+
 export default ContactUs
+
