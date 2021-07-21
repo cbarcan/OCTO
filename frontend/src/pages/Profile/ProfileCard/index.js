@@ -15,6 +15,7 @@ const Container = styled.div`
     border-radius: 20px;
     height: 30%;
     width: 82%;
+    padding: 3%;
     padding-right: 6%;
     //box-shadow: 1px 1px 20px -5px #14d1d1;
     box-shadow: 3px 11px 21px 35px rgba(33,33,33,0.44);
@@ -136,13 +137,13 @@ const IconSection = styled.div `
     flex-direction: column;
     //justify-content: center;
     align-items: center;
-    padding-top: 5%;
+    padding: 0 5%;
     height: 100%;
     width: 40%;
 
     img {
         height: 65%;
-        margin-bottom: 9%;
+        margin-bottom: 2%;
     }
     
     p { 
