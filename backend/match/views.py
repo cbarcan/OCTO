@@ -19,8 +19,9 @@ class RetrieveUpdateMatchView(RetrieveUpdateAPIView):
             if match.status == "ED":
                 return Response({"details": "The match ended and can't be updated again!"})
             else:
-                if request.data["result"]:
-                    update_standing(request, match)
+                if match.round.bracket.tournament.format == "RR":
+                    if request.data["result"]:
+                        update_standing(request, match)
             return self.partial_update(request, *args, **kwargs)
         except KeyError:
             return self.partial_update(request, *args, **kwargs)
