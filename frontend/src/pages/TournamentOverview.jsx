@@ -316,7 +316,7 @@ const Home = () => {
 
                                 <InputContainer>
                                     <LabelText2> Location</LabelText2>
-                                    <TitlePage2>{tournament.location} Propulsion Academy,   Heinrichstrasse 200,   8005 Zürich</TitlePage2>
+                                    <TitlePage2>{tournament.location}</TitlePage2>
                                 </InputContainer>
 
 
