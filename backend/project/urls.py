@@ -48,5 +48,5 @@ urlpatterns = [
     path('backend/api/match/', include('match.urls')),
 
     # Standing URL's
-    path('backend/api/standing/', include('standing.urls')),
+    path('backend/api/tournament/<int:id>/', include('standing.urls')),
 ]

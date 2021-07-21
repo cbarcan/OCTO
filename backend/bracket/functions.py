@@ -145,7 +145,6 @@ def recreate_bracket(tournament, request, kwargs):
                         match_serializer.save(players=[participants[j], participants[len(participants) - 1 - j]])
                     participants = participants_shuffle(participants)
             else:
-                participants.append({"first_name": "BYE", "last_name": ""})
                 for i in range(0, len(participants)):
                     round_data = {"bracket": bracket_serializer.data}
                     round_serializer = RoundSerializer(data=round_data)

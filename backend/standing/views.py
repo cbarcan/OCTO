@@ -10,4 +10,4 @@ class ListStandingView(ListAPIView):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        return Standing.objects.filter(tournament=self.kwargs["pk"]).order_by("-points").order_by("-score_diff")
+        return Standing.objects.filter(tournament=self.kwargs["id"]).order_by("-points").order_by("-score_diff")

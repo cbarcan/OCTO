@@ -13,7 +13,7 @@ def mock_default(a=""):
 
 
 class Standing(models.Model):
-    user = models.OneToOneField(to=User, related_name='standing', on_delete=models.SET_NULL, null=True, blank=True)
+    user = models.ForeignKey(to=User, related_name='standing', on_delete=models.SET_NULL, null=True, blank=True)
     team = models.OneToOneField(to=Team, related_name='standing', on_delete=models.SET_NULL, null=True)
     tournament = models.ForeignKey(to=Tournament, related_name='standings', on_delete=models.CASCADE)
     mock_user = models.JSONField(blank=True, default=mock_default)
