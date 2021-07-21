@@ -15,7 +15,6 @@ const Container = styled.div`
     border-radius: 20px;
     height: 30%;
     width: 82%;
-    padding: 3%;
     padding-right: 6%;
     //box-shadow: 1px 1px 20px -5px #14d1d1;
     box-shadow: 3px 11px 21px 35px rgba(33,33,33,0.44);
@@ -28,6 +27,7 @@ const CardLeft = styled.div`
     width: 30%;
     //border: solid red;
     display: flex;
+    padding: 2% 0;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -182,8 +182,7 @@ const ProfileCard = (props) => {
                 <Name>
                     {props.user.username}
                 </Name>
-                {
-                    props.edit ?
+                {                    props.edit ?
                 <BaseButton><Link to={`/user/${props.user.id}/edit`}> Edit Profile </Link> </BaseButton> : null
                 }
             </CardLeft>

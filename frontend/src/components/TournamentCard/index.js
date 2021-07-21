@@ -13,6 +13,7 @@ const Container = styled.div`
     height: 350px;
     width: 21%;
     box-shadow: 3px 11px 21px 35px rgba(33,33,33,0.44);
+    border-right: solid 4px #19c5db;
     display: grid;
     grid-template-rows: 150px auto auto;
     grid-template-areas: 
