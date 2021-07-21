@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const PageContainer = styled.div`
-  min-height: 100vh;
+  //min-height: 100vh;
   min-width: 100%;
   width: fit-content;
   display: grid;
@@ -12,7 +12,7 @@ export const PageContainer = styled.div`
 `;
 
 export const PageContent = styled.div`
-  min-height: 100%;
+  //min-height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
