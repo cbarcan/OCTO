@@ -23,7 +23,7 @@ const PublicProfile = () => {
         const url = `/user/${id}/`;      
         Axios.get(url)
         .then((response) => {
-            console.log('User data retrieved');
+            console.log('User data retrieved by id');
             setUser(response.data)
         })
         .catch((error) => {
@@ -37,10 +37,10 @@ const PublicProfile = () => {
 
     useEffect(() => {
         if(user.id === loggedInUser.id) {
+            console.log('its meeee')
             setMyProfile(true);
-            getUserByID(user_id);
         } 
-    }, [user, loggedInUser, user_id])
+    }, [user, loggedInUser])
 
         return(
             <>

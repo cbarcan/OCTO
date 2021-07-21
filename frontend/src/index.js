@@ -19,7 +19,7 @@ import AboutUs from "./pages/AboutUs"
 import ContactUs from "./pages/ContactUs";
 import Bracket from './pages/Bracket';
 import {PageContainer, PageContent} from './styles/page-layout';
-import PublicProfile from "./pages/Profile/public";
+import PublicProfile from "./pages/Profile/UserProfile";
 import Standing from "./pages/Standing";
 import EditProfile from "./pages/Profile/EditProfile";
 import Tournaments from "./pages/Tournaments";

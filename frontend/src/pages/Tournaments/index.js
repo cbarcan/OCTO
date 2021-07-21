@@ -143,9 +143,11 @@ const Tournaments = ({ history }) => {
   <TitlePage>Tournaments</TitlePage>
   <Container>
     { tournaments ?
-      tournaments.map((tournament, index) => (                
-          <TournamentCard key={index} tournament={tournament}/>
-      )): null
+      tournaments.map((tournament, index) => {
+        if (tournament.private) return null
+        else return (<TournamentCard key={index} tournament={tournament}/>)
+    })
+      : null
     }
 
     <Create>
