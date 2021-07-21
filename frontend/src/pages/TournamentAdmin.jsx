@@ -4,11 +4,10 @@ import {useState} from "react";
 import InvitationModal from "../components/Tournament/InvitationModal";
 import Axios from '../axios';
 import { useHistory } from "react-router-dom";
-import { BaseButton } from './Login';
 import add from '../assets/svgs/message2.svg';
 //import PageTitle from "../styles/page-title";
 import {LeftContainer, RightContainer} from './TournamentOverview'
-import {TitlePage} from './Tournaments/index';
+//import {TitlePage} from './Tournaments/index';
 import Header from './TournamentHeader'
 import {useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux';

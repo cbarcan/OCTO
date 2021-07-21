@@ -1,10 +1,8 @@
 import styled from "styled-components";
 import TournamentCard from "../../components/TournamentCard";
-// import ball from  "../../assets/svgs/Ball.svg"
-// import tennis from "../../assets/svgs/tennis.svg"
 import join from "../../assets/svgs/join.svg"
 import { TitleHead } from "../CreateTournament/SelectSport"
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTournaments } from '../../store/actions/tournamentAction'
 

@@ -6,20 +6,14 @@ import octoIcon from '../assets/svgs/octo-menu-icon.svg';
 import signup from '../assets/svgs/signup.svg';
 import login from '../assets/svgs/user.svg';
 import { NavLink } from 'react-router-dom';
-import bracket from '../assets/svgs/fixtures.svg';
-import ranking from '../assets/svgs/top.svg';
 import logout from '../assets/svgs/enter.svg';
-import eye from '../assets/svgs/eye.svg';
-import admin from '../assets/svgs/settings1.svg';
 import about from '../assets/svgs/aboutUs.svg';
 import contact from '../assets/svgs/mail.svg';
 import vote from '../assets/svgs/vote.svg';
 import { useHistory } from "react-router-dom";
-import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setToken, apiUserGetData } from '../store/actions/userAction';
-import { addTournamentData } from '../store/actions/tournamentAction'
 
 
 export const MenuContainer = styled.div`

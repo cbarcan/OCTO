@@ -95,7 +95,7 @@ const VerificationForm = () => {
             password,
             password_repeat,
         ));
-        push('/');
+        push('/login');
     };
     
     

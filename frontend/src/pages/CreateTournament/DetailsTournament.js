@@ -1,24 +1,12 @@
 import styled from 'styled-components';
 import React from 'react';
-//import map from '../../assets/svgs/map.svg';
-//import bluepin from '../../assets/svgs/map2.svg';
-//import camara from '../../assets/svgs/photo-camera.svg';
-//import icon from '../../assets/images/faceicon.png'
 import { TitleHead2  } from './PrivateOr';
-
-
 import defaultAvatar from '../../assets/svgs/shark.svg'
-
 import { LeftMiddleBar, LeftBottomBar, BaseButton, InputWrapper, StyledForm} from '../Login/index';
-
 import { InputWrapper2, InputsDiv, LongInput, ShortInput, LabelText} from '../Login/SingUp/Verification';
-
 import MovingBackground from '../../components/MovingBackground';
 import { useState, useEffect } from 'react';
-//import {createTournament} from '../../store/actions/tournamentAction'
-import { useDispatch } from 'react-redux';
 import { useHistory } from "react-router-dom";
-//import Map from '../../components/Mapbox'
 import Axios from '../../axios';
 
 
@@ -225,7 +213,7 @@ export const MapLink = styled.div`
 
 export const DetailsCreate = (props) => {
 
-    const dispatch = useDispatch();
+    //const dispatch = useDispatch();
     const history = useHistory();
 
     useEffect(() => {
@@ -238,13 +226,13 @@ export const DetailsCreate = (props) => {
     const [sport, setSport] = useState(null)
     const [privacy, setPrivacy] = useState(null)
     const [name, setName] = useState(null)
-    const [avatar, setAvatar] = useState(defaultAvatar)
+    const [/*avatar,*/ setAvatar] = useState(defaultAvatar)
     const [preview, setPreview] = useState(null)
     const [players, setPlayers] = useState(null)
     const [format, setFormat] = useState(null)
-    const [location, setLocation] = useState(null)
-    const [lat, setLat] = useState(47.3769)
-    const [lng, setlng] = useState(8.5417)
+   // const [/*location, setLocation*/] = useState(null)
+    //const [lat, setLat] = useState(47.3769)
+   // const [lng, setlng] = useState(8.5417)
     const [start, setStart] = useState(null)
     const [end, setEnd] = useState(null)
     const [description, setDescription] = useState('false')

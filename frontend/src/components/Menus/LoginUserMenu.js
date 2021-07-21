@@ -23,28 +23,28 @@ export const LoginInUserSideMenu = () => {
             
             <InnerLinksContainer>
                     <IndividualLinksContainer>
-                        <img src={home}/>
+                        <img src={home} alt={"home"}/>
                         <Link to='/'>HOME</Link>
                         
                     </IndividualLinksContainer>
     
       
                     <IndividualLinksContainer>
-                        <img src={happy}/>
+                        <img src={happy} alt={"happy"}/>
                         <Link to='/tournaments'>TOURNAMENTS</Link>
                         
                         
                     </IndividualLinksContainer>
       
                     <IndividualLinksContainer>
-                        <img src={octoIcon}/>
+                        <img src={octoIcon} alt={"octoIcon"}/>
                         <Link to='/create'>CREATE TOURNAMENT</Link>
                         
                         
                     </IndividualLinksContainer>
 
                     <IndividualLinksContainer>
-                        <img src={eye}/>
+                        <img src={eye} alt={"eyeIcon"}/>
                         <Link to='/tournament/:id'>OVERVIEW</Link>
                         
                         
@@ -52,21 +52,21 @@ export const LoginInUserSideMenu = () => {
 
 
                     <IndividualLinksContainer>
-                        <img src={bracket}/>
+                        <img src={bracket} alt={"bracket"}/>
                         <Link to='/tournament/:id/bracket'>BRACKETS</Link>
                         
                         
                     </IndividualLinksContainer>
 
                     <IndividualLinksContainer>
-                        <img src={ranking}/>
+                        <img src={ranking} alt={"rank"}/>
                         <Link to='/tournament/:id/standing'>STANDING</Link>
                         
                         
                     </IndividualLinksContainer>
 
                     <IndividualLinksContainer>
-                        <img src={admin}/>
+                        <img src={admin} alt={"admin"}/>
                         <Link to='/tournament/:id/admin'>ADMIN</Link>
                         
                         
@@ -76,7 +76,7 @@ export const LoginInUserSideMenu = () => {
 
                     
                     <IndividualLinksContainer>
-                        <img src={logout}/>
+                        <img src={logout} alt={"logoutIcon"}/>
                         <Link to='/registration'>LOG OUT</Link>
                         
                         

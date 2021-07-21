@@ -4,7 +4,7 @@ import { Link, useHistory  } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { PageContentPicture} from '..';
 import OctoWall from '../OctoWall';
-import { FormContainer, LeftContainer, LeftTopBar, LinkAn, LeftMiddleBar, TitleStyled, StyledForm, InputWrapper, LoginInput, LeftBottomBar, BaseButton} from '..';
+import { FormContainer, LeftContainer, LinkAn, LeftMiddleBar, TitleStyled, StyledForm, InputWrapper, LoginInput, LeftBottomBar, BaseButton} from '..';
 import { apiUserSignUp } from '../../../store/actions/userAction';
 import { useDispatch } from 'react-redux';
 
