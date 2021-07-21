@@ -6,16 +6,14 @@ const RoundRobin = (props) => {
 
     const location = useLocation();
 
-    console.log(location)
-
     return (
         <>
             {
                 location.pathname === `/tournament/${props.tournament_id}/standing`
                 ?
-                <StandingGeneratorRR tournament_id={props.tournament_id}/>
+                <StandingGeneratorRR tournament_id={props.tournament_id} tournament_status={props.tournament_status}/>
                 :
-                <BracketGeneratorRR tournament_id={props.tournament_id}/>
+                <BracketGeneratorRR tournament_id={props.tournament_id} tournament_status={props.tournament_status}/>
             }
         </>
     )
