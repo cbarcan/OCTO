@@ -4,5 +4,5 @@ from standing.views import ListStandingView
 
 urlpatterns = [
     # retrieve and update Match
-    path('<int:pk>/', ListStandingView.as_view()),
+    path('standing/', ListStandingView.as_view()),
 ]
