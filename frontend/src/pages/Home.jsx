@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import Message from '../pages/CreateTournament/message';
 
 const Main = styled.div`
@@ -13,7 +13,7 @@ const Main = styled.div`
     
 `
 
-const Links = styled.div`
+/*const Links = styled.div`
     margin: 0px auto;
     color: white;
     display: flex;
@@ -22,7 +22,7 @@ const Links = styled.div`
     align-items: center;
     a { color: white; }
 
-`
+`*/
 
 
 const Home = () => {

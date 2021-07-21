@@ -8,9 +8,7 @@ import ranking from '../assets/svgs/top.svg';
 import eye from '../assets/svgs/eye.svg';
 import admin from '../assets/svgs/settings1.svg';
 import {useEffect} from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { getTournamentByID } from '../store/actions/tournamentAction';
-import { apiUserGetData } from '../store/actions/userAction'
+import { useSelector } from 'react-redux';
 
 
 export const InfoBox = styled.div`

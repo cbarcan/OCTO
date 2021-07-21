@@ -4,7 +4,7 @@ import TournamentCard from "../components/TournamentCard";
 import ball from  "./../assets/svgs/Ball.svg"
 import tennis from "./../assets/svgs/tennis.svg"
 import pingpong from "./../assets/svgs/pingpong.svg"
-import {TitleHead3} from "./CreateTournament/DetailsTournament";
+//import {TitleHead3} from "./CreateTournament/DetailsTournament";
 
 const Container = styled.div `
   display: flex; 
@@ -33,13 +33,13 @@ margin: 0 auto;
     }
 `
 
-const Top = styled.div `
+/*const Top = styled.div `
     grid-area: top;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
-`
+`*/
 const Middle = styled.div `
     grid-area: middle;
     display: flex;
@@ -55,9 +55,9 @@ const Bottom = styled.div `
     align-items: center; 
     align-items: center; 
 `
-const TitleHead4 = styled(TitleHead3)`
+/*const TitleHead4 = styled(TitleHead3)`
     width: 80%; 
-`;
+`;*/
 
 const Icon = styled.img`
     height: 78px;

@@ -1,10 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import shark from  "../../assets/svgs/shark.svg"
-//import soccer from  "../../assets/svgs/soccer-ball.svg"
 import { useHistory } from "react-router-dom";
-import { useDispatch } from 'react-redux';
-import { getTournamentByID } from '../../store/actions/tournamentAction'
 
 
 const Container = styled.div`
@@ -71,14 +68,14 @@ const Icon = styled.img`
     background-color: white; 
 `;
 
-const Name = styled.p`
+/*const Name = styled.p`
     font-weight: bold;
     font-size: 0.90rem;
     margin: 0.5rem;
     color: white;
     margin-left: 2%;
     margin-right: 8%;
-`;
+`;*/
 
 const SportType = styled.p `
     //border: solid pink;
@@ -97,13 +94,13 @@ const Location = styled.p`
     margin-right: 8%;
 `;
 
-const Status = styled.p `
+/*const Status = styled.p `
     font-weight: bold;
     font-size: 0.90rem;
     color: white; 
     margin-left: 2%;
     margin-right: 8%;
-`
+`*/
 const ParagContainer = styled.div `
     //border: solid yellow;
     display: flex;
@@ -125,7 +122,7 @@ const TournamentCard = (props) => {
     return <>
         <Container onClick={handleClick}>
             <Top>
-                <Icon src={ shark || 'https://via.placeholder.com/50x50' } alt="shark"/>    
+                <Icon src={ props.tournament.picture ?  props.tournament.picture : shark } alt="shark"/>    
             </Top>
             <Middle>
                 <ParagContainer>

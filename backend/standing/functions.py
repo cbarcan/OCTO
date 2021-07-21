@@ -27,3 +27,32 @@ def recreate_standing(tournament, request, kwargs):
                 standing_serializer = StandingSerializer(data=standing_data)
                 standing_serializer.is_valid(raise_exception=True)
                 standing_serializer.save(user=participants[i])
+
+
+# flake8: noqa: C901
+def update_standing(request, match):
+    standing_player0 = Standing.objects.get(tournament=match.round.bracket.tournament, user=match.players.all()[0])
+    standing_player1 = Standing.objects.get(tournament=match.round.bracket.tournament, user=match.players.all()[1])
+    standing_player0.matches_played += 1
+    standing_player1.matches_played += 1
+    if request.data["result"][0] > request.data["result"][1]:
+        standing_player0.wins += 1
+        standing_player1.loses += 1
+        standing_player0.points += 3
+    elif request.data["result"][0] < request.data["result"][1]:
+        standing_player0.loses += 1
+        standing_player1.wins += 1
+        standing_player1.points += 3
+    else:
+        standing_player0.draws += 1
+        standing_player1.draws += 1
+        standing_player0.points += 1
+        standing_player1.points += 1
+    standing_player0.score_for += request.data["result"][0]
+    standing_player1.score_for += request.data["result"][1]
+    standing_player0.score_against += request.data["result"][1]
+    standing_player1.score_against += request.data["result"][0]
+    standing_player0.score_diff += (request.data["result"][0] - request.data["result"][1])
+    standing_player1.score_diff += (request.data["result"][1] - request.data["result"][0])
+    standing_player0.save()
+    standing_player1.save()

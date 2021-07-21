@@ -84,13 +84,12 @@ const Participant = (props) => {
         userByID(props.id);
     }, [props.id])
 
-
     return <>
         {
         participant ?
         <Container onClick={handleClick}>
             <CardLeft>
-                <UserProfilePicIcon src={ avatar || "https://via.placeholder.com/50x50" } />
+                <UserProfilePicIcon src={ participant.avatar  ?  participant.avatar : avatar } />  
                 <Name>{participant.username}</Name>
                 <Location>{participant.location}</Location>
             </CardLeft>

@@ -5,11 +5,7 @@ export const tournament = (
         case 'TOURNAMENT_ADD_DATA':
             return {
             ...state,
-                id: action.payload.id,
-                name: action.payload.name,
-                participants: action.payload.participants,
-                location: action.payload.location,
-                organizer: action.payload.organizer,
+                ...action.payload
             };
         default:
             return state;

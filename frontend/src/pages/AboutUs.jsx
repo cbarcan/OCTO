@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {Container, PageTitleTxt, Wrapper} from "../pages/ContactUs"
+import {Container} from "../pages/ContactUs"
 import React from "react";
 import PageParagraph from "../styles/section-pragraph";
 import octoText from "../assets/svgs/octo-text.svg";

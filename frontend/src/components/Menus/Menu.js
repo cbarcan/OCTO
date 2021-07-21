@@ -112,28 +112,28 @@ export const SideMenu = () => {
             
             <InnerLinksContainer>
                     <IndividualLinksContainer>
-                        <img src={home}/>
+                        <img src={home} alt={"homeIcon"}/>
                         <Link to='/'>HOME</Link>
                         
                     </IndividualLinksContainer>
     
       
                     <IndividualLinksContainer>
-                        <img src={tIcon}/>
+                        <img src={tIcon} alt={"tIcon"}/>
                         <Link to='/tournaments'>TOURNAMENTS</Link>
                         
                         
                     </IndividualLinksContainer>
       
                     <IndividualLinksContainer>
-                        <img src={octoIcon}/>
+                        <img src={octoIcon} alt={"octoIcon"}/>
                         <Link to='/create'>CREATE TOURNAMENT</Link>
                         
                         
                     </IndividualLinksContainer>
 
                     <IndividualLinksContainer>
-                        <img src={lupa}/>
+                        <img src={lupa} alt={"searchIcon"}/>
                         <Link to='/'>SEARCH</Link>
                         
                         
@@ -142,13 +142,13 @@ export const SideMenu = () => {
                     <SingContainer>
 
                     <IndividualLinksContainer>
-                        <img src={login}/>
+                        <img src={login} alt={"loginIcon"}/>
                         <Link to='/login'>SIGN IN</Link>
                         
                         
                     </IndividualLinksContainer>
                     <IndividualLinksContainer>
-                        <img src={signup}/>
+                        <img src={signup} alt={"signupIcon"}/>
                         <Link to='/registration'>SIGN UP</Link>
                         
                         

@@ -5,7 +5,8 @@ import Participant from "../Tournament/Participant";
 import Modal from "react-modal";
 import styled from "styled-components";
 import {BaseButton} from "../../pages/Login";
-import calendar_icon from "../../assets/svgs/calendar.svg"
+import Axios from "../../axios";
+// import calendar_icon from "../../assets/svgs/calendar.svg"
 
 const ScoreWrapper = styled.div`
   //border: solid yellow;
@@ -16,6 +17,7 @@ const ScoreWrapper = styled.div`
   flex-direction: column;
   color: black;
   padding: 5%;
+  justify-content: center;
 
   //close button div
   .close {
@@ -48,9 +50,7 @@ const ScoreWrapper = styled.div`
       //padding-right: 15%;
     }
     
-
-    .date_time {
-      border: solid blue;
+    /*.date_time {
       width: 100%;
       display: flex;
       justify-content: flex-end;
@@ -83,7 +83,7 @@ const ScoreWrapper = styled.div`
         }
 
       }
-    }
+    }*/
 
     .wrapper_score {
       //border: solid blue;
@@ -125,6 +125,7 @@ const ScoreWrapper = styled.div`
         margin-top: 4%;
         color: black;
         
+
         :hover {
           cursor: text;
         }
@@ -168,6 +169,7 @@ const Player = styled.div`
     font-weight: 700;
     font-size: 28px;
     opacity: 0;
+    margin-bottom: 10%;
   }
 
   .on {
@@ -180,7 +182,7 @@ const Player = styled.div`
 `
 
 Modal.setAppElement("#root");
-Modal.defaultStyles.overlay.backgroundColor = "rgb(145, 145, 145, 0.6)";
+Modal.defaultStyles.overlay.backgroundColor = "rgba(194,192,192,0.95)";
 Modal.defaultStyles.content.border = "none";
 Modal.defaultStyles.content.padding = "none";
 
@@ -219,20 +221,47 @@ const SubmitButton = styled(BaseButton)`
 
 `
 
+const Title = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 3%;
+  margin-bottom: 2%;
+
+  .vs {
+    width: 10%;
+    justify-content: center;
+  }
+
+  .first_player {
+    justify-content: flex-end;
+  }
+
+  h1 {
+    width: 42%;
+    font-weight: 800;
+    font-size: 50px;
+    font-family: monospace;
+    letter-spacing: .1em;
+    color: white;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+  }
+`
+
 const MatchModal = (props) => {
 
-    const [value1, setValue1] = useState(0);
-    const [value2, setValue2] = useState(0);
+    const [value1, setValue1] = useState(props.match.result[0]);
+    const [value2, setValue2] = useState(props.match.result[1]);
 
     const changeValue1 = (e) => {
-        if (parseInt(e.target.value)){
+        if (parseInt(e.target.value)) {
             console.log(e.target.value)
             setValue1(parseInt(e.target.value));
-        }
-        else if (e.target.value===""){
+        } else if (e.target.value === "") {
             setValue1(0);
-        }
-        else {
+        } else {
             console.log(e.target.value)
             e.preventDefault();
         }
@@ -242,19 +271,17 @@ const MatchModal = (props) => {
         if (parseInt(e.target.value)) {
             console.log(e.target.value)
             setValue2(parseInt(e.target.value));
-        }
-        else if (e.target.value===""){
+        } else if (e.target.value === "") {
             setValue2(0);
-        }
-        else {
+        } else {
             console.log(e.target.value)
             e.preventDefault()
         }
     }
 
     const closeModal = () => {
-        setValue1(0);
-        setValue2(0);
+        setValue1(props.match.result[0]);
+        setValue2(props.match.result[1]);
         props.closeModal();
     }
 
@@ -272,6 +299,34 @@ const MatchModal = (props) => {
         },
     };
 
+    const onSubmitHandler = (e) => {
+        e.preventDefault();
+
+        async function patchMatch() {
+            const url = `match/${props.match.id}/`;
+            const config = {
+                headers: {Authorization: `Bearer ${localStorage.getItem('userToken')}`},
+
+            };
+            const body = {
+                result: [value1, value2],
+                status: "ED"
+            }
+            try {
+                const resp = await Axios.patch(url, body, config);
+                if (resp.status === 200) {
+                    closeModal();
+                }
+            } catch (err) {
+                if (err.response.status === 400) {
+                    console.log(err.response);
+                }
+            }
+        }
+
+        patchMatch()
+    }
+
     return (
         <Modal
             isOpen={props.modalIsOpen}
@@ -279,34 +334,51 @@ const MatchModal = (props) => {
             style={customStyles}
             contentLabel="Match"
         >
-            <ScoreWrapper>
-                <div className={"close"}>
-                    <CloseButton onClick={closeModal}>X</CloseButton>
-                </div>
-                <form className={"result"}>
-                    <PageTitle pageTitle={"BOLOR VS TINA"} margin={"none"}/>
-                    
-                    <div className={"wrapper_score"}>
-                        <Player>
-                            <h1 className={value1 > value2 ? "on" : "off"}>WINNER</h1>
-                            <Participant name={'Tina'} location={'Bed'}/>
-                        </Player>
-                        <label className={value1 === value2 ? "points" : value1 > value2 ? "points winner" : "points loser"}>
-                            <input type={"text"} placeholder={0} value={value1} onChange={changeValue1}/>
-                        </label>
-                        <p className={value1 === value2 ? "draw_on" : "draw_off"}>DRAW</p>
-                        <label className={value1 === value2 ? "points" : value1 < value2 ? "points winner" : "points loser"}>
-                            <input type={"text"} placeholder={0} value={value2} onChange={changeValue2}/>
-                        </label>
-                        <Player>
-                            <h1 className={value1 < value2 ? "on" : "off"}>WINNER</h1>
-                            <Participant name={'Tina'} location={'Bed'}/>
-                        </Player>
-                    </div>
-                    {/*<textarea/>*/}
-                    <SubmitButton type={"submit"}>SAVE</SubmitButton>
-                </form>
-            </ScoreWrapper>
+            {
+                props.tournament_status === "On going" && props.match.players.length > 1
+                    ?
+                    <ScoreWrapper>
+                        <div className={"close"}>
+                            <CloseButton onClick={closeModal}>X</CloseButton>
+                        </div>
+                        <form className={"result"} onSubmit={onSubmitHandler}>
+                            <Title>
+                                <h1 className={"first_player"}>{`${props.match.players[0].first_name} ${props.match.players[0].last_name[0]}.`}</h1>
+                                <h1 className={"vs"}>VS</h1>
+                                <h1 className={"second_player"}>{`${props.match.players[1].first_name} ${props.match.players[1].last_name[0]}.`}</h1>
+                            </Title>
+                            {/*<div className={"date_time"}>*/}
+                            {/*    <p>time</p>*/}
+                            {/*    <button type={"button"}><img src={calendar_icon} alt={"calendar_icon"}/></button>*/}
+                            {/*</div>*/}
+                            <div className={"wrapper_score"}>
+                                <Player>
+                                    <h1 className={value1 > value2 ? "on" : "off"}>WINNER</h1>
+                                    <Participant id={props.match.players[0].id}/>
+                                </Player>
+                                <label className={value1 === value2 ? "points" : value1 > value2 ? "points winner" : "points loser"}>
+                                    <input type={"text"} placeholder={0} value={value1} onChange={changeValue1}
+                                           disabled={props.match.status === "ED"}/>
+                                </label>
+                                <p className={value1 === value2 ? "draw_on" : "draw_off"}>DRAW</p>
+                                <label className={value1 === value2 ? "points" : value1 < value2 ? "points winner" : "points loser"}>
+                                    <input type={"text"} placeholder={0} value={value2} onChange={changeValue2}
+                                           disabled={props.match.status === "ED"}/>
+                                </label>
+                                <Player>
+                                    <h1 className={value1 < value2 ? "on" : "off"}>WINNER</h1>
+                                    <Participant id={props.match.players[1].id}/>
+                                </Player>
+                            </div>
+                            {/*<textarea/>*/}
+                            <SubmitButton type={"submit"} style={{"display": props.match.status === "ED" ? "none": "block"}}>SAVE</SubmitButton>
+                        </form>
+                    </ScoreWrapper>
+                    :
+                    <ScoreWrapper style={{}}>
+                        <PageTitle pageTitle={"This match can't be updated yet!"} margin={"none"}/>
+                    </ScoreWrapper>
+            }
         </Modal>
     )
 }

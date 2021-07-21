@@ -4,13 +4,14 @@ import {useState} from "react";
 import InvitationModal from "../components/Tournament/InvitationModal";
 import Axios from '../axios';
 import { useHistory } from "react-router-dom";
-import Header from './TournamentHeader';
-import { BaseButton } from './Login';
 import add from '../assets/svgs/message2.svg';
 //import PageTitle from "../styles/page-title";
 import {LeftContainer, RightContainer} from './TournamentOverview'
-import {TitlePage} from './Tournaments/index';
-
+//import {TitlePage} from './Tournaments/index';
+import Header from './TournamentHeader'
+import {useEffect} from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { getTournamentByID } from '../store/actions/tournamentAction';
 
 
 const MainContainer = styled.div`
@@ -159,7 +160,16 @@ const Admin = () => {
 
     const [modalIsOpen, setIsOpen] = useState(false);
 
-    const [id, setId] = useState(1);
+    const dispatch = useDispatch();
+    const url = window.location.pathname;
+    const url_array = url.split("/");
+    const tournament_id = url_array[url_array.length - 2];
+    const tournament = useSelector((state) => state.tournament); 
+
+    useEffect(() => {
+        dispatch(getTournamentByID(tournament_id));
+    }, [tournament_id, tournament.id, dispatch])
+
 
 
     const openModal = () =>  {
@@ -172,9 +182,9 @@ const Admin = () => {
     const closeModal = () => setIsOpen(false);
 
     const startTournamentHandler = () => {
-        /* const tournamentData = new FormData();    
+        const tournamentData = new FormData();    
         tournamentData.append('status', 'OG')
-        const url = `/tournament/${id}/`;
+        const url = `/tournament/${tournament_id}/`;
         const auth = 'Bearer ' + localStorage.getItem('userToken');
         const headers = {
             headers: { Authorization: auth, 'Content-Type': 'multipart/form-data' },
@@ -183,17 +193,21 @@ const Admin = () => {
             .then((response) => {
                 console.log('Tournament started!');
                 console.log(response);
-                history.push(`/tournament/${id}/overview`);
+                history.push(`/tournament/${tournament_id}/overview`);
             })
             .catch((error) => {
                 console.log('Tournament Start error', error.response.data);
-            }); */
+            });
     };
 
 
+
     return (
+        <>
+        {(tournament.id) ?
+        (
             <>
-                <TitlePage> Admin</TitlePage>
+                <Header name={tournament.name}/>
                 <MainContainer>
 
                     <RightContainer2>
@@ -211,7 +225,7 @@ const Admin = () => {
                             
                             <Counter>
                                 <div className='invitation'>Participants</div> 
-                                <div className='number'>12 </div>                           
+                                <div className='number'>{tournament.participants.length}</div>                                                       
                             </Counter>
 
                             <StartButton clickHandler={startTournamentHandler} text={'START'}/>
@@ -223,10 +237,14 @@ const Admin = () => {
                     
 
                 </MainContainer>
-                <InvitationModal modalIsOpen={modalIsOpen} openModal={openModal} closeModal={closeModal}/>
-            </>
-    )
-}
-
+                <InvitationModal id={tournament_id} modalIsOpen={modalIsOpen} openModal={openModal} closeModal={closeModal}/>
+                </>
+                ) : null }
+        
+                </>
+        
+        
+            )
+        }
 
 export default Admin
