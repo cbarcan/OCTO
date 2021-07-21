@@ -125,7 +125,7 @@ const TournamentCard = (props) => {
     return <>
         <Container onClick={handleClick}>
             <Top>
-                <Icon src={ shark || 'https://via.placeholder.com/50x50' } alt="shark"/>    
+                <Icon src={ props.tournament.picture ?  props.tournament.picture : shark } alt="shark"/>    
             </Top>
             <Middle>
                 <ParagContainer>
