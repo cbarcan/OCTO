@@ -333,6 +333,7 @@ const Home = () => {
 
                     </LeftContainer>
                     <RightContainer>
+                        
                         <SectionTitle pageTitle="PARTICIPANTS"></SectionTitle>
                             <ParticipantsContainer>
                             { tournament ?
@@ -341,10 +342,7 @@ const Home = () => {
                             )): null
                             }
                             </ParticipantsContainer>
-                        
-                        <SectionTitle pageTitle="Location:   Propulsion Academy,   Heinrichstrasse 200,   8005 Zürich"></SectionTitle>
-
-
+        
                     </RightContainer>
 
 
