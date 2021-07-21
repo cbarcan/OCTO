@@ -77,7 +77,6 @@ export const InputsDiv2 = styled(InputsDiv)`
 `
 
 export const StyledForm2 = styled(StyledForm)`
-    border: solid yellow;
     width: 80%;
     color: white;
 `
@@ -229,7 +228,7 @@ export const DetailsCreate = (props) => {
     const [/*avatar,*/ setAvatar] = useState(defaultAvatar)
     const [preview, setPreview] = useState(null)
     const [players, setPlayers] = useState(null)
-    const [format, setFormat] = useState(null)
+    const [format, setFormat] = useState('SE')
    // const [/*location, setLocation*/] = useState(null)
     //const [lat, setLat] = useState(47.3769)
    // const [lng, setlng] = useState(8.5417)
@@ -370,11 +369,6 @@ export const DetailsCreate = (props) => {
                 </InputWrapper4>
 
                 </InputsDiv2>
-
-                <InputWrapper3>
-                        <LabelText> Description</LabelText>
-                        <LongInput2  type="text" />
-                </InputWrapper3>
 
             </StyledForm2>
             </LeftMiddleBar2>
