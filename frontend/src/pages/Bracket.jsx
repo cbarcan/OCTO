@@ -2,6 +2,9 @@ import styled from "styled-components";
 import SingleElimination from "../components/SingleElimination";
 import RoundRobin from "../components/RoundRobin";
 import Header from './TournamentHeader'
+import {useDispatch, useSelector} from "react-redux";
+import {useEffect} from "react";
+import {getTournamentByID} from "../store/actions/tournamentAction";
 
 
 const Wrapper = styled.div`
@@ -14,32 +17,49 @@ const Wrapper = styled.div`
 
 const Bracket = () => {
 
+    const dispatch = useDispatch();
     const url = window.location.pathname;
     const url_array = url.split("/");
     const tournament_id = url_array[url_array.length - 2];
 
+
+    useEffect(() => {
+        dispatch(getTournamentByID(tournament_id));
+    }, [tournament_id, dispatch])
+
+
+    const tournament = useSelector((state) => state.tournament);
     // conditional rendering depending on tournament format
+    const format = tournament.format
 
-    const format = 'single_elimination' // this can be passed by props
-    // const tournament_id = 1
+    console.log(tournament)
 
-    if (format === 'single_elimination') {
-        return (
-            <Wrapper>
-                <Header/>
-                <SingleElimination tournament_id={tournament_id}/>
-            </Wrapper>
-        )
-    }
-    else if (format === 'round_robin') {
-        return (
-            <Wrapper>
-                <Header/>
-                <RoundRobin tournament_id={tournament_id}/>
-            </Wrapper>
-        )
-    }
-     // else mixed
+    return (
+        <Wrapper>
+            {
+                tournament
+                ?
+                <>
+                    <Header name={tournament.name}/>
+                    {
+                    format === 'Single elimination'
+                    ?
+                    <SingleElimination tournament_id={tournament_id} tournament_status={tournament.status}/>
+                    :
+                    format === "Round robin"
+                    ?
+                    <RoundRobin tournament_id={tournament_id} tournament_status={tournament.status}/>
+                    :
+                    null
+                    }
+                </>
+                :
+                null
+            }
+        </Wrapper>
+    )
+
+    // else mixed
 
 }
 
