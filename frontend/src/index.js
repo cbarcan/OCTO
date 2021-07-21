@@ -13,26 +13,18 @@ import VerificationForm from './pages/Login/SingUp/Verification'
 import TournamentOverview from './pages/TournamentOverview';
 import TournamentAdmin from './pages/TournamentAdmin.jsx';
 import CreateTournament from './pages/CreateTournament/';
-import Message from './pages/CreateTournament/message';
 import PrivateOrPublic from './pages/CreateTournament/PrivateOr';
 import DetailsCreate from './pages/CreateTournament/DetailsTournament';
 import AboutUs from "./pages/AboutUs"
 import ContactUs from "./pages/ContactUs";
-// import BracketPage from './pages/BracketPage';
 import Bracket from './pages/Bracket';
 import {PageContainer, PageContent} from './styles/page-layout';
-import Profile from "./pages/Profile";
 import PublicProfile from "./pages/Profile/public";
 import Standing from "./pages/Standing";
 import EditProfile from "./pages/Profile/EditProfile";
 import Tournaments from "./pages/Tournaments";
-import Tournament from "./pages/TournamentHeader";
-import Dashboard from "./pages/Dashboard";
 import Sidebar from './components/Sidebar';
-import LoginInUserSideMenu from "./components/Menus/LoginUserMenu";
-import TestHome from './pages/Home2';
 import {withAuth} from './hoc/AuthHOC'
-import LoginTopHeader from "./components/HeaderOptions/LoginTopHeader";
 
 
 

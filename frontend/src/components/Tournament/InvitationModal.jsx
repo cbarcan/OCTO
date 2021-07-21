@@ -1,10 +1,8 @@
 import {useState} from "react";
-import BackgroundImg from "../../assets/images/background3.jpg";
 import PageTitle from "../../styles/page-title";
 import Modal from "react-modal";
 import styled from "styled-components";
 import {BaseButton} from "../../pages/Login";
-import StartButton from '../StartButton'
 import Axios from '../../axios';
 
 

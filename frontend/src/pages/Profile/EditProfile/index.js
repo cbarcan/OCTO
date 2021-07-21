@@ -1,13 +1,11 @@
 import styled from "styled-components";
 import {UserProfilePicIcon} from "../ProfileCard";
-import avatarWhite from "../../../assets/svgs/avatarWhite.svg"
 import icon from '../../../assets/images/faceicon.png'
 import {FormContainer, LongInput2 } from "../../CreateTournament/DetailsTournament";
 import MovingBackground from "../../../components/MovingBackground";
 import {TitleHead3} from "../../CreateTournament/DetailsTournament";
 import {LabelText} from "../../Login/SingUp/Verification";
 import {BaseButton} from "../../Login";
-import camera from "../../../assets/svgs/photo-camera.svg";
 import { apiUserGetData } from '../../../store/actions/userAction'
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';

@@ -1,4 +1,3 @@
-import TeamContainer from "../../pages/Profile/Teams"
 import ProfileCard from "./ProfileCard";
 import CurrentTournament from "./CurrentTournament";
 import { useDispatch, useSelector } from 'react-redux';
