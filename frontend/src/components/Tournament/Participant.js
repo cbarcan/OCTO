@@ -84,7 +84,6 @@ const Participant = (props) => {
         userByID(props.id);
     }, [props.id])
 
-
     return <>
         {
         participant ?
