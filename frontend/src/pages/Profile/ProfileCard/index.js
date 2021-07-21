@@ -182,8 +182,7 @@ const ProfileCard = (props) => {
                 <Name>
                     {props.user.username}
                 </Name>
-                {
-                    props.edit ?
+                {                    props.edit ?
                 <BaseButton><Link to={`/user/${props.user.id}/edit`}> Edit Profile </Link> </BaseButton> : null
                 }
             </CardLeft>

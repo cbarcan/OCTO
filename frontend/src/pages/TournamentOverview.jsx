@@ -22,10 +22,10 @@ const GameDetailsCard = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 8% 3%;
-    //padding-bottom: 2%;
+    padding: 10% 3%;
+    padding-bottom: 0;
     width: 85%;
-    height: 70%;
+    height: 78%;
     overflow: hidden;
     background: white;
     color: black;
@@ -70,7 +70,7 @@ const GameDetailsCard = styled.div`
 
     img {
         
-        height: 38%;
+        height: 30%;
         margin-bottom: 5%;
         filter: invert(48%) sepia(0%) saturate(5476%) hue-rotate(0deg) brightness(0%) contrast(119%);
         
@@ -120,8 +120,6 @@ export const LeftContainer = styled.div`
     flex-direction: column;
     align-items: center;
     color: white;
-
-
   
 `
 
@@ -138,19 +136,35 @@ export const RightContainer = styled.div`
 
 const FormContainer = styled.div`
     //border: solid blue;
-    height: 100%;
+    height: 60%;
     width: 100%;
     margin-top: 8%;
     display: flex;
     flex-direction: column;
     align-items: center;
     
+    
+    
+`
+
+const ButtonContainer = styled.div`
+    //border: solid blue;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 7%;
+
     button {
         font-family: monospace;
         font-size: 11px;
+        margin: 0;
+        margin: 0 3%;
     }
     
 `
+
+
 
 /* const SelectBox = styled.select`
     //border: solid blue;
@@ -189,18 +203,21 @@ const ParticipantsContainer = styled.div`
 
 const LabelText2 = styled(LabelText)`
     //border: solid blue;
+    width: 100%;
     color: black;
-    margin-left: 18%;
+    //margin-right: 3%;
+    margin: 0;
     margin-bottom: 2%;
+    padding: 0;
     font-family: monospace;
 `
 
 const InputContainer = styled.div`
     //border: solid yellow;
-    height: 30%;
-    width: 100%;
+    height: auto;
+    width: 70%;
     display: flex;
-    //padding-left: 19%;
+    margin-left: 5%;
     flex-direction: column;
     //margin-bottom: 2%;
     
@@ -214,10 +231,10 @@ const InputContainer = styled.div`
 
 const TitlePage2 = styled(TitlePage)`
     //border: solid pink;
-    margin-left: 20%;
-    width: 50%;
+    margin-left: 1%;
+    width: 70%;
     font-weight: bold;
-    
+    font-size: 1.5em;
 `
 
 
@@ -303,13 +320,14 @@ const Home = () => {
                                 </InputContainer>
 
 
-
-                                { joined ?
-                                <BaseButton onClick={cancelHandler}>CANCEL</BaseButton>
-                                :                                 
-                                <BaseButton onClick={joinHandler}>READY TO JOIN?</BaseButton>
-                                }
-                                </FormContainer>
+                                <ButtonContainer>
+                                    { joined ?
+                                    <BaseButton onClick={cancelHandler}>CANCEL</BaseButton>
+                                    :                                 
+                                    <BaseButton onClick={joinHandler}>READY TO JOIN?</BaseButton>
+                                    }
+                                </ButtonContainer>
+                            </FormContainer>
 
                         </GameDetailsCard>
 
@@ -323,6 +341,10 @@ const Home = () => {
                             )): null
                             }
                             </ParticipantsContainer>
+                        
+                        <SectionTitle pageTitle="Location:   Propulsion Academy,   Heinrichstrasse 200,   8005 Zürich"></SectionTitle>
+
+
                     </RightContainer>
 
 
