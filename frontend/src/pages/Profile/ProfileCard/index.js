@@ -177,7 +177,7 @@ const ProfileCard = (props) => {
     return <>
         <Container>
             <CardLeft>
-                <UserProfilePicIcon src={ props.user ? avatarWhite :  props.user.avatar} alt="avatar"/>
+                <UserProfilePicIcon src={ props.user.avatar ?  props.user.avatar : avatarWhite} alt="avatar"/>
                 <Name>
                     {props.user.username}
                 </Name>

@@ -282,19 +282,19 @@ const Home = () => {
                     
                     <LeftContainer>
                         <GameDetailsCard>
-                            <img src={octo} alt="logo"/>
+                            <img src={tournament.picture ?  tournament.picture : octo} alt="logo"/>
                             <ParagTitle>Details of <br/> the Game:</ParagTitle>
                             <FormContainer>
 
                                 <InputContainer>
-                                    <LabelText2> Tournament Name</LabelText2>
-                                    <TitlePage2>OCTO TEAM</TitlePage2>
+                                    <LabelText2>Tournament Name</LabelText2>
+                                    <TitlePage2>{tournament.name}</TitlePage2>
                                 </InputContainer>
 
 
                                 <InputContainer>
                                     <LabelText2> Selected Game Type</LabelText2>
-                                    <TitlePage2>PING-PONG</TitlePage2>
+                                    <TitlePage2>{tournament.sport}</TitlePage2>
                                 </InputContainer>
                                 { joined ?
                                 <BaseButton onClick={cancelHandler}>CANCEL</BaseButton>
