@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import {useEffect, useState} from "react";
+import Axios from "../../axios";
 
 const Wrapper = styled.div`
   height: fit-content;
@@ -24,23 +26,26 @@ const Container = styled.div`
     width: 10%;
     display: flex;
     justify-content: center;
-    
+    overflow: hidden;
+
     :first-child {
       width: 3%;
       justify-content: center;
     }
-    
+
     :nth-child(2) {
       width: 17%;
+      display: inline-block;
       justify-content: flex-start;
+      text-overflow: ellipsis;
     }
   }
-  
+
   :first-child {
-      p:nth-child(2) {
-        margin-left: 3%;
-        width: 14%;
-      }
+    p:nth-child(2) {
+      margin-left: 3%;
+      width: 14%;
+    }
   }
 `
 
@@ -49,7 +54,8 @@ const Player = (props) => {
     return (
         <Container>
             <p>{props.index + 1}.</p>
-            <p>{props.player.user.first_name} {props.player.user.last_name}</p>
+            <p>{props.player.user ? props.player.user.first_name : props.player.mock_user.first_name} {
+                props.player.user ? props.player.user.last_name : props.player.mock_user.last_name}</p>
             <p>{props.player.matches_played}</p>
             <p>{props.player.wins}</p>
             <p>{props.player.draws}</p>
@@ -62,250 +68,30 @@ const Player = (props) => {
     )
 }
 
-const StandingGeneratorRR = () => {
+const StandingGeneratorRR = (props) => {
 
-    const standing = [
-        {
-            id: "0",
-            user: {
-                first_name: "Jon",
-                last_name: "Name"
-            },
-            matches_played: 2,
-            wins: 2,
-            draws: 0,
-            loses: 0,
-            score_for: 5,
-            score_against: 2,
-            score_diff: 3,
-            points: 6,
-        },
-        {
-            id: "0",
-            user: {
-                first_name: "Jon",
-                last_name: "Name"
-            },
-            matches_played: 2,
-            wins: 2,
-            draws: 0,
-            loses: 0,
-            score_for: 5,
-            score_against: 2,
-            score_diff: 3,
-            points: 6,
-        },
-        {
-            id: "0",
-            user: {
-                first_name: "Jon",
-                last_name: "Name"
-            },
-            matches_played: 2,
-            wins: 2,
-            draws: 0,
-            loses: 0,
-            score_for: 5,
-            score_against: 2,
-            score_diff: 3,
-            points: 6,
-        },
-        {
-            id: "0",
-            user: {
-                first_name: "Jon",
-                last_name: "Name"
-            },
-            matches_played: 2,
-            wins: 2,
-            draws: 0,
-            loses: 0,
-            score_for: 5,
-            score_against: 2,
-            score_diff: 3,
-            points: 6,
-        },
-        {
-            id: "0",
-            user: {
-                first_name: "Jon",
-                last_name: "Name"
-            },
-            matches_played: 2,
-            wins: 2,
-            draws: 0,
-            loses: 0,
-            score_for: 5,
-            score_against: 2,
-            score_diff: 3,
-            points: 6,
-        },
-        {
-            id: "0",
-            user: {
-                first_name: "Jon",
-                last_name: "Name"
-            },
-            matches_played: 2,
-            wins: 2,
-            draws: 0,
-            loses: 0,
-            score_for: 5,
-            score_against: 2,
-            score_diff: 3,
-            points: 6,
-        },
-        {
-            id: "0",
-            user: {
-                first_name: "Jon",
-                last_name: "Name"
-            },
-            matches_played: 2,
-            wins: 2,
-            draws: 0,
-            loses: 0,
-            score_for: 5,
-            score_against: 2,
-            score_diff: 3,
-            points: 6,
-        },
-        {
-            id: "0",
-            user: {
-                first_name: "Jon",
-                last_name: "Name"
-            },
-            matches_played: 2,
-            wins: 2,
-            draws: 0,
-            loses: 0,
-            score_for: 5,
-            score_against: 2,
-            score_diff: 3,
-            points: 6,
-        },
-        {
-            id: "0",
-            user: {
-                first_name: "Jon",
-                last_name: "Name"
-            },
-            matches_played: 2,
-            wins: 2,
-            draws: 0,
-            loses: 0,
-            score_for: 5,
-            score_against: 2,
-            score_diff: 3,
-            points: 6,
-        },
-        {
-            id: "0",
-            user: {
-                first_name: "Jon",
-                last_name: "Name"
-            },
-            matches_played: 2,
-            wins: 2,
-            draws: 0,
-            loses: 0,
-            score_for: 5,
-            score_against: 2,
-            score_diff: 3,
-            points: 6,
-        },
-        {
-            id: "0",
-            user: {
-                first_name: "Jon",
-                last_name: "Name"
-            },
-            matches_played: 2,
-            wins: 2,
-            draws: 0,
-            loses: 0,
-            score_for: 5,
-            score_against: 2,
-            score_diff: 3,
-            points: 6,
-        },
-        {
-            id: "0",
-            user: {
-                first_name: "Jon",
-                last_name: "Name"
-            },
-            matches_played: 2,
-            wins: 2,
-            draws: 0,
-            loses: 0,
-            score_for: 5,
-            score_against: 2,
-            score_diff: 3,
-            points: 6,
-        },
-        {
-            id: "0",
-            user: {
-                first_name: "Jon",
-                last_name: "Name"
-            },
-            matches_played: 2,
-            wins: 2,
-            draws: 0,
-            loses: 0,
-            score_for: 5,
-            score_against: 2,
-            score_diff: 3,
-            points: 6,
-        },
-        {
-            id: "0",
-            user: {
-                first_name: "Jon",
-                last_name: "Name"
-            },
-            matches_played: 2,
-            wins: 2,
-            draws: 0,
-            loses: 0,
-            score_for: 5,
-            score_against: 2,
-            score_diff: 3,
-            points: 6,
-        },
-        {
-            id: "0",
-            user: {
-                first_name: "Jon",
-                last_name: "Name"
-            },
-            matches_played: 2,
-            wins: 2,
-            draws: 0,
-            loses: 0,
-            score_for: 5,
-            score_against: 2,
-            score_diff: 3,
-            points: 6,
-        },
-        {
-            id: "0",
-            user: {
-                first_name: "Jon",
-                last_name: "Name"
-            },
-            matches_played: 2,
-            wins: 2,
-            draws: 0,
-            loses: 0,
-            score_for: 5,
-            score_against: 2,
-            score_diff: 3,
-            points: 6,
-        },
-    ]
+    const [standing, setStanding] = useState(null);
+
+    useEffect(() => {
+        async function fetchStanding() {
+            const url = `tournament/${props.tournament_id}/standing/`;
+            const config = {
+                headers: {Authorization: `Bearer ${localStorage.getItem('userToken')}`},
+            };
+            try {
+                const resp = await Axios.get(url, config);
+                if (resp.status === 200) {
+                    setStanding(resp.data);
+                }
+            } catch (err) {
+                if (err.response.status === 400) {
+                    console.log(err.response);
+                }
+            }
+        }
+
+        fetchStanding()
+    }, [props.tournament_id]);
 
 
     return (
@@ -319,10 +105,10 @@ const StandingGeneratorRR = () => {
                 <p>Loses</p>
                 <p>Score for</p>
                 <p>Score against</p>
-                <p>Score difference</p>
+                <p>Score diff...</p>
                 <p>Points</p>
             </Container>
-            {standing.map((item, index) => <Player key={`${item}-${index}`} index={index} player={item}/>)}
+            {standing && standing.map((item, index) => <Player key={`${item}-${index}`} index={index} player={item}/>)}
         </Wrapper>
     )
 }

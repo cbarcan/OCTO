@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import avatar from "../../assets/svgs/avatar.svg";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import MatchModal from "../MatchModal";
+import Axios from "../../axios";
 
 const Wrapper = styled.div`
   height: 70px;
@@ -23,6 +24,12 @@ const Wrapper = styled.div`
     width: 80%;
     display: flex;
     align-items: center;
+    white-space: nowrap;
+
+    p {
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
 
     img {
       border-radius: 50%;
@@ -107,29 +114,63 @@ const Match = (props) => {
 
     const closeModal = () => setIsOpen(false);
 
+    const [match, setMatch] = useState(null);
+    useEffect(() => {
+        async function fetchMatch() {
+            const url = `match/${props.match.id}/`;
+            const config = {
+                headers: {Authorization: `Bearer ${localStorage.getItem('userToken')}`},
+            };
+            try {
+                const resp = await Axios.get(url, config);
+                if (resp.status === 200) {
+                    setMatch(resp.data);
+                }
+            } catch (err) {
+                if (err.response.status === 400) {
+                    console.log(err.response);
+                }
+            }
+        }
+
+        fetchMatch()
+    }, [props.match.id, modalIsOpen]);
+
     return (
         <>
-            <Wrapper onClick={openModal}>
-                <Player1>
-                    <div className={"name"}>
-                        <img src={avatar} alt={"user"}/>
-                        <p>{props.match.players[0].first_name} {props.match.players[0].last_name}</p>
-                    </div>
-                    <div className={"points loser"}>
-                        <p>2</p>
-                    </div>
-                </Player1>
-                <Player2>
-                    <div className={"name"}>
-                        <img src={avatar} alt={"user"}/>
-                        <p>{props.match.players[1].first_name} {props.match.players[1].last_name}</p>
-                    </div>
-                    <div className={"points winner"}>
-                        <p>3</p>
-                    </div>
-                </Player2>
-            </Wrapper>
-            <MatchModal modalIsOpen={modalIsOpen} openModal={openModal} closeModal={closeModal}/>
+            {
+                match &&
+                <>
+                    <Wrapper onClick={openModal}>
+                        <Player1>
+                            <div className={"name"}>
+                                <img src={avatar} alt={"user"}/>
+                                <p>{match.players.length > 0 ? match.players[0].first_name : match.mock_players[0].first_name} {
+                                    match.players.length > 0 ? match.players[0].last_name : match.mock_players[0].last_name}</p>
+                            </div>
+                            <div className={"points loser"}>
+                                <p>{match.result[0]}</p>
+                            </div>
+                        </Player1>
+                        <Player2>
+                            <div className={"name"}>
+                                <img src={avatar} alt={"user"}/>
+                                <p>{match.players.length > 0 ? match.players[1].first_name : match.mock_players[1].first_name} {
+                                    match.players.length > 0 ? match.players[1].last_name : match.mock_players[1].last_name}</p>
+                            </div>
+                            <div className={"points winner"}>
+                                <p>{match.result[1]}</p>
+                            </div>
+                        </Player2>
+                    </Wrapper>
+                    <MatchModal match={match}
+                                tournament_status={props.tournament_status}
+                                modalIsOpen={modalIsOpen}
+                                openModal={openModal}
+                                closeModal={closeModal}/>
+                </>
+            }
+
         </>
     )
 }
