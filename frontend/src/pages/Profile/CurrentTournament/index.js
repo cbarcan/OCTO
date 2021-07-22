@@ -75,9 +75,6 @@ const Name = styled.p`
 
 const CurrentTournament = (props) => {
 
-    // build map aary to display
-
-
     return <>
         <TournamentDiv>
             <Header>
@@ -88,13 +85,19 @@ const CurrentTournament = (props) => {
             <Tournaments>
 
                 {
-                    props.user.my_tournaments.map((tournament, index) => (                
-                        <TournamentCard key={index} tournament={tournament}/>
-                    ))
+                    props.user.my_tournaments.map((tournament, index) => {
+                        if (tournament.private && !props.showPrivate) return null
+                        else return (<TournamentCard key={index} tournament={tournament}/>)
+                    })
                 }
                 {
                     props.user.part_in_tournaments.map((tournament, index) => {
-                        return <TournamentCard key={index} tournament={tournament}/>
+                        if (props.user.id !== tournament.organizer) {
+                            
+                            return <TournamentCard key={index} tournament={tournament}/>
+
+                        } 
+                        else return null
                     })
                 } 
             </Tournaments>
