@@ -37,7 +37,6 @@ const PublicProfile = () => {
 
     useEffect(() => {
         if(user.id === loggedInUser.id) {
-            console.log('its meeee')
             setMyProfile(true);
         } 
     }, [user, loggedInUser])
@@ -47,7 +46,7 @@ const PublicProfile = () => {
                 {user.id ? 
                     <>
                     <ProfileCard user = {user} edit = {myProfile}/>
-                    <CurrentTournament user = {user}/>
+                    <CurrentTournament user = {user} showPrivate={myProfile}/>
                     </>
                     : 
                     null
