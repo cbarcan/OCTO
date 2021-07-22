@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   transform: perspective(100px) translateZ(0px);
   transition: transform 100ms linear;
   font-weight: bold;
-  
+
 
   :hover {
     cursor: pointer;
@@ -48,18 +48,15 @@ const Wrapper = styled.div`
     color: ${props => props.theme.backgroundLigthNavy};
 
     p {
-      font-weight: bold;
-      color: black;
+      font-weight: ${props => props.theme.textWeightBold};
     }
   }
 `
 
 const Player1 = styled.div`
-  //border: solid blue;
   height: 35px;
   width: 100%;
-  background: white;
-  color: white;
+  background: ${props => props.theme.backgroundLigthNavy};
   border-radius: 5px 5px 0 0;
   display: flex;
   justify-content: space-between;
@@ -74,6 +71,7 @@ const Player1 = styled.div`
   .loser {
     background: ${props => props.theme.accentColorLight};
     border-radius: 0 5px 0 0;
+    opacity: 0.5;
   }
 
   .normal {
@@ -84,11 +82,9 @@ const Player1 = styled.div`
 `
 
 const Player2 = styled.div`
-  //border: solid green;
   height: 35px;
   width: 100%;
-  background: white;
-  color: white;
+  background: ${props => props.theme.backgroundLigthNavy};
   border-radius: 0 0 5px 5px;
   display: flex;
   justify-content: space-between;
@@ -97,14 +93,12 @@ const Player2 = styled.div`
   .winner {
     background: ${props => props.theme.octoLightBlue};
     border-radius: 0 0 5px 0;
-    color: white;
   }
 
   .loser {
-    background: black;
+    background: ${props => props.theme.accentColorLight};
     border-radius: 0 0 5px 0;
-    //opacity: 0.5;
-    color: white;
+    opacity: 0.5;
   }
 
   .normal {
