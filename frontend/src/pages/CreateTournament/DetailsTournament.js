@@ -45,6 +45,7 @@ export const TitleHead3 = styled(TitleHead2)`
 
 
 export const InputWrapper4 = styled(InputWrapper2)`
+    //border: solid blue;
     height: 20%;
     padding: 0;
     margin: 0;
@@ -145,6 +146,8 @@ export const CameraImg = styled.img`
 `
 
 export const IconImg = styled.img`
+    //border: solid yellow;
+    position: absolute;
     align-self: center;
     justify-self: center;
     object-fit: contain;
@@ -152,7 +155,8 @@ export const IconImg = styled.img`
     max-height: 100%;
     width: auto;
     height: auto;
-    border-radius: 50%;    
+    border-radius: 50%; 
+    cursor: pointer;   
 
     &:hover {
         opacity: 30%

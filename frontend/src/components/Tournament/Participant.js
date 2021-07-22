@@ -15,7 +15,7 @@ const Container = styled.div`
     height: 95%;
     display: flex;
     justify-content: center;
-    box-shadow: ${props => props.theme.boxShadowOcto};
+    // box-shadow: ${props => props.theme.boxShadowOcto};
 
 
     box-shadow: 3px 11px 21px 35px rgba(33,33,33,0.44);
@@ -40,13 +40,13 @@ const CardLeft = styled.div`
 const UserProfilePicIcon = styled.img`
     height: 78px;
     width: 78px;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 `;
 
 const Name = styled.p`
     font-size: 1.5rem;
     font-weight: bold;
-    margin-bottom: 0.5rem;
+    //margin-bottom: 0.5rem;
     color: white; 
 `;
 

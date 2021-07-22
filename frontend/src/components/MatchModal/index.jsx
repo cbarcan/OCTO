@@ -1,5 +1,4 @@
 import {useState} from "react";
-import BackgroundImg from "../../assets/images/background3.jpg";
 import PageTitle from "../../styles/page-title";
 import Participant from "../Tournament/Participant";
 import Modal from "react-modal";
@@ -9,13 +8,11 @@ import Axios from "../../axios";
 // import calendar_icon from "../../assets/svgs/calendar.svg"
 
 const ScoreWrapper = styled.div`
-  //border: solid yellow;
   border-radius: 30px;
-  height: 60vh;
-  width: 60vw;
+  height: 70vh;
+  width: 70vw;
   display: flex;
   flex-direction: column;
-  padding: 5%;
   justify-content: center;
 
   //close button div
@@ -25,7 +22,6 @@ const ScoreWrapper = styled.div`
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
-    
   }
 
   //match content div
@@ -36,16 +32,16 @@ const ScoreWrapper = styled.div`
     flex-direction: column;
     align-items: center;
 
-    h1 {
-      text-align: center;
-      width: 80%;
-      letter-spacing: 0.1em;
-      color: black;
-      border-bottom: 1px solid black;
-      padding-bottom: 3%;
-      //padding-right: 15%;
-    }
-    
+    //h1 {
+    //  text-align: center;
+    //  width: 80%;
+    //  letter-spacing: 0.1em;
+    //  color: black;
+    //  border-bottom: 1px solid black;
+    //  padding-bottom: 3%;
+    //  //padding-right: 15%;
+    //}
+    //
     /*.date_time {
       width: 100%;
       display: flex;
@@ -82,13 +78,10 @@ const ScoreWrapper = styled.div`
     }*/
 
     .wrapper_score {
-      //border: solid blue;
-      height: 30%;
-      width: 80%;
+      height: 50%;
+      width: 100%;
       margin: 0 2%;
-      margin-top: 2%;
       display: flex;
-      //flex-direction: column;
       justify-content: space-evenly;
       align-items: center;
 
@@ -96,11 +89,10 @@ const ScoreWrapper = styled.div`
         writing-mode: vertical-rl;
         letter-spacing: 10px;
         text-orientation: upright;
-        color: white;
+        color: black;
         font-weight: 700;
         font-size: 30px;
-        margin: 0 4%;
-        margin-top: 4%;
+        margin: 5% 4% 0 4%;
         text-shadow: -3px 2px 8px #707070;
       }
 
@@ -110,17 +102,16 @@ const ScoreWrapper = styled.div`
 
       .points {
         height: 80%;
-        width: 100%;
+        width: 30%;
         display: flex;
         align-items: center;
         justify-content: center;
+        margin: 4% 2% 0 2%;
         background: ${props => props.theme.mediumGrey60};
-        border-right: solid 4px #19c5db;
-        box-shadow: 0px 20px 35px -16px rgba(125, 249, 255, 0.6);
-        border-radius: 6px;
-        margin-top: 4%;
+        //border-right: solid 4px #19c5db;
+        border-radius: 30px;
         color: black;
-        
+
 
         :hover {
           cursor: text;
@@ -137,16 +128,15 @@ const ScoreWrapper = styled.div`
       }
 
       input {
-        border: solid red;
-        height: 55%;
+        height: 100%;
         width: 100%;
         outline: none;
         border: none;
         background: none;
-        font-size:100px;
+        font-size: 100px;
         font-weight: 700;
         text-align: center;
-        color: white;
+        color: ${props => props.theme.backgroundLigthNavy};
       }
     }
   }
@@ -155,18 +145,25 @@ const ScoreWrapper = styled.div`
 const Player = styled.div`
   height: 100%;
   width: 30%;
-  color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  
+  div:nth-child(2) {
+    //border: 1px solid red;
+    box-shadow: 0 0 49px 1px rgba(0,0,0,0.47);
+    height: 50%;
+    width: 50%;
+  }
+  
 
   h1 {
-    color: white;
+    color: black;
     font-weight: 700;
-    font-size: 28px;
+    font-size: 50px;
     opacity: 0;
-    margin-bottom: 10%;
+    //margin-bottom: 2%;
   }
 
   .on {
@@ -187,7 +184,7 @@ const CloseButton = styled.button`
   outline: none;
   background: none;
   border: none;
-  color: white;
+  color: black;
   font-size: 20px;
   margin-right: 2%;
   margin-top: 2%;
@@ -205,39 +202,53 @@ const CloseButton = styled.button`
 `
 
 const SubmitButton = styled(BaseButton)`
-  margin-top: 7%;
+  margin-top: 4%;
   font-weight: 700;
   font-size: 24px;
+  color: black;
 
+  &:hover {
+    color: white;
+  }
 `
 
 const Title = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   padding: 0 3%;
   margin-bottom: 2%;
-
-  .vs {
-    width: 10%;
-    justify-content: center;
-  }
-
-  .first_player {
-    justify-content: flex-end;
-  }
-
-  h1 {
-    width: 42%;
-    font-weight: 800;
-    font-size: 50px;
-    font-family: monospace;
-    letter-spacing: .1em;
-    color: white;
+  
+  .title {
+    border-bottom: 1px solid black;
     display: flex;
-    align-items: center;
-    white-space: nowrap;
+    justify-content: center;
+    padding: 0 3%;
+
+    .vs {
+      width: 10%;
+      justify-content: center;
+      margin: 0 5%;
+    }
+
+    .first_player {
+      justify-content: flex-end;
+    }
+
+    h1 {
+      width: 42%;
+      font-weight: 800;
+      font-size: 50px;
+      font-family: monospace;
+      letter-spacing: .1em;
+      color: black;
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+    } 
   }
+
+
 `
 
 const MatchModal = (props) => {
@@ -283,9 +294,8 @@ const MatchModal = (props) => {
             bottom: 'auto',
             marginRight: '-50%',
             transform: 'translate(-50%, -50%)',
-            background: 'black',
+            background: 'white',
             borderRadius: '30px',
-            padding: '2%',
         },
     };
 
@@ -333,9 +343,11 @@ const MatchModal = (props) => {
                         </div>
                         <form className={"result"} onSubmit={onSubmitHandler}>
                             <Title>
-                                <h1 className={"first_player"}>{`${props.match.players[0].first_name} ${props.match.players[0].last_name[0]}.`}</h1>
-                                <h1 className={"vs"}>VS</h1>
-                                <h1 className={"second_player"}>{`${props.match.players[1].first_name} ${props.match.players[1].last_name[0]}.`}</h1>
+                                <div className={"title"}>
+                                    <h1 className={"first_player"}>{`${props.match.players[0].first_name} ${props.match.players[0].last_name[0]}.`}</h1>
+                                    <h1 className={"vs"}>VS</h1>
+                                    <h1 className={"second_player"}>{`${props.match.players[1].first_name} ${props.match.players[1].last_name[0]}.`}</h1>
+                                </div>
                             </Title>
                             {/*<div className={"date_time"}>*/}
                             {/*    <p>time</p>*/}
@@ -361,12 +373,12 @@ const MatchModal = (props) => {
                                 </Player>
                             </div>
                             {/*<textarea/>*/}
-                            <SubmitButton type={"submit"} style={{"display": props.match.status === "ED" ? "none": "block"}}>SAVE</SubmitButton>
+                            <SubmitButton type={"submit"} style={{"display": props.match.status === "ED" ? "none" : "block"}}>SAVE</SubmitButton>
                         </form>
                     </ScoreWrapper>
                     :
-                    <ScoreWrapper style={{}}>
-                        <PageTitle pageTitle={"This match can't be updated yet!"} margin={"none"}/>
+                    <ScoreWrapper>
+                        <PageTitle pageTitle={"This match can't be updated yet!"} margin={"none"} color={"black"}/>
                     </ScoreWrapper>
             }
         </Modal>
@@ -378,4 +390,5 @@ export default MatchModal
 {/* <div className={"date_time"}>
   <p>time</p>
   <button type={"button"}><img src={calendar_icon} alt={"calendar_icon"}/></button>
-</div> */}
+</div> */
+}

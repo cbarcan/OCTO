@@ -22,7 +22,7 @@ export const MenuContainer = styled.div`
     padding-left: 3.3%;
     position: fixed;  
     z-index: 100;
-    top: 5.5%;
+    top: 13.3%;
     left: 0;
     right: 1%;
     background-color: black;
