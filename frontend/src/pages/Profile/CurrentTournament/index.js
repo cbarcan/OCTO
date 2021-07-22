@@ -40,7 +40,7 @@ const Header = styled.div `
     flex-wrap: wrap;
     box-shadow: 3px 11px 21px 35px rgba(33,33,33,0.44);
 `
-const Label = styled.span`
+/* const Label = styled.span`
     //border: solid purple;
     display: flex;
     align-items: center;
@@ -62,7 +62,7 @@ const Label = styled.span`
 
     }
   
-`;
+`; */
 const Name = styled.p`
     font-family: monospace;
     font-size: 1.5rem;
@@ -79,7 +79,7 @@ const CurrentTournament = (props) => {
         <TournamentDiv>
             <Header>
                 <Name>Current Tournaments </Name>
-                <Label><p>◀</p><p>▶</p></Label>
+                
             </Header>
             <Tournaments>
                 {

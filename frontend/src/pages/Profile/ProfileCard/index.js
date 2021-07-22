@@ -34,8 +34,8 @@ const CardLeft = styled.div`
 
     button {
         //border: solid yellow;
-        margin-top: 8%;
-        
+        margin-top: 2%;
+        height: 100%;
         width: 50%;
         
 
@@ -48,6 +48,8 @@ const CardLeft = styled.div`
             color: white;
             font-weight: bold;
             font-size: 11.5px;
+            height: auto;
+            
         }
     }
 `;
@@ -99,8 +101,8 @@ export const UserProfilePicIcon = styled.img`
 const Name = styled.p`
     //border: solid green;
     font-size: 1.5rem;
-    margin-top: 10%;
-    margin-bottom: 7%;
+    margin-top: 6%;
+    margin-bottom: 5%;
     color: white; 
 `;
 
@@ -138,12 +140,14 @@ const IconSection = styled.div `
     //justify-content: center;
     align-items: center;
     padding: 0 5%;
+    padding-top: 3%;
     height: 100%;
     width: 40%;
 
     img {
         height: 65%;
         margin-bottom: 2%;
+        margin-top: 2%;
     }
     
     p { 
