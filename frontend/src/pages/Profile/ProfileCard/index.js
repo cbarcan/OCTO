@@ -28,7 +28,7 @@ const CardLeft = styled.div`
     //border: solid red;
     display: flex;
     padding: 2% 0;
-    padding-top: 6%;
+    padding-top: 3%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -84,7 +84,7 @@ const CardBottomRight = styled.div`
 
 export const UserProfilePicIcon = styled.img`
     background: black;
-    border-radius: 30px;
+    border-radius: 60px;
     width: 55%;
     //border: solid yellow;
     //box-shadow: 0px 5px 24px -6px #000000;
@@ -199,7 +199,7 @@ const ProfileCard = (props) => {
                     <CompanyName>
                     {props.user.company ? props.user.company : 'OCTO'}
                     </CompanyName>
-                    <Location>{props.user.location ? props.user.location  : 'Somewhere in the sea.'}</Location>
+                    <Location>{props.user.location ? props.user.location  : 'Somewhere in the sea'}</Location>
                 </CardTopRight>
                 <CardBottomRight>
 
