@@ -13,7 +13,7 @@ const Container = styled.div`
     background-color: black;
     //opacity: 0.4; 
     border-radius: 20px;
-    height: 30%;
+    height: 100%;
     width: 82%;
     padding-right: 6%;
     //box-shadow: 1px 1px 20px -5px #14d1d1;
