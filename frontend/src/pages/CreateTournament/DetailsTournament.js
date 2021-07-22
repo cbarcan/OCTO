@@ -70,17 +70,21 @@ export const ShortInput2 = styled(ShortInput)`
 
 
 export const InputsDiv2 = styled(InputsDiv)`
-    // border: solid red;
+    //border: solid red;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0;
     margin: 0;
-    height: 80%;
+    height: 100%;
 `
 
 export const StyledForm2 = styled(StyledForm)`
+    //border: solid green;
     width: 80%;
+    height: 75%;
+    padding: 0;
+    margin-top: 2%;
     color: white;
 `
 

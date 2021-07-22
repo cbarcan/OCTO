@@ -15,6 +15,13 @@ const Wrapper = styled.div`
     font-size: 28px;
   }
 
+  .style_status {
+    //border: solid yellow;
+    font-size: 45px;
+    text-align: center;
+    font-weight: bold;
+  }
+
   div {
     height: 100%;
     width: 100%;
@@ -122,7 +129,7 @@ const StandingGeneratorSE = (props) => {
                             <Participant id={3}/>
                         </>
                         :
-                        <p className={"place"}>Tournament is still ongoing!</p>
+                        <p className={"place"} className={"style_status"}>The Tournament is still ongoing!</p>
                 }
             </Left>
             <Right>
