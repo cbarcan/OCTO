@@ -241,7 +241,7 @@ export const DetailsCreate = (props) => {
             .then((response) => {
                 console.log('Tournament Creation successful.');
                 console.log(response);
-                history.push(`/tournament/${response.data.id}/`);
+                history.push(`/tournament/${response.data.id}/admin`);
     })
             .catch((error) => {
                 console.log('Tournament Creation error', error.response.data);
