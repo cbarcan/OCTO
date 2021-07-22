@@ -9,6 +9,7 @@ import Axios from "../../axios";
 
 const ScoreWrapper = styled.div`
   border-radius: 30px;
+  overflow: hidden;
   height: 70vh;
   width: 70vw;
   display: flex;
@@ -76,6 +77,7 @@ const ScoreWrapper = styled.div`
 
       }
     }*/
+
 
     .wrapper_score {
       height: 50%;
@@ -378,7 +380,7 @@ const MatchModal = (props) => {
                     </ScoreWrapper>
                     :
                     <ScoreWrapper>
-                        <PageTitle pageTitle={"This match can't be updated yet!"} margin={"none"} color={"black"}/>
+                        <PageTitle pageTitle={"This match can't be updated yet!"} margin={"none"} color={"black"} />
                     </ScoreWrapper>
             }
         </Modal>

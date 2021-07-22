@@ -34,6 +34,7 @@ const Wrapper = styled.div`
     flex-direction: column;
     align-items: center;
 
+
     h1 {
       color: black;
       border-bottom: 1px solid black;
@@ -120,6 +121,19 @@ const Mails = styled.ul`
 
 
 `
+
+
+const PageTitle2 = styled.h1`
+  font-weight: 800;
+  font-size: 50px;
+  font-family: monospace;
+  letter-spacing: .1em;
+  color: black;
+  border-bottom: 1px solid black;
+  padding-bottom: 3%;
+  padding-right: 15%;
+  
+` 
 
 
 Modal.setAppElement("#root");
@@ -243,7 +257,7 @@ const InvitationModal = (props) => {
                 <CloseButton onClick={closeModal}>X</CloseButton>
             </div>
             <div className={"result"}>
-              <PageTitle pageTitle={"Invitations"} margin={"none"}/>
+              <PageTitle2> Invitations </PageTitle2>
               <Mails borderColor={border}>
                 <div>  
                   <input

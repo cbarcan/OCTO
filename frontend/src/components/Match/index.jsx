@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import avatar from "../../assets/svgs/avatar.svg";
+import avatar from "../../assets/svgs/shark.svg";
 import {useEffect, useState} from "react";
 import MatchModal from "../MatchModal";
 import Axios from "../../axios";
@@ -34,6 +34,7 @@ const Wrapper = styled.div`
     }
 
     img {
+      height: 20px;
       border-radius: 50%;
       margin: 0 10px;
     }
