@@ -252,7 +252,7 @@ const Home = () => {
 
     useEffect(() => {
         dispatch(getTournamentByID(tournament_id));
-    }, [tournament_id, dispatch])
+    }, [tournament_id, dispatch, joined])
 
     // check if already in tournament
     useEffect(() => {
