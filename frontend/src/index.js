@@ -47,7 +47,7 @@ ReactDOM.render(
               <Route exact path="/registration" component={ EmailSignUp } />
               <Route exact path="/confirmation" component={ CongratsMessage } />
               <Route exact path="/verification" component={ VerificationForm} />
-              <Route exact path="/create" component={ CreateTournament } />
+              <Route exact path="/create" component={ withAuth(CreateTournament) } />
               <Route exact path="/privacy" component={ withAuth(PrivateOrPublic) } />
               <Route exact path="/details" component={ withAuth(DetailsCreate) } />
               <Route exact path="/user/:id" component={PublicProfile} />
