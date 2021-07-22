@@ -198,14 +198,8 @@ const ParticipantsContainer = styled.div`
         //border: solid blue;
         width: 40%;
         position: absolute;
-        top:45%;
+        top:47%;
         left: 53.2%;
-        animation: lds-circle 1.5s cubic-bezier(0, 0.0, 0.3, 0);
-
-        @keyframes lds-circle {
-            
-            50% { transform: rotateY(500deg); }
-        }
     }
     
 `
