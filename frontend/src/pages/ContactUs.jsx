@@ -14,7 +14,8 @@ import React from "react";
 export const Container = styled.div`
   //border: red solid;
   width: 90%;
-  height: 90%;
+  height: 100%;
+  
   //margin-top: 1%;
   //margin-bottom: 0;
   background: black;
@@ -40,7 +41,7 @@ export const Wrapper = styled.div`
   padding-bottom: 3%;
 
   img {
-    height: 27%;
+    height: 25%;
     margin-bottom: 10%;
   }
 `

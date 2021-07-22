@@ -10,13 +10,13 @@ const ContainerAboutUs = styled(Container) `
   display: flex;
   background: white;
   padding-bottom: 10%;
-  height: 75%;
+  height: 70%;
 `
 
 const OctoTxtImg = styled.img`
   //border: solid blue;
   height: 20%;
-  padding-bottom: 2%;
+  padding-top: 2%;
   margin: 2% 0;
   //border-bottom: 1px solid #00ECFF;
   width: 75%;

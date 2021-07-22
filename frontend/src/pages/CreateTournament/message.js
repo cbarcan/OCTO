@@ -116,17 +116,22 @@ export const PageContentPicture = styled.div`
      */
 
     margin: 0;
+    //border: solid yellow;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    width: 100%;
+    position: absolute;
+    z-index: 0;
+    min-height: 99%;
+    min-width: 100%;
+    left: 0;
+    overflow: hidden;
     background-color: #000;
     padding-bottom: 5%;
 
     p {
-        position: relative;
+        //position: relative;
         font-family: sans-serif;
         text-transform: uppercase;
         font-size: 2em;

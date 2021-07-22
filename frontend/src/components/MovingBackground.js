@@ -13,7 +13,7 @@ export const InnerBackground1 = styled.div`
     position: absolute;
     min-height: 92.4%;
     min-width: 99%;
-    overflow: hidden;
+    
 `
 
 export const InnerBackground2 = styled.div`
