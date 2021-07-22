@@ -8,6 +8,8 @@ import MovingBackground from '../../components/MovingBackground';
 import { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 import Axios from '../../axios';
+import { useDispatch, useSelector} from 'react-redux';
+import { apiUserGetData } from '../../store/actions/userAction';
 
 
 
@@ -183,8 +185,10 @@ export const MapLink = styled.div`
 
 export const DetailsCreate = (props) => {
 
-    //const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const history = useHistory();
+    const userIsLoggedIn = useSelector((state) => state.user.token ? state.user.token : localStorage.userToken); // prevent log-out by page refresh
+
 
     useEffect(() => {
         setSport(props.sport)
@@ -196,7 +200,7 @@ export const DetailsCreate = (props) => {
     const [sport, setSport] = useState(null)
     const [privacy, setPrivacy] = useState(null)
     const [name, setName] = useState(null)
-    const [avatar, setAvatar] = useState(defaultAvatar)
+    const [avatar, setAvatar] = useState(null)
     const [preview, setPreview] = useState(null)
     const [players, setPlayers] = useState(null)
     const [format, setFormat] = useState('SE')
@@ -246,6 +250,7 @@ export const DetailsCreate = (props) => {
                 console.log('Tournament Creation successful.');
                 console.log(response);
                 history.push(`/tournament/${response.data.id}/admin`);
+                dispatch(apiUserGetData(userIsLoggedIn))
     })
             .catch((error) => {
                 console.log('Tournament Creation error', error.response.data);
