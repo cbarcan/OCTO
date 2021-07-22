@@ -196,7 +196,7 @@ export const DetailsCreate = (props) => {
     const [sport, setSport] = useState(null)
     const [privacy, setPrivacy] = useState(null)
     const [name, setName] = useState(null)
-    const [/*avatar,*/ setAvatar] = useState(defaultAvatar)
+    const [avatar, setAvatar] = useState(defaultAvatar)
     const [preview, setPreview] = useState(null)
     const [players, setPlayers] = useState(null)
     const [format, setFormat] = useState('SE')
@@ -226,7 +226,7 @@ export const DetailsCreate = (props) => {
         tournamentData.append('sport', sport)
         tournamentData.append('private', privacy)
         tournamentData.append('name', name)
-        //tournamentData.append('picture', avatar)
+        if (avatar) tournamentData.append('picture', avatar);
         tournamentData.append('no_of_players', players)
         tournamentData.append('format', format)
         //tournamentData.append('location', location)
