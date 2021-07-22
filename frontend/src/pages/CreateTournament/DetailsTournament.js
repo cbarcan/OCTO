@@ -8,6 +8,8 @@ import MovingBackground from '../../components/MovingBackground';
 import { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 import Axios from '../../axios';
+import { useDispatch, useSelector} from 'react-redux';
+import { apiUserGetData } from '../../store/actions/userAction';
 
 
 
@@ -68,17 +70,21 @@ export const ShortInput2 = styled(ShortInput)`
 
 
 export const InputsDiv2 = styled(InputsDiv)`
-    // border: solid red;
+    //border: solid red;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0;
     margin: 0;
-    height: 80%;
+    height: 100%;
 `
 
 export const StyledForm2 = styled(StyledForm)`
+    //border: solid green;
     width: 80%;
+    height: 75%;
+    padding: 0;
+    margin-top: 2%;
     color: white;
 `
 
@@ -183,8 +189,10 @@ export const MapLink = styled.div`
 
 export const DetailsCreate = (props) => {
 
-    //const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const history = useHistory();
+    const userIsLoggedIn = useSelector((state) => state.user.token ? state.user.token : localStorage.userToken); // prevent log-out by page refresh
+
 
     useEffect(() => {
         setSport(props.sport)
@@ -196,11 +204,11 @@ export const DetailsCreate = (props) => {
     const [sport, setSport] = useState(null)
     const [privacy, setPrivacy] = useState(null)
     const [name, setName] = useState(null)
-    const [avatar, setAvatar] = useState(defaultAvatar)
+    const [avatar, setAvatar] = useState(null)
     const [preview, setPreview] = useState(null)
     const [players, setPlayers] = useState(null)
     const [format, setFormat] = useState('SE')
-   // const [/*location, setLocation*/] = useState(null)
+   const [location, setLocation] = useState('Somewhere in the Sea.')
     //const [lat, setLat] = useState(47.3769)
    // const [lng, setlng] = useState(8.5417)
     const [start, setStart] = useState(null)
@@ -229,7 +237,7 @@ export const DetailsCreate = (props) => {
         if (avatar) tournamentData.append('picture', avatar);
         tournamentData.append('no_of_players', players)
         tournamentData.append('format', format)
-        //tournamentData.append('location', location)
+        tournamentData.append('location', location)
         //tournamentData.append('latitude', lat)
         //tournamentData.append('longitude', lng)
         tournamentData.append('start_date', start)
@@ -246,6 +254,7 @@ export const DetailsCreate = (props) => {
                 console.log('Tournament Creation successful.');
                 console.log(response);
                 history.push(`/tournament/${response.data.id}/admin`);
+                dispatch(apiUserGetData(userIsLoggedIn))
     })
             .catch((error) => {
                 console.log('Tournament Creation error', error.response.data);
@@ -276,6 +285,10 @@ export const DetailsCreate = (props) => {
 
     const descriptionHandler = (e) => {
         setDescription(e.target.value)
+    }
+
+    const locationnHandler = (e) => {
+        setLocation(e.target.value)
     }
 
     return (
@@ -335,7 +348,7 @@ export const DetailsCreate = (props) => {
 
 
                 <LabelText> Location</LabelText>
-                <ShortInput2 type="text" />
+                <ShortInput2 onChange={locationnHandler} type="text" />
 
                 </InputWrapper4>
 

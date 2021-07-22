@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import avatarWhite from "../../../assets/svgs/shark.svg";
+import avatarWhite from "../../../assets/svgs/diverfaceblack.svg";
 import medal from "../../../assets/svgs/medalbluelinear.svg";
 //import medal2 from "../../../assets/images/medal2.png"
 //import medal3 from "../../../assets/images/medal3.png"
@@ -13,7 +13,7 @@ const Container = styled.div`
     background-color: black;
     //opacity: 0.4; 
     border-radius: 20px;
-    height: 30%;
+    height: 100%;
     width: 82%;
     padding-right: 6%;
     //box-shadow: 1px 1px 20px -5px #14d1d1;
@@ -28,14 +28,16 @@ const CardLeft = styled.div`
     //border: solid red;
     display: flex;
     padding: 2% 0;
+    padding-top: 3%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
+
     button {
         //border: solid yellow;
-        margin-top: 2%;
-        height: 100%;
+        margin-top: 1%;
+        height: 50px;
         width: 50%;
         
 
@@ -82,7 +84,7 @@ const CardBottomRight = styled.div`
 
 export const UserProfilePicIcon = styled.img`
     background: black;
-    border-radius: 30px;
+    border-radius: 60px;
     width: 55%;
     //border: solid yellow;
     //box-shadow: 0px 5px 24px -6px #000000;
@@ -125,7 +127,7 @@ const CompanyName = styled.p`
 
 const Achievement = styled.div `
     //border: solid blue;
-    height: 70%;
+    height: 130px;
     width: 40%;
     display: flex;
 `
@@ -137,7 +139,7 @@ const IconSection = styled.div `
     border-radius: 15px;
     display: flex;
     flex-direction: column;
-    //justify-content: center;
+    justify-content: center;
     align-items: center;
     padding: 0 5%;
     padding-top: 3%;
@@ -147,7 +149,7 @@ const IconSection = styled.div `
     img {
         height: 65%;
         margin-bottom: 2%;
-        margin-top: 2%;
+        //margin-top: 5%;
     }
     
     p { 
@@ -195,9 +197,9 @@ const ProfileCard = (props) => {
             <RigthSide>
                 <CardTopRight>
                     <CompanyName>
-                    {props.user.company}
+                    {props.user.company ? props.user.company : 'OCTO'}
                     </CompanyName>
-                    <Location>{props.user.location}</Location>
+                    <Location>{props.user.location ? props.user.location  : 'Somewhere in the sea'}</Location>
                 </CardTopRight>
                 <CardBottomRight>
 

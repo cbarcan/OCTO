@@ -33,7 +33,7 @@ const Header = styled.div `
     display: flex;
     justify-content: space-between; 
     margin: 2% 0;
-    height: 13%;
+    height: 90px;
     width: 83%;
     border-radius: 15px;
     display: flex;

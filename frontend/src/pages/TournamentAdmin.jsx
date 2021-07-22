@@ -17,12 +17,13 @@ import { getTournamentByID } from '../store/actions/tournamentAction';
 const MainContainer = styled.div`
     //border: solid red;
     width: 80%;
-    height: 80%;
+    height: 65%;
     display: flex;
     color: white;
     font-family: monospace;
     font-size: 2em;
     margin-left: 8%;
+    padding-top: 2%;
     //padding-right: 10%;
 `
 
@@ -33,7 +34,7 @@ const Invitations = styled.div`
     flex-direction: column;
     justify-content: space-between;
     padding: 3% 0;
-    padding-bottom: 16%;
+    padding-bottom: 30%;
     width: 70%;
     height: 100%;
 
@@ -49,7 +50,7 @@ const Counter = styled.div`
     justify-content: center;
     align-items: center;
     height: 20em;
-    margin: 6% 0;
+    margin: 3% 0;
     box-shadow: 0px 20px 35px -16px rgba(125, 249, 255, 0.6);
 
     div.number {
@@ -93,7 +94,7 @@ const Counter = styled.div`
 ` */
 
 const ButtonDiv = styled.div`
-    height: 70%;
+    height: 75%;
     //border: solid orange;
     display: flex;
     flex-direction: column;
@@ -144,15 +145,18 @@ const ButtonDiv = styled.div`
 
 const LeftContainer2 = styled(LeftContainer)`
     //border: solid yellow;
-    height: 90%;
+    height: 100%;
     margin: 0;
-    padding-top: 8%;
+    
 `
 
 const RightContainer2 = styled(RightContainer)`
     //border: solid blue;
     height: 100%;
+    justify-content: flex-start;
     margin: 0;
+    padding: 0;
+    padding-top: 0%;
 `
 
 

@@ -113,7 +113,7 @@ export const OctoLogo = styled.img`
 
 export const TitleHead2 = styled(TitleHead)`
    
-    margin-bottom: 6%;
+    //margin-bottom: 6%;
     
     
 `

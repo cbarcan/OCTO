@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import styled from 'styled-components'
-import avatar from "../../assets/svgs/avatar.svg"
+import avatar from "../../assets/svgs/diverfaceblack.svg"
 import { useHistory } from "react-router-dom";
 import Axios from '../../axios';
 
@@ -41,6 +41,7 @@ const UserProfilePicIcon = styled.img`
     height: 78px;
     width: 78px;
     margin-bottom: 0.5rem;
+    border-radius: 40px;
 `;
 
 const Name = styled.p`

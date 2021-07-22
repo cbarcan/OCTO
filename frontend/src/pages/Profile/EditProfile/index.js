@@ -18,7 +18,7 @@ const Container = styled(FormContainer)`
   border-radius: 25px;
   margin-top: 4%;
   min-width: 65%;
-  min-height: 70%;
+  min-height: 73%;
   display: flex;
   background: none;
   box-shadow: 3px 11px 21px 35px rgba(33,33,33,0.44);
@@ -47,8 +47,9 @@ const Title = styled(TitleHead3)`
   color: black;
   font-weight: bold;
   width: 50%;
+  
   margin-right: 20%;
-  margin-bottom: 7%;
+  margin-bottom: 4%;
   margin-top: 10%;
   font-size: 20px; 
 `
@@ -152,6 +153,7 @@ const EditProfile = () => {
   const [location, setLocation] = useState(me.userData.location);
   const [company, setCompany] = useState(me.userData.company);
   const [profilePictureTemp, setProfilePictureTemp] = useState(null);
+  const [preview, setPreview] = useState(null)
 
 
   const realFileInput = React.useRef(null);
@@ -163,6 +165,7 @@ const EditProfile = () => {
   const handleAvatar = (e) => {
       e.preventDefault()
       setProfilePictureTemp(e.target.files[0]);
+      if (e.target.files[0]) setPreview(URL.createObjectURL(e.target.files[0]))
   }
 
 
@@ -220,7 +223,7 @@ const EditProfile = () => {
              <Container>
                 <Top>
                  
-                 <UserProfilePicIcon src = { icon } alt="avatar" onClick={replaceFileInput}/>
+                 <UserProfilePicIcon src = { preview ? preview : icon } alt="avatar" onClick={replaceFileInput}/>
                  <input type="file" style={{display: "none"}} ref={realFileInput} onChange={e => handleAvatar(e)} accept="image/png, image/jpeg" multiple/>
                 </Top>
 
