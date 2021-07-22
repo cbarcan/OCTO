@@ -204,7 +204,7 @@ export const DetailsCreate = (props) => {
     const [preview, setPreview] = useState(null)
     const [players, setPlayers] = useState(null)
     const [format, setFormat] = useState('SE')
-   // const [/*location, setLocation*/] = useState(null)
+   const [location, setLocation] = useState('Somewhere in the Sea.')
     //const [lat, setLat] = useState(47.3769)
    // const [lng, setlng] = useState(8.5417)
     const [start, setStart] = useState(null)
@@ -233,7 +233,7 @@ export const DetailsCreate = (props) => {
         if (avatar) tournamentData.append('picture', avatar);
         tournamentData.append('no_of_players', players)
         tournamentData.append('format', format)
-        //tournamentData.append('location', location)
+        tournamentData.append('location', location)
         //tournamentData.append('latitude', lat)
         //tournamentData.append('longitude', lng)
         tournamentData.append('start_date', start)
@@ -281,6 +281,10 @@ export const DetailsCreate = (props) => {
 
     const descriptionHandler = (e) => {
         setDescription(e.target.value)
+    }
+
+    const locationnHandler = (e) => {
+        setLocation(e.target.value)
     }
 
     return (
@@ -340,7 +344,7 @@ export const DetailsCreate = (props) => {
 
 
                 <LabelText> Location</LabelText>
-                <ShortInput2 type="text" />
+                <ShortInput2 onChange={locationnHandler} type="text" />
 
                 </InputWrapper4>
 

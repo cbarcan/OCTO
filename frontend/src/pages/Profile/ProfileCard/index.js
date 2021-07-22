@@ -37,7 +37,7 @@ const CardLeft = styled.div`
     button {
         //border: solid yellow;
         margin-top: 1%;
-        height: 15%;
+        height: 50px;
         width: 50%;
         
 
@@ -127,7 +127,7 @@ const CompanyName = styled.p`
 
 const Achievement = styled.div `
     //border: solid blue;
-    height: 70%;
+    height: 130px;
     width: 40%;
     display: flex;
 `

@@ -2,7 +2,7 @@ import { SectionTitle } from '../styles/section-title';
 import styled from 'styled-components';
 // import Map from '../components/Map/Map'
 // import Map from '../components/Mapbox'
-import octo from '../assets/svgs/octopusWhite.svg';
+import octo from '../assets/svgs/octopus.svg';
 //import octoLogo from '../assets/svgs/octopusWhite.svg';
 import Participant from '../components/Tournament/Participant';
 import { LabelText } from './Login/SingUp/Verification';
@@ -21,11 +21,11 @@ const GameDetailsCard = styled.div`
     //border: solid purple;
     display: flex;
     flex-direction: column;
+    justify-content: center;;
     align-items: center;
     padding: 10% 3%;
-    padding-bottom: 0;
     width: 85%;
-    height: 78%;
+    height: 86%;
     overflow: hidden;
     background: white;
     color: black;
@@ -41,9 +41,7 @@ const GameDetailsCard = styled.div`
         //transition: transform .45 ease;
         //transition: color .45s ease;
 
-        img {
-            filter: invert(48%) sepia(0%) saturate(5476%) hue-rotate(0deg) brightness(0%) contrast(119%);
-        }
+        
 
         /* label {
             color: black;
@@ -70,17 +68,19 @@ const GameDetailsCard = styled.div`
 
     img {
         
-        height: 30%;
-        margin-bottom: 5%;
-        filter: invert(48%) sepia(0%) saturate(5476%) hue-rotate(0deg) brightness(0%) contrast(119%);
-        
+        width: 55%;
+        margin-top: 3%;
+        margin-bottom: 8%;
+        border-radius: 200px;
+
         &:hover {
-            filter: invert(48%) sepia(70%) saturate(8000%) hue-rotate(180deg) brightness(145%) contrast(119%);
+            box-shadow: 0px 0px 43px 1px rgba(21,230,255,0.34)
         }
     }
 
     button {
-        margin-top: 5%;
+        margin: 0;
+        margin-top: 2%;
         color: grey;
         font-weight: bold;
         font-size: 11px;
@@ -136,11 +136,12 @@ export const RightContainer = styled.div`
 
 const FormContainer = styled.div`
     //border: solid blue;
-    height: 60%;
+    height: 100%;
     width: 100%;
-    margin-top: 8%;
+    margin-top: 10%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     
     
