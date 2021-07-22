@@ -17,14 +17,13 @@ import { getTournamentByID } from '../store/actions/tournamentAction';
 const MainContainer = styled.div`
     //border: solid red;
     width: 80%;
-    height: 70%;
+    height: 65%;
     display: flex;
     color: white;
     font-family: monospace;
     font-size: 2em;
     margin-left: 8%;
-    
-    //padding-top: 3%;
+    padding-top: 2%;
     //padding-right: 10%;
 `
 
@@ -95,7 +94,7 @@ const Counter = styled.div`
 ` */
 
 const ButtonDiv = styled.div`
-    height: 70%;
+    height: 75%;
     //border: solid orange;
     display: flex;
     flex-direction: column;

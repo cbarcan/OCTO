@@ -3,6 +3,7 @@ import styled from 'styled-components';
 // import Map from '../components/Map/Map'
 // import Map from '../components/Mapbox'
 import octo from '../assets/svgs/octopus.svg';
+import fishing from '../assets/svgs/fishing1.svg';
 //import octoLogo from '../assets/svgs/octopusWhite.svg';
 import Participant from '../components/Tournament/Participant';
 import { LabelText } from './Login/SingUp/Verification';
@@ -25,7 +26,7 @@ const GameDetailsCard = styled.div`
     align-items: center;
     padding: 10% 3%;
     width: 85%;
-    height: 86%;
+    height: 95%;
     overflow: hidden;
     background: white;
     color: black;
@@ -80,7 +81,7 @@ const GameDetailsCard = styled.div`
 
     button {
         margin: 0;
-        margin-top: 2%;
+        margin-top: 0%;
         color: grey;
         font-weight: bold;
         font-size: 11px;
@@ -113,7 +114,7 @@ const MainContainer = styled.div`
 
 export const LeftContainer = styled.div`
     //border: solid yellow;
-    margin-top: 6%;
+    margin-top: 0%;
     width: 50%;
     height: 100%;
     display: flex;
@@ -136,9 +137,9 @@ export const RightContainer = styled.div`
 
 const FormContainer = styled.div`
     //border: solid blue;
-    height: 100%;
+    height: 95%;
     width: 100%;
-    margin-top: 10%;
+    margin-top: 5%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -191,7 +192,22 @@ const ParticipantsContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     overflow: none;
+    
 
+    .style_img {
+        //border: solid blue;
+        width: 40%;
+        position: absolute;
+        top:45%;
+        left: 53.2%;
+        animation: lds-circle 1.5s cubic-bezier(0, 0.0, 0.3, 0);
+
+        @keyframes lds-circle {
+            
+            50% { transform: rotateY(500deg); }
+        }
+    }
+    
 `
 
 /* const InputStyle = styled(LoginInput)`
@@ -337,10 +353,10 @@ const Home = () => {
                         
                         <SectionTitle pageTitle="PARTICIPANTS"></SectionTitle>
                             <ParticipantsContainer>
-                            { tournament ?
+                            { tournament.participants.length > 0 ?
                             tournament.participants.map((participant, index) => (                
                                 <Participant key={index} id={participant}/>
-                            )): null
+                            )): <img className={"style_img"} src={fishing} alt="fishin"/>
                             }
                             </ParticipantsContainer>
         
