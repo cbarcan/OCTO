@@ -26,7 +26,6 @@ export const PageTitleText = styled.h1`
     font-size: 50px;
     font-family: monospace;
     letter-spacing: .1em;
-    color: white; 
     //margin-bottom: 30px; 
     //-webkit-text-stroke: 1px ${props => props.theme.octoBlue};
     //text-shadow: 2px 5px 2px rgba(136,238,255,0.57);
@@ -37,7 +36,7 @@ export const PageTitleText = styled.h1`
 const PageTitle = (props) => {
     return (
         <PageTitleContainer style={{"margin":props.margin || "10px 0"}}>
-            <PageTitleText>{props.pageTitle}</PageTitleText>
+            <PageTitleText style={{"color": props.color ? props.color : "white"}}>{props.pageTitle}</PageTitleText>
         </PageTitleContainer>
     );
 };
