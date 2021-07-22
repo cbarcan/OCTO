@@ -197,9 +197,9 @@ const ProfileCard = (props) => {
             <RigthSide>
                 <CardTopRight>
                     <CompanyName>
-                    {props.user.company}
+                    {props.user.company ? props.user.company : 'OCTO'}
                     </CompanyName>
-                    <Location>{props.user.location}</Location>
+                    <Location>{props.user.location ? props.user.location  : 'Somewhere in the sea.'}</Location>
                 </CardTopRight>
                 <CardBottomRight>
 
