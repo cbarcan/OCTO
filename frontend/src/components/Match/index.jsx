@@ -158,8 +158,8 @@ const Match = (props) => {
                         <Player2>
                             <div className={"name"}>
                                 <img src={avatar} alt={"user"}/>
-                                <p>{match.players.length > 0 ? match.players[1].first_name : match.mock_players[1].first_name} {
-                                    match.players.length > 0 ? match.players[1].last_name : match.mock_players[1].last_name}</p>
+                                <p>{match.players.length > 1 ? match.players[1].first_name : match.mock_players[1].first_name} {
+                                    match.players.length > 1 ? match.players[1].last_name : match.mock_players[1].last_name}</p>
                             </div>
                             <div className={"points winner"}>
                                 <p>{match.result[1]}</p>
@@ -168,9 +168,12 @@ const Match = (props) => {
                     </Wrapper>
                     <MatchModal match={match}
                                 tournament_status={props.tournament_status}
+                                tournament_format={props.tournament_format}
                                 modalIsOpen={modalIsOpen}
                                 openModal={openModal}
-                                closeModal={closeModal}/>
+                                closeModal={closeModal}
+                                next_match={props.next_match}
+                    />
                 </>
             }
 

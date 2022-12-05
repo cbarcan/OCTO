@@ -45,7 +45,7 @@ const Bracket = () => {
                     {
                     format === 'Single elimination'
                     ?
-                    <SingleElimination tournament_id={tournament_id} tournament_status={tournament.status}/>
+                    <SingleElimination tournament_id={tournament_id} tournament_status={tournament.status} tournament_format={tournament.format}/>
                     :
                     format === "Round robin"
                     ?

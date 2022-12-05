@@ -11,10 +11,11 @@ const SingleElimination = (props) => {
         <>
             {
                 location.pathname === `/tournament/${props.tournament_id}/standing`
-                ?
-                <StandingGeneratorSE tournament_id={props.tournament_id} tournament_status={props.tournament_status}/>
-                :
-                <BracketGeneratorSE tournament_id={props.tournament_id} tournament_status={props.tournament_status}/>
+                    ?
+                    <StandingGeneratorSE tournament_id={props.tournament_id} tournament_status={props.tournament_status}/>
+                    :
+                    <BracketGeneratorSE tournament_id={props.tournament_id} tournament_status={props.tournament_status}
+                                        tournament_format={props.tournament_format}/>
             }
         </>
     )

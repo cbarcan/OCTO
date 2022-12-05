@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 `
 
 const RoundWrapper = styled.div`
-    //border: solid yellow;
+  //border: solid yellow;
   height: 100%;
   width: 100%;
   display: flex;
@@ -29,7 +29,7 @@ const RoundWrapper = styled.div`
 `
 
 const MatchWrapper = styled.div`
-    //border: solid red;
+  //border: solid red;
   min-height: 90px;
   height: 100%;
   width: 100%;
@@ -75,17 +75,25 @@ const Right = styled.div`
 `
 
 const Round = (props) => {
+    let j = 0;
     return (
         <RoundWrapper>
             {
                 props.matches.map((item, index) => {
+                    if (index % 2 === 0 && index > 1 && index < props.bracket.rounds.length - 1) {
+                        j += 1
+                    }
                     return (
                         <MatchWrapper key={`${item}-${index}`}>
                             {
                                 item.players.length > 0 || item.mock_players.length > 0
                                     ?
                                     <>
-                                        <Match match={item} tournament_status={props.tournament_status}/>
+                                        <Match match={item}
+                                               tournament_status={props.tournament_status}
+                                               tournament_format={props.tournament_format}
+                                               next_match={parseInt(props.round_index) < props.bracket.rounds.length - 1 ?
+                                                   props.bracket.rounds[parseInt(props.round_index) + 1].matches[j] : null}/>
                                         <Path className={"thing"}>
                                             <Left className={"left"}/>
                                             <Right className={"right"}/>
@@ -135,7 +143,10 @@ const BracketGeneratorSE = (props) => {
                         {bracket.rounds.map((item, index) => <Round
                             key={`${item}-${index}`}
                             matches={item.matches}
-                            tournament_status={props.tournament_status}/>)
+                            tournament_format={props.tournament_format}
+                            tournament_status={props.tournament_status}
+                            round_index={index}
+                            bracket={bracket}/>)
                         }
                     </Wrapper>
                     :

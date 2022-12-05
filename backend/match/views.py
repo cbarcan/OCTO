@@ -3,15 +3,19 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from match.models import Match
-from match.serializers import MatchSerializer
+from match.serializers import MatchUpdateSerializer, MatchSerializer
 from standing.functions import update_standing
 
 
 class RetrieveUpdateMatchView(RetrieveUpdateAPIView):
     queryset = Match.objects.all()
-    serializer_class = MatchSerializer
     permission_classes = [IsAuthenticated]
     lookup_field = 'pk'
+
+    def get_serializer_class(self):
+        if self.request.method == 'PATCH':
+            return MatchUpdateSerializer
+        return MatchSerializer
 
     def patch(self, request, *args, **kwargs):
         match = self.get_object()

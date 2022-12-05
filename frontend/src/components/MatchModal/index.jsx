@@ -151,14 +151,14 @@ const Player = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  
+
   div:nth-child(2) {
     //border: 1px solid red;
-    box-shadow: 0 0 49px 1px rgba(0,0,0,0.47);
+    box-shadow: 0 0 49px 1px rgba(0, 0, 0, 0.47);
     height: 50%;
     width: 50%;
   }
-  
+
 
   h1 {
     color: black;
@@ -220,7 +220,7 @@ const Title = styled.div`
   justify-content: center;
   padding: 0 3%;
   margin-bottom: 2%;
-  
+
   .title {
     border-bottom: 1px solid black;
     display: flex;
@@ -247,7 +247,7 @@ const Title = styled.div`
       display: flex;
       align-items: center;
       white-space: nowrap;
-    } 
+    }
   }
 
 
@@ -317,6 +317,33 @@ const MatchModal = (props) => {
             try {
                 const resp = await Axios.patch(url, body, config);
                 if (resp.status === 200) {
+                    if (props.tournament_format === "Single elimination" && props.next_match !== null) {
+                        patchMatchPlayers()
+                    }
+                    closeModal();
+                }
+            } catch (err) {
+                if (err.response.status === 400) {
+                    console.log(err.response);
+                }
+            }
+        }
+
+
+        async function patchMatchPlayers() {
+            const players = [...props.next_match.players.map(item => item.id), value1 > value2 ? props.match.players[0].id : props.match.players[1].id]
+            console.log(players)
+            const url = `match/${props.next_match.id}/`;
+            const config = {
+                headers: {Authorization: `Bearer ${localStorage.getItem('userToken')}`},
+
+            };
+            const body = {
+                players: players,
+            }
+            try {
+                const resp = await Axios.patch(url, body, config);
+                if (resp.status === 200) {
                     closeModal();
                 }
             } catch (err) {
@@ -328,6 +355,8 @@ const MatchModal = (props) => {
 
         patchMatch()
     }
+
+    console.log(props.match, props.next_match, props.tournament_format)
 
     return (
         <Modal
@@ -380,7 +409,7 @@ const MatchModal = (props) => {
                     </ScoreWrapper>
                     :
                     <ScoreWrapper>
-                        <PageTitle pageTitle={"This match can't be updated yet!"} margin={"none"} color={"black"} />
+                        <PageTitle pageTitle={"This match can't be updated yet!"} margin={"none"} color={"black"}/>
                     </ScoreWrapper>
             }
         </Modal>
